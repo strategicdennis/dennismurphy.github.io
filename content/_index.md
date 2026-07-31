@@ -17,7 +17,7 @@ research_interests:
   - "AI Security"
   - "Compute Governance"
 affiliations:
-  - "Predoctoral Fellow in International Security, Belfer Center for Science and International Affairs, Harvard University"
+  - "Predoctoral Fellow in International Security, Belfer Center, Harvard University"
   - "Graduate Research Fellow, Georgia Tech Research Institute"
   - "Research Fellow, Frontier Security Institute"
   - "Graduate Fellow, UC Berkeley Risk & Security Lab"
