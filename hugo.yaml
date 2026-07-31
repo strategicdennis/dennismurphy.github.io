@@ -1,0 +1,36 @@
+baseURL: "https://strategicdennis.github.io/"
+title: "Dennis Murphy"
+locale: en-us
+enableEmoji: false
+
+params:
+  description: "PhD Candidate, Sam Nunn School of International Affairs, Georgia Institute of Technology"
+  author: "Dennis Murphy"
+  email: "dennis.murphy@gatech.edu"
+  institution: "Georgia Institute of Technology"
+  mysite:
+    credit: true
+    discovery: true
+
+menu:
+  main:
+    - name: Research
+      url: "/#research"
+      weight: 10
+    - name: Presentations
+      url: "/#presentations"
+      weight: 20
+    - name: Teaching
+      url: "/#teaching"
+      weight: 30
+    - name: CV
+      url: "/files/cv.pdf"
+      weight: 40
+    - name: Contact
+      url: "/#contact"
+      weight: 50
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

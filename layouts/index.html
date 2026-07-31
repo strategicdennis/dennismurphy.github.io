@@ -1,0 +1,232 @@
+{{ define "main" }}
+{{ $p := .Params }}
+
+<div class="wrap">
+<section class="hero">
+  {{ if $p.photo }}
+  <div class="hero-photo">
+    <img src="{{ $p.photo | relURL }}" alt="Portrait of {{ .Title }}" width="160" height="160">
+  </div>
+  {{ end }}
+  <div class="hero-body">
+    <h1>{{ .Title }}</h1>
+    <p class="hero-title">
+      {{ with $p.year_in_program }}{{ . }}, {{ end }}{{ $p.role }}<br>
+      {{ $p.department }}
+    </p>
+    <p class="hero-tagline">{{ $p.tagline }}</p>
+    <div class="hero-links">
+      {{ with $p.social.linkedin }}
+      <a class="icon-link" href="{{ . }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.15C0 .51.53 0 1.19 0h13.62C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.19 1.15H1.19C.53 16 0 15.49 0 14.85V1.15ZM4.75 13.55V6.02H2.42v7.53h2.33ZM3.59 5.02c.81 0 1.31-.54 1.31-1.21-.01-.68-.5-1.2-1.3-1.2-.79 0-1.31.52-1.31 1.2 0 .67.5 1.21 1.29 1.21h.01ZM6.98 13.55h2.33V9.37c0-.22.02-.45.08-.61.18-.45.59-.92 1.28-.92.9 0 1.26.69 1.26 1.7v4.01h2.33V9.26c0-2.15-1.15-3.15-2.68-3.15-1.24 0-1.79.7-2.1 1.18h.02V6.02H6.98c.03.66 0 7.53 0 7.53Z"/></svg>
+      </a>
+      {{ end }}
+      {{ with $p.social.scholar }}
+      <a class="icon-link" href="{{ . }}" target="_blank" rel="noopener" aria-label="Google Scholar">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5 15 5.5 8 9.5 1 5.5 8 1.5Z"/><path d="M4 7.2v3.3c0 1.4 1.8 2.5 4 2.5s4-1.1 4-2.5V7.2L8 9.5 4 7.2Z"/><path d="M14 5.8v3.7a.5.5 0 0 1-1 0V5.8l.5-.3.5.3Z"/></svg>
+      </a>
+      {{ end }}
+      {{ with $p.social.email }}
+      <a class="icon-link" href="mailto:{{ . }}" aria-label="Email">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9Zm1.98.34L8 8.32l6.02-4.48A.5.5 0 0 0 13.5 3h-11a.5.5 0 0 0-.52.34ZM15 4.5l-6.7 4.99a.5.5 0 0 1-.6 0L1 4.5v8a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-8Z"/></svg>
+      </a>
+      {{ end }}
+      {{ with $p.social.github }}
+      <a class="icon-link" href="{{ . }}" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      {{ end }}
+      <a class="cv-button" href="{{ "files/cv.pdf" | relURL }}" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="bio">
+  {{ .Content }}
+
+  {{ if $p.affiliations }}
+  <div class="affiliations">
+    <h3>Affiliations</h3>
+    <ul>
+      {{ range $p.affiliations }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+  {{ if $p.research_interests }}
+  <ul class="research-interests">
+    {{ range $p.research_interests }}<li>{{ . }}</li>{{ end }}
+  </ul>
+  {{ end }}
+</section>
+
+{{ $committee := $p.committee }}
+{{ if $committee }}
+<section id="committee">
+  <h2>Dissertation Committee</h2>
+  <div class="paper-meta">
+    {{ with $committee.chair }}<strong>{{ . }}</strong> (Chair){{ if $committee.members }} &middot; {{ end }}{{ end }}
+    {{ range $i, $m := $committee.members }}{{ if $i }} &middot; {{ end }}{{ $m }}{{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ $papers := hugo.Data.papers }}
+{{ if $papers }}
+<section id="research">
+  <h2>Research</h2>
+
+  {{ with $papers.journal }}
+  <h3>Journal Articles</h3>
+  <ul class="paper-list">
+    {{ range . }}
+    <li class="paper-item">
+      <div class="paper-title">{{ .title }}{{ if ne .status "published" }}<span class="status-badge">{{ upper (replace .status "_" " ") }}</span>{{ end }}</div>
+      <div class="paper-meta">
+        {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
+        &middot; {{ .venue }}{{ with .detail }}, {{ . }}{{ end }}{{ with .date }}, {{ . }}{{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ with $papers.preprint }}
+  <h3>Preprints</h3>
+  <ul class="paper-list">
+    {{ range . }}
+    <li class="paper-item">
+      <div class="paper-title">{{ .title }}</div>
+      <div class="paper-meta">
+        {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
+        &middot; {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ with $papers.rand }}
+  <h3>RAND Reports</h3>
+  <ul class="paper-list">
+    {{ range . }}
+    <li class="paper-item">
+      <div class="paper-title">{{ .title }}{{ if eq .status "under review" }}<span class="status-badge">UNDER REVIEW</span>{{ end }}</div>
+      <div class="paper-meta">
+        {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
+        &middot; {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ with $papers.conference }}
+  <h3>Conference Papers</h3>
+  <ul class="paper-list">
+    {{ range . }}
+    <li class="paper-item">
+      <div class="paper-title">{{ .title }}</div>
+      <div class="paper-meta">
+        {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
+        &middot; {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</section>
+{{ end }}
+
+{{ $presentations := hugo.Data.presentations }}
+{{ if $presentations }}
+<section id="presentations">
+  <h2>Presentations &amp; Talks</h2>
+  <ul class="simple-list">
+    {{ range $presentations }}
+    <li>
+      <div class="item-title">{{ .title }}</div>
+      <div class="item-meta">{{ .venue }}{{ with .date }}, {{ . }}{{ end }}</div>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{ $teaching := hugo.Data.teaching }}
+{{ if $teaching }}
+<section id="teaching">
+  <h2>Teaching</h2>
+  <ul class="simple-list">
+    {{ range $teaching }}
+    <li>
+      <div class="item-title">{{ .course }}{{ with .topic }} — "{{ . }}"{{ end }}</div>
+      <div class="item-meta">{{ with .role }}{{ . }}, {{ end }}{{ .institution }}{{ with .term }} &middot; {{ . }}{{ end }}</div>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{ $profDev := hugo.Data.professional_development }}
+{{ if $profDev }}
+<section id="professional-development">
+  <h2>Professional Development</h2>
+  <ul class="simple-list">
+    {{ range $profDev }}
+    <li>
+      <span class="item-title">{{ .text }}</span>
+      <span class="item-meta">{{ with .year }} &middot; {{ . }}{{ end }}</span>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{ $awards := hugo.Data.awards }}
+{{/* Scholastic Achievement section temporarily hidden; data preserved in data/awards.yaml for later re-enabling. */}}
+{{ if false }}
+<section id="awards">
+  <h2>Scholastic Achievement</h2>
+  <ul class="simple-list">
+    {{ range $awards }}
+    <li>
+      <span class="item-title">{{ .text }}</span>
+      <span class="item-meta">{{ with .year }} &middot; {{ . }}{{ end }}</span>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{ $writing := hugo.Data.writing }}
+{{ if $writing }}
+<section id="writing">
+  <h2>Public Writing</h2>
+  <ul class="simple-list">
+    {{ range $writing }}
+    {{ $item := . }}
+    <li>
+      <div class="item-title">{{ if $item.link }}<a href="{{ $item.link }}" target="_blank" rel="noopener">{{ $item.title }}</a>{{ else }}{{ $item.title }}{{ end }}</div>
+      <div class="item-meta">
+        {{ if $item.authors }}{{ range $i, $a := $item.authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }} &middot; {{ end }}{{ $item.venue }}{{ with $item.date }}, {{ . }}{{ end }}{{ with $item.note }} ({{ . }}){{ end }}
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-links">
+    {{ with $p.social.linkedin }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+    {{ with $p.social.scholar }}<a href="{{ . }}" target="_blank" rel="noopener">Google Scholar</a>{{ end }}
+    {{ with $p.social.email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+    {{ with $p.social.github }}<a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+    <a href="{{ "files/cv.pdf" | relURL }}" target="_blank" rel="noopener">CV (PDF)</a>
+  </div>
+</section>
+</div>
+
+{{ end }}

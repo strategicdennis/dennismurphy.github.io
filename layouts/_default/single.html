@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="wrap">
+  <a class="back-link" href="{{ "/" | relURL }}">&larr; Back to homepage</a>
+  <article class="single">
+    <h1>{{ .Title }}</h1>
+    {{ if not .Date.IsZero }}
+    <p class="post-meta">{{ .Date.Format "January 2, 2006" }}</p>
+    {{ end }}
+    {{ .Content }}
+  </article>
+</div>
+{{ end }}

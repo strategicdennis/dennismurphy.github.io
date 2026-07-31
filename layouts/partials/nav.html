@@ -1,0 +1,13 @@
+<header class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="{{ "/" | relURL }}">{{ .Site.Params.author }}</a>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" onclick="var l=document.getElementById('nav-links'); var open=l.classList.toggle('is-open'); this.setAttribute('aria-expanded', open);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+</header>

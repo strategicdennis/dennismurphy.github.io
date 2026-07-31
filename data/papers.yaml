@@ -1,0 +1,138 @@
+journal:
+  - title: "The Geopolitics of Compute in the Aftermath of the AI Diffusion Framework"
+    authors: ["Dennis Murphy"]
+    venue: "Journal of Cyber Policy"
+    detail: "pp. 1–22"
+    date: "April 2026"
+    status: "published"
+    link: ""
+
+  - title: "The Fourth Industrial Revolution and International Security"
+    authors: ["Dennis Murphy", "Lawrence Rubin"]
+    venue: "Survival 67 (1): 159–72"
+    date: "February 7, 2025"
+    status: "published"
+    link: ""
+
+preprint:
+  - title: "An Independent Safety Evaluation of Kimi K2.5"
+    authors:
+      - "Zheng-Xin Yong"
+      - "Parv Mahajan"
+      - "Andy Wang"
+      - "Ida Caspary"
+      - "Yernat Yestekov"
+      - "Zora Che"
+      - "Mosh Levy"
+      - "Elle Najt"
+      - "Dennis Murphy"
+      - "Prashant Kulkarni"
+      - "Lev McKinney"
+      - "Kei Nishimura-Gasparian"
+      - "Ram Potham"
+      - "Aengus Lynch"
+      - "Michael L. Chen"
+    venue: "arXiv preprint"
+    date: "April 2026"
+    status: "published"
+    link: ""
+
+rand:
+  - title: "CDAO Responsible AI Workforce Development"
+    authors: ["Dennis Murphy"]
+    venue: "RAND Corporation"
+    date: ""
+    status: "under review"
+    link: ""
+
+  - title: "Rebalancing the Information Ecosystem and Renewing Shared Societal Commitments for Information Use"
+    authors: ["Ray Block Jr.", "David Luckey", "Dennis Murphy", "Fernando Esteves", "Clay Strickland"]
+    venue: "RAND Corporation"
+    date: "October 27, 2025"
+    status: "published"
+    link: ""
+
+  - title: "Assessing the Value of a CERN for AI"
+    authors: ["Matthew Sargent", "Mary Lee", "Dennis Murphy", "Sabahat Zafar"]
+    venue: "RAND Corporation"
+    date: "August 13, 2025"
+    status: "published"
+    link: ""
+
+  - title: "Why the Decline of Local Media Could Be a Security Risk"
+    authors: ["Dennis Murphy"]
+    venue: "RAND Corporation"
+    date: "August 8, 2024"
+    status: "published"
+    link: ""
+
+  - title: "Threats to Critical Infrastructure: A Survey"
+    authors: ["Bridget R. Kane", "Stephen Webber", "Katherine H. Tucker", "Sam Wallace", "Joan Chang", "Devin McCarthy", "Dennis Murphy", "Daniel Egel", "Tom Wingfield"]
+    venue: "RAND Corporation"
+    date: "June 11, 2024"
+    status: "published"
+    link: ""
+
+  - title: "Defending the United States Against Critical Infrastructure Attacks: Exploring a Hypothetical Campaign of Cascading Impacts"
+    authors: ["Bridget R. Kane", "Stephen Webber", "Katherine H. Tucker", "Sam Wallace", "Joan Chang", "Devin McCarthy", "Dennis Murphy", "Daniel Egel", "Tom Wingfield"]
+    venue: "RAND Corporation"
+    date: "June 11, 2024"
+    status: "published"
+    link: ""
+
+conference:
+  - title: "Have We Been Here Before? Second Mover Advantages in China's AI Market"
+    authors: ["Dennis Murphy", "Andrew Reddie"]
+    venue: "International Studies Association"
+    date: "March 2026"
+    status: "published"
+    link: ""
+
+  - title: "The Geopolitics of Compute"
+    authors: ["Dennis Murphy"]
+    venue: "American Political Science Association"
+    date: "September 2025"
+    status: "published"
+    link: ""
+
+  - title: "Contested Logistics Operating Under Digital Support"
+    authors: ["Grant S. Schlichting", "Ananth Reddy", "Dennis Murphy", "Juan Oroz", "Olivia J. Pinon Fischer", "Dimitri N. Mavris"]
+    venue: "AIAA 2024-0481, AIAA SCITECH 2024 Forum"
+    date: "January 2024"
+    status: "published"
+    link: ""
+
+  - title: "JADC2 in a Contested Logistics Environment: The Role of Digital Twins"
+    authors: ["Grant S. Schlichting", "Ananth Reddy", "Dennis Murphy", "Juan Oroz", "Olivia J. Pinon Fischer", "Alicia Sudol", "Matthew French", "Dimitri N. Mavris"]
+    venue: "NATO AVT-369 Research Symposium on Digital Twin Technology Development and Application for Tri-Service Platforms and Systems"
+    date: "October 2023"
+    status: "published"
+    link: ""
+
+  - title: "Generating Geopolitics: Generative Artificial Intelligence and International Security"
+    authors: ["Dennis Murphy"]
+    venue: "International Studies Association Virtual Session"
+    date: "July 2023"
+    status: "published"
+    link: ""
+
+  - title: "Employing a Shared Space Information Sharing Ecosystem as a Mechanism for Promoting Constructive U.S.-China Space Relations"
+    authors: ["Nathaniel Dailey", "Kevin Toner", "Dennis Murphy"]
+    venue: "Advanced Maui Optical and Space Surveillance Technologies (AMOS) Conference"
+    date: "September 2022"
+    status: "published"
+    link: ""
+
+  - title: "The White Horse Lord: Gongsun Zan and the Early Medieval Transition"
+    authors: ["Dennis Murphy"]
+    venue: "Fifth Conference of the Early Medieval China Group"
+    date: "April 2022"
+    status: "published"
+    link: ""
+
+  - title: "North American Telecommunications Modernization"
+    authors: ["Dennis Murphy"]
+    venue: "Association for Canadian Studies in the United States"
+    date: "November 2019"
+    status: "published"
+    link: ""

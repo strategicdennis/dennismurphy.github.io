@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | default .Site.Params.description }}{{ end }}">
+
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | default .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="32x32">
+<link rel="icon" href="{{ "favicon-32x32.png" | relURL }}" type="image/png" sizes="32x32">
+<link rel="icon" href="{{ "favicon-16x16.png" | relURL }}" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+
+{{ $style := resources.Get "css/style.css" }}
+{{ if hugo.IsProduction }}
+  {{ $style = $style | minify | fingerprint }}
+{{ end }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $style.Data.Integrity }}"{{ end }}>
+
+{{ if .Site.Params.mysite.discovery }}
+<meta name="generator" content="Created using GaryKing.org/mysite (https://gking.harvard.edu/mysite)">
+{{ if .IsHome }}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"{{ .Site.Params.author }}","affiliation":{"@type":"Organization","name":"{{ .Site.Params.institution }}"},"url":"{{ .Site.BaseURL }}","isBasedOn":"https://gking.harvard.edu/mysite"}
+</script>
+{{ end }}
+{{ end }}
