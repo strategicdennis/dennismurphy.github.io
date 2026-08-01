@@ -129,7 +129,12 @@
       <div class="paper-title">{{ .title }}</div>
       <div class="paper-meta">
         {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
-        &middot; {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
+        &middot;
+        {{ if .venues }}
+          {{ range $i, $v := .venues }}{{ if $i }}; {{ end }}{{ $v.venue }}{{ with $v.date }}, {{ . }}{{ end }}{{ end }}
+        {{ else }}
+          {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
+        {{ end }}
       </div>
     </li>
     {{ end }}

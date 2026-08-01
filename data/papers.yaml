@@ -90,15 +90,21 @@ conference:
 
   - title: "The Geopolitics of Compute"
     authors: ["Dennis Murphy"]
-    venue: "American Political Science Association"
-    date: "September 2025"
+    venues:
+      - venue: "2025 Summer Graduate Conference, George Mason IHS"
+        date: "May 2025"
+      - venue: "American Political Science Association"
+        date: "September 2025"
     status: "published"
     link: ""
 
   - title: "Contested Logistics Operating Under Digital Support"
     authors: ["Grant S. Schlichting", "Ananth Reddy", "Dennis Murphy", "Juan Oroz", "Olivia J. Pinon Fischer", "Dimitri N. Mavris"]
-    venue: "AIAA 2024-0481, AIAA SCITECH 2024 Forum"
-    date: "January 2024"
+    venues:
+      - venue: "Briefing to the Deputy Secretary of Homeland Security, Atlanta"
+        date: "October 2022"
+      - venue: "AIAA 2024-0481, AIAA SCITECH 2024 Forum"
+        date: "January 2024"
     status: "published"
     link: ""
 
@@ -111,8 +117,11 @@ conference:
 
   - title: "Generating Geopolitics: Generative Artificial Intelligence and International Security"
     authors: ["Dennis Murphy"]
-    venue: "International Studies Association Virtual Session"
-    date: "July 2023"
+    venues:
+      - venue: "International Studies Association Virtual Session"
+        date: "July 2023"
+      - venue: "Youth Internet Governance Forum India, UN Internet Governance Forum Secretariat"
+        date: "September 2024"
     status: "published"
     link: ""
 
