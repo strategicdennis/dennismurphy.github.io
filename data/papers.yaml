@@ -101,6 +101,8 @@ conference:
   - title: "The Geopolitics of Compute"
     authors: ["Dennis Murphy"]
     venues:
+      - venue: "\"Governing AI in a Free Society,\" Journal of Cyber Policy Paper Workshop, Georgia Tech Internet Governance Project"
+        date: "February 2025"
       - venue: "2025 Summer Graduate Conference, George Mason IHS"
         date: "May 2025"
       - venue: "American Political Science Association"

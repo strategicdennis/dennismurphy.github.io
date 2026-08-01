@@ -139,6 +139,18 @@
     </li>
     {{ end }}
   </ul>
+
+  {{ $conferenceDOIs := where . "link" "!=" "" }}
+  {{ if $conferenceDOIs }}
+  <div class="doi-list">
+    <h4>DOIs</h4>
+    <ul>
+      {{ range $conferenceDOIs }}
+      <li><a href="{{ .link }}" target="_blank" rel="noopener">{{ .title }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
   {{ end }}
 </section>
 {{ end }}
