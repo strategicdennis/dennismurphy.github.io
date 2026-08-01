@@ -5,14 +5,14 @@ journal:
     detail: "pp. 1–22"
     date: "April 2026"
     status: "published"
-    link: ""
+    link: "https://www.tandfonline.com/doi/full/10.1080/23738871.2026.2642613"
 
   - title: "The Fourth Industrial Revolution and International Security"
     authors: ["Dennis Murphy", "Lawrence Rubin"]
     venue: "Survival 67 (1): 159–72"
     date: "February 7, 2025"
     status: "published"
-    link: ""
+    link: "https://www.tandfonline.com/doi/full/10.1080/00396338.2025.2459023"
 
 preprint:
   - title: "An Independent Safety Evaluation of Kimi K2.5"
@@ -35,7 +35,7 @@ preprint:
     venue: "arXiv preprint"
     date: "April 2026"
     status: "published"
-    link: ""
+    link: "https://arxiv.org/abs/2604.03121"
 
 rand:
   - title: "CDAO Responsible AI Workforce Development"
