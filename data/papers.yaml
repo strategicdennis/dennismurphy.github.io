@@ -47,6 +47,18 @@ preprint:
     status: "published"
     link: "https://arxiv.org/abs/2604.03121"
 
+  - title: "Contested Logistics Operating Under Digital Support"
+    authors: ["Grant S. Schlichting", "Ananth Reddy", "Dennis Murphy", "Juan Oroz", "Olivia J. Pinon Fischer", "Dimitri N. Mavris"]
+    venue: "AIAA 2024-0481, AIAA SCITECH 2024 Forum"
+    date: "January 2024"
+    status: "published"
+    link: "https://doi.org/10.2514/6.2024-0481"
+    earlier_iterations:
+      - venue: "Briefing to the Deputy Secretary of Homeland Security, Atlanta"
+        date: "October 2022"
+      - venue: "NATO AVT-369 Research Symposium (with Alicia Sudol and Matthew French)"
+        date: "October 2023"
+
 rand:
   - title: "CDAO Responsible AI Workforce Development"
     authors: ["Several"]
@@ -107,18 +119,6 @@ conference:
         date: "February 2026"
     status: "published"
     link: ""
-
-  - title: "Contested Logistics Operating Under Digital Support"
-    authors: ["Grant S. Schlichting", "Ananth Reddy", "Dennis Murphy", "Juan Oroz", "Olivia J. Pinon Fischer", "Dimitri N. Mavris"]
-    venue: "AIAA 2024-0481, AIAA SCITECH 2024 Forum"
-    date: "January 2024"
-    status: "published"
-    link: "https://doi.org/10.2514/6.2024-0481"
-    earlier_iterations:
-      - venue: "Briefing to the Deputy Secretary of Homeland Security, Atlanta"
-        date: "October 2022"
-      - venue: "NATO AVT-369 Research Symposium (with Alicia Sudol and Matthew French)"
-        date: "October 2023"
 
   - title: "Generating Geopolitics: Generative Artificial Intelligence and International Security"
     authors: ["Dennis Murphy"]

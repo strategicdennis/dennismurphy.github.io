@@ -93,7 +93,7 @@
   {{ end }}
 
   {{ with $papers.preprint }}
-  <h3>Preprints</h3>
+  <h3>Preprints and Other Research</h3>
   <ul class="paper-list">
     {{ range . }}
     <li class="paper-item">
@@ -102,6 +102,7 @@
         {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
         &middot; {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
       </div>
+      {{ partial "earlier-iterations.html" . }}
     </li>
     {{ end }}
   </ul>
