@@ -6,6 +6,13 @@ journal:
     date: "April 2026"
     status: "published"
     link: "https://www.tandfonline.com/doi/full/10.1080/23738871.2026.2642613"
+    earlier_iterations:
+      - venue: "\"Governing AI in a Free Society,\" Journal of Cyber Policy Paper Workshop, Georgia Tech Internet Governance Project"
+        date: "February 2025"
+      - venue: "2025 Summer Graduate Conference, George Mason IHS"
+        date: "May 2025"
+      - venue: "American Political Science Association"
+        date: "September 2025"
 
   - title: "The Fourth Industrial Revolution and International Security"
     authors: ["Dennis Murphy", "Lawrence Rubin"]
@@ -13,6 +20,9 @@ journal:
     date: "February 7, 2025"
     status: "published"
     link: "https://www.tandfonline.com/doi/full/10.1080/00396338.2025.2459023"
+    earlier_iterations:
+      - venue: "\"The 4th Industrial Revolution, the US Industrial Base, and Great Power Competition,\" Carnegie Corporation of New York, Washington, DC"
+        date: "December 2022"
 
 preprint:
   - title: "An Independent Safety Evaluation of Kimi K2.5"
@@ -98,29 +108,17 @@ conference:
     status: "published"
     link: ""
 
-  - title: "The Geopolitics of Compute"
-    authors: ["Dennis Murphy"]
-    venues:
-      - venue: "\"Governing AI in a Free Society,\" Journal of Cyber Policy Paper Workshop, Georgia Tech Internet Governance Project"
-        date: "February 2025"
-      - venue: "2025 Summer Graduate Conference, George Mason IHS"
-        date: "May 2025"
-      - venue: "American Political Science Association"
-        date: "September 2025"
-    status: "published"
-    link: ""
-
   - title: "Contested Logistics Operating Under Digital Support"
     authors: ["Grant S. Schlichting", "Ananth Reddy", "Dennis Murphy", "Juan Oroz", "Olivia J. Pinon Fischer", "Dimitri N. Mavris"]
-    venues:
+    venue: "AIAA 2024-0481, AIAA SCITECH 2024 Forum"
+    date: "January 2024"
+    status: "published"
+    link: "https://doi.org/10.2514/6.2024-0481"
+    earlier_iterations:
       - venue: "Briefing to the Deputy Secretary of Homeland Security, Atlanta"
         date: "October 2022"
       - venue: "NATO AVT-369 Research Symposium (with Alicia Sudol and Matthew French)"
         date: "October 2023"
-      - venue: "AIAA 2024-0481, AIAA SCITECH 2024 Forum"
-        date: "January 2024"
-    status: "published"
-    link: ""
 
   - title: "Generating Geopolitics: Generative Artificial Intelligence and International Security"
     authors: ["Dennis Murphy"]

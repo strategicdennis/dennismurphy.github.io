@@ -1,0 +1,6 @@
+{{ with .earlier_iterations }}
+<div class="earlier-iterations">
+  {{ if eq (len .) 1 }}An earlier iteration of this work was presented at{{ else }}Earlier iterations of this work were presented at{{ end }}:
+  {{ range $i, $it := . }}{{ if $i }}; {{ end }}{{ $it.venue }}{{ with $it.date }}, {{ . }}{{ end }}{{ end }}
+</div>
+{{ end }}

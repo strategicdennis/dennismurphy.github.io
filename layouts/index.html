@@ -86,6 +86,7 @@
         {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
         &middot; {{ .venue }}{{ with .detail }}, {{ . }}{{ end }}{{ with .date }}, {{ . }}{{ end }}
       </div>
+      {{ partial "earlier-iterations.html" . }}
     </li>
     {{ end }}
   </ul>
@@ -136,6 +137,7 @@
           {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
         {{ end }}
       </div>
+      {{ partial "earlier-iterations.html" . }}
     </li>
     {{ end }}
   </ul>
