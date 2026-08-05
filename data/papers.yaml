@@ -87,6 +87,9 @@ rand:
     date: "August 13, 2025"
     status: "published"
     link: "https://www.rand.org/pubs/perspectives/PEA4024-1.html"
+    earlier_iterations:
+      - venue: "\"CERN For AI? Three Visions,\" RAND Summer Seminar"
+        date: "August 2024"
 
   - title: "Threats to Critical Infrastructure: A Survey"
     authors: ["Bridget R. Kane", "Stephen Webber", "Katherine H. Tucker", "Sam Wallace", "Joan Chang", "Devin McCarthy", "Dennis Murphy", "Daniel Egel", "Tom Wingfield"]
@@ -94,6 +97,9 @@ rand:
     date: "June 11, 2024"
     status: "published"
     link: "https://www.rand.org/pubs/research_reports/RRA2397-2.html"
+    earlier_iterations:
+      - venue: "\"Critical Infrastructure Wargame Research Support,\" RAND Summer Seminar, Washington, DC"
+        date: "August 2023"
 
   - title: "Defending the Homeland Against Critical Infrastructure Attacks: Exploring a Hypothetical Campaign of Cascading Impacts"
     authors: ["Bridget R. Kane", "Stephen Webber", "Katherine H. Tucker", "Sam Wallace", "Joan Chang", "Devin McCarthy", "Dennis Murphy", "Daniel Egel", "Tom Wingfield"]
@@ -101,6 +107,9 @@ rand:
     date: "June 11, 2024"
     status: "published"
     link: "https://www.rand.org/pubs/research_reports/RRA2397-3.html"
+    earlier_iterations:
+      - venue: "\"Critical Infrastructure Wargame Research Support,\" RAND Summer Seminar, Washington, DC"
+        date: "August 2023"
 
 conference:
   - title: "Have We Been Here Before? Second Mover Advantages in China's AI Market"

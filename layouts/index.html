@@ -118,6 +118,7 @@
         {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
         &middot; {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
       </div>
+      {{ partial "earlier-iterations.html" . }}
     </li>
     {{ end }}
   </ul>
@@ -231,6 +232,7 @@
       <div class="item-meta">
         {{ if $item.authors }}{{ range $i, $a := $item.authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }} &middot; {{ end }}{{ $item.venue }}{{ with $item.date }}, {{ . }}{{ end }}{{ with $item.note }} ({{ . }}){{ end }}
       </div>
+      {{ partial "earlier-iterations.html" $item }}
     </li>
     {{ end }}
   </ul>
