@@ -88,13 +88,6 @@ rand:
     status: "published"
     link: "https://www.rand.org/pubs/perspectives/PEA4024-1.html"
 
-  - title: "Why the Decline of Local Media Could Be a Security Risk"
-    authors: ["Dennis Murphy"]
-    venue: "RAND Corporation"
-    date: "August 8, 2024"
-    status: "published"
-    link: "https://www.rand.org/pubs/commentary/2024/08/why-the-decline-of-local-media-could-be-a-security.html"
-
   - title: "Threats to Critical Infrastructure: A Survey"
     authors: ["Bridget R. Kane", "Stephen Webber", "Katherine H. Tucker", "Sam Wallace", "Joan Chang", "Devin McCarthy", "Dennis Murphy", "Daniel Egel", "Tom Wingfield"]
     venue: "RAND Corporation"
@@ -102,7 +95,7 @@ rand:
     status: "published"
     link: "https://www.rand.org/pubs/research_reports/RRA2397-2.html"
 
-  - title: "Defending the United States Against Critical Infrastructure Attacks: Exploring a Hypothetical Campaign of Cascading Impacts"
+  - title: "Defending the Homeland Against Critical Infrastructure Attacks: Exploring a Hypothetical Campaign of Cascading Impacts"
     authors: ["Bridget R. Kane", "Stephen Webber", "Katherine H. Tucker", "Sam Wallace", "Joan Chang", "Devin McCarthy", "Dennis Murphy", "Daniel Egel", "Tom Wingfield"]
     venue: "RAND Corporation"
     date: "June 11, 2024"
