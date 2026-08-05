@@ -1,12 +1,16 @@
 - employer: "Georgia Tech"
   positions:
     - role: "Graduate Research Fellow with the Georgia Tech Research Institute"
+      description: "Conducted dissertation research under Jon Lindsay and Courtney Crooks related to geopolitics and frontier AI, U.S.-China competition, and military applications"
       term: "2023–Present"
     - role: "Graduate Teaching Assistant for the Geopolitics of Cybersecurity"
+      description: "Served as a GTA alongside Daniel Fernandez and Helen Dong under Jon Lindsay for the PUBP 8823: The Geopolitics of Cybersecurity online masters course"
       term: "Spring 2026"
     - role: "Graduate Teaching Assistant (Co-Instructor) for Special Projects"
+      description: "Served as a GTA under Seymour Goodman for the Special Topics in Computer Science course CS 4803/8803: Critical Infrastructures Security and Resilience course in the School of Cybersecurity and Privacy."
       term: "Spring 2022"
     - role: "Graduate Research Assistant to Adam Stulberg"
+      description: "Supported a Minerva funded project to explore all-domain coercion, particularly with regards to Russia and Ukraine prior to and during the invasion."
       term: "2021–2023"
 
 - employer: "Harvard University, Belfer Center for Science and International Affairs"
