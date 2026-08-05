@@ -79,35 +79,35 @@ rand:
     venue: "RAND Corporation"
     date: "October 27, 2025"
     status: "published"
-    link: ""
+    link: "https://www.rand.org/pubs/perspectives/PEA112-4.html"
 
   - title: "Assessing the Value of a CERN for AI"
     authors: ["Matthew Sargent", "Mary Lee", "Dennis Murphy", "Sabahat Zafar"]
     venue: "RAND Corporation"
     date: "August 13, 2025"
     status: "published"
-    link: ""
+    link: "https://www.rand.org/pubs/perspectives/PEA4024-1.html"
 
   - title: "Why the Decline of Local Media Could Be a Security Risk"
     authors: ["Dennis Murphy"]
     venue: "RAND Corporation"
     date: "August 8, 2024"
     status: "published"
-    link: ""
+    link: "https://www.rand.org/pubs/commentary/2024/08/why-the-decline-of-local-media-could-be-a-security.html"
 
   - title: "Threats to Critical Infrastructure: A Survey"
     authors: ["Bridget R. Kane", "Stephen Webber", "Katherine H. Tucker", "Sam Wallace", "Joan Chang", "Devin McCarthy", "Dennis Murphy", "Daniel Egel", "Tom Wingfield"]
     venue: "RAND Corporation"
     date: "June 11, 2024"
     status: "published"
-    link: ""
+    link: "https://www.rand.org/pubs/research_reports/RRA2397-2.html"
 
   - title: "Defending the United States Against Critical Infrastructure Attacks: Exploring a Hypothetical Campaign of Cascading Impacts"
     authors: ["Bridget R. Kane", "Stephen Webber", "Katherine H. Tucker", "Sam Wallace", "Joan Chang", "Devin McCarthy", "Dennis Murphy", "Daniel Egel", "Tom Wingfield"]
     venue: "RAND Corporation"
     date: "June 11, 2024"
     status: "published"
-    link: ""
+    link: "https://www.rand.org/pubs/research_reports/RRA2397-3.html"
 
 conference:
   - title: "Have We Been Here Before? Second Mover Advantages in China's AI Market"
@@ -141,12 +141,5 @@ conference:
     authors: ["Dennis Murphy"]
     venue: "Fifth Conference of the Early Medieval China Group"
     date: "April 2022"
-    status: "published"
-    link: ""
-
-  - title: "North American Telecommunications Modernization"
-    authors: ["Dennis Murphy"]
-    venue: "Association for Canadian Studies in the United States"
-    date: "November 2019"
     status: "published"
     link: ""
