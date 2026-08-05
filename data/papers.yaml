@@ -59,6 +59,13 @@ preprint:
       - venue: "NATO AVT-369 Research Symposium (with Alicia Sudol and Matthew French)"
         date: "October 2023"
 
+  - title: "Employing a Shared Space Information Sharing Ecosystem as a Mechanism for Promoting Constructive U.S.-China Space Relations"
+    authors: ["Nathaniel Dailey", "Kevin Toner", "Dennis Murphy"]
+    venue: "Advanced Maui Optical and Space Surveillance Technologies (AMOS) Conference"
+    date: "September 2022"
+    status: "published"
+    link: "https://amostech.com/TechnicalPapers/2022/SSA-SDA/Dailey.pdf"
+
 rand:
   - title: "CDAO Responsible AI Workforce Development"
     authors: ["Several"]
@@ -127,13 +134,6 @@ conference:
         date: "July 2023"
       - venue: "Youth Internet Governance Forum India, UN Internet Governance Forum Secretariat"
         date: "September 2024"
-    status: "published"
-    link: ""
-
-  - title: "Employing a Shared Space Information Sharing Ecosystem as a Mechanism for Promoting Constructive U.S.-China Space Relations"
-    authors: ["Nathaniel Dailey", "Kevin Toner", "Dennis Murphy"]
-    venue: "Advanced Maui Optical and Space Surveillance Technologies (AMOS) Conference"
-    date: "September 2022"
     status: "published"
     link: ""
 
