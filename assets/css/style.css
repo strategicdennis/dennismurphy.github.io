@@ -398,6 +398,7 @@ h3 {
 
 .employment-positions .position-role {
   color: var(--color-text);
+  font-weight: 600;
 }
 
 .employment-positions .item-meta {
