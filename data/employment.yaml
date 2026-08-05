@@ -16,7 +16,7 @@
 - employer: "Harvard University, Belfer Center for Science and International Affairs"
   positions:
     - role: "Predoctoral Fellow in International Security"
-      term: "2026–Present"
+      term: "July 2026–Present"
 
 - employer: "Frontier Security Institute"
   positions:
@@ -27,7 +27,7 @@
 - employer: "O'Brien Notre Dame International Security Center"
   positions:
     - role: "Hans J. Morgenthau Predoctoral Fellow in Grand Strategy"
-      term: "2025–2026"
+      term: "August 2025–July 2026"
 
 - employer: "Astra Program at Berkeley"
   positions:
@@ -49,9 +49,18 @@
 
 - employer: "RAND Corporation"
   positions:
-    - role: "Summer Associate / Adjunct"
-      description: "DOD AI Workforce Development, AI Governance, Critical Infrastructure Security, Truth Decay"
-      term: "May 2023–Present"
+    - role: "Adjunct Policy Researcher"
+      description: "Truth Decay and DoD Workforce Development, with Dave Luckey and Ray Block"
+      term: "August 2024–Present"
+    - role: "Summer Associate"
+      description: "CERN for AI and Related TASP Research, with Matthew Sargent and Mary Lee"
+      term: "May 2024–August 2024"
+    - role: "Adjunct Summer Associate Extension"
+      description: "TASP Background Research, with Brodi Kotila"
+      term: "August 2023–May 2024"
+    - role: "Adjunct Policy Researcher"
+      description: "Inverted Rook Critical Infrastructure Wargame, with Rich Girven and Brodi Kotila"
+      term: "May 2023–August 2023"
 
 - employer: "II Corps"
   positions:
