@@ -9,18 +9,27 @@
   role: "Graduate Teaching Assistant"
   institution: "Georgia Tech School of Cybersecurity and Privacy"
   term: "Spring 2026"
+  collaborators: "with Jon Lindsay"
 
 - course: "Critical Infrastructure Security and Resilience"
   topic: "The Polar Silk Road"
   role: "Guest Lecturer"
   institution: "Georgia Tech School of Cybersecurity and Privacy"
   term: "September 2023 and September 2024"
+  collaborators: "with Seymour Goodman and Saman Sonouz"
 
 - course: "Special Topics in Computer Science"
   topic: "Critical Infrastructure Security and Resilience"
   role: "Graduate Teaching Assistant"
   institution: "Georgia Tech School of Cybersecurity and Privacy"
   term: "Spring 2022"
+  collaborators: "with Seymour Goodman"
+
+- course: "Projects Course with State Department Policy Planning Bureau"
+  topic: "Wicked Challenges to US Security"
+  role: "Graduate Teaching Assistant to Ambassador Sally Shelton-Colby"
+  institution: "American University"
+  term: "AY 2020-21"
 
 - course: "Whittier Elementary Guest School Teacher"
   topic: "PeaceKidz Seminar"

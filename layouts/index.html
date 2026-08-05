@@ -183,6 +183,7 @@
     <li>
       <div class="item-title">{{ .course }}{{ with .topic }} — "{{ . }}"{{ end }}</div>
       <div class="item-meta">{{ with .role }}{{ . }}, {{ end }}{{ .institution }}{{ with .term }} &middot; {{ . }}{{ end }}</div>
+      {{ with .collaborators }}<span hidden>{{ . }}</span>{{ end }}
     </li>
     {{ end }}
   </ul>
