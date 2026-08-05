@@ -1,0 +1,56 @@
+- employer: "Georgia Tech"
+  positions:
+    - role: "Graduate Research Fellow with the Georgia Tech Research Institute"
+      term: "2023–Present"
+    - role: "Graduate Teaching Assistant for the Geopolitics of Cybersecurity"
+      term: "Spring 2026"
+    - role: "Graduate Teaching Assistant (Co-Instructor) for Special Projects"
+      term: "Spring 2022"
+    - role: "Graduate Research Assistant to Adam Stulberg"
+      term: "2021–2023"
+
+- employer: "Harvard University, Belfer Center for Science and International Affairs"
+  positions:
+    - role: "Predoctoral Fellow in International Security"
+      term: "2026–Present"
+
+- employer: "Frontier Security Institute"
+  positions:
+    - role: "Research Fellow"
+      description: "Frontier AI and National Security"
+      term: "June 2026–Present"
+
+- employer: "O'Brien Notre Dame International Security Center"
+  positions:
+    - role: "Hans J. Morgenthau Predoctoral Fellow in Grand Strategy"
+      term: "2025–2026"
+
+- employer: "Astra Program at Berkeley"
+  positions:
+    - role: "National Security Policy and AI Governance Research Fellow"
+      description: "Collaborated with IAPS on Military Applications of Frontier AI Systems, Operational Decision Support Systems"
+      term: "January–June 2026"
+
+- employer: "Lawrence Livermore National Laboratory, Center for Global Security Research"
+  positions:
+    - role: "Graduate Research Associate"
+      description: "Geopolitics of AI, U.S.-China Tech Competition re: Computing Resources, Deterrence"
+      term: "September–December 2025"
+
+- employer: "Cambridge University ERA AI Governance Fellowship"
+  positions:
+    - role: "AI Governance Research Fellow"
+      description: "AI Governance and International Security, China's Approach to AI Risk"
+      term: "June–September 2025"
+
+- employer: "RAND Corporation"
+  positions:
+    - role: "Summer Associate / Adjunct"
+      description: "DOD AI Workforce Development, AI Governance, Critical Infrastructure Security, Truth Decay"
+      term: "May 2023–Present"
+
+- employer: "II Corps"
+  positions:
+    - role: "Northeast Asia Subject Matter Expert"
+      description: "Revised and reorganized Marine Corps University's introductory PME book for Northeast Asia"
+      term: "Spring–Summer 2023"

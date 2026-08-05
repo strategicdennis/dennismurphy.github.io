@@ -159,6 +159,28 @@
 </section>
 {{ end }}
 
+{{ $employment := hugo.Data.employment }}
+{{ if $employment }}
+<section id="employment">
+  <h2>Employment</h2>
+  <ul class="paper-list">
+    {{ range $employment }}
+    <li class="paper-item">
+      <div class="paper-title">{{ .employer }}</div>
+      <ul class="employment-positions">
+        {{ range .positions }}
+        <li>
+          <span class="position-role">{{ .role }}</span>{{ with .description }} — {{ . }}{{ end }}
+          <span class="item-meta">&middot; {{ .term }}</span>
+        </li>
+        {{ end }}
+      </ul>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
 {{ $presentations := hugo.Data.presentations }}
 {{ if $presentations }}
 <section id="presentations">
