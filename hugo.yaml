@@ -17,8 +17,8 @@ menu:
     - name: Research
       url: "/#research"
       weight: 10
-    - name: Presentations
-      url: "/#presentations"
+    - name: Employment
+      url: "/#employment"
       weight: 20
     - name: Teaching
       url: "/#teaching"
