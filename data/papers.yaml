@@ -67,13 +67,6 @@ preprint:
     link: "https://amostech.com/TechnicalPapers/2022/SSA-SDA/Dailey.pdf"
 
 rand:
-  - title: "CDAO Responsible AI Workforce Development"
-    authors: ["Several"]
-    venue: "RAND Corporation"
-    date: ""
-    status: "under review"
-    link: ""
-
   - title: "Rebalancing the Information Ecosystem and Renewing Shared Societal Commitments for Information Use"
     authors: ["Ray Block Jr.", "David Luckey", "Dennis Murphy", "Fernando Esteves", "Clay Strickland"]
     venue: "RAND Corporation"
