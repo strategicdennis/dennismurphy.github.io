@@ -113,7 +113,7 @@
   <ul class="paper-list">
     {{ range . }}
     <li class="paper-item">
-      <div class="paper-title">{{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}{{ if eq .status "under review" }}<span class="status-badge">UNDER REVIEW</span>{{ end }}</div>
+      <div class="paper-title">{{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}{{ if ne .status "published" }}<span class="status-badge">{{ upper (replace .status "_" " ") }}</span>{{ end }}</div>
       <div class="paper-meta">
         {{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a "Dennis Murphy" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
         &middot; {{ .venue }}{{ with .date }}, {{ . }}{{ end }}
