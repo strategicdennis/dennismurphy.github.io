@@ -3,7 +3,7 @@ title: "Dennis Murphy"
 role: "International Affairs, Science, and Technology"
 department: "Sam Nunn School of International Affairs, Georgia Tech"
 year_in_program: "PhD candidate"
-tagline: "I study technology and security."
+tagline: "Technology, Economic Statecraft, International Security"
 photo: "images/photo.png"
 social:
   github: "https://github.com/strategicdennis"
