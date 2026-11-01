@@ -355,7 +355,7 @@
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 class="text-sm font-bold text-white">Cross-Paper Shared Source Clusters (<span id="sharedClusterCount">70</span> Foundations)</h2>
-          <p class="text-xs text-slate-400">Tracks recurring doctrinal regulations, historical campaigns, technical benchmarks, and official reports cited across multiple documents.</p>
+          <p class="text-xs text-slate-400">Tracks recurring doctrinal regulations, historical campaigns, technical benchmarks, and official reports cited across multiple documents. Sources cited by the most documents are listed first.</p>
         </div>
       </div>
       <div id="sharedSourcesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
@@ -452,6 +452,10 @@
       'MEMO-A1', 'MEMO-A2', 'MEMO-A3', 'MEMO-A4', 'MEMO-A5', 'MEMO-A7',
       'MEMO-A10', 'MEMO-A11', 'MEMO-A12'
     ]);
+
+    // Memos and shared sources list the most-connected first (more documents, or more citing
+    // documents, means higher up). Items with the same count keep their original order.
+    const mostConnectedFirst = (count, tieBreak = () => 0) => (a, b) => (count(b) - count(a)) || (tieBreak(b) - tieBreak(a));
 
     // State
     let state = {
@@ -891,6 +895,8 @@
         return [s.key, s.title, s.author_org, s.description, (s.cited_by || []).join(' ')].join(' ').toLowerCase().includes(q);
       });
 
+      filtered.sort(mostConnectedFirst(s => (s.cited_by || []).length, s => (s.row_refs || []).length));
+
       document.getElementById('sharedClusterCount').textContent = filtered.length;
       document.getElementById('navSharedCountBadge').textContent = filtered.length;
 
@@ -907,7 +913,7 @@
           </div>
           <div class="pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
             <div class="flex flex-wrap items-center gap-1">
-              <span class="text-[11px] text-slate-400 mr-1">Cited by:</span>
+              <span class="text-[11px] text-slate-400 mr-1">Cited by (${(s.cited_by || []).length}):</span>
               ${(s.cited_by || []).map(code => {
                 const pObj = DATA.papers.find(x => x.code === code);
                 return pObj
@@ -925,7 +931,11 @@
       const memos = DATA.thematic_memos;
       const active = memos.find(m => m.id === state.selectedThematicId) || memos[memos.length - 1];
 
-      document.getElementById('thematicSidebarList').innerHTML = memos.map(m => {
+      const rankedMemos = [...memos].sort(mostConnectedFirst(m => (m.papers_drawn_on || []).length));
+
+      document.getElementById('thematicSidebarList').innerHTML = `
+        <div class="px-1 pb-0.5 text-[10px] uppercase tracking-wider text-slate-500">Most documents first</div>
+      ` + rankedMemos.map(m => {
         const isNew = ['MEMO-T22', 'MEMO-T23', 'MEMO-T24'].includes(m.id);
         const isSelected = m.id === active.id;
         return `
@@ -1003,7 +1013,7 @@
           <button onclick="selectAuthorMemo('${m.id}')" class="w-full text-left p-3 rounded-xl border transition ${isSelected ? 'bg-blue-600/20 border-blue-500 text-white shadow' : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800/60'}">
             <div class="flex items-center justify-between gap-2 mb-1">
               <span class="px-2 py-0.5 rounded text-[10px] font-bold ${isNew ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-slate-800 text-slate-300'} mono">${escapeHtml(m.id)}${isNew ? ' · NEW' : ''}</span>
-              <span class="text-[10px] text-slate-400 mono">${(m.own_papers || []).length} primary docs</span>
+              <span class="text-[10px] text-slate-400 mono">${(m.papers_drawn_on || []).length} docs · ${(m.own_papers || []).length} primary</span>
             </div>
             <div class="text-xs font-semibold leading-snug">${escapeHtml(m.name.split('(')[0].trim())}</div>
           </button>
@@ -1018,9 +1028,12 @@
         ${list.map(renderAuthorCard).join('')}
       `;
 
+      // Within each group, profiles with the most connected documents come first.
+      const rankedProfiles = [...memos].sort(mostConnectedFirst(m => (m.papers_drawn_on || []).length, m => (m.own_papers || []).length));
+
       document.getElementById('authorSidebarList').innerHTML =
-        renderProfileGroup('Chinese Profiles', memos.filter(m => CHINESE_PROFILE_IDS.has(m.id))) +
-        renderProfileGroup('Non-Chinese Profiles', memos.filter(m => !CHINESE_PROFILE_IDS.has(m.id)));
+        renderProfileGroup('Chinese Profiles', rankedProfiles.filter(m => CHINESE_PROFILE_IDS.has(m.id))) +
+        renderProfileGroup('Non-Chinese Profiles', rankedProfiles.filter(m => !CHINESE_PROFILE_IDS.has(m.id)));
 
       document.getElementById('authorDetailPane').innerHTML = `
         <div class="space-y-5">
