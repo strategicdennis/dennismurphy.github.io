@@ -444,6 +444,15 @@
     // the batch buttons, the "Explore Batch 8 Papers" shortcut, and the clickable batch rows.
     const SHOW_BATCH_FILTER = false;
 
+    // Author & Institutional Profiles are shown in two groups. A profile belongs in "Chinese Profiles"
+    // when its authors/institutions are Chinese (PRC institutes, PLA bodies, Chinese scholars);
+    // every other profile is listed under "Non-Chinese Profiles". Move an ID in or out of this list
+    // to change its group.
+    const CHINESE_PROFILE_IDS = new Set([
+      'MEMO-A1', 'MEMO-A2', 'MEMO-A3', 'MEMO-A4', 'MEMO-A5', 'MEMO-A7',
+      'MEMO-A10', 'MEMO-A11', 'MEMO-A12'
+    ]);
+
     // State
     let state = {
       activeTab: 'overview',
@@ -987,7 +996,7 @@
       const memos = DATA.author_memos;
       const active = memos.find(m => m.id === state.selectedAuthorId) || memos[memos.length - 1];
 
-      document.getElementById('authorSidebarList').innerHTML = memos.map(m => {
+      const renderAuthorCard = m => {
         const isNew = ['MEMO-A22', 'MEMO-A23', 'MEMO-A24'].includes(m.id);
         const isSelected = m.id === active.id;
         return `
@@ -999,7 +1008,19 @@
             <div class="text-xs font-semibold leading-snug">${escapeHtml(m.name.split('(')[0].trim())}</div>
           </button>
         `;
-      }).join('');
+      };
+
+      const renderProfileGroup = (label, list) => list.length === 0 ? '' : `
+        <div class="flex items-center justify-between px-1 pt-3 pb-0.5 first:pt-0">
+          <h3 class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">${label}</h3>
+          <span class="text-[10px] text-slate-500 mono">${list.length} profiles</span>
+        </div>
+        ${list.map(renderAuthorCard).join('')}
+      `;
+
+      document.getElementById('authorSidebarList').innerHTML =
+        renderProfileGroup('Chinese Profiles', memos.filter(m => CHINESE_PROFILE_IDS.has(m.id))) +
+        renderProfileGroup('Non-Chinese Profiles', memos.filter(m => !CHINESE_PROFILE_IDS.has(m.id)));
 
       document.getElementById('authorDetailPane').innerHTML = `
         <div class="space-y-5">
