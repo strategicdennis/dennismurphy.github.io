@@ -143,7 +143,7 @@
   <!-- Active Batch Filter Bar -->
   <div class="bg-slate-900/60 border-b border-slate-800/80 px-4 lg:px-8 py-2">
     <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex flex-wrap items-center gap-1.5">
+      <div id="batchFilterButtons" class="flex flex-wrap items-center gap-1.5">
         <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mr-1">Batch Filter:</span>
         <button data-batch="all" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-indigo-600 text-white transition">All Batches (80 Docs)</button>
         <button data-batch="1" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Batch 1 (#1–#12)</button>
@@ -178,7 +178,7 @@
             <p class="text-xs text-slate-300 mt-0.5">Adds 10 foundational Naval Institute Press chapters (118 PDF pages, 577 endnotes, 40 audited rows [38 ok, 2 fix], 8 shared source clusters, 6 synthesis memos) bringing the dashboard to 80 documents and 345 audited reference rows.</p>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <button onclick="setBatchAndSwitch('8', 'papers')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition">
+            <button id="exploreBatch8Btn" onclick="setBatchAndSwitch('8', 'papers')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition">
               Explore Batch 8 Papers (#71–#80)
             </button>
             <button onclick="switchTab('thematic')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
@@ -440,6 +440,10 @@
   <script>
     const DATA = JSON.parse(document.getElementById('auditDatasetJson').textContent);
 
+    // The batch filter is switched off: all 80 documents always show. Set to true to bring back
+    // the batch buttons, the "Explore Batch 8 Papers" shortcut, and the clickable batch rows.
+    const SHOW_BATCH_FILTER = false;
+
     // State
     let state = {
       activeTab: 'overview',
@@ -624,7 +628,7 @@
       });
 
       document.getElementById('overviewBatchTableBody').innerHTML = batchStats.map(s => `
-        <tr class="hover:bg-slate-800/40 cursor-pointer transition ${state.batchFilter === s.b ? 'bg-blue-950/30' : ''}" onclick="setBatchAndSwitch('${s.b}', 'papers')">
+        <tr class="hover:bg-slate-800/40 ${SHOW_BATCH_FILTER ? 'cursor-pointer' : ''} transition ${state.batchFilter === s.b ? 'bg-blue-950/30' : ''}" ${SHOW_BATCH_FILTER ? `onclick="setBatchAndSwitch('${s.b}', 'papers')"` : ''}>
           <td class="py-2 pr-2 font-semibold text-slate-200">${getBatchLabel(s.b)}</td>
           <td class="py-2 px-2 text-slate-300">${s.docs}</td>
           <td class="py-2 px-2 text-slate-300">${s.rTotal}</td>
@@ -1126,10 +1130,10 @@
     }
 
     function setBatchFilter(batchVal) {
-      state.batchFilter = batchVal;
+      state.batchFilter = SHOW_BATCH_FILTER ? batchVal : 'all';
       document.querySelectorAll('.batch-filter-btn').forEach(btn => {
         const b = btn.getAttribute('data-batch');
-        if (b === batchVal) {
+        if (b === state.batchFilter) {
           btn.className = 'batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-indigo-600 text-white transition';
         } else if (b === '8') {
           btn.className = 'batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30 transition';
@@ -1245,6 +1249,10 @@
       document.querySelectorAll('.batch-filter-btn').forEach(btn => {
         btn.addEventListener('click', () => setBatchFilter(btn.getAttribute('data-batch')));
       });
+      if (!SHOW_BATCH_FILTER) {
+        document.getElementById('batchFilterButtons').style.display = 'none';
+        document.getElementById('exploreBatch8Btn').style.display = 'none';
+      }
 
       // Global search
       const searchInput = document.getElementById('globalSearchInput');
