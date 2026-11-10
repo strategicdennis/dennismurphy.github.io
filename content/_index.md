@@ -43,10 +43,6 @@ education:
     honors: "Magna Cum Laude, Honors in International Studies, Phi Beta Kappa"
 ---
 
-I am a PhD candidate in International Affairs, Science, and Technology at Georgia Tech's Sam Nunn School of International Affairs, where I study the material foundations of artificial intelligence and what they mean for international security. My dissertation seeks to answer how and under what circumstances frontier AI affects the balance of military power between the United States and China. During my PhD candidacy, I have had the opportunity to further my research at a wide variety of world renown institutions.
+I am a PhD candidate at Georgia Tech’s Sam Nunn School of International Affairs, studying the intersection of technology, economic statecraft, and international security. My dissertation examines how and under what circumstances frontier AI affects the balance of military power between the United States and China.
 
-Before starting my PhD I earned a Master of Law in Chinese Politics and Foreign Policy from Tsinghua University in Beijing and a Master of Arts in Strategic Studies and International Economics from Johns Hopkins SAIS, following a BA in International Studies from American University and an AA at Middlesex Community College. During my PhD studies, I also completed a graduate certificate in Aerospace Systems. My work bridges topics related to technology, security, China studies, and political economy.
-
-I am currently supported through the Georgia Tech Research Institute's Graduate Research Fellowship program. In addition, I am also a Predoctoral Fellow in International Security at Harvard's Belfer Center, a Graduate Research Fellow at UC Berkeley's Risk and Security Lab, and a Security Fellow at the Frontier Security Institute. I have held research positions with the RAND Corporation, Lawrence Livermore National Laboratory's Center for Global Security Research, Cambridge ERA, the O'Brien Notre Dame International Security Center, and the Astra Program hosted in Berkeley. 
-
-My writing has appeared in the Journal of Cyber Policy, Survival, the AIAA SciTech Forum, the Daily Beast, Strategy Bridge, and the Conversation.
+I am a Predoctoral Fellow in International Security at Harvard’s Belfer Center and a Graduate Research Fellow at the Georgia Tech Research Institute. My work draws on technical research and policy analysis to connect the material foundations of AI with questions of strategic competition.
