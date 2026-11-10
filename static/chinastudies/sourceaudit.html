@@ -165,7 +165,7 @@
     <!-- TAB 1: OVERVIEW -->
     <section id="tab-overview" class="tab-section space-y-6">
       <!-- Top KPI Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5" id="overviewKpiGrid"></div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3.5" id="overviewKpiGrid"></div>
 
       <!-- Batch 8 Expansion Spotlight Card -->
       <div class="rounded-xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/40 border border-indigo-500/30 p-5 shadow-lg">
@@ -232,9 +232,9 @@
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
               <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i>
-              <h3 class="text-sm font-bold text-white uppercase tracking-wider">All 403 Substantive Audit Flags in the Claim Audits, Confirmed Footnote Fixes and Footnote Rows Flagged for Reader Check (41 <code class="text-amber-300">fix</code> · 362 <code class="text-purple-300">unk</code>)</h3>
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider" id="overviewFlaggedHeading">Substantive fixes and rows for further investigation</h3>
             </div>
-            <button onclick="filterRowsByFlag()" class="text-xs text-blue-400 hover:text-blue-300 font-medium">View in Reference Matrix →</button>
+            <button onclick="filterRowsByFlag()" class="text-xs text-blue-400 hover:text-blue-300 font-medium">View further investigation in Reference Matrix →</button>
           </div>
           <div id="overviewFlaggedRowsList" class="space-y-2.5 max-h-[540px] overflow-y-auto pr-1"></div>
         </div>
@@ -255,7 +255,8 @@
                     <th class="py-2 px-2">Rows</th>
                     <th class="py-2 px-2 text-emerald-400">ok</th>
                     <th class="py-2 px-2 text-amber-400">fix</th>
-                    <th class="py-2 pl-2 text-purple-400">unk</th>
+                    <th class="py-2 px-2 text-purple-400">unk</th>
+                    <th class="py-2 pl-2 text-sky-400">Further investigation</th>
                   </tr>
                 </thead>
                 <tbody id="overviewBatchTableBody" class="divide-y divide-slate-800/70 mono"></tbody>
@@ -322,7 +323,8 @@
           <button data-rowstatus="all" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white transition">All (7,258)</button>
           <button data-rowstatus="ok" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition">ok (2,070)</button>
           <button data-rowstatus="fix" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 transition">fix (41)</button>
-          <button data-rowstatus="unk" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30 hover:bg-purple-500/25 transition">unk (5,147)</button>
+          <button data-rowstatus="unk" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30 hover:bg-purple-500/25 transition">unk</button>
+          <button data-rowstatus="further_investigation" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/30 hover:bg-sky-500/25 transition">Further investigation</button>
 
           <label class="text-xs text-slate-400 font-medium ml-2">Paper:</label>
           <select id="rowPaperFilter" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 max-w-xs">
@@ -496,6 +498,30 @@
       rowPage: 0
     };
 
+    // Claim audits with documented partial support or a concrete discrepancy.
+    const followUpClaimIds = new Set([
+      '64-R03', '65-R01', 'CMS01-R03', 'CMS01-R06', 'CANP00-R03',
+      'CMS15-R04', 'CMS17-R05', 'CMS18-R03', 'CMR01-R04', 'CMR02-R05',
+      'CMR03-R06', 'CMR04-R02', 'CMR06-R04', 'CMR07-R03', 'CMR07-R06',
+      'CMR08-R06', 'CMS03-R05', 'CMS05-R06', 'CMS07-R06', 'CMS09-R06',
+      'CMS10-R02', 'CMS10-R06', 'CMS11-R01', 'CMS11-R04', 'CMS12-R02',
+      'CMS12-R04', 'CMS12-R06', 'CMS12-R07', 'CMS13-R04', 'CMS13-R05',
+      'CMS14-R02'
+    ]);
+
+    function classifyAuditRow(row) {
+      if (row.status !== 'unk') return;
+      const hasVerifiedNote = row.fn && (row.ns || []).length > 1 &&
+        /Consolidated row:[^\n]*\b[1-9]\d* ok\b/.test(row.finding);
+      const hasPartialOutsideCheck = row.fn &&
+        /Outside check\*\*:\s*(?:Web search )?(?:confirms?|confirmed|verified|corroborates?)\b[^\n]*\bbut\s+(?:could not|did not|not|no)\b/i.test(row.finding);
+      if (followUpClaimIds.has(row.id) || row.flag || hasVerifiedNote || hasPartialOutsideCheck) {
+        row.status = 'further_investigation';
+      }
+    }
+
+    DATA.papers.forEach(p => (p.rows || []).forEach(classifyAuditRow));
+
     function allRowsOf(p) { return (p.rows || []).concat(p.fnrows || []); }
 
     function getBatchNum(readingOrder) {
@@ -568,6 +594,9 @@
       if (status === 'fix') {
         return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 mono"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>fix</span>`;
       }
+      if (status === 'further_investigation') {
+        return '<span class="inline-flex px-2 py-0.5 rounded-full text-[11px] font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/40">Further investigation</span>';
+      }
       if (status === 'unk') {
         return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40 mono"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>unk</span>`;
       }
@@ -598,13 +627,14 @@
 
     function renderOverview() {
       const filteredPapers = DATA.papers.filter(matchesBatchAndSearch);
-      let okCount = 0, fixCount = 0, unkCount = 0, totalRows = 0;
+      let okCount = 0, fixCount = 0, unkCount = 0, followUpCount = 0, totalRows = 0;
       filteredPapers.forEach(p => {
         allRowsOf(p).forEach(r => {
           totalRows++;
           if (r.status === 'ok') okCount++;
           else if (r.status === 'fix') fixCount++;
           else if (r.status === 'unk') unkCount++;
+          else if (r.status === 'further_investigation') followUpCount++;
         });
       });
 
@@ -613,7 +643,8 @@
         { label: 'Audited Reference Rows', val: totalRows.toLocaleString(), sub: `of ${DATA.meta.row_count.toLocaleString()} total: ${DATA.meta.curated_row_count} claim audits + ${DATA.meta.footnote_row_count.toLocaleString()} footnote source rows covering ${DATA.meta.footnote_note_count.toLocaleString()} footnotes`, color: 'text-indigo-400', icon: 'check-circle-2' },
         { label: 'Verified Clean (ok)', val: okCount.toLocaleString(), sub: `${totalRows ? ((okCount / totalRows) * 100).toFixed(1) : 0}% verification rate`, color: 'text-emerald-400', icon: 'shield-check' },
         { label: 'Substantive Fixes (fix)', val: fixCount, sub: `Factual, math, map & citation errors`, color: 'text-amber-400', icon: 'alert-octagon' },
-        { label: 'Unverified Claims (unk)', val: unkCount.toLocaleString(), sub: `Unconfirmed open-source claims`, color: 'text-purple-400', icon: 'help-circle' },
+        { label: 'Unverified (unk)', val: unkCount.toLocaleString(), sub: 'Support could not be established', color: 'text-purple-400', icon: 'help-circle' },
+        { label: 'Further investigation', val: followUpCount.toLocaleString(), sub: 'Partial corroboration or a specific discrepancy', color: 'text-sky-400', icon: 'search' },
         { label: 'Synthesis Memos & Theses', val: `${DATA.meta.total_memo_count} + ${DATA.meta.thesis_count}`, sub: `${DATA.meta.thematic_memo_count} Thematic · ${DATA.meta.author_memo_count} Author · ${DATA.meta.thesis_count} Theses`, color: 'text-cyan-400', icon: 'book-marked' }
       ];
 
@@ -629,15 +660,11 @@
       `).join('');
 
       // Flagged rows list
-      const flagged = [];
-      DATA.papers.forEach(p => {
-        if (state.batchFilter !== 'all' && getBatchNum(p.reading_order) !== state.batchFilter) return;
-        (p.rows || []).concat((p.fnrows || []).filter(r => r.status === 'fix' || r.flag)).forEach(r => {
-          if (r.status !== 'ok') {
-            flagged.push({ paper: p, row: r });
-          }
-        });
-      });
+      const flagged = filteredPapers.flatMap(p => allRowsOf(p)
+        .filter(r => r.status === 'fix' || r.status === 'further_investigation')
+        .map(row => ({ paper: p, row })));
+      document.getElementById('overviewFlaggedHeading').textContent =
+        `Substantive fixes (${fixCount.toLocaleString()}) and rows for further investigation (${followUpCount.toLocaleString()})`;
 
       document.getElementById('overviewFlaggedRowsList').innerHTML = flagged.map(({ paper, row }) => `
         <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 transition">
@@ -658,14 +685,15 @@
       // Batch breakdown table
       const batchStats = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map(b => {
         const bPapers = DATA.papers.filter(p => getBatchNum(p.reading_order) === b);
-        let rTotal = 0, rOk = 0, rFix = 0, rUnk = 0;
+        let rTotal = 0, rOk = 0, rFix = 0, rUnk = 0, rFollowUp = 0;
         bPapers.forEach(p => allRowsOf(p).forEach(r => {
           rTotal++;
           if (r.status === 'ok') rOk++;
           else if (r.status === 'fix') rFix++;
           else if (r.status === 'unk') rUnk++;
+          else if (r.status === 'further_investigation') rFollowUp++;
         }));
-        return { b, docs: bPapers.length, rTotal, rOk, rFix, rUnk };
+        return { b, docs: bPapers.length, rTotal, rOk, rFix, rUnk, rFollowUp };
       });
 
       document.getElementById('overviewBatchTableBody').innerHTML = batchStats.map(s => `
@@ -676,6 +704,7 @@
           <td class="py-2 px-2 text-emerald-400 font-semibold">${s.rOk}</td>
           <td class="py-2 px-2 ${s.rFix > 0 ? 'text-amber-400 font-bold' : 'text-slate-500'}">${s.rFix}</td>
           <td class="py-2 pl-2 ${s.rUnk > 0 ? 'text-purple-400 font-bold' : 'text-slate-500'}">${s.rUnk}</td>
+          <td class="py-2 pl-2 text-sky-400">${s.rFollowUp}</td>
         </tr>
       `).join('');
 
@@ -754,9 +783,10 @@
         const okRows = allRowsOf(p).filter(r => r.status === 'ok').length;
         const fixRows = allRowsOf(p).filter(r => r.status === 'fix').length;
         const unkRows = allRowsOf(p).filter(r => r.status === 'unk').length;
+        const followUpRows = allRowsOf(p).filter(r => r.status === 'further_investigation').length;
 
         return `
-          <article id="paper-card-${p.reading_order}" class="bg-slate-900 border ${fixRows > 0 || unkRows > 0 ? 'border-amber-500/40' : 'border-slate-800'} rounded-xl overflow-hidden shadow transition">
+          <article id="paper-card-${p.reading_order}" class="bg-slate-900 border ${fixRows > 0 || unkRows > 0 || followUpRows > 0 ? 'border-amber-500/40' : 'border-slate-800'} rounded-xl overflow-hidden shadow transition">
             <!-- Card Header -->
             <div class="p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 cursor-pointer hover:bg-slate-800/30 transition" onclick="togglePaperExpand(${p.reading_order})">
               <div class="space-y-1.5">
@@ -767,6 +797,7 @@
                   <span class="text-xs text-slate-400 mono">${escapeHtml(p.pub_date)}</span>
                   ${fixRows > 0 ? `<span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 mono">${fixRows} fix</span>` : ''}
                   ${unkRows > 0 ? `<span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40 mono">${unkRows} unk</span>` : ''}
+                  ${followUpRows > 0 ? `<span class="text-[11px] font-semibold text-sky-300">${followUpRows} for further investigation</span>` : ''}
                   <span class="px-2 py-0.5 rounded-full text-[11px] bg-emerald-500/10 text-emerald-300 mono">${okRows}/${allRowsOf(p).length} ok</span>
                 </div>
                 <h3 class="text-base font-bold text-white leading-snug">${escapeHtml(p.full_title)}</h3>
@@ -848,7 +879,7 @@
               <div class="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
                 <div class="px-4 py-2.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
                   <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">Claim Audits (${(p.rows || []).length})</span>
-                  ${(p.fnrows || []).length ? `<button onclick="showFootnoteRows('${p.code}')" class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-200 border border-indigo-500/40 transition">Footnote source rows: ${(p.fnrows || []).length.toLocaleString()}${(p.footnotes || {}).total > (p.fnrows || []).length ? ' for ' + p.footnotes.total.toLocaleString() + ' notes' : ''} (${(p.fnrows || []).filter(r => r.status === 'ok').length} ok · ${(p.fnrows || []).filter(r => r.status === 'fix').length} fix · ${(p.fnrows || []).filter(r => r.status === 'unk').length} unk) → open in matrix</button>` : `<span class="text-[11px] text-slate-400 mono">${DATA.fnLoaded ? ((p.footnotes || {}).note || 'No footnote rows') : 'Loading footnote rows…'}</span>`}
+                  ${(p.fnrows || []).length ? `<button onclick="showFootnoteRows('${p.code}')" class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-200 border border-indigo-500/40 transition">Footnote source rows: ${(p.fnrows || []).length.toLocaleString()}${(p.footnotes || {}).total > (p.fnrows || []).length ? ' for ' + p.footnotes.total.toLocaleString() + ' notes' : ''} (${(p.fnrows || []).filter(r => r.status === 'ok').length} ok · ${(p.fnrows || []).filter(r => r.status === 'fix').length} fix · ${(p.fnrows || []).filter(r => r.status === 'unk').length} unk / ${(p.fnrows || []).filter(r => r.status === 'further_investigation').length} for further investigation) → open in matrix</button>` : `<span class="text-[11px] text-slate-400 mono">${DATA.fnLoaded ? ((p.footnotes || {}).note || 'No footnote rows') : 'Loading footnote rows…'}</span>`}
                 </div>
                 <div class="overflow-x-auto">
                   <table class="w-full text-left text-xs">
@@ -908,13 +939,17 @@
       if (state.rowPage >= pages) state.rowPage = pages - 1;
       if (state.rowPage < 0) state.rowPage = 0;
       const slice = all.slice(state.rowPage * ROW_PAGE, (state.rowPage + 1) * ROW_PAGE);
-      let tot = 0, ok = 0, fx = 0, uk = 0;
-      DATA.papers.forEach(p => allRowsOf(p).forEach(r => { tot++; if (r.status === 'ok') ok++; else if (r.status === 'fix') fx++; else if (r.status === 'unk') uk++; }));
+      let tot = 0, ok = 0, fx = 0, uk = 0, followUp = 0;
+      DATA.papers.forEach(p => allRowsOf(p).forEach(r => { tot++; if (r.status === 'ok') ok++; else if (r.status === 'fix') fx++; else if (r.status === 'unk') uk++; else if (r.status === 'further_investigation') followUp++; }));
       const setTxt = (sel, t) => { const el = document.querySelector(sel); if (el) el.textContent = t; };
       setTxt('[data-rowstatus="all"]', `All (${tot.toLocaleString()})`);
       setTxt('[data-rowstatus="ok"]', `ok (${ok.toLocaleString()})`);
       setTxt('[data-rowstatus="fix"]', `fix (${fx.toLocaleString()})`);
       setTxt('[data-rowstatus="unk"]', `unk (${uk.toLocaleString()})`);
+      setTxt('[data-rowstatus="further_investigation"]', `Further investigation (${followUp.toLocaleString()})`);
+      document.querySelectorAll('.row-status-btn').forEach(btn => {
+        btn.classList.toggle('ring-2', btn.dataset.rowstatus === state.rowStatusFilter);
+      });
 
       document.getElementById('navRowCountBadge').textContent = all.length.toLocaleString();
       document.getElementById('rowMatrixCountLabel').textContent = `Showing ${all.length.toLocaleString()} of ${tot.toLocaleString()} reference rows`;
@@ -956,6 +991,7 @@
         DATA.papers.forEach(p => {
           p.fnrows = ((j.rows || {})[p.code] || []).map(a => ({ id: a[0], status: a[1], source: a[2], shared_key: a[3], usage: a[4], finding: a[5], n: a[6], seg: a[7], basis: a[8], ns: a[9], aliases: a[10], flag: a[11] || '', fn: 1 }));
         });
+        DATA.papers.forEach(p => p.fnrows.forEach(classifyAuditRow));
         DATA.fnLoaded = true;
         banner.classList.add('hidden');
         renderAll();
@@ -1281,10 +1317,8 @@
     }
 
     function filterRowsByFlag() {
-      state.rowStatusFilter = 'fix';
-      document.querySelectorAll('.row-status-btn').forEach(btn => {
-        btn.classList.toggle('ring-2', btn.getAttribute('data-rowstatus') === 'fix');
-      });
+      state.rowStatusFilter = 'further_investigation';
+      state.rowPage = 0;
       renderRowsMatrix();
       switchTab('rows');
     }
