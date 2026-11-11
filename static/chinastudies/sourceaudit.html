@@ -83,7 +83,7 @@
       <div class="flex flex-wrap items-center gap-2">
         <div class="relative flex-1 sm:flex-initial sm:w-64">
           <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-          <input id="globalSearchInput" type="text" placeholder="Search 110 papers, 7,428 rows, memos..."
+          <input id="globalSearchInput" type="text" placeholder="Search 110 papers, 7,528 rows, memos..."
             class="w-full pl-9 pr-7 py-1.5 text-xs bg-slate-950 border border-slate-700/80 rounded-lg text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition" />
           <button id="clearGlobalSearchBtn" title="Clear search" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200">
             <i data-lucide="x" class="w-3.5 h-3.5"></i>
@@ -96,7 +96,7 @@
         </button>
         <button id="downloadCsvBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
           <i data-lucide="table" class="w-3.5 h-3.5"></i>
-          <span>Export 7,428 Rows CSV</span>
+          <span>Export 7,528 Rows CSV</span>
         </button>
       </div>
     </div>
@@ -115,7 +115,7 @@
       <button data-tab="rows" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
         <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
         <span>3. Reference Audit Matrix</span>
-        <span id="navRowCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">700</span>
+        <span id="navRowCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">800</span>
       </button>
       <button data-tab="shared" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
         <i data-lucide="git-Fork" class="w-3.5 h-3.5"></i>
@@ -155,7 +155,7 @@
         <button data-batch="7" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Batch 7 (#61–#70)</button>
         <button data-batch="8" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30 transition">★ Batch 8 (#71–#80: CCP Espionage, McDevitt Naval Power &amp; Whaley Intro)</button>
       </div>
-      <div id="activeFilterStatusText" class="text-xs text-slate-400 mono">Showing all 110 documents · 7,428 audited reference rows</div>
+      <div id="activeFilterStatusText" class="text-xs text-slate-400 mono">Showing all 110 documents · 7,528 audited reference rows</div>
     </div>
   </div>
 
@@ -320,7 +320,7 @@
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
         <div class="flex flex-wrap items-center gap-2">
           <span class="text-xs text-slate-400 font-medium">Row Status:</span>
-          <button data-rowstatus="all" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white transition">All (7,428)</button>
+          <button data-rowstatus="all" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white transition">All (7,528)</button>
           <button data-rowstatus="ok" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition">ok (2,070)</button>
           <button data-rowstatus="fix" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 transition">fix (41)</button>
           <button data-rowstatus="unk" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30 hover:bg-purple-500/25 transition">unk</button>
@@ -338,7 +338,7 @@
           </select>
           <input id="rowSearchInput" type="text" placeholder="Search rows..." class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 w-48">
         </div>
-        <div id="rowMatrixCountLabel" class="text-xs text-slate-400 mono">Showing 7,428 of 7,428 reference rows</div>
+        <div id="rowMatrixCountLabel" class="text-xs text-slate-400 mono">Showing 7,528 of 7,528 reference rows</div>
       </div>
 
       <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow">
@@ -435,7 +435,7 @@
 
   <footer class="border-t border-slate-800/80 px-4 lg:px-8 py-4">
     <div class="max-w-[1600px] mx-auto text-xs text-slate-500 mono">
-      Last updated <span id="lastUpdated">November 10, 2026</span>
+      Last updated <span id="lastUpdated">November 11, 2026</span>
     </div>
   </footer>
 
@@ -3662,6 +3662,1810 @@
     "footnote_ids": [
       "CS21P2-S6N051"
     ]
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R18",
+    "status": "further_investigation",
+    "source": "Hu’s 2006 speech: quotation versus blue-water interpretation",
+    "usage": "Note 16 presents powerful blue-water navy and at any time as wording from Hu Jintao’s December 27, 2006 speech.",
+    "finding": "The located contemporary Chinese report supports the call for a strong navy suited to its historic missions. It does not establish that blue water was Hu’s quoted wording. Distinguish the reported speech from analysts’ interpretation of its implications, and compare the full English rendering before retaining quotation marks around the combined phrase. The other energy claims grouped into this footnote are not decided here.",
+    "evidence": [
+      [
+        "Contemporary Chinese report of Hu’s speech",
+        "https://news.ifeng.com/mil/2/200612/1227_340_55587.shtml"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-S1N018"
+    ]
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R19",
+    "status": "unk",
+    "source": "Malacca share: unpublished interview and denominator",
+    "usage": "The passage says more than 85 percent of Chinese oil and oil-product imports passed through Malacca, citing a March 2007 telephone interview.",
+    "finding": "The cited interview is not publicly retrievable. Downs’s contemporary testimony describes almost 90 percent of crude imports travelling by sea, which is a different route and product denominator and cannot verify the Malacca percentage. Keep the 85 percent figure unverified until an interview record or a matching 2007 route dataset is available; do not replace it with a later 80 percent estimate without qualification.",
+    "evidence": [
+      [
+        "Downs’s 2006 testimony, seaborne-import context",
+        "https://www.brookings.edu/wp-content/uploads/2016/06/downs20060804-1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-S9N030"
+    ]
+  },
+  {
+    "paper": "CES-P4",
+    "id": "CESP4-R13",
+    "status": "ok",
+    "source": "Sudan import ranking: the cited 2005 figures are present",
+    "usage": "Note 19 calls Sudan China’s seventh-largest crude supplier at 133,000 barrels daily.",
+    "finding": "Downs’s August 4, 2006 testimony explicitly identifies Sudan as the largest source of Chinese national oil companies’ foreign production and China’s seventh-largest crude supplier in 2005, supplying 133,000 barrels daily. This resolves the earlier flag: comparisons with 2006 or 2007 used different years. State 2005 alongside the figures so a historical estimate is not read as a current ranking.",
+    "evidence": [
+      [
+        "Original Downs testimony, p. 5",
+        "https://www.brookings.edu/wp-content/uploads/2016/06/downs20060804-1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP4-S1N003"
+    ]
+  },
+  {
+    "paper": "CFNSF-01",
+    "id": "CFNSF01-R06",
+    "status": "further_investigation",
+    "source": "Putin and the 2004 launch failure: identify which day",
+    "usage": "The note is attached to: “For instance, one source has documented the great embarrassment suffered during an SLBM test failure that was witnessed directly by Russian president Vladimir Putin in early 2004.”",
+    "finding": "Contemporary reporting and the 2004 Nuclear Notebook distinguish a failed launch attempt on February 17, observed by Putin from another submarine, from a launch that failed in flight on February 18. The general statement about witnessing a failure is plausible for the first event, but should not conflate it with the second. The cited Wang article remains unavailable; identify the event and describe embarrassment as an interpretation rather than an independently measured fact.",
+    "evidence": [
+      [
+        "Contemporary RFE/RL account, February 18, 2004",
+        "https://www.rferl.org/a/1143099.html"
+      ],
+      [
+        "Original Nuclear Notebook, Russian Nuclear Forces 2004",
+        "https://journals.sagepub.com/doi/10.2968/060004016"
+      ]
+    ],
+    "footnote_ids": [
+      "CFNSF01-N037"
+    ]
+  },
+  {
+    "paper": "CFNSF-03",
+    "id": "CFNSF03-R06",
+    "status": "ok",
+    "source": "Obering quotation: newspaper attribution",
+    "usage": "The study quotes Obering via Tyson.",
+    "finding": "The cited newspaper contains this quotation; the separate transcript comparison remains unresolved.",
+    "evidence": [
+      [
+        "Original Tyson article, July 22, 2005",
+        "https://www.washingtonpost.com/archive/politics/2005/07/22/us-missile-defense-being-expanded-general-says/cee24eef-12c5-46ec-9e7b-8bddabe7fc94/"
+      ]
+    ],
+    "footnote_ids": [
+      "CFNSF03-N001"
+    ]
+  },
+  {
+    "paper": "CFNSF-05",
+    "id": "CFNSF05-R05",
+    "status": "unk",
+    "source": "Cold War reconnaissance losses: interval and categories",
+    "usage": "The note is attached to: “Between 1950 and 1959, for example, the Air Force and Navy lost at least sixteen aircraft with 164 crewmen killed on reconnaissance missions along the Soviet periphery.”",
+    "finding": "The Burrows book was identified, but the relevant passage and a matching incident-by-incident total were not retrieved. Publisher material describing more than 130 missing personnel is not a like-for-like check of 164 killed during 1950–1959. Separate killed, missing, captured and aircraft lost, and establish the date range and Soviet-periphery coverage before accepting or rejecting the totals.",
+    "evidence": [
+      [
+        "Book description reproducing publisher material, not the cited passage",
+        "https://2think.org/byanymeans.shtml"
+      ]
+    ],
+    "footnote_ids": [
+      "CFNSF05-N004"
+    ]
+  },
+  {
+    "paper": "CMGZ-P1",
+    "id": "CMGZP1-R05",
+    "status": "further_investigation",
+    "source": "Johnson South Reef deaths: 64 versus 70",
+    "usage": "The note is attached to: “Since 1988, when seventy Vietnamese perished in a naval battle with China near Johnson South Reef, there have been surprisingly few battle deaths in the South China Sea, a region primed for conflict.”",
+    "finding": "Vietnamese commemorative reporting consistently identifies 64 naval personnel killed in the March 14, 1988 battle. This conflicts with the passage’s seventy, but the cited Koo book and any wider geographic or casualty definition were not retrieved. Trace the seventy figure and specify the battle and casualty category; do not blend killed and captured into one death total.",
+    "evidence": [
+      [
+        "Vietnam News/VNA account of the memorial and 64 deaths",
+        "https://vietnamnews.vn/politics-laws/1651972/gac-ma-soldiers-remembered-in-ceremony-in-quang-binh.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMGZP1-S2N028"
+    ]
+  },
+  {
+    "paper": "CMR-05",
+    "id": "CMR05-R07",
+    "status": "fix",
+    "source": "Zumwalt programme truncation: before 2014",
+    "usage": "Note 138 dates the U.S. decision to limit the Zumwalt class to three ships to 2014.",
+    "finding": "CRS’s programme history documents the 2008 procurement reversal and the April 2009 arrangement for construction of all three ships. The three-ship decision therefore predates 2014. Correct the chronology while distinguishing earlier procurement-plan reductions from the lead ship’s later christening and commissioning. The Chinese Yin He article still needs comparison to locate the origin of the date.",
+    "evidence": [
+      [
+        "CRS destroyer programme history, June 2012 edition",
+        "https://www.everycrsreport.com/files/20120612_RL32109_fd193d0bbb0af30ec317afdce90901e6327c3e8a.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR05-N003"
+    ]
+  },
+  {
+    "paper": "CMR-05",
+    "id": "CMR05-R08",
+    "status": "ok",
+    "source": "Shen Jinlong: launch attendance corroborated",
+    "usage": "Note 23 says Shen Jinlong attended the June 2017 launch of the first Type 055.",
+    "finding": "The contemporary launch account credited to PLA Daily explicitly lists Shen Jinlong among attendees, alongside Zhang Youxia and other officials. Zhang’s prominent role does not exclude Shen’s attendance. This resolves the earlier absence-of-mention concern for note 23; it does not verify the technical claims in the other grouped notes.",
+    "evidence": [
+      [
+        "Contemporary PLA Daily report reproduced by Creaders",
+        "https://news.creaders.net/china/2017/06/27/1840297.html"
+      ],
+      [
+        "Contemporary Chinese launch coverage listing attendees",
+        "https://mil.news.sina.com.cn/china/2017-06-28/doc-ifyhmtrw4309433.shtml"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR05-N010"
+    ]
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R20",
+    "status": "further_investigation",
+    "source": "Pakistan security force: name, size and headquarters",
+    "usage": "The footnote’s force description needs checking.",
+    "finding": "Contemporary reporting supports Special Security Division and about 15,000 personnel. The headquarters and 17,000 upper bound need the cited report.",
+    "evidence": [
+      [
+        "Contemporary reporting of the force notification",
+        "https://www.dawn.com/news/1310032/i.dawn.com"
+      ],
+      [
+        "Contemporary report on CPEC protection forces",
+        "https://www.dawn.com/news/1316040"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N261"
+    ]
+  },
+  {
+    "paper": "CMR-58",
+    "id": "CMR58-R06",
+    "status": "further_investigation",
+    "source": "Discipline inspection: 2020 passage versus 2023 citation",
+    "usage": "The note is attached to: “More specifically, a 2020 special inspection initiative of the Southern Theater Command Navy’s DIC provided further details on six current PLAN priorities for discipline:”",
+    "finding": "The attached passage says 2020, but the citation’s Chinese title, publication date and URL identify a Mid-Autumn/National Day initiative in 2023. Direct retrieval of that item failed in this pass. This is a concrete internal citation discrepancy, not proof that no 2020 initiative existed. Retrieve the six-priority text and either correct the passage’s year or supply the intended 2020 source.",
+    "evidence": [
+      [
+        "Cited 2023 inspection item, currently not retrievable",
+        "https://news.qq.com/rain/a/20230926A038ZZ00"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR58-N019"
+    ]
+  },
+  {
+    "paper": "CMS-02",
+    "id": "CMS02-R10",
+    "status": "further_investigation",
+    "source": "Submarine commissioning average: endpoints and inclusive years",
+    "usage": "Note 25 gives 38 new submarines during 1995–2008, averaging 2.9 yearly.",
+    "finding": "Thirty-eight divided by fourteen inclusive calendar years is about 2.7; divided by the thirteen-year interval between 1995 and 2008 it is about 2.9. Thus the numerical difference alone does not establish an error. The exact October 2008 CRS table was not retrieved. Check its commissioning dates, treatment of imported boats and endpoint convention before changing either the count or the average.",
+    "evidence": [
+      [
+        "Citing study, commissioning-count passage and footnote",
+        "https://www.andrewerickson.com/wp-content/uploads/2017/09/China-Maritime-Study-2_Chinese-Naval-Operations-in-Japanese-Waters_Dutton_200902.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS02-N025"
+    ]
+  },
+  {
+    "paper": "CMS-02",
+    "id": "CMS02-R11",
+    "status": "fix",
+    "source": "First Han commissioning: 1974 rather than 1980",
+    "usage": "The note is attached to: “The Hans are the result of an indigenous building project during the 1960s and ’70s, although the first was not commissioned until January 1980.”",
+    "finding": "The official Chinese account identifies Long March-1, China’s first nuclear-powered submarine, as commissioned on August 1, 1974. Correct the first-boat commissioning year from 1980 to 1974, distinguishing commissioning from later readiness or subsequent boats. The cited Jane’s edition remains unspecified, so its precise wording still needs comparison.",
+    "evidence": [
+      [
+        "Official Chinese history identifying the first boat and commissioning date",
+        "https://english.scio.gov.cn/in-depth/2026-10/22/content_118744141.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS02-N031"
+    ]
+  },
+  {
+    "paper": "CMS-03",
+    "id": "CMS03-R07",
+    "status": "fix",
+    "source": "Naval aviation: service founding versus navy founding",
+    "usage": "The note is attached to: “Aerial mining has enjoyed dedicated platforms since the PLAN created an aviation branch with a minelaying bomber division in April 1949.”",
+    "finding": "The Ministry of National Defense dates naval aviation’s formal establishment as a service to September 1952; the Air University historical primer likewise places its department in 1952. The passage appears to assign the navy’s April 1949 founding date to its aviation branch. Correct or qualify the branch-founding chronology, and retrieve Yao Jun before deciding whether the cited passage concerns an earlier precursor unit or the minelaying division specifically.",
+    "evidence": [
+      [
+        "Official naval aviation anniversary history",
+        "https://eng.mod.gov.cn/xb/News_213114/Features/16061624.html"
+      ],
+      [
+        "Air University historical primer on naval aviation",
+        "https://www.airuniversity.af.edu/Portals/10/CASI/documents/Research/PLAAF/2019-07-30%20Primer_2nd_Edition.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS03-N203"
+    ]
+  },
+  {
+    "paper": "CMS-03",
+    "id": "CMS03-R08",
+    "status": "ok",
+    "source": "LCS funding: seven cumulative versus three in FY2010",
+    "usage": "The note is attached to: “The U.S. Navy is on track to fund up to seven LCSs through fiscal year 2010, toward an eventual total of fifty-five vessels, a plan strongly endorsed by Secretary of Defense Robert Gates.”",
+    "finding": "GAO’s 2010 acquisition review states that the Navy budgeted for three FY2010 ships, LCS 5–7, following the first four seaframes. This supports a then-planned cumulative seven, rather than seven purchased in that fiscal year. Later restructuring reduced the FY2010 procurement, but does not refute the earlier forecast. The previous flag compared an annual request with the passage’s cumulative wording.",
+    "evidence": [
+      [
+        "GAO-10-523, historical FY2010 budget and restructuring account",
+        "https://www.gao.gov/assets/a308964.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS03-N394"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R13",
+    "status": "further_investigation",
+    "source": "Sonar: attributed claim versus scientific scope",
+    "usage": "Note 41 says research shows no sonar effects on mammals or fish when protective measures are used.",
+    "finding": "Pedrozo’s indexed article contains the no-evidence statement, supporting its attribution. It is not itself a controlled biological study. Tyack et al. (2011) report behavioral responses by beaked whales to simulated and actual sonar; those results are later than Pedrozo and do not test every mitigation regime. Distinguish behavioral response, injury and mitigation effectiveness, and avoid presenting the 2009 assertion as an unlimited scientific conclusion.",
+    "evidence": [
+      [
+        "Cited Pedrozo article record",
+        "https://digital-commons.usnwc.edu/nwc-review/vol62/iss3/8/"
+      ],
+      [
+        "Indexed full-text reproduction of Pedrozo",
+        "https://www.academia.edu/115738826/Close_Encounters_at_Sea_The_USNS_Impeccable_Incident"
+      ],
+      [
+        "Original Tyack et al. 2011 research",
+        "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0017009"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S4N028"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R14",
+    "status": "ok",
+    "source": "1974 Alaska landing: what Rumsfeld’s cited briefing says",
+    "usage": "Note 30 attributes the 1974 Soviet aircraft emergency landing at Gambell to a 2001 Defense Department briefing.",
+    "finding": "CNN’s transcript of the April 13, 2001 briefing records Rumsfeld describing a Soviet AN-24 reconnaissance aircraft landing in Alaska on February 27, 1974 because it was low on fuel. That supports the passage’s account of what the cited briefing reported. It does not independently establish the aircraft’s precise mission; ice reconnaissance and military surveillance should not be treated as interchangeable without an aviation source.",
+    "evidence": [
+      [
+        "Transcript of the cited Rumsfeld briefing",
+        "https://transcripts.cnn.com/show/se/date/2001-04-13/segment/02"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S4N030"
+    ]
+  },
+  {
+    "paper": "CMS-08",
+    "id": "CMS08-R11",
+    "status": "further_investigation",
+    "source": "Arctic resources: undiscovered recoverable petroleum versus all reserves",
+    "usage": "Note 37 reports a claim that the Arctic holds 25 percent of the world’s oil and gas, plus 9 percent of coal.",
+    "finding": "USGS’s 2008 appraisal concerns undiscovered conventional resources north of the Arctic Circle, not all known oil and gas reserves. Its estimates and the EIA summary use that narrower denominator. The cited Chinese authors’ exact 25 percent and coal figures were not retrieved. Specify the resource definition and assessment year, and distinguish reporting an author’s estimate from endorsing it as a geological fact.",
+    "evidence": [
+      [
+        "Original USGS 2008 appraisal",
+        "https://pubs.usgs.gov/fs/2008/3049/"
+      ],
+      [
+        "EIA 2009 analysis of the appraisal, archived copy",
+        "https://www.arlis.org/docs/vol1/AlaskaGas/Paper/Paper_EIA_2009_ArcticOilGasPotential.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS08-N008"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R09",
+    "status": "further_investigation",
+    "source": "Peace Ark: displacement, beds and first-mission wording",
+    "usage": "The note is attached to: “The PLAN has followed suit, recently commissioning its new hospital ship, the two-thousand-ton, five-hundred-bed Daishandao, which first deployed in October 2009 and has since made several deployments as far abroad as Africa and, most recently, even to the Caribbean.”",
+    "finding": "Official reporting describes Peace Ark at 14,000 metric tons with more than 300 beds, conflicting with the extracted two-thousand-ton and five-hundred-bed wording. The original 2009 item and a visual check of the study’s printed sentence are still needed to exclude transcription or extraction error. Later specifications also do not independently settle the 2009 configuration or whether first deployed means domestic or overseas service.",
+    "evidence": [
+      [
+        "Official ministry-hosted ship description",
+        "https://eng.mod.gov.cn/xb/News_213114/Features/16334935.html"
+      ],
+      [
+        "Official 2021 description of hospital capacity",
+        "https://eng.mod.gov.cn/xb/MilitaryServices/News_213106/16006114.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S13N011"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R10",
+    "status": "further_investigation",
+    "source": "Qian carrier quotation: paraphrase and exact wording",
+    "usage": "The note is attached to: “Qian Lihua, said that “having an aircraft carrier is the dream of any great military power,” and “the question is not whether you have an aircraft carrier, but what you do with your aircraft carrier.””",
+    "finding": "A contemporary reproduction of the cited BBC item distinguishes the navy of a great power dreaming of carriers from the study’s shortened quotation. It also reproduces the second quotation about what a country does with its carrier. Direct BBC retrieval failed, so compare the original or the Financial Times interview before replacing the first quotation. A close paraphrase should not be silently presented as verbatim wording.",
+    "evidence": [
+      [
+        "Cited BBC item, direct retrieval unavailable",
+        "https://news.bbc.co.uk/2/hi/asia-pacific/7732679.stm"
+      ],
+      [
+        "Contemporary reproduction of the BBC report",
+        "https://defence.pk/threads/china-has-aircraft-carrier-hopes.16395/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S13N013"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R21",
+    "status": "unk",
+    "source": "Four-year escort totals: presentation and newspaper cutoffs",
+    "usage": "Note 3 lists 37 warships, 28 helicopters, nearly 10,000 personnel and thirteen task forces.",
+    "finding": "The March 2013 SHADE presentation was not retrieved, and the December 2012 newspaper article could not be opened directly. These sources have different cutoff dates. Do not adopt the earlier flag’s suggested replacement of 37 by 34 without comparing both sources and distinguishing unique hulls from deployment instances. The combined numerical claim remains unverified in this pass.",
+    "evidence": [
+      [
+        "Cited December 2012 article, currently unavailable",
+        "https://europe.chinadaily.com.cn/china/2012-12/29/content_16066937.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S4N003"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R22",
+    "status": "further_investigation",
+    "source": "CMF membership: dated count and coalition scope",
+    "usage": "The explanatory footnote lists 27 CMF states as of November 2012.",
+    "finding": "The footnote’s list contains 27 names, while a September 11, 2012 UK Ministry of Defence release describes CMF as a 26-nation partnership. The two-month gap means this is not by itself a contradiction. Obtain a November membership snapshot and distinguish membership from contribution to a particular task force or conference. Today’s membership and command-history tables cannot establish the 2012 total.",
+    "evidence": [
+      [
+        "Contemporary UK Ministry of Defence release, September 2012",
+        "https://www.gov.uk/government/news/defence-secretary-visits-the-royal-navy-in-the-gulf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S7N001"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R23",
+    "status": "ok",
+    "source": "Kirk’s 2011 Wenzhou visit: original account located",
+    "usage": "The note is attached to: “In April 2011, Senator Mark Kirk of Illinois paid a visit to the eighth PLAN escort task force in the Gulf of Aden and held talks with the task force commander, Han Xiaohu.”",
+    "finding": "The indexed original China News Service report explicitly records Kirk visiting Wenzhou on April 28, 2011 and meeting commander Han Xiaohu. Kirk’s own delegation report also records a meeting with Wenzhou’s crew during the April 25–May 2 trip. This resolves the earlier not-found flag for the April visit; neither the failure of an earlier search nor a different China trip was contrary evidence.",
+    "evidence": [
+      [
+        "Original China News Service report, indexed full text",
+        "https://www.chinanews.com/gn/2011/04-29/3009065.shtml"
+      ],
+      [
+        "Kirk delegation report, archived copy",
+        "https://piracyreport.com/downloads/kirk.senate.gov_pdfs_KirkReportfinal2.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-N215"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R24",
+    "status": "fix",
+    "source": "Somali piracy in 2011: attacks rose while hijackings fell",
+    "usage": "The note is attached to: “The year 2011 was the first in which Somali pirate attacks declined since the international community first deployed naval vessels on a large scale to the Gulf of Aden and surrounding waters.”",
+    "finding": "The IMB 2011 annual report distinguishes 237 Somali incidents in 2011 from 219 in 2010, while successful hijackings fell from 49 to 28. Correct the passage’s unqualified claim that Somali pirate attacks declined in 2011. A decline in successful hijackings, or in the Gulf of Aden alone, is a different measure and needs its own label.",
+    "evidence": [
+      [
+        "Original IMB 2011 annual report, trends section",
+        "https://safety4sea.com/wp-content/uploads/2014/09/pdf/IMB%20REPORT%202011.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S12N178"
+    ]
+  },
+  {
+    "paper": "CMS-14",
+    "id": "CMS14-R13",
+    "status": "fix",
+    "source": "Cuban quarantine: boarded vessel’s flag and cargo",
+    "usage": "Note 8 states that the U.S. boarded Soviet cargo ships carrying missiles to Cuba.",
+    "finding": "The Navy’s historical documentation identifies Marucla as Lebanese-flagged and Soviet-chartered; it was boarded and cleared after inspection. The contemporaneous diplomatic record confirms that distinction, and UPI reports no prohibited cargo aboard. Revise the wording to avoid turning that boarding into an inspection of Soviet-flagged missile cargo. A claim about additional ships requires specific records; the cited Chinese articles remain unchecked.",
+    "evidence": [
+      [
+        "U.S. Navy historical documentation",
+        "https://www.history.navy.mil/content/history/nhhc/research/library/online-reading-room/title-list-alphabetically/c/cuban-missile-crisis/online-documentation.html"
+      ],
+      [
+        "Contemporary diplomatic record, October 26, 1962",
+        "https://history.state.gov/historicaldocuments/frus1961-63v11/d78"
+      ],
+      [
+        "Contemporary UPI boarding report",
+        "https://www.upi.com/Archives/1962/10/26/Ship-allowed-into-Cuba-after-search-shows-trucks/6085354384912/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS14-S5N008"
+    ]
+  },
+  {
+    "paper": "CAP-P2",
+    "id": "CAPP2-R11",
+    "status": "fix",
+    "source": "Military-activity dispute exceptions: Article 290 versus Article 298",
+    "usage": "Paraphrase of extracted passage, CAPP2-S2N037: The passage attributes special dispute-settlement status and immunity from compulsory settlement to military activities; the source row cites UNCLOS Article 290.",
+    "finding": "Reviewed November 11, 2026. Pinpoint correction: Article 290 governs provisional measures. The military-activities exception is Article 298(1)(b), exercised through a written declaration under 298(1). It is an optional exclusion of categories of disputes, not automatic immunity for every military activity. Checked the treaty text; whether a particular dispute is excluded requires the applicable declaration and jurisdictional facts. This corrects the extracted citation and qualifies the earlier aggregate assessment.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 290, 298(1)(b) and 299",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPP2-S2N037"
+    ],
+    "related_claim_id": "CAPP2-R02"
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R20",
+    "status": "further_investigation",
+    "source": "Oil resale and the conditions for tanker sovereign immunity",
+    "usage": "Paraphrase of extracted passage, CESP1-N079: Selling oil aboard a Chinese-flagged tanker to a PRC government entity is said to create the necessary legal conditions to assert immunity for the tanker.",
+    "finding": "Reviewed November 11, 2026. Partial support only. Article 96 requires a ship to be owned or operated by a State and used only on government noncommercial service; Article 58(2) applies the relevant high-seas rules in the EEZ. Government ownership of cargo alone does not establish those conditions for its carrier. Article 236 addresses environmental provisions specifically. The proposed resale scenario needs evidence of ship ownership or operation and service status, and the cited naval-law commentary was not independently retrieved.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 58(2), 96 and 236",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-N079"
+    ],
+    "related_claim_id": "CESP1-R04"
+  },
+  {
+    "paper": "CMGZ-P1",
+    "id": "CMGZP1-R06",
+    "status": "further_investigation",
+    "source": "The 200-nautical-mile EEZ limit and overlapping claims",
+    "usage": "Paraphrase of extracted passage, CMGZP1-S2N021: EEZs are described as extending 200 nautical miles from the coast, with no unambiguous guidelines for boundaries between closely separated States.",
+    "finding": "Reviewed November 11, 2026. The numerical shorthand needs qualification: Article 57 sets a maximum measured from treaty baselines, not an automatic 200-mile entitlement from any coast. Article 74(1) requires delimitation by agreement under international law to achieve an equitable solution. The treaty therefore supplies a legal standard while leaving case-specific delimitation unresolved. Checked Part V; no East China Sea boundary determination or specific chart was audited.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 57 and 74",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMGZP1-S2N021"
+    ]
+  },
+  {
+    "paper": "CMR-03",
+    "id": "CMR03-R08",
+    "status": "further_investigation",
+    "source": "High-seas water column versus the international seabed Area",
+    "usage": "Paraphrase of extracted passage, CMR03-N007: The source note defines high seas as waters outside coastal-state jurisdiction while the attached passage describes COMRA exploration of seabed resources.",
+    "finding": "Reviewed November 11, 2026. Terminology needs separation. Article 86 excludes the EEZ, territorial sea, internal waters and archipelagic waters from Part VII. Article 1(1)(1) separately defines the international seabed Area by limits of national jurisdiction. Water-column status does not itself determine seabed status, including where a continental shelf extends farther. The treaty check supports this distinction; it does not establish COMRA founding dates or the legal status of individual contract sites.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 1(1)(1), 76, 78 and 86",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR03-N007"
+    ]
+  },
+  {
+    "paper": "CMR-03",
+    "id": "CMR03-R09",
+    "status": "fix",
+    "source": "Article 246 consent conditions are not a definition of MSR",
+    "usage": "Paraphrase of extracted passage, CMR03-N058: The passage presents research benefiting mankind as the UNCLOS definition of marine scientific research and contrasts it with military data collection.",
+    "finding": "Reviewed November 11, 2026. Article 246(3) states the circumstances in which coastal States should normally consent to research projects; it does not define the term marine scientific research. Article 246(5)(a) also contemplates research directly significant for resource exploration or exploitation. Correct the definitional attribution. The treaty alone does not settle how the described cruises should be classified, and their actual tasking remains unverified.",
+    "evidence": [
+      [
+        "UNCLOS, Article 246(1)–(5)",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR03-N058"
+    ],
+    "related_claim_id": "CMR03-R04"
+  },
+  {
+    "paper": "CMR-03",
+    "id": "CMR03-R10",
+    "status": "further_investigation",
+    "source": "Coastal participation rights do not guarantee foreign research access",
+    "usage": "Paraphrase of extracted passage, CMR03-N066: Marine-science cooperation is said to ensure Chinese access to strategically important parts of other States’ EEZs; the note cites the coastal State’s participation right.",
+    "finding": "Reviewed November 11, 2026. Article 249(1)(a) protects participation by the coastal State, at its desire and when practicable, in research in its own EEZ or shelf. It does not guarantee access to a visiting research State. Article 246 retains the coastal consent regime. The article supports a cooperation mechanism, while guaranteed Chinese access remains an inference requiring project agreements or permits. No such permit was examined.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 246 and 249(1)(a)",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR03-N066"
+    ],
+    "related_claim_id": "CMR03-R05"
+  },
+  {
+    "paper": "CMS-02",
+    "id": "CMS02-R12",
+    "status": "fix",
+    "source": "Similar-convenience routes: Articles 36 and 38(1)",
+    "usage": "Paraphrase of extracted passage, CMS02-N051: The passage cites Article 36 for a seaward route of similar convenience that avoids passage through the strait.",
+    "finding": "Reviewed November 11, 2026. The cited provision and described geography differ. Article 36 concerns a high-seas or EEZ route through the strait. Article 38(1) supplies the seaward-route exception for a strait formed by an island and the mainland of the bordering State. Retain that geographic condition when correcting the citation. The treaty comparison does not verify how Japan or China construed a particular strait.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 36 and 38(1)",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS02-N051"
+    ],
+    "related_claim_id": "CMS02-R05"
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R15",
+    "status": "fix",
+    "source": "Peaceful-purpose quotation: Article 88 versus Article 301",
+    "usage": "Paraphrase of extracted passage, CMS07-S3N003: Note 3 attributes a statement reserving the high seas for peaceful purposes to Article 301.",
+    "finding": "Reviewed November 11, 2026. The high-seas reservation appears in Article 88, with mandatory wording. Article 301 instead concerns threats or uses of force inconsistent with the UN Charter. Correct the extracted pinpoint and quotation wording. This textual correction does not establish that surveillance or military activity is inherently incompatible with peaceful purposes; that broader interpretation is outside this check. Note 4 in the consolidated row was not reclassified.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 88 and 301",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S3N003"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R16",
+    "status": "further_investigation",
+    "source": "Article 56 and three asserted exclusive jurisdictions",
+    "usage": "Paraphrase of extracted passage, CMS07-S5N009: The author characterizes UNCLOS as describing two sovereign rights and three exclusive jurisdictions for coastal States.",
+    "finding": "Reviewed November 11, 2026. Article 56(1)(b) lists three subjects of jurisdiction but makes them subject to the relevant treaty provisions; it does not label all three as unrestricted exclusive jurisdictions. Article 60 expressly gives exclusive rights and jurisdiction over specified installations, illustrating the need for subject-specific provisions. The author’s classification needs qualification before it is treated as treaty wording. This does not decide the volume’s broader competing interpretations.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 56(1)(b) and 60",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S5N009"
+    ],
+    "related_claim_id": "CMS07-R05"
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R17",
+    "status": "fix",
+    "source": "Hydrographic surveys and the malformed Article 19(1)(g) pinpoint",
+    "usage": "Paraphrase of extracted passage, CMS07-S6N005: The consolidated row’s Note 6 states that hydrographic surveys are not subject to coastal-state regulation and cites Article 19(1)(g) for passage-related regulation.",
+    "finding": "Reviewed November 11, 2026. Article 19(1) has no subparagraph (g). Article 21(1)(g) concerns coastal laws on marine scientific research and hydrographic surveys during innocent passage; Article 19(2)(j) concerns research or survey activity prejudicial to innocent passage, and Article 40 regulates surveys during transit passage. Correct the malformed pinpoint and retain the EEZ context of the author’s claim. These provisions do not themselves establish an all-purpose exemption for hydrographic surveys.",
+    "evidence": [
+      [
+        "UNCLOS, Articles 19(2)(j), 21(1)(g), 40 and 246",
+        "https://www.jus.uio.no/english/services/library/treaties/08/8-01/unclos.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S6N005"
+    ]
+  },
+  {
+    "paper": "CAP-C23",
+    "id": "CAPC23-R05",
+    "status": "ok",
+    "source": "PLAAF offensive and defensive transition: scope of the 2008 official statement",
+    "usage": "Paraphrase of extracted passage, CAPC23-N029: Note 31 attributes the PLAAF transition and certain long-range precision-strike and strategic-projection capabilities to the 2008 defense white paper.",
+    "finding": "Reviewed November 11, 2026. Confirmed as an attributed official statement in Chapter VI, History of Development, PDF page 17. The source preserves the important qualifier “certain capabilities.” This verifies what the government reported, not the independent performance of those capabilities; the other notes in the consolidated source row are outside this audit.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter VI, PDF page 17",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPC23-N029"
+    ]
+  },
+  {
+    "paper": "CAP-P1",
+    "id": "CAPP1-R05",
+    "status": "further_investigation",
+    "source": "The 2006 white paper and an unprecedented offensive emphasis",
+    "usage": "Paraphrase of extracted passage, CAPP1-S2N015: The quoted capability list is used to support an unprecedented focus on offensive air operations.",
+    "finding": "Reviewed November 11, 2026. Chapter II supports the capability list and transition toward both offensive and defensive operations. It does not establish the comparative claim “unprecedented.” That requires comparison with earlier doctrine and white papers. Verified the official text reproduced by Erickson; the cited FAS page was unavailable in this review.",
+    "evidence": [
+      [
+        "2006 defense white paper, Chapter II, active-defense paragraph",
+        "https://www.andrewerickson.com/2006/12/white-paper-chinas-national-defense-in-2006/"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPP1-S2N015"
+    ]
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R21",
+    "status": "further_investigation",
+    "source": "Does the 2006 white paper confirm a RMB 10 billion fuel overrun?",
+    "usage": "Paraphrase of extracted passage, CESP1-S1N013: The note says the December 2006 white paper confirms a reported RMB 10 billion excess fuel expenditure in 2006.",
+    "finding": "Reviewed November 11, 2026. Chapter IX discusses higher fuel expenses but the retrieved text contains no RMB 10 billion fuel-overrun figure. It therefore corroborates the cost pressure, not the amount, year-specific overrun or dialogue testimony. The delegation record underlying the November conversation was not retrieved. This narrows the earlier aggregate’s confidence rather than treating absence from the white paper as proof that the dialogue report was false.",
+    "evidence": [
+      [
+        "2006 defense white paper, Chapter IX, reasons for expenditure increases",
+        "https://www.andrewerickson.com/2006/12/white-paper-chinas-national-defense-in-2006/"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-S1N013"
+    ],
+    "related_claim_id": "CESP1-R01"
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R22",
+    "status": "ok",
+    "source": "Globalization and shipping-route security: the 2006 policy quotation",
+    "usage": "Paraphrase of extracted passage, CESP1-S9N017: The passage quotes globalization spreading into security and social fields, alongside growing energy and international-shipping security issues.",
+    "finding": "Reviewed November 11, 2026. The two clauses match Chapter I’s security-environment discussion, allowing for ellipsis and punctuation. This confirms the attribution to the 2006 policy document; it does not independently verify its assessment of global trends.",
+    "evidence": [
+      [
+        "2006 defense white paper, Chapter I, globalization paragraph",
+        "https://www.andrewerickson.com/2006/12/white-paper-chinas-national-defense-in-2006/"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-S9N017"
+    ]
+  },
+  {
+    "paper": "CMS-03",
+    "id": "CMS03-R09",
+    "status": "further_investigation",
+    "source": "Minelaying references and the wrong-edition source link",
+    "usage": "Paraphrase of extracted passage, CMS03-N009: Note 9 claims at least three references to minelaying in the 2008 white paper; the consolidated source citation points to a wp2006 URL.",
+    "finding": "Reviewed November 11, 2026. The 2008 text has three mine-laying references: twice in Chapter V and once in Chapter IX. That supports the count, including its hyphenated spelling. The linked 2006 edition cannot substantiate that count for 2008 and needs replacement. Repetition in a policy text alone does not demonstrate comparative doctrinal prominence. Other grouped notes concern the reserve-force passage and are not separately counted here.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter V (PDF page 16) and Chapter IX (PDF page 23)",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS03-N009"
+    ],
+    "related_claim_id": "CMS03-R01"
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R11",
+    "status": "further_investigation",
+    "source": "Grouped threats versus synonyms in the three-evils formulation",
+    "usage": "Paraphrase of extracted passage, CMS09-S5N002: The passage calls separatism synonymous with terrorism and extremism and groups them as the three evils.",
+    "finding": "Reviewed November 11, 2026. The 2008 white paper groups the three threats in its SCO exercise discussion but does not make them synonyms. Grouping supports a policy association, not equivalence. The extracted source field also merges a Scobell reference with a following white-paper citation; the Scobell chapter and original note layout remain unchecked, so this is a limited finding rather than a definitive misquotation ruling.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter XIII, Peace-2007 paragraph",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S5N002"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R12",
+    "status": "ok",
+    "source": "Traditional and nontraditional security threats as interwoven and interactive",
+    "usage": "Paraphrase of extracted passage, CMS09-S5N008: The passage quotes traditional and nontraditional security threats as interwoven and interactive.",
+    "finding": "Reviewed November 11, 2026. The wording matches Chapter I, PDF page 4. This checks the English attribution; the Chinese phrase supplied in the study was not independently compared with the Chinese edition.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter I, PDF page 4",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S5N008"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R13",
+    "status": "ok",
+    "source": "PAP public-security command: the historical 2006 statement",
+    "usage": "Paraphrase of extracted passage, CMS09-S10N018: The passage quotes Ministry of Public Security leadership at PAP headquarters level and corresponding public-security leadership for units at and below contingent level.",
+    "finding": "Reviewed November 11, 2026. Confirmed in Chapter V’s structure-and-organization section. The original also describes broader dual leadership, so the quoted chain concerns public-security operations and relevant capability building. This is a historical 2006 arrangement; it should not be presented as a statement of today’s organization.",
+    "evidence": [
+      [
+        "2006 defense white paper, Chapter V, Structure and Organization",
+        "https://www.andrewerickson.com/2006/12/white-paper-chinas-national-defense-in-2006/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S10N018"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R14",
+    "status": "further_investigation",
+    "source": "Wenchuan relief deployment totals and the largest-since-1979 comparison",
+    "usage": "Paraphrase of extracted passage, CMS09-S10N027: The passage gives 146,000 PLA/PAP personnel plus 75,000 reservists and militia and calls this the largest deployment since the 1979 Vietnam border war.",
+    "finding": "Reviewed November 11, 2026. The official totals match Chapter X, PDF page 25. The retrieved passage does not establish the largest-since-1979 comparison. That superlative needs a defined personnel measure and comparative deployment records, including other disaster responses. The totals are confirmed as official reporting, not independently enumerated headcounts.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter X, Wenchuan relief paragraph",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S10N027"
+    ]
+  },
+  {
+    "paper": "CMS-11",
+    "id": "CMS11-R08",
+    "status": "further_investigation",
+    "source": "The 2008 modernization timetable and a claimed 2050 informatization deadline",
+    "usage": "Paraphrase of extracted passage, CMS11-S11N003: The passage describes a foundation by 2010, major progress by 2020 and realization of informatization by 2050.",
+    "finding": "Reviewed November 11, 2026. Chapter II gives a broader modernization goal by mid-century; it separately specifies mechanization and major informatization progress by 2020. Treating the final milestone as a precise 2050 informatization-completion deadline is a stronger formulation. Retain it as an author’s interpretation pending a more specific primary statement; the retrieved white paper does not state that exact endpoint.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter II, three-step strategy",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS11-S11N003"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R15",
+    "status": "ok",
+    "source": "Resolution 2184: renewal date and duration",
+    "usage": "Paraphrase of extracted passage, CMS13-S4N003: The passage says the Security Council extended Somali counterpiracy authorization on November 12, 2014 until November 12, 2015.",
+    "finding": "Reviewed November 11, 2026. Confirmed: the resolution is dated November 12, 2014 and operative paragraph 13 renews the authorizations for twelve months from that date. Paragraph 14 retains the Somalia-specific and consent qualifications; this was not a general global counterpiracy mandate. Checked the official resolution PDF.",
+    "evidence": [
+      [
+        "S/RES/2184 (2014), heading and paragraphs 13–14",
+        "https://documents.un.org/api/symbol/access?l=en&s=S%2FRES%2F2184%282014%29&t=pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S4N003"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R16",
+    "status": "further_investigation",
+    "source": "Resolution 1801 and the count of six 2008 piracy resolutions",
+    "usage": "Paraphrase of extracted passage, CMS13-S4N005: The passage identifies Resolution 1801 as one of six resolutions mentioning Somali piracy that year.",
+    "finding": "Reviewed November 11, 2026. Resolution 1801’s paragraph 12 expressly addresses piracy and protection of shipping, so that part is confirmed. The exact annual count is not established by this citation: official UN discussions also include Resolution 1814 in the 2008 counterpiracy sequence, while the study’s following notes enumerate other instruments. The word “mentioning” and the scope of the count need reconciliation against a complete annual set; no exact total is certified here.",
+    "evidence": [
+      [
+        "S/RES/1801 (2008), paragraph 12",
+        "https://documents.un.org/api/symbol/access?l=en&s=S%2FRes%2F1801%282008%29&t=pdf"
+      ],
+      [
+        "UN Security Council Repertoire, 2008–2009, Resolution 1814 paragraph 11",
+        "https://main.un.org/securitycouncil/sites/default/files/en/sc/repertoire/2008-2009/Part%20VIII/08-09_Part%20VIII.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S4N005"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R17",
+    "status": "ok",
+    "source": "Resolution 1816: six-month territorial-waters authorization",
+    "usage": "Paraphrase of extracted passage, CMS13-S4N006: The passage says Resolution 1816 initially permitted all necessary means against piracy in Somali territorial waters for six months.",
+    "finding": "Reviewed November 11, 2026. Confirmed in paragraph 7, subject to cooperation with the Transitional Federal Government and its advance notification to the Secretary-General. Paragraph 9 confines the authorization to Somalia and records the government’s consent. The six-month term is correct; omitting these conditions would overstate which States and activities were authorized. Checked the official resolution text.",
+    "evidence": [
+      [
+        "S/RES/1816 (2008), paragraphs 7–9",
+        "https://documents.un.org/api/symbol/access?l=en&s=S%2FRes%2F1816%282008%29&t=pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S4N006"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R18",
+    "status": "further_investigation",
+    "source": "Resolutions 1838, 1844 and 1846: concern and Somali requests",
+    "usage": "Paraphrase of extracted passage, CMS13-S4N007: The passage says Resolutions 1838 and 1844 expressed concern about piracy and Resolution 1846 recorded Somali requests for assistance and extension.",
+    "finding": "Reviewed November 11, 2026. Confirmed in scope. Resolution 1838 condemns piracy; Resolution 1844’s preamble expresses grave concern and links piracy with financing embargo violations. The UN’s operative-text registry for 1846 records renewal of the territorial-waters authorization; the later official 1851 preamble records Somali requests and appreciation. The direct 1846 PDF was unavailable, so its precise preambular wording was not certified from that PDF. This check concerns the documented authorization sequence, not a new general right of intervention.",
+    "evidence": [
+      [
+        "S/RES/1844 (2008), preamble",
+        "https://documents.un.org/api/symbol/access?l=en&s=S%2Fres%2F1844%282008%29&t=pdf"
+      ],
+      [
+        "UN operative text, Resolution 1838 paragraph 1",
+        "https://mandates.un.org/mandate/S/RES/1838(2008)"
+      ],
+      [
+        "UN operative text, Resolution 1846",
+        "https://mandates.un.org/mandate/S/RES/1846(2008)"
+      ],
+      [
+        "Resolution 1851, preamble on Somali requests",
+        "https://documents.un.org/api/symbol/access?l=en&s=S%2FRES%2F1851%282008%29&t=pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S4N007"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R19",
+    "status": "ok",
+    "source": "Resolution 1851: in-Somalia measures and the December 2 clock",
+    "usage": "Paraphrase of extracted passage, CMS13-S4N008: The passage says Resolution 1851 authorized measures in Somalia for twelve months beginning December 2, 2008.",
+    "finding": "Reviewed November 11, 2026. Paragraph 6 confirms a twelve-month term from adoption of Resolution 1846, rather than from 1851’s own December 16 adoption. It authorizes appropriate measures in Somalia pursuant to the Somali government’s request and advance notification, with humanitarian and human-rights-law conditions. This supports the passage’s broader geographic point but preserves the conditions absent from its short summary. Checked the official PDF.",
+    "evidence": [
+      [
+        "S/RES/1851 (2008), paragraph 6",
+        "https://documents.un.org/api/symbol/access?l=en&s=S%2FRES%2F1851%282008%29&t=pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S4N008"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R20",
+    "status": "ok",
+    "source": "The 2009–2013 twelve-month renewal sequence",
+    "usage": "Paraphrase of extracted passage, CMS13-S4N009: The note lists Resolutions 1897, 1950, 2020, 2077 and 2125 as successive twelve-month renewals.",
+    "finding": "Reviewed November 11, 2026. The UN’s text of Resolution 2125 paragraph 12 identifies the earlier renewal provisions; the official Resolution 2184 paragraph 13 repeats that chain and the 2013 renewal. These primary cross-references support the sequence and annual duration. The five original PDFs were not each independently opened, and no claim about uninterrupted operational participation by a particular navy is inferred.",
+    "evidence": [
+      [
+        "S/RES/2184 (2014), paragraph 13",
+        "https://documents.un.org/api/symbol/access?l=en&s=S%2FRES%2F2184%282014%29&t=pdf"
+      ],
+      [
+        "UN text of Resolution 2125, paragraph 12",
+        "https://mandates.un.org/mandate/S/RES/2125%20(2013)"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S4N009"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R15",
+    "status": "ok",
+    "source": "Tasman Sea search-and-rescue exercise: year and participants",
+    "usage": "Paraphrase of extracted passage, CMS09-S13N012: The passage attributes a China–Australia–New Zealand search-and-rescue exercise in the Tasman Sea to the 2008 white paper.",
+    "finding": "Reviewed November 11, 2026. Confirmed as an official report: Chapter XIII dates the exercise to October 2007. The citation’s 2008 label is the white-paper title, not the exercise year; the document was issued in January 2009. This checks attribution and timing, without independently reconstructing the exercise.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter XIII, PDF page 34",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S13N012"
+    ]
+  },
+  {
+    "paper": "CMS-11",
+    "id": "CMS11-R09",
+    "status": "ok",
+    "source": "Second Artillery conventional-force mission quotation",
+    "usage": "Paraphrase of extracted passage, CMS11-S4N036: The passage attributes medium- and long-range precision strikes against strategic and operational targets to the conventional Second Artillery force.",
+    "finding": "Reviewed November 11, 2026. The quotation matches Chapter VII’s opening mission statement, PDF page 19. Confirmed as the government’s declared mission. It establishes neither particular weapon ranges nor demonstrated accuracy or readiness.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter VII, PDF page 19",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS11-S4N036"
+    ]
+  },
+  {
+    "paper": "CMS-11",
+    "id": "CMS11-R10",
+    "status": "further_investigation",
+    "source": "PLAAF transition versus demonstrated overwater capability",
+    "usage": "Paraphrase of extracted passage, CMS11-S4N041: The passage describes an expanding overwater air-defense envelope and increasing long-range strike capability over the preceding decade.",
+    "finding": "Reviewed November 11, 2026. Chapter VI supports a stated transition and limited strike capability. It does not quantify the overwater envelope, show a ten-year comparison, or independently demonstrate operational performance. Those stronger elements require dated force data and exercise evidence. The official statement is partial corroboration rather than verification of the whole claim.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter VI, PDF page 17",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS11-S4N041"
+    ]
+  },
+  {
+    "paper": "CMS-14",
+    "id": "CMS14-R14",
+    "status": "further_investigation",
+    "source": "MOOTW terminology in the white paper issued in 2009",
+    "usage": "Paraphrase of extracted passage, CMS14-S6N003: The passage says the 2009-issued defense white paper applied the U.S. Defense Department term military operations other than war to new missions.",
+    "finding": "Reviewed November 11, 2026. Chapter II explicitly uses MOOTW, confirming use in the document titled China’s National Defense in 2008 and issued in January 2009. The text does not establish that the term was borrowed directly from the U.S. Department of Defense or first adopted then. Terminology provenance requires an earlier documentary trail.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter II, PDF page 6",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS14-S6N003"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R25",
+    "status": "further_investigation",
+    "source": "PAP 660,000 total versus 103,000 border-force strength",
+    "usage": "Paraphrase of extracted passage, CS21P2-S8N017: The passage gives 103,000 personnel for the border-control force, calls it the second-largest of eight service arms, and gives 660,000 for the whole PAP.",
+    "finding": "Reviewed November 11, 2026. Chapter V confirms the historical 660,000 aggregate but supplies no 103,000 border-force number or ranking. It lists components without a comparable strength table. The cited white paper thus supports the total only; the component figure, second-place rank and eight-arm taxonomy need a separate contemporary personnel source.",
+    "evidence": [
+      [
+        "2006 defense white paper, Chapter V, Structure and Organization",
+        "https://www.andrewerickson.com/2006/12/white-paper-chinas-national-defense-in-2006/"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S8N017"
+    ]
+  },
+  {
+    "paper": "CS21-P5",
+    "id": "CS21P5-R05",
+    "status": "ok",
+    "source": "Globalization and multipolarization: exact 2008 policy attribution",
+    "usage": "Paraphrase of extracted passage, CS21P5-N043: The passage attributes the judgment that economic globalization and world multipolarization are gaining momentum to the 2008 white paper.",
+    "finding": "Reviewed November 11, 2026. Confirmed in Chapter I’s opening assessment, PDF page 3. This verifies the government’s stated judgment, not an empirical measure of multipolarity. The date belongs to the 2008-titled document released in January 2009.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter I, PDF page 3",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P5-N043"
+    ]
+  },
+  {
+    "paper": "CAP-C23",
+    "id": "CAPC23-R06",
+    "status": "ok",
+    "source": "PLAAF composition: eight sections in the 2008 white paper",
+    "usage": "Paraphrase of extracted passage, CAPC23-N029: Note 33 lists aviation, ground air defense, airborne, signal, radar, electronic countermeasures, technical reconnaissance and chemical defense.",
+    "finding": "Reviewed November 11, 2026. The eight-part list matches Chapter VI’s opening composition statement, PDF page 17. This is a separate claim from Note 31’s capability quotation reviewed in the preceding batch, despite their shared consolidated source row. It verifies historical official organization, not force size or capability.",
+    "evidence": [
+      [
+        "2008 defense white paper, Chapter VI opening, PDF page 17",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPC23-N029"
+    ]
+  },
+  {
+    "paper": "CAP-P1",
+    "id": "CAPP1-R06",
+    "status": "ok",
+    "source": "Local informationized wars and the PLA performance criterion",
+    "usage": "Paraphrase of extracted passage, CAPP1-S4N008: The passage attributes the local-wars task and informatization as a major performance criterion to the 2006 defense white paper.",
+    "finding": "Reviewed November 11, 2026. Both elements are present in Chapter II: the performance criterion appears in the third policy item and the local-wars objective in the active-defense item. Confirmed as stated policy. The wording is not evidence that the modernization goal had already been achieved.",
+    "evidence": [
+      [
+        "2006 defense white paper, Chapter II, performance and active-defense items",
+        "https://www.andrewerickson.com/2006/12/white-paper-chinas-national-defense-in-2006/"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPP1-S4N008"
+    ]
+  },
+  {
+    "paper": "CMGZ-P5",
+    "id": "CMGZP5-R05",
+    "status": "ok",
+    "source": "Continuous competition in the 2017 National Security Strategy",
+    "usage": "Paraphrase of extracted passage, CMGZP5-S8N007: China is described as engaging in continuous competition beyond a binary distinction between peace and war.",
+    "finding": "Reviewed November 11, 2026. The strategy’s printed page 28 explicitly frames competition this way and names China alongside Russia and other actors. The quotation fragments are supported. This verifies the policy characterization, rather than independently proving the intentions of every Chinese activity.",
+    "evidence": [
+      [
+        "2017 National Security Strategy, printed page 28",
+        "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905-2.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMGZP5-S8N007"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R27",
+    "status": "ok",
+    "source": "Berbera as a prospective competitor to Djibouti",
+    "usage": "Paraphrase of extracted passage, CMR06-N064: Alternative regional ports could weaken Djibouti’s dominance of Ethiopian access to the sea.",
+    "finding": "Reviewed November 11, 2026. The World Bank’s October 2018 diagnostic, section 2.1.3, discusses Ethiopian route diversification and prospective Berbera competition. It supports the possibility, not proof that diversion had already occurred. The separate reported port-service price reduction was not rechecked.",
+    "evidence": [
+      [
+        "World Bank Djibouti diagnostic, section 2.1.3, printed page 12",
+        "https://documents.worldbank.org/curated/en/437351549918326165/pdf/djibouti-scd-english-version-final-approved-vlogo-02062019-636852600790519539.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N064"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R28",
+    "status": "fix",
+    "source": "Djibouti LPI: 2014 rank 154, not 134",
+    "usage": "Paraphrase of extracted passage, CMR06-N129: The passage gives a rise from 134th in 2014 to 90th in 2018.",
+    "finding": "Reviewed November 11, 2026. The World Bank’s 2014 overall table gives 154, not 134. Its 2018 diagnostic table 2.1 confirms 90 for 2018. Improvement remains supported, but the baseline needs correction. Overall rankings must be kept distinct from individual dimension rankings.",
+    "evidence": [
+      [
+        "World Bank Connecting to Compete 2014, overall ranking table",
+        "https://www.worldbank.org/content/dam/Worldbank/document/Trade/LPI2014.pdf."
+      ],
+      [
+        "World Bank Djibouti diagnostic, table 2.1",
+        "https://documents.worldbank.org/curated/en/437351549918326165/pdf/djibouti-scd-english-version-final-approved-vlogo-02062019-636852600790519539.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N129"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R29",
+    "status": "further_investigation",
+    "source": "Djibouti population and capital-city share: vintage and denominator",
+    "usage": "Paraphrase of extracted passage, CMR06-N131: The population is estimated below one million, with about 75 percent in the capital.",
+    "finding": "Reviewed November 11, 2026. The cited country landing page lacks a dated capital-city series in the extracted citation. The contemporaneous World Bank diagnostic instead describes the capital’s share as about 80 percent in Appendix 3. A specific historical population vintage and city boundary are needed to reconcile the estimates; current revised population figures should not be substituted silently for what was available in March 2020.",
+    "evidence": [
+      [
+        "World Bank Djibouti diagnostic, Appendix 3, enterprise-survey coverage paragraph",
+        "https://documents.worldbank.org/curated/en/437351549918326165/pdf/djibouti-scd-english-version-final-approved-vlogo-02062019-636852600790519539.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N131"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R30",
+    "status": "ok",
+    "source": "The Chinese-funded AU headquarters: cost and Jia Qinglin’s role",
+    "usage": "Paraphrase of extracted passage, CMR06-N175: China paid for the $200 million AU complex, inaugurated with CPPCC Chairman Jia Qinglin.",
+    "finding": "Reviewed November 11, 2026. The cited UN Africa Renewal article confirms the reported $200 million Chinese gift. China’s Foreign Ministry records Jia’s attendance at the complex’s inauguration during his January 27–29, 2012 visit. These corroborate cost, funding attribution and ceremonial role; they are not an independent construction-account audit.",
+    "evidence": [
+      [
+        "UN Africa Renewal, January 15, 2013, opening paragraphs",
+        "https://africarenewal.un.org/en/magazine/china-heart-africa"
+      ],
+      [
+        "PRC Foreign Ministry, January 31, 2012, section I",
+        "https://www.fmprc.gov.cn/eng/xw/zyjh/202405/t20240530_11340410.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N175"
+    ]
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R21",
+    "status": "further_investigation",
+    "source": "China–Pakistan trade contraction: the missing comparable baseline",
+    "usage": "Paraphrase of extracted passage, CMR07-N220: Bilateral trade is characterized as small and contracting from 2017 to 2018; the note gives about $20 billion in 2017.",
+    "finding": "Reviewed November 11, 2026. MOFCOM’s 2019 FTA briefing reports $19.08 billion for 2018 using Chinese customs statistics. That is consistent with a decline from the note’s rounded 2017 baseline, but the referenced WITS page did not expose the Pakistan row in the retrieved table. The 2017 exact value and like-for-like series remain unchecked. The characterization of trade as weak is an analytical judgment, not a statistic.",
+    "evidence": [
+      [
+        "MOFCOM FTA briefing, overall situation paragraph",
+        "https://english.mofcom.gov.cn/News/SpokesmansRemarks/art/2019/art_64e737955d314f6c96ea11e7cf8fc221.html"
+      ],
+      [
+        "Cited WITS China 2017 table, retrieved with limited partner rows",
+        "https://wits.worldbank.org/CountryProfile/en/Country/CHN/Year/2017/TradeFlow/EXPIMP"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N220"
+    ]
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R22",
+    "status": "further_investigation",
+    "source": "A 2006 Pakistan port-management quotation and later Gwadar inference",
+    "usage": "Paraphrase of extracted passage, CMR07-N316: The note invokes unusually high Navy involvement in port management to support a later assessment of Navy dominance at Gwadar.",
+    "finding": "Reviewed November 11, 2026. The quotation is present on printed page 37 of World Bank report 36523-PK. Its discussion concerns existing port management, especially Karachi Port Trust, while describing Gwadar as not yet open for commercial traffic. It supplies historical institutional context, not direct evidence of Gwadar’s later operations. Contemporary Gwadar staffing or management records are still needed.",
+    "evidence": [
+      [
+        "World Bank Pakistan transport report, July 18, 2006, printed page 37",
+        "https://documents1.worldbank.org/curated/en/961511468289228268/pdf/36523.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N316"
+    ]
+  },
+  {
+    "paper": "CMR-51",
+    "id": "CMR51-R07",
+    "status": "ok",
+    "source": "China’s 2024 goods-and-services export ranking",
+    "usage": "Paraphrase of extracted passage, CMR51-N171: The source note calls China the world’s largest exporter of goods and services in 2024.",
+    "finding": "Reviewed November 11, 2026. Confirmed against the World Bank indicator NE.EXP.GNFS.CD for 2024, retrieved November 11, 2026. After excluding regional aggregates using the Bank’s country metadata, China ranks first at about $3.829 trillion, followed by the United States at $3.215 trillion. This verifies the stated annual ranking, not the separate inference about dependence on shipping; services exports need not move by ship.",
+    "evidence": [
+      [
+        "World Bank indicator definition and country series",
+        "https://data.worldbank.org/indicator/NE.EXP.GNFS.CD?locations=CN"
+      ],
+      [
+        "World Bank API, 2024 values used for ranking",
+        "https://api.worldbank.org/v2/country/all/indicator/NE.EXP.GNFS.CD?date=2024&format=json&per_page=400"
+      ],
+      [
+        "World Bank country metadata used to exclude aggregates",
+        "https://api.worldbank.org/v2/country?format=json&per_page=400"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR51-N171"
+    ]
+  },
+  {
+    "paper": "CMR-57",
+    "id": "CMR57-R05",
+    "status": "ok",
+    "source": "Political and Legal Affairs Commission oversight: the cited CRS description",
+    "usage": "Paraphrase of extracted passage, CMR57-N034: The central commission oversees the courts, procuratorate and ministries of public security, state security and justice.",
+    "finding": "Reviewed November 11, 2026. The January 3, 2025 version of CRS IF12505 explicitly names all five institutions in its commission description and notes their heads’ membership. The citation date and author also match. This verifies the cited institutional description as of that edition, not every practical dimension of the commission’s influence.",
+    "evidence": [
+      [
+        "CRS IF12505, January 3, 2025, CPC functional departments",
+        "https://www.congress.gov/crs-product/IF12505"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR57-N034"
+    ]
+  },
+  {
+    "paper": "CMS-06",
+    "id": "CMS06-R07",
+    "status": "further_investigation",
+    "source": "Roughead’s April 2009 anniversary visit: announcement versus completed visit",
+    "usage": "Paraphrase of extracted passage, CMS06-N004: A CNO visit for the PLAN’s sixtieth anniversary is used as evidence of the maritime importance of the bilateral initiative.",
+    "finding": "Reviewed November 11, 2026. The April 1, 2009 joint statement, reproduced in an official congressional hearing, announces an invitation and planned April visit by Admiral Gary Roughead. It confirms the intended diplomatic connection but is prospective evidence. Completion of the visit and the broader importance assigned to it require a subsequent visit record or analysis.",
+    "evidence": [
+      [
+        "April 1, 2009 White House statement, military-relations paragraph, hearing page 97 onward",
+        "https://www.govinfo.gov/content/pkg/CHRG-111hhrg52146/pdf/CHRG-111hhrg52146.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS06-N004"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R18",
+    "status": "ok",
+    "source": "Obama–Yang meeting and military dialogue, March 12, 2009",
+    "usage": "Paraphrase of extracted passage, CMS07-S5N007: Obama called for higher-level or more frequent military dialogue to avoid incidents such as Impeccable.",
+    "finding": "Reviewed November 11, 2026. The White House readout records the date, Obama’s call to raise both level and frequency, and General Jones’s discussion of Impeccable. The study’s “either” is a looser paraphrase of the readout’s combined formulation. The core attribution is supported; the readout alone does not show whether dialogue subsequently improved.",
+    "evidence": [
+      [
+        "White House meeting readout, March 12, 2009, second substantive paragraph",
+        "https://obamawhitehouse.archives.gov/blog/2009/03/12/president-meets-with-chinese-foreign-minister-yang-jiechi"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S5N007"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R16",
+    "status": "ok",
+    "source": "Darfur and regional stability in the January 2011 joint statement",
+    "usage": "Paraphrase of extracted passage, CMS09-S6N034: The United States and China expressed concern about Darfur and a shared interest in regional peace and stability.",
+    "finding": "Reviewed November 11, 2026. The quoted clauses match paragraph 20 of the January 19, 2011 White House joint statement. Its surrounding text also addresses Sudan’s North–South peace process. This verifies the public joint position, not agreement on every policy measure or later implementation.",
+    "evidence": [
+      [
+        "U.S.–China joint statement, January 19, 2011, paragraph 20",
+        "https://obamawhitehouse.archives.gov/the-press-office/2011/01/19/US-China-joint-statement/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S6N034"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R17",
+    "status": "ok",
+    "source": "Obama’s March 28, 2010 military-and-civilian strategy quotation",
+    "usage": "Paraphrase of extracted passage, CMS09-S6N037: The passage quotes Obama’s Bagram remarks on a military effort against the Taliban paired with a civilian effort to improve Afghan lives.",
+    "finding": "Reviewed November 11, 2026. The White House transcript dated March 28, 2010 contains the quoted wording in the paragraph beginning with the strategy’s military effort. The study ends the extract before further discussion of corruption and Pakistan, without reversing its meaning. This checks the quotation and occasion; the claim that this was his first Afghanistan visit was not independently tested here.",
+    "evidence": [
+      [
+        "White House Bagram remarks, March 28, 2010, strategy paragraph",
+        "https://obamawhitehouse.archives.gov/the-press-office/remarks-president-troops"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S6N037"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R18",
+    "status": "further_investigation",
+    "source": "Zhao Jingmin’s earlier mission-service dates",
+    "usage": "Paraphrase of extracted passage, CMS09-S10N032: The passage gives MINURSO service in 1991–1992, UNIKOM in 1996–1997, and defense-ministry peacekeeping work in 2003–2007.",
+    "finding": "Reviewed November 11, 2026. The UN’s August 2007 appointment letter confirms the planned MINURSO command, but contains no prior-service chronology. SIPRI’s 2009 research paper corroborates earlier MINURSO, UNIKOM and peacekeeping-office roles without those exact year ranges. The cited UN biography SG/A/1089 could not be retrieved from its legacy address or the current press site. Roles are partly corroborated; the precise dates remain open.",
+    "evidence": [
+      [
+        "UN appointment letter S/2007/509, August 22, 2007",
+        "https://documents.un.org/access.nsf/get?DS=S%2F2007%2F509&Lang=E&Open="
+      ],
+      [
+        "SIPRI Policy Paper 25, other Chinese personnel section, 2009",
+        "https://www.sipri.org/sites/default/files/files/PP/SIPRIPP25.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S10N032"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R19",
+    "status": "further_investigation",
+    "source": "China’s 3.94 percent peacekeeping assessment and the second-tier range",
+    "usage": "Paraphrase of extracted passage, CMS09-S10N033: The passage assigns China 3.94 percent and places the UK, Germany, France and Italy between 5 and 8 percent.",
+    "finding": "Reviewed November 11, 2026. The UN’s March 2010 fact sheet confirms China’s assessed share of 3.94 percent. Its chart gives UK 8.16, Germany 8.02, France 7.56 and Italy 5.00 percent: the stated range is approximate, not a strict upper bound. These are assessed budget shares, not proof of cash received. The tier labels are the author’s grouping rather than formal UN categories.",
+    "evidence": [
+      [
+        "UN peacekeeping fact sheet, March 2010, assessed-contributions chart",
+        "https://www.un.org/en/events/peacekeepersday/2010/factsheet.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S10N033"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R20",
+    "status": "further_investigation",
+    "source": "Prospective SHADE chairmanship versus leadership of a coalition",
+    "usage": "Paraphrase of extracted passage, CMS09-S13N015: The passage says China’s commitment makes it eligible to lead a coalition whose chair rotates every three to four months.",
+    "finding": "Reviewed November 11, 2026. The cited China Daily report is dated January 30, 2010, not February 3 in the source row. Its direct reporting describes a possible rotating SHADE chair and says the start date and duration still required discussion. It distinguishes coordination from authority to lead other navies. The precise three-to-four-month term and a general coalition-command entitlement are not established by that report. The cited UN press conference remains unavailable.",
+    "evidence": [
+      [
+        "China Daily direct reporting, January 30, 2010, paragraphs on the proposed chair",
+        "https://www.chinadaily.com.cn/china/2010-01/30/content_9401589.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S13N015"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R25",
+    "status": "further_investigation",
+    "source": "Piracy insurance costs: market-specific increases",
+    "usage": "Paraphrase of extracted passage, CMS10-S5N037: The passage says persistent piracy increases shipping costs by raising insurance premiums.",
+    "finding": "Reviewed November 11, 2026. CRS R40081, February 6, 2009, supports increased London war-risk premiums for Gulf of Aden voyages but expressly says U.S. rates apparently had not changed. It also distinguishes higher costs for affected voyages from a negligible overall insurance-industry impact. The claim is supported with market and route qualifications, rather than as a universal premium increase. The author’s name is Rawle O. King, not “Rawles” in the citation.",
+    "evidence": [
+      [
+        "CRS R40081, February 6, 2009, economic-costs and insurance-industry sections",
+        "https://www.everycrsreport.com/reports/R40081.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N037"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R21",
+    "status": "further_investigation",
+    "source": "The 2011 LNG share and its geographic referent",
+    "usage": "Paraphrase of extracted passage, CMS13-S3N005: The extracted sentence says roughly half of world LNG trade passed through “it” in 2011.",
+    "finding": "Reviewed November 11, 2026. The April 4, 2013 EIA article reports more than half of global LNG trade, about 6 trillion cubic feet, passing through the South China Sea in 2011. This resolves the missing source item but not the extracted pronoun’s referent. It does not establish the same percentage specifically for the Strait of Malacca. The surrounding original passage could not be retrieved, so geographic equivalence remains unchecked and the sentence is not marked fully verified.",
+    "evidence": [
+      [
+        "EIA Today in Energy, April 4, 2013, LNG paragraph",
+        "https://www.eia.gov/todayinenergy/detail.php?id=10671."
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S3N005"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R22",
+    "status": "fix",
+    "source": "Xi’s June 8, 2013 quotation: extra wording in the English extract",
+    "usage": "Paraphrase of extracted passage, CMS13-S7N005: The quotation inserts nonconflict and nonconfrontation into the sentence describing a new model of major-country relations.",
+    "finding": "Reviewed November 11, 2026. The cited White House English transcript’s sentence lists mutual respect and win-win cooperation; it does not contain the two added terms there. The preceding sentence discusses avoiding confrontation and conflict, so the general idea is consistent, but the displayed quotation is not verbatim. Use an explicit paraphrase or the transcript’s wording. This checks the cited English version, not the original Chinese audio or an alternative translation.",
+    "evidence": [
+      [
+        "White House transcript, June 8, 2013, Xi’s new-model paragraph",
+        "https://obamawhitehouse.archives.gov/the-press-office/2013/06/08/remarks-president-obama-and-president-xi-jinping-peoples-republic-china-"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S7N005"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R27",
+    "status": "ok",
+    "source": "Indonesia and Malaysia in the 2017 U.S. strategy",
+    "usage": "Paraphrase of extracted passage, CMS17-N013: Note 13 supports growing recognition of Indonesia and Malaysia as U.S. economic and security partners.",
+    "finding": "Reviewed November 11, 2026. The 2017 National Security Strategy, printed page 46, names both countries as growing security and economic partners and calls for stronger partnerships. The note’s quotation uses “emerging” where this edition says “growing,” a minor wording slip. This audit is limited to Note 13; the consolidated row’s later claims about 2019 Australia and Indonesia industrial cooperation were not checked.",
+    "evidence": [
+      [
+        "2017 National Security Strategy, printed page 46",
+        "https://trumpwhitehouse.archives.gov/wp-content/uploads/2017/12/NSS-Final-12-18-2017-0905-2.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N013"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R28",
+    "status": "further_investigation",
+    "source": "Sixteen of eighteen EAS leaders: maritime security versus the South China Sea",
+    "usage": "Paraphrase of extracted passage, CMS17-N254: The passage attributes to sixteen of eighteen 2011 EAS participants discussion of the South China Sea and links Najib’s position to its inclusion on the agenda.",
+    "finding": "Reviewed November 11, 2026. The November 19 White House briefing estimates sixteen leaders discussed maritime security, but says only most discussed the South China Sea specifically. It names Malaysia among the direct speakers and identifies Cambodia and Burma as exceptions on maritime security. The exact sixteen-country South China Sea formulation is therefore stronger than the cited account. This is a U.S. official’s reconstruction of a closed session, not an independently verified roll call.",
+    "evidence": [
+      [
+        "White House background briefing, November 19, 2011, opening account of the leaders retreat",
+        "https://obamawhitehouse.archives.gov/the-press-office/2011/11/19/background-briefing-senior-administration-official-presidents-meetings-a"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N254"
+    ]
+  },
+  {
+    "paper": "CMR-57",
+    "status": "further_investigation",
+    "source": "Party standing committees and the asserted four plenums per year",
+    "usage": "Paraphrase of extracted passage, CMR57-N005: The full Party committee meets periodically, often four times yearly, while its standing committee serves as the highest executive body.",
+    "finding": "Reviewed November 11, 2026. The 2022 CPC Constitution supports collective leadership (Article 10) and standing committees acting between local committee plenums (Article 28). Article 27 sets a minimum of two local committee plenums yearly, not four; that minimum does not disprove more frequent meetings. Article 24 assigns armed-forces Party organization to CMC rules. Neither the typical four-per-year frequency nor the Navy-specific application is established by these provisions. The cited Lieberthal and McGregor book passages were not retrieved.",
+    "evidence": [
+      [
+        "CPC Constitution, Articles 10, 24, 27–28",
+        "https://english.court.gov.cn/2022-10/27/c_824962.htm?trk=article-ssr-frontend-pulse_little-text-block"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR57-N005"
+    ],
+    "id": "CMR57-R06"
+  },
+  {
+    "paper": "CMS-06",
+    "status": "further_investigation",
+    "source": "INCSEA effectiveness and its alleged catalytic effect",
+    "usage": "Paraphrase of extracted passage, CMS06-N036: The 1972 incidents-at-sea agreement proved an excellent incident-management tool and a catalyst for further practical cooperation.",
+    "finding": "Reviewed November 11, 2026. The treaty supplies concrete mechanisms: Article VII exchanges incident information, Article IX requires annual implementation consultations after the first year, and Article X establishes a committee on practical measures. These provisions support the intended mechanism, but the treaty itself cannot demonstrate successful outcomes or a causal effect on later cooperation. No incident series or implementation assessment was checked. This audit concerns the effectiveness claim, beyond the signing chronology already covered in CMS06-R02.",
+    "evidence": [
+      [
+        "UN Treaty Series 852, pp. 151–154, especially Articles VII–X",
+        "https://treaties.un.org/doc/Publication/UNTS/Volume%20852/volume-852-I-12214-English.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS06-N036"
+    ],
+    "id": "CMS06-R08"
+  },
+  {
+    "paper": "CMS-07",
+    "status": "further_investigation",
+    "source": "Pollution-control jurisdiction: historical warning versus demonstrated abuse",
+    "usage": "Paraphrase of extracted passage, CMS07-S8N029: Coastal states abuse pollution-control jurisdiction to impose notification or consent requirements, contrary to UNCLOS.",
+    "finding": "Reviewed November 11, 2026. FRUS document 400 reproduces Negroponte’s undated analytical summary; its source note places the drafting in June 1971. It warns that pollution-control jurisdiction could become the equivalent of a consent requirement and discusses Canada’s 100-mile pollution zone. This establishes a contemporary U.S. concern before the 1982 convention, but does not establish the later state practice alleged here or adjudicate its consistency with UNCLOS. Specific later measures and the applicable convention provisions still need comparison.",
+    "evidence": [
+      [
+        "FRUS 1969–1976, volume E-1, document 400, analytical summary and source note",
+        "https://history.state.gov/historicaldocuments/frus1969-76ve01/d400"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S8N029"
+    ],
+    "id": "CMS07-R19"
+  },
+  {
+    "paper": "CMS-07",
+    "status": "ok",
+    "source": "Reagan’s 1983 nonacquiescence statement on navigation",
+    "usage": "Paraphrase of extracted passage, CMS07-S10N006: Note 6 quotes U.S. policy against acquiescing in unilateral restrictions on navigation, overflight, and related high-seas uses.",
+    "finding": "Reviewed November 11, 2026. The Reagan Library’s March 10, 1983 Statement on United States Oceans Policy contains the quoted sentence, including the navigation, overflight, and related high-seas uses language. The quotation is supported as a statement of U.S. policy. This finding does not independently establish the legality of each maritime claim, and does not cover Note 7’s operational-assertions claim consolidated into the same footnote row.",
+    "evidence": [
+      [
+        "Statement on United States Oceans Policy, March 10, 1983",
+        "https://www.reaganlibrary.gov/archives/speech/statement-united-states-oceans-policy"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S10N006"
+    ],
+    "id": "CMS07-R20"
+  },
+  {
+    "paper": "CMS-09",
+    "status": "further_investigation",
+    "source": "New Horizon reform agenda versus a U.S.–China leadership proposal",
+    "usage": "Paraphrase of extracted passage, CMS09-S6N035: UN peacekeeping reform offers an opportunity for Chinese-American joint leadership to realize the New Horizon agenda.",
+    "finding": "Reviewed November 11, 2026. The July 2009 DPKO/DFS paper is directly available. Its executive summary calls for a global partnership among the Security Council, contributing states, host countries, and Secretariat; its principal sections address purpose, action, and the future. It supports the reform context. The proposed U.S.–China joint leadership is the authors’ policy recommendation, not an outcome established by the UN paper or an explicit UN endorsement found in the text. Its feasibility remains an analytical question.",
+    "evidence": [
+      [
+        "A New Partnership Agenda: Charting a New Horizon for UN Peacekeeping, executive summary and sections II–IV",
+        "https://unmas.org/sites/default/files/newhorizon_0.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S6N035"
+    ],
+    "id": "CMS09-R21"
+  },
+  {
+    "paper": "CMS-13",
+    "status": "further_investigation",
+    "source": "China’s straight baselines and the scope of foreign-ship exclusion",
+    "usage": "Paraphrase of extracted passage, CMS13-S8N004: China seeks straight baselines along its entire coastline, enclosing extensive waters off limits to foreign ships.",
+    "finding": "Reviewed November 11, 2026. The February 25, 1992 law defines internal waters landward of baselines (Article 2), prescribes straight baselines and a 12-nautical-mile territorial sea (Article 3), and distinguishes innocent passage by nonmilitary ships from permission for foreign military ships (Article 6). These are distinct zones and ship categories. The law alone does not establish the asserted geographic extent or a blanket foreign-ship prohibition. The cited 1996 declaration’s coordinates and the relevant internal-water access rules were not compared in this review; those remain necessary for the full claim.",
+    "evidence": [
+      [
+        "PRC Law on the Territorial Sea and Contiguous Zone, Articles 2, 3, 6 and 15",
+        "https://www.un.org/depts/los/LEGISLATIONANDTREATIES/PDFFILES/CHN_1992_Law.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S8N004"
+    ],
+    "id": "CMS13-R23"
+  },
+  {
+    "paper": "CMS-13",
+    "status": "further_investigation",
+    "source": "South China Sea sovereignty wording and distinct maritime rights",
+    "usage": "Paraphrase of extracted passage, CMS13-S8N006: An official’s 2011 comments suggest China seeks indisputable sovereignty over South China Sea waters inside the nine-dashed line.",
+    "finding": "Reviewed November 11, 2026. Indonesia’s July 8, 2010 UN note reproduces China’s May 7, 2009 formulation: sovereignty over islands and adjacent waters, alongside sovereign rights and jurisdiction over relevant waters and seabed. Those legal categories cannot simply be treated as sovereignty over every enclosed water area. The specific September 15, 2011 Economic Times quotation and underlying MFA transcript were not retrieved, so the unnamed official’s broader formulation remains unverified. The reproduced 2009 wording provides partial context, not a refutation of an unread 2011 statement.",
+    "evidence": [
+      [
+        "Indonesian UN note No. 480/POL-703/VII/10, paragraph 2 reproducing the Chinese formulation",
+        "https://www.un.org/depts/los/clcs_new/submissions_files/mysvnm33_09/idn_2010re_mys_vnm_e.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S8N006"
+    ],
+    "id": "CMS13-R24"
+  },
+  {
+    "paper": "CMS-13",
+    "status": "ok",
+    "source": "The 2010 strategy’s just international order formulation",
+    "usage": "Paraphrase of extracted passage, CMS13-S8N026: The author recommends upholding and promoting a just international order, citing the May 2010 U.S. National Security Strategy.",
+    "finding": "Reviewed November 11, 2026. Printed page 12 expressly presents a just and sustainable international order as a U.S. strategic objective and describes rights and responsibilities for nations. This supports the attributed policy concept. Extending that objective to all nations is the author’s recommendation; the strategy is not evidence of universal agreement or proof that a particular order is objectively just.",
+    "evidence": [
+      [
+        "National Security Strategy, May 2010, printed p. 12",
+        "https://obamawhitehouse.archives.gov/sites/default/files/rss_viewer/national_security_strategy.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S8N026"
+    ],
+    "id": "CMS13-R25"
+  },
+  {
+    "paper": "CMS-13",
+    "status": "further_investigation",
+    "source": "Article 38 identifies sources but does not expressly rank their importance",
+    "usage": "Paraphrase of extracted passage, CMS13-S8N027: Note 27 describes conventional and customary law as the generally recognized most important sources of international law.",
+    "finding": "Reviewed November 11, 2026. Article 38(1) lists international conventions, international custom, general principles, and, subject to Article 59, judicial decisions and publicists as subsidiary means. It confirms conventions and custom are sources, but does not expressly declare the first two most important. That evaluative proposition requires the cited Brownlie and Damrosch passages, which were not retrieved. This audit is limited to Note 27; it does not verify Note 53’s persistent-objector claim in the same consolidated row.",
+    "evidence": [
+      [
+        "Statute of the International Court of Justice, Article 38",
+        "https://legal.un.org/avl/pdf/ha/sicj/icj_statute_e.pdf?BYqRS5=BBimrXPX"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S8N027"
+    ],
+    "id": "CMS13-R26"
+  },
+  {
+    "paper": "CMS-17",
+    "status": "ok",
+    "source": "Indonesia’s July 2010 UNCLOS objection: wording and context",
+    "usage": "Paraphrase of extracted passage, CMS17-N099: Indonesia’s UN note invokes UNCLOS fundamental principles and the legitimate interest of the global community when objecting to China’s claims.",
+    "finding": "Reviewed November 11, 2026. The UN-hosted unofficial English translation of note No. 480/POL-703/VII/10, dated July 8, 2010, contains both quoted fragments in paragraph 3. That paragraph discusses remote or very small features generating no EEZ or continental shelf and the use of rocks or reefs as basepoints; paragraph 4 objects to the nine-dotted-line map as lacking an international legal basis and upsetting UNCLOS. The quotation is supported with this context. It records Indonesia’s diplomatic position, not an independent judicial ruling.",
+    "evidence": [
+      [
+        "Indonesian UN note, July 8, 2010, paragraphs 3–4; unofficial translation",
+        "https://www.un.org/depts/los/clcs_new/submissions_files/mysvnm33_09/idn_2010re_mys_vnm_e.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N099"
+    ],
+    "id": "CMS17-R29"
+  },
+  {
+    "paper": "CMS-17",
+    "status": "ok",
+    "source": "November 2010 inauguration of the U.S.–Indonesia partnership",
+    "usage": "Paraphrase of extracted passage, CMS17-N213: Obama and Yudhoyono established the Comprehensive Partnership in November 2010.",
+    "finding": "Reviewed November 11, 2026. The November 9, 2010 Joint Declaration states in paragraph 1 that the two presidents officially inaugurated the partnership in Jakarta. This supports the month, leaders, and establishment event. The extracted sentence says signed; the checked declaration describes inauguration and does not itself establish a treaty-signing procedure. The govinfo compilation notes that an original was unavailable for its content verification, so this check relies on the published official transcription. The later July 2011 State fact sheet was not directly retrieved.",
+    "evidence": [
+      [
+        "Joint Declaration on the Comprehensive Partnership, November 9, 2010, paragraph 1 and publication note",
+        "https://www.govinfo.gov/content/pkg/DCPD-201000961/pdf/DCPD-201000961.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N213"
+    ],
+    "id": "CMS17-R30"
+  },
+  {
+    "paper": "CMS-17",
+    "status": "further_investigation",
+    "source": "Malaysia’s 2014 and 2017 statements: how much legal language was new?",
+    "usage": "Paraphrase of extracted passage, CMS17-N452: The 2017 joint statement gave much greater detail on international law and coercion than the 2014 statement.",
+    "finding": "Reviewed November 11, 2026. Both official statements discuss navigation and overflight, peaceful resolution under international law including UNCLOS, avoidance of force, intimidation or coercion, and self-restraint. The 2017 statement specifically adds self-restraint regarding militarization of outposts. The comparison therefore has a concrete additional element, but broad legal and anti-coercion language was already explicit in 2014. Much greater detail is an interpretive assessment requiring qualification, rather than a wholly new 2017 commitment.",
+    "evidence": [
+      [
+        "Obama–Najib joint statement, April 27, 2014, South China Sea paragraphs",
+        "https://obamawhitehouse.archives.gov/the-press-office/2014/04/27/joint-statement-president-obama-and-prime-minister-najib-malaysia-0"
+      ],
+      [
+        "U.S.–Malaysia joint statement, September 2017, regional cooperation paragraphs",
+        "https://trumpwhitehouse.archives.gov/briefings-statements/joint-statement-enhancing-comprehensive-partnership-united-states-america-malaysia/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N452"
+    ],
+    "id": "CMS17-R31"
+  },
+  {
+    "paper": "CMS-17",
+    "status": "ok",
+    "source": "Pompeo’s August 2018 meeting with Mahathir",
+    "usage": "Paraphrase of extracted passage, CMS17-N453: Partnership-enhancement efforts continued under Mahathir, including during Pompeo’s August 2018 Malaysia visit.",
+    "finding": "Reviewed November 11, 2026. The indexed official State Department readout dated August 3, 2018 identifies Pompeo’s meeting with Prime Minister Mahathir and discussions of strengthening the Comprehensive Partnership, including security and economic cooperation. It supports the visit and stated intent to continue the partnership. The archive’s direct page did not provide a readable body in this review, so the check used its indexed readout text; the separate cited DipNote article was not retrieved. This does not measure implementation or the scale of continuity.",
+    "evidence": [
+      [
+        "State Department meeting readout, August 3, 2018; indexed text",
+        "https://2017-2021.state.gov/secretary-pompeos-meeting-with-malaysian-prime-minister-mahathir-mohamad/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N453"
+    ],
+    "id": "CMS17-R32"
+  },
+  {
+    "paper": "CS21-P2",
+    "status": "fix",
+    "source": "Megaports MOU date confused with completion of technical talks",
+    "usage": "Paraphrase of extracted passage, CS21P2-S3N096: A bilateral memorandum was signed in May 2007, after which two Chinese ports were becoming involved.",
+    "finding": "Reviewed November 11, 2026. The December 7, 2011 Xinhua account published by China’s embassy separates the milestones: MOU signed November 2005; talks on eleven annexes began February 2006 and finished May 2007. The extracted sentence appears to assign the technical-talk completion date to the MOU signature. Correct the MOU date to November 2005 while retaining the distinct May 2007 technical milestone. The same account identifies Yangshan as the first operating Chinese Megaports site in December 2011; it does not independently establish the earlier two-port planning count. Do not conflate Megaports with the separate Container Security or Secure Freight initiatives.",
+    "evidence": [
+      [
+        "Chinese embassy reproduction of Xinhua, December 7, 2011, MOU and annex chronology",
+        "https://us.china-embassy.gov.cn/eng/zmgxss/201112/t20111208_4367423.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N096"
+    ],
+    "id": "CS21P2-R26"
+  },
+  {
+    "paper": "CS21-P2",
+    "status": "further_investigation",
+    "source": "China’s EXBS participation needs a program source and contemporaneous date",
+    "usage": "Paraphrase of extracted passage, CS21P2-S3N101: China participates in EXBS in conjunction with support for UN counterterrorism conventions, citing the 2005 nuclear-terrorism convention.",
+    "finding": "Reviewed November 11, 2026. The 2015 U.S. government transmittal’s section Current U.S.–China Nonproliferation Programs describes EXBS assistance and training involving China. That provides direct government evidence of program cooperation by that later date, but cannot alone establish participation at the earlier study’s date or a causal link to support for the convention. The cited convention is not itself an EXBS participation record; its text and China’s treaty status were not checked here. A dated contemporary EXBS record remains needed.",
+    "evidence": [
+      [
+        "House Document 114-28, 2015, printed pp. 49–50, current nonproliferation programs",
+        "https://www.govinfo.gov/content/pkg/CDOC-114hdoc28/pdf/CDOC-114hdoc28.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N101"
+    ],
+    "id": "CS21P2-R27"
+  },
+  {
+    "paper": "CS21-P2",
+    "status": "ok",
+    "source": "GAO’s warning about reciprocal container scanning",
+    "usage": "Paraphrase of extracted passage, CS21P2-N156: Some foreign governments would seek reciprocal scanning of U.S. exports if the United States required scanning of all inbound containers.",
+    "finding": "Reviewed November 11, 2026. GAO-10-12, October 2009, expressly warns that foreign governments may impose reciprocal scanning requirements on U.S. exports. This supports the passage as a concern about potential reciprocity. GAO’s conditional language does not establish that such universal requirements had actually been implemented; the claim should retain that distinction.",
+    "evidence": [
+      [
+        "GAO-10-12, October 2009, Highlights and discussion of reciprocity",
+        "https://www.gao.gov/assets/gao-10-12.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-N156"
+    ],
+    "id": "CS21P2-R28"
+  },
+  {
+    "paper": "CS21-P2",
+    "status": "further_investigation",
+    "source": "Transformational diplomacy: U.S. terminology versus a comparison with China",
+    "usage": "Paraphrase of extracted passage, CS21P2-S5N045: China’s foreign policy and global reach are far less transformational; the note cites Krongard’s 2005 testimony for the U.S. policy term.",
+    "finding": "Reviewed November 11, 2026. The official October 18, 2005 hearing transcript records Krongard referring to the Secretary of State’s vision of transformational diplomacy in both his oral and prepared statements (printed pp. 46 and 48), in a discussion of Iraq oversight. The terminology is therefore attested in 2005. The testimony does not supply a systematic comparison with China or substantiate the degree implied by far less. The note supports the U.S. policy context; the comparative conclusion remains the author’s analysis.",
+    "evidence": [
+      [
+        "House hearing, October 18, 2005, Krongard oral and prepared statements, printed pp. 46 and 48",
+        "https://www.govinfo.gov/content/pkg/CHRG-109hhrg25441/pdf/CHRG-109hhrg25441.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S5N045"
+    ],
+    "id": "CS21P2-R29"
+  },
+  {
+    "paper": "CS21-P2",
+    "status": "fix",
+    "source": "Foreign-port assessments: MTSA year, statutory title and ISPS terminology",
+    "usage": "Paraphrase of extracted passage, CS21P2-S8N023: The Coast Guard certifies foreign ports against ISPS standards under a law identified in the note as the Maritime Transportation Safety Act of 2004.",
+    "finding": "Reviewed November 11, 2026. GAO-13-764, printed page 2 and its statutory note, identifies the Maritime Transportation Security Act of 2002 (Public Law 107-295) and the Coast Guard’s International Port Security Program, initiated in 2004. The program assesses foreign-port antiterrorism measures against international standards; this should not be described without qualification as a blanket port certification. Correct Safety to Security and the statute year to 2002. ISPS expands to International Ship and Port Facility Security Code, not International Shipping and Port Security. The separate airport examples and ninety-day procedure in the long note were not checked.",
+    "evidence": [
+      [
+        "GAO-13-764, printed p. 2, MTSA authority and foreign-port assessment program",
+        "https://www.gao.gov/assets/gao-13-764.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S8N023"
+    ],
+    "id": "CS21P2-R30"
+  },
+  {
+    "paper": "CS21-P5",
+    "status": "further_investigation",
+    "source": "Taiwan democracy policy versus claims about presidential power and congressional consensus",
+    "usage": "Paraphrase of extracted passage, CS21P5-N076: Preserving Taiwan’s democracy is critically important, enjoys overwhelming congressional support, and cannot be changed by a U.S. president.",
+    "finding": "Reviewed November 11, 2026. The indexed State Department text identifies Christensen’s September 11, 2007 Annapolis speech A Strong and Moderate Taiwan and describes U.S. support for Taiwan’s democracy alongside moderation and strategic restraint. Direct access to the archive returned a technical-difficulties page, so the complete passage could not be read. The available policy language does not quantify congressional support or establish a legal limit on presidential power. Those stronger propositions require a contemporaneous voting or legislative record and clearer explanation of whether cannot is a political prediction or a legal claim.",
+    "evidence": [
+      [
+        "Christensen, A Strong and Moderate Taiwan, September 11, 2007; indexed official archive text",
+        "https://2001-2009.state.gov/p/eap/rls/rm/2007/91979.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P5-N076"
+    ],
+    "id": "CS21P5-R06"
+  },
+  {
+    "paper": "CMS-17",
+    "status": "ok",
+    "source": "Malaysia’s 2005 reciprocal logistics agreement and quoted purpose",
+    "usage": "Paraphrase of extracted passage, CMS17-N445: The 2005 acquisition and cross-servicing agreement formalized reciprocal logistics for combined exercises, training, deployments, operations, and other cooperative efforts.",
+    "finding": "Reviewed November 11, 2026. The govinfo copy of TIAS 05-509 identifies signature at Kuala Lumpur on May 9, 2005. Visual inspection of PDF page 5 (printed page 1) confirms the preamble’s May 9 date and Article I’s reciprocal-logistics purpose. The quoted list of activities matches Article I, which also covers unforeseen circumstances or exigencies. Article II describes reciprocal provision for cash or equivalent support, subject to applicable laws and available funds. The agreement’s terms are verified; actual subsequent operational use was not assessed.",
+    "evidence": [
+      [
+        "U.S.–Malaysia Acquisition and Cross-Servicing Agreement, TIAS 05-509, cover and printed p. 1; scanned page visually checked",
+        "https://www.govinfo.gov/content/pkg/GOVPUB-S-PURL-gpo13539/pdf/GOVPUB-S-PURL-gpo13539.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N445"
+    ],
+    "id": "CMS17-R33"
   }
 ]
   </script>
@@ -3684,7 +5488,7 @@
     });
     DATA.meta.curated_row_count += followUpAudits.length;
     DATA.meta.row_count += followUpAudits.length;
-    DATA.meta.audit_date = 'November 10, 2026';
+    DATA.meta.audit_date = 'November 11, 2026';
 
     // The batch filter is switched off: all 110 documents always show. Set to true to bring back
     // the batch buttons, the "Explore Batch 8 Papers" shortcut, and the clickable batch rows.
