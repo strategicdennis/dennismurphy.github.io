@@ -83,7 +83,7 @@
       <div class="flex flex-wrap items-center gap-2">
         <div class="relative flex-1 sm:flex-initial sm:w-64">
           <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-          <input id="globalSearchInput" type="text" placeholder="Search 110 papers, 7,358 rows, memos..."
+          <input id="globalSearchInput" type="text" placeholder="Search 110 papers, 7,428 rows, memos..."
             class="w-full pl-9 pr-7 py-1.5 text-xs bg-slate-950 border border-slate-700/80 rounded-lg text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition" />
           <button id="clearGlobalSearchBtn" title="Clear search" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200">
             <i data-lucide="x" class="w-3.5 h-3.5"></i>
@@ -96,7 +96,7 @@
         </button>
         <button id="downloadCsvBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
           <i data-lucide="table" class="w-3.5 h-3.5"></i>
-          <span>Export 7,358 Rows CSV</span>
+          <span>Export 7,428 Rows CSV</span>
         </button>
       </div>
     </div>
@@ -115,7 +115,7 @@
       <button data-tab="rows" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
         <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
         <span>3. Reference Audit Matrix</span>
-        <span id="navRowCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">630</span>
+        <span id="navRowCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">700</span>
       </button>
       <button data-tab="shared" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
         <i data-lucide="git-Fork" class="w-3.5 h-3.5"></i>
@@ -155,7 +155,7 @@
         <button data-batch="7" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Batch 7 (#61–#70)</button>
         <button data-batch="8" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30 transition">★ Batch 8 (#71–#80: CCP Espionage, McDevitt Naval Power &amp; Whaley Intro)</button>
       </div>
-      <div id="activeFilterStatusText" class="text-xs text-slate-400 mono">Showing all 110 documents · 7,358 audited reference rows</div>
+      <div id="activeFilterStatusText" class="text-xs text-slate-400 mono">Showing all 110 documents · 7,428 audited reference rows</div>
     </div>
   </div>
 
@@ -320,7 +320,7 @@
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
         <div class="flex flex-wrap items-center gap-2">
           <span class="text-xs text-slate-400 font-medium">Row Status:</span>
-          <button data-rowstatus="all" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white transition">All (7,358)</button>
+          <button data-rowstatus="all" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white transition">All (7,428)</button>
           <button data-rowstatus="ok" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition">ok (2,070)</button>
           <button data-rowstatus="fix" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 transition">fix (41)</button>
           <button data-rowstatus="unk" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30 hover:bg-purple-500/25 transition">unk</button>
@@ -338,7 +338,7 @@
           </select>
           <input id="rowSearchInput" type="text" placeholder="Search rows..." class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 w-48">
         </div>
-        <div id="rowMatrixCountLabel" class="text-xs text-slate-400 mono">Showing 7,358 of 7,358 reference rows</div>
+        <div id="rowMatrixCountLabel" class="text-xs text-slate-400 mono">Showing 7,428 of 7,428 reference rows</div>
       </div>
 
       <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow">
@@ -2372,6 +2372,1295 @@
     ],
     "footnote_ids": [
       "CS21P2-S5N057"
+    ]
+  },
+  {
+    "paper": "CAP-P2",
+    "id": "CAPP2-R07",
+    "status": "fix",
+    "source": "Month of Japan’s 2010 Yonaguni ADIZ boundary change",
+    "usage": "The note is attached to: “Most recently, in July 2010, Japan extended the southern portion of its ADIZ twenty-two kilometers closer to Taiwan to ensure air coverage over all portions of the southernmost island in the Ryukyu island chain, known as Yonaguni.”",
+    "finding": "The contemporary Taipei Times report, published on 26 June, says the change took effect the preceding day. It identifies 25 June 2010 as the effective date, whereas the cited Asia Times article was published in July. Use June for the event and July only for the later report.",
+    "evidence": [
+      [
+        "Contemporaneous report quoting Taiwan’s foreign and defence officials",
+        "https://www.taipeitimes.com/News/front/archives/2010/06/26/2003476438"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPP2-S2N004"
+    ]
+  },
+  {
+    "paper": "CFNSF-02",
+    "id": "CFNSF02-R06",
+    "status": "further_investigation",
+    "source": "Dalian academy’s 80% statistic: all officers versus ship captains",
+    "usage": "The note is attached to: “Also, as Dalian Naval Academy’s primary mission is to train the PLAN officer force (80 percent of PLAN officers graduate from the Dalian Naval Academy), the academy also publishes on topics relating to officer training reform and some naval C theory.”",
+    "finding": "The later CMSI translation of the academy’s recruiting account says over 80% of ship captains had attended the academy. That is a narrower population than the entire officer corps. The original academy snapshot cited by the earlier book was unavailable, so the later statement points to a denominator issue without establishing the earlier figure’s exact wording.",
+    "evidence": [
+      [
+        "CMSI translation of the academy’s account",
+        "https://www.andrewerickson.com/2025/02/cmsi-translation-14-manual-for-developing-ship-captains/"
+      ]
+    ],
+    "footnote_ids": [
+      "CFNSF02-N049"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R25",
+    "status": "fix",
+    "source": "Djibouti support-base ceremonies in July and August 2017",
+    "usage": "The note is attached to: “Construction began in February 2016, and by July 11, 2017 the facility was formally opened with substantial fanfare in the PRC press.”",
+    "finding": "Xinhua’s 11 July report describes personnel departing China for the new facility. Its 1 August report documents the opening ceremony in Djibouti. The cited August article also concerns troops entering the camp. Distinguish the July departure from the formal August opening.",
+    "evidence": [
+      [
+        "Xinhua departure report, 11 July 2017",
+        "https://www.xinhuanet.com/english/2017-07/11/c_136435716.htm"
+      ],
+      [
+        "Xinhua opening report, 1 August 2017",
+        "https://www.xinhuanet.com/english/2017-08/01/c_136491533.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N186"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R26",
+    "status": "ok",
+    "source": "2015 naval strategy and the English rendering of its two missions",
+    "usage": "The note is attached to: “Functions and Missions Since 2015, the PLAN has been tasked not only with “near seas defense,” its limited historical role, but also the more expansive mission of “far seas protection.””",
+    "finding": "The official 2015 English white paper uses offshore waters defense and open seas protection. The 2019 official translation uses near seas defense and far seas protection. The 2015 document establishes the combined strategic requirement, so the chapter’s substantive dating is supported. For an exact quotation, identify the translation being used.",
+    "evidence": [
+      [
+        "Official 2015 white paper",
+        "https://english.www.gov.cn/archive/white_paper/2015/05/27/content_281475115610833.htm"
+      ],
+      [
+        "Official 2019 white paper",
+        "https://english.scio.gov.cn/2019-07/24/content_75026800_5.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N205",
+      "CMR06-N206"
+    ]
+  },
+  {
+    "paper": "CMR-53",
+    "id": "CMR53-R05",
+    "status": "further_investigation",
+    "source": "Military-service tuition assistance: RMB 16,000 and RMB 20,000 caps",
+    "usage": "Note 48 reports these annual tuition-compensation and loan-repayment caps for directly recruited sergeants.",
+    "finding": "The university’s republication of the national student-aid notice lists those two annual limits for entrants from 1 September 2023 through 31 August 2024. It lists higher limits from September 2024. The amounts were therefore used for military-service educational aid, and are not confined to civilian student-loan quotas. The paper’s specific recruitment category and effective date still need to be matched. The paper was published in May 2026, after the higher limits took effect, so any presentation of these as current needs an explicit historical qualification.",
+    "evidence": [
+      [
+        "National student-aid notice republished by Jilin University, date and category table",
+        "https://xsc.jlu.edu.cn/info/1176/4643.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR53-N012"
+    ]
+  },
+  {
+    "paper": "CMR-58",
+    "id": "CMR58-R05",
+    "status": "further_investigation",
+    "source": "Figure 3’s 2025 disciplinary procedure and the cited 2018 translation",
+    "usage": "The note is attached to: “Figure 3: A flowchart of disciplinary investigation process according to the 2025 Discipline Regulations of the PLA.”",
+    "finding": "The caption identifies the 2025 regulations while the note names a translation of the 2018 rules. The Ministry of National Defense publishes the newer regulations, so an earlier version cannot authenticate the full flowchart without an article-by-article comparison. The complete chart was not independently reconstructed in this audit. Link the applicable 2025 provisions to each stage before marking the figure verified.",
+    "evidence": [
+      [
+        "Official 2025 disciplinary regulations",
+        "https://www.mod.gov.cn/gfbw/qwfb/16371493.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR58-N058"
+    ]
+  },
+  {
+    "paper": "CMS-04",
+    "id": "CMS04-R07",
+    "status": "fix",
+    "source": "Date of Hu Jintao’s Qingdao anniversary naval review",
+    "usage": "The note is attached to: “Finally, Hu attended the naval parade in Qingdao to commemorate the sixtieth anniversary of the PLAN, on 22 April 2009.”",
+    "finding": "CCTV’s contemporary dispatch dates the boarding and naval review to 23 April 2009. The paper gives 22 April, while its AFP citation is dated the 23rd. Correct the event date to 23 April.",
+    "evidence": [
+      [
+        "CCTV contemporaneous report, 23 April 2009",
+        "https://news.cctv.cn/china/20090423/105165.shtml"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS04-N089"
+    ]
+  },
+  {
+    "paper": "CMS-04",
+    "id": "CMS04-R08",
+    "status": "further_investigation",
+    "source": "PLA representation on the Sixteenth Central Committee: ratio and membership scope",
+    "usage": "The note is attached to: “Counting both full and alternate members and excluding the PAP members, PLA membership constitutes about 17 percent, or sixty-two out of 356, of the membership of the CCP Central Committee elected at the Sixteenth CCP Congress of November 2002.”",
+    "finding": "The arithmetic is sound: 62 divided by 356 is 17.4%. The passage specifies the committee elected in November 2002 and excludes the People’s Armed Police. Figures for the Seventeenth Committee or counts that include PAP personnel are not like-for-like counterchecks. The 62-person numerator still requires a roster with explicit service classifications.",
+    "evidence": [
+      [
+        "CMS-04 original report and catalogue record",
+        "https://digital-commons.usnwc.edu/cmsi-red-books/4"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS04-N090"
+    ]
+  },
+  {
+    "paper": "CMS-08",
+    "id": "CMS08-R09",
+    "status": "unk",
+    "source": "Attribution of the population-proportional Arctic resource claim",
+    "usage": "The note is attached to: “A Chinese admiral said in early 2010 that since China has 20 percent of the world’s population, it should have 20 percent of the Arctic’s resources.”",
+    "finding": "Subsequent analyses repeat the one-fifth or 20% formulation attributed to Yin Zhuo, while other accounts quote a broader argument for Chinese participation. Repetition does not establish his original words. The original interview or speech and the cited Cnews report were not recovered. Treat the numerical entitlement formulation as an unverified attribution.",
+    "evidence": [
+      [
+        "SIPRI, China’s Arctic Aspirations",
+        "https://www.sipri.org/sites/default/files/files/PP/SIPRIPP34.pdf"
+      ],
+      [
+        "Brookings, Northern Expedition",
+        "https://www.brookings.edu/wp-content/uploads/2021/04/FP_20210412_china_arctic.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS08-N022"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R15",
+    "status": "further_investigation",
+    "source": "Foreign-flag shares in the escort statistics",
+    "usage": "The source row and CMS10-S7N086 contain nearly equal Chinese/foreign shares in one passage and roughly 70% foreign in another.",
+    "finding": "These are different approximate shares. The citing passages alone do not establish that they cover identical dates or the same universe of escort operations. Reconcile each numerator, denominator and cutoff date before treating this as an arithmetic error. The later official ten-year total is a different observation window.",
+    "evidence": [
+      [
+        "CMS-10 original report",
+        "https://www.andrewerickson.com/wp-content/uploads/2013/11/China-Antipiracy-Ops-in-GoA_CMS10_201311.pdf"
+      ],
+      [
+        "Official later ten-year escort summary",
+        "https://eng.mod.gov.cn/xb/News_213114/TopStories/4833368.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S4N004",
+      "CMS10-S7N086"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R16",
+    "status": "further_investigation",
+    "source": "Chinese merchant traffic and pirate attacks in the first eleven months of 2008",
+    "usage": "Notes 105 and 106 support 1,265 Chinese merchant transits, of which 83 were reportedly attacked.",
+    "finding": "The 18 December 2008 Foreign Ministry briefing gives the same 1,265 transits but says 20% were attacked, which implies roughly 253. It also separately counts seven hijacking cases involving China. The briefing therefore does not substantiate 83. The cited magazine and newspaper accounts need matching definitions of attempted attacks, attacked vessels and hijackings before the figures can be reconciled.",
+    "evidence": [
+      [
+        "Foreign Ministry briefing, 18 December 2008",
+        "https://losangeles.china-consulate.gov.cn/eng/confenrence/200812/t20081219_4984174.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N079",
+      "CMS10-S5N106"
+    ]
+  },
+  {
+    "paper": "CMS-12",
+    "id": "CMS12-R08",
+    "status": "unk",
+    "source": "Date and scope of the reported 70/30 officer-graduate split",
+    "usage": "The note is attached to: “For example, a December 2009 Jiefangjun Bao article stated that the PLA’s officer corps at that point received about a hundred thousand graduates per year, of which 70 percent came from military academic institutions and 30 percent from the National Defense Student Program.”",
+    "finding": "The monograph attributes its figures to Sun Zhi’s article dated 1 December 2009. The footnote review recorded another secondary account dating the source a day earlier. Neither the original issue nor the underlying graduation series was recovered here. A same-author restatement cannot independently settle the source date, annual total or the split between training programmes.",
+    "evidence": [
+      [
+        "Original CMS-12 report, note 35",
+        "https://www.govinfo.gov/content/pkg/GOVPUB-D208_200-PURL-gpo60940/pdf/GOVPUB-D208_200-PURL-gpo60940.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS12-N035"
+    ]
+  },
+  {
+    "paper": "CMS-12",
+    "id": "CMS12-R09",
+    "status": "further_investigation",
+    "source": "The asserted 15% ceiling for female National Defense Students",
+    "usage": "The note is attached to: “The PLA also has capped the maximum number of female national defense students at 15 percent.”",
+    "finding": "Contemporary admission advice distinguishes military-academy programmes from National Defense Student programmes at civilian universities. One report applies a 15% principle to military-academy noncommand specialities, while published provincial National Defense Student allocations show different realized shares. An intake share below 15% cannot establish a nationwide legal ceiling. The specific rule cited by the monograph was not recovered.",
+    "evidence": [
+      [
+        "Contemporary admission guidance distinguishing programme categories",
+        "https://gaokao.eol.cn/junshi/junxiao/200912/t20091214_430005_1.shtml"
+      ],
+      [
+        "2011 provincial National Defense Student allocation",
+        "https://edu.sina.com.cn/gaokao/2011-06-22/1047302581.shtml"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS12-N036"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R10",
+    "status": "ok",
+    "source": "Late-1970 Soviet agreement to discuss incidents at sea",
+    "usage": "The grouped row’s note 18 places Soviet agreement to discussions in late 1970.",
+    "finding": "The National Defense University’s historical account explicitly says the Soviets relented in late 1970. Agreement to negotiate is distinct from the later meetings and the signed 1972 accord. The paper’s date is supported for the acceptance milestone.",
+    "evidence": [
+      [
+        "NDU, Managing Sino-U.S. Air and Naval Interactions, p. 12",
+        "https://www.govinfo.gov/content/pkg/GOVPUB-D5-PURL-gpo76456/pdf/GOVPUB-D5-PURL-gpo76456.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S10N012"
+    ]
+  },
+  {
+    "paper": "CMS-14",
+    "id": "CMS14-R10",
+    "status": "fix",
+    "source": "Peace Ark’s 2011 medical mission: departure month",
+    "usage": "The note is attached to: “In October 2011, Anwei embarked on a three-month deployment to the Caribbean—Mission Harmony 2011—involving port calls in Cuba, Jamaica, Trinidad and Tobago, and Costa Rica.”",
+    "finding": "The contemporary PLA Daily report describes a 15 September mobilization meeting and a scheduled 16 September departure for the four named countries. That establishes a September start rather than October. October may describe a later port call and should not be used as the departure month.",
+    "evidence": [
+      [
+        "Contemporary PLA Daily report in translation",
+        "https://www.andrewerickson.com/2011/09/pla-daily-offers-latest-details-on-peace-ark-hospital-ships-1st-medical-mission-to-caribbean/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS14-S19N019"
+    ]
+  },
+  {
+    "paper": "CMS-15",
+    "id": "CMS15-R07",
+    "status": "fix",
+    "source": "Four Japanese detainees in September 2010: staggered release and charges",
+    "usage": "The grouped row’s note 221 says the Japanese citizens were released a few days after Zhan Qixiong and describes espionage charges.",
+    "finding": "The Foreign Ministry’s 30 September briefing confirms three releases and says the fourth detainee still required investigation. The group was therefore not released together. The briefing does not establish formal espionage charges. Use separate release dates and distinguish detention or investigation from an established charge.",
+    "evidence": [
+      [
+        "Foreign Ministry briefing, 30 September 2010",
+        "https://losangeles.china-consulate.gov.cn/eng/confenrence/201010/t20101015_4986126.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS15-N217"
+    ]
+  },
+  {
+    "paper": "CMS-16",
+    "id": "CMS16-R09",
+    "status": "further_investigation",
+    "source": "Counting the Japanese ambassador’s summonses in September 2010",
+    "usage": "The grouped row’s note 132 gives five summonses, including one at night.",
+    "finding": "The contemporary chronology records multiple contacts and a late-night summons. A count made during the dispute depends on its cutoff and on whether it includes contacts with other Japanese officials. The cited Swaine–Fravel passage was not independently recovered to settle that scope. Record a dated event list before substituting five or six as a final total.",
+    "evidence": [
+      [
+        "Contemporary comparative chronology, July–September 2010",
+        "https://www.files.ethz.ch/isn/122622/2010_10.pdf"
+      ],
+      [
+        "Chinese mission notice on the foreign minister’s summons",
+        "https://eu.china-mission.gov.cn/eng/dshdjh/201009/t20100910_8268649.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS16-N025"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R13",
+    "status": "further_investigation",
+    "source": "Fahru Zaini’s 2014 Natuna statement and the official dispute position",
+    "usage": "The note is attached to: “Fahru Zaini publicly acknowledged—for the first time in unequivocal language—that Indonesia had a dispute with China, stating that Beijing had “claimed Natuna waters as their territorial waters,” and that “this dispute will have a large impact on the security of the Natuna waters.””",
+    "finding": "The ISEAS study reproduces Zaini’s March 2014 remarks about China’s claim and its security implications. It also records Foreign Minister Natalegawa’s subsequent denial of a territorial dispute. The quotation is corroborated, while the characterization of it as Indonesia’s first unequivocal acknowledgement of a dispute requires a broader historical and institutional check.",
+    "evidence": [
+      [
+        "ISEAS study, pp. 29–30, Zaini and Natalegawa statements",
+        "https://www.iseas.edu.sg/wp-content/uploads/pdfs/TRS5_17.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N108"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R14",
+    "status": "further_investigation",
+    "source": "Naval War College faculty coverage of Southeast Asia at publication",
+    "usage": "The note is attached to: “For instance, while China studies are well represented at institutions such as the U.S. Naval War College, no current member of the institution’s faculty focuses on Southeast Asia.”",
+    "finding": "Official faculty biographies list Southeast Asia among the expertise or teaching areas of faculty including John Garofano and Paul Rasmussen. Rasmussen’s record also dates his Monterey appointment to 2022. A current directory cannot by itself reconstruct staffing and research focus when the monograph was written. A publication-date faculty roster and definition of focuses on are needed to test the historical claim.",
+    "evidence": [
+      [
+        "Official Garofano faculty biography",
+        "https://www.usnwc.edu/Faculty-and-Departments/Directory/John-F-Garofano"
+      ],
+      [
+        "Official Rasmussen faculty biography",
+        "https://usnwc.edu/Faculty-and-Departments/Directory/Paul-Eliot-Rasmussen"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N459"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R18",
+    "status": "further_investigation",
+    "source": "Dublin mobile scanner: delivery, introduction and reported currency",
+    "usage": "The note is attached to: “In February 2006 “Nuctech’ s new X-ray scanners were installed in the Dublin port at a cost of €3 million ($4 million) to assist on the inspection of containers and commercial vehicles.””",
+    "finding": "Revenue’s 2005 annual report dates delivery of the scanner to October 2005. The Irish Times reported the start of use in February 2006 but described delivery in December 2005 and used a dollar price. Those are conflicting delivery accounts and different milestones. The official procurement amount, currency and introduction date should be cited separately. The article does not settle the chapter’s euro-to-dollar conversion.",
+    "evidence": [
+      [
+        "Irish Revenue annual report 2005, p. 35",
+        "https://www.revenue.ie/en/rev-100/annual-report/2000/2005.pdf"
+      ],
+      [
+        "Contemporary Irish Times report, February 2006",
+        "https://www.irishtimes.com/news/use-of-mobile-x-ray-scanner-starts-at-ports-1.771721"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-N139"
+    ]
+  },
+  {
+    "paper": "CMR-04",
+    "id": "CMR04-R08",
+    "status": "further_investigation",
+    "source": "Bali evacuation: interim passenger totals and fleet attribution",
+    "usage": "Note 103 reports that strategic projection support aircraft evacuated 17,000 Chinese nationals from Bali in November 2017.",
+    "finding": "CAAC’s dated account distinguishes 1,658 passengers returned by domestic airlines and 2,893 returned by international airlines by 09:30 on November 30, with additional flights planned. These are interim returns, not a final total. It names civilian carriers but does not establish which flights belonged to a strategic projection support fleet. The earlier flag also omitted the domestic-airline subtotal. Retrieve Zhang et al., p. 6 and a final evacuation tally before accepting or rejecting the 17,000 figure or fleet attribution.",
+    "evidence": [
+      [
+        "CAAC contemporary account, December 2017",
+        "https://www.caac.gov.cn/English/News/202305/t20230515_219041.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR04-N084"
+    ]
+  },
+  {
+    "paper": "CMR-04",
+    "id": "CMR04-R09",
+    "status": "fix",
+    "source": "Libya evacuation: total evacuees versus transit countries",
+    "usage": "The passage says over 35,000 Chinese citizens in Libya were evacuated to Tunisia.",
+    "finding": "The total exceeding 35,000 is consistent with contemporary accounts, but Tunisia was one of several transit countries. The Chinese consulate’s February 2011 account identifies Egypt, Tunisia, Greece and Malta; Beijing Review’s final account gives 35,860 evacuees and additional transit countries. Revise the destination wording so the overall total is not assigned to Tunisia alone. This finding concerns the civilian total and destinations; it does not adjudicate the separately stated flight counts or military unit affiliation.",
+    "evidence": [
+      [
+        "Chinese consulate contemporary evacuation account",
+        "https://capetown.china-consulate.gov.cn/eng/xwdt/201102/t20110225_6967724.htm"
+      ],
+      [
+        "Beijing Review final evacuation account",
+        "https://www.bjreview.com.cn/print/txt/2011-03/06/content_338897_2.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR04-N100"
+    ]
+  },
+  {
+    "paper": "CMR-08",
+    "id": "CMR08-R08",
+    "status": "further_investigation",
+    "source": "WPNS: participants, members and observers",
+    "usage": "The note is attached to: “Examples include China’s involvement in the Western Pacific Naval Symposium, featuring participation by 25 countries.”",
+    "finding": "The Royal Navy’s April 2016 account records 25 nations attending that symposium and describes the 2014 composition as 21 members plus four observers. Thus 25 is a plausible dated participation count, not necessarily 25 full members or a permanent total. Specify the meeting year and inclusion of observers; the cited Chinese ministry homepage does not identify the intended event.",
+    "evidence": [
+      [
+        "Royal Navy WPNS account, April 2016",
+        "https://www.royalnavy.mod.uk/news/2016/april/15/160415-asia-partnership"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR08-N041"
+    ]
+  },
+  {
+    "paper": "CMS-01",
+    "id": "CMS01-R10",
+    "status": "ok",
+    "source": "Zhang Xiangmu quotation: high-value ship equipment",
+    "usage": "Note 78 attributes the statement that capacity to supply products for high-tech, high added-value ships was woefully insufficient to Zhang Xiangmu, quoted by Wu Qiang.",
+    "finding": "Located Wu Qiang’s September 24, 2006 Xinhua article in an embassy reproduction. Its Challenges section directly attributes this statement to Zhang Xiangmu. The same article also attributes the productivity-gap statement to Zhang. This resolves the attribution concern for note 78; the incomplete MarineLink comparison in the earlier flag is not evidence that the quotation was misattributed. Other claims grouped into the footnote row require their own checks.",
+    "evidence": [
+      [
+        "Wu Qiang, Xinhua article reproduced by Chinese embassy",
+        "https://ph.china-embassy.gov.cn/eng/xwdt/200609/t20060925_1156042.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS01-N050"
+    ]
+  },
+  {
+    "paper": "CMS-01",
+    "id": "CMS01-R11",
+    "status": "unk",
+    "source": "Ship-quality campaign: 303 yards, 586 ships and 202 scrap designations",
+    "usage": "The note is attached to: “These inspections reportedly forced suspension of operations at 303 Chinese shipyards and failed 586 ships of poor material quality (of which 202 were designated for scrapping).”",
+    "finding": "The three figures recur in the citing study, but the cited Wang Haichao article in China Maritime Safety 8 (2006) was not retrieved for comparison. A later report on 457 factories or workshops uses a different date and population and cannot verify or refute these figures. Preserve the distinction between 202 designated for scrapping and ships actually scrapped. Verification requires the original campaign report or Wang’s article.",
+    "evidence": [
+      [
+        "Citing CMS study and footnote 76 (not independent confirmation)",
+        "https://www.andrewerickson.com/wp-content/uploads/2010/04/China-Maritime-Study-1_China-Shipbuilding-Industry_Collins-Grubb_2008-August.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS01-N076"
+    ]
+  },
+  {
+    "paper": "CMS-06",
+    "id": "CMS06-R06",
+    "status": "unk",
+    "source": "Stoessinger: misperception quotation and edition-specific page",
+    "usage": "Note 21 quotes Stoessinger on misperception as the most important single precipitating factor in war, citing the eighth edition, p. 255.",
+    "finding": "The original consolidated citation distinguishes note 20 (p. xv) from note 21 (p. 255). The earlier flag incorrectly assigned p. xv to the latter quotation. The eighth-edition page itself was not retrieved, so the exact wording and emphasis remain unverified. A bookseller summary or another edition cannot establish a quotation error. Check the 2001 eighth edition, p. 255, before changing the quotation.",
+    "evidence": [
+      [
+        "CMS-06 publication record and citing study",
+        "https://digital-commons.usnwc.edu/cmsi-red-books/6"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS06-N020"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R10",
+    "status": "ok",
+    "source": "U.S. MSR policy: excluded data-collection categories",
+    "usage": "Note 19 lists hydrographic and military surveys, environmental monitoring, routine ocean observations including Argo, and archaeological activities as outside the U.S. definition of marine scientific research.",
+    "finding": "The indexed text of the State Department’s 2009–2017 archived Marine Scientific Research Authorizations page expressly lists these categories, including Argo and JCOMM. It supports the passage as an account of the U.S. position, not a universally agreed interpretation. The page currently returns a technical error when opened directly, but its indexed text is available. This audit checks note 19 only; it does not certify note 20’s separate list of consent requirements.",
+    "evidence": [
+      [
+        "State Department historical MSR authorizations page (indexed text; direct access unreliable)",
+        "https://2009-2017.state.gov/e/oes/ocns/opa/rvc/index.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S4N019"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R11",
+    "status": "further_investigation",
+    "source": "Challenger: Antarctic waters versus visiting a continent",
+    "usage": "Note 4 states that HMS Challenger visited every continent, including Antarctica.",
+    "finding": "The Natural History Museum describes crossing the Antarctic Circle and visiting subantarctic islands. Gould’s route analysis locates the southernmost station at 65°42′S near pack ice and explains that the planned North American route was changed. These sources support Antarctic-ocean research, but do not establish a visit or landing on the Antarctic continent or every continental landmass. Clarify what visited means and compare Wegelein pp. 22–24 before retaining the universal claim.",
+    "evidence": [
+      [
+        "Natural History Museum expedition history",
+        "https://www.nhm.ac.uk/discover/hms-challenger-how-1870s-expedition-still-influences-scientific-discoveries-today.html"
+      ],
+      [
+        "Gould route analysis, 2022",
+        "https://hgss.copernicus.org/articles/13/171/2022/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S7N004"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R12",
+    "status": "ok",
+    "source": "2008 defense white paper: U.S. attention to Asia-Pacific",
+    "usage": "Note 20 quotes China’s National Defense in 2008 on increased U.S. strategic attention and input in the Asia-Pacific region.",
+    "finding": "The reproduced official white paper, dated January 20, 2009, contains the quoted sentence in The Security Situation, alongside the assessment that the regional situation was broadly stable. The title refers to 2008; publication in 2009 is consistent. The earlier comparison with the 2010 white paper used the wrong edition. This resolves the note 20 quotation; it does not independently validate the author’s characterization of the language as euphemistic.",
+    "evidence": [
+      [
+        "Official 2008 white paper reproduced from China.org.cn (NTI copy)",
+        "https://media.nti.org/pdfs/1a_1.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S10N020"
+    ]
+  },
+  {
+    "paper": "CMS-08",
+    "id": "CMS08-R10",
+    "status": "unk",
+    "source": "2010 icebreaker prediction: quotation versus eventual fleet",
+    "usage": "The note is attached to: ““Between the two ships,” the New York Times observed in May 2010, “China will have larger and more modern icebreakers than either the United States or Canada.””",
+    "finding": "The New York Times blog URL is identifiable, but its May 24, 2010 text was blocked from retrieval. The sentence is explicitly a forecast about two ships, not a claim that both were already operating in 2010. Later delivery dates alone do not disprove that a forecast was published. Neither the quotation’s exact wording and attribution nor the comparative criteria for larger and more modern were verified in this pass.",
+    "evidence": [
+      [
+        "Cited New York Times blog (retrieval blocked)",
+        "https://ideas.blogs.nytimes.com/2010/05/24/chinas-arctic-ambitions/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS08-N098"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R08",
+    "status": "fix",
+    "source": "Overseas bases statement: identify the actual speaker",
+    "usage": "Note 13 presents the China Daily no-overseas-bases statement as a Ministry of Defense reply.",
+    "finding": "Cui Xiaohuo’s March 11, 2010 article attributes the statement to Zhang Deshun, a retired rear admiral, former navy deputy chief of staff and National People’s Congress deputy. It does not present him as speaking for the Ministry of Defense. Attribute this cited statement to Zhang and preserve its March 2010 date. The earlier suggestion that this article’s speaker was Yin Zhuo is also incorrect. This correction does not determine whether a separate ministry statement existed.",
+    "evidence": [
+      [
+        "Original Cui Xiaohuo article, March 11, 2010",
+        "https://www.chinadaily.com.cn/china/2010-03/11/content_9570126.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S6N013"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R17",
+    "status": "further_investigation",
+    "source": "Threefold piracy increase: timeframe and metric",
+    "usage": "The note is attached to: “According to a report by Zhongxing News Network citing European Union (EU) naval officials, the number of pirate attacks rose threefold in 2010.”",
+    "finding": "The cited People’s Navy item appeared July 2, 2010, so its reference to this year cannot by itself establish a completed full-year comparison. NATO’s later standardized series lists 117 attacks in 2009 and 127 in 2010, while treating disruptions and approaches separately. That does not support an unqualified threefold annual rise, but may use a different geography, reporting period or measure. Retrieve the underlying Zhongxing/EU account and specify its baseline before deciding the precise correction.",
+    "evidence": [
+      [
+        "NATO 2013 annual report, piracy series and definitions",
+        "https://www.nato.int/content/dam/nato/legacy-wcm/media_pdf/stock_publications/20140123_SG_AnnualReport_2013_en.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N001"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R18",
+    "status": "fix",
+    "source": "Libya projects: contract value is not measured loss",
+    "usage": "Note 21 says fifty Chinese projects halted in Libya resulted in an aggregate loss of nearly $20 billion.",
+    "finding": "A contemporary Xinhua account reproduced by the Chinese embassy states that 50 cooperative projects worth $18.8 billion were suspended. It identifies project value, not a measured financial loss of that amount. Revise the wording to suspended projects worth approximately $18.8 billion unless a separate loss assessment is supplied. The original Chen Chundi article still needs comparison to establish whether the distinction arose in that article or the citing study.",
+    "evidence": [
+      [
+        "Contemporary Xinhua account reproduced by Chinese embassy",
+        "https://zw.china-embassy.gov.cn/eng/xwdt/201109/t20110908_6420830.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N055"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R19",
+    "status": "further_investigation",
+    "source": "Xianghuamen: owner name versus operator",
+    "usage": "The note is attached to: “Xianghuamen is owned and operated by the Nanjing Ocean Shipping Company.”",
+    "finding": "Contemporary Xinhua reporting identifies Nanjing Ocean Shipping as the vessel’s owner, corroborating the ownership portion. The apparent difference between Ocean Shipping and Yuanyang may reflect translation of 远洋 rather than a different company. The checked account does not separately identify the ship manager or operator. Obtain the cited CCTV report or a contemporaneous registry record before certifying owned and operated as a combined assertion.",
+    "evidence": [
+      [
+        "Xinhua contemporary report, April 7, 2012",
+        "https://www.chinadaily.com.cn/world/2012-04/07/content_14995449.htm"
+      ],
+      [
+        "Embassy interview identifying owner, April 8, 2012",
+        "https://www.chinadaily.com.cn/sunday/2012-04/08/content_14998711.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N129"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R20",
+    "status": "fix",
+    "source": "Full City: Chinese connection versus flag state",
+    "usage": "Note 130 describes the cargo ship attacked in May 2011 as Chinese-flagged.",
+    "finding": "The IMO’s May 2011 incident circular lists Full City, IMO 9073672, under Panama for the May 5 incident. Contemporary reporting also describes a Panama-flagged vessel with Chinese crew. Replace Chinese-flagged with Panama-flagged, Chinese-owned or Chinese-crewed as supported by the chosen source. This audit concerns vessel identity and flag; it does not evaluate the passage’s detailed account of the response.",
+    "evidence": [
+      [
+        "IMO MSC.4/Circ.172, annex 1, Full City entry",
+        "https://wwwcdn.imo.org/localresources/en/OurWork/Security/Documents/172-May2011.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N130"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R11",
+    "status": "further_investigation",
+    "source": "Military maritime freedoms: historical commentary and pinpoint citation",
+    "usage": "Note 29 cites p. 16 of the 1994 presidential treaty-transmittal package for military intelligence collection and surveillance among maritime freedoms.",
+    "finding": "Later U.S. Senate committee language expressly includes intelligence collection and surveillance among the U.S. understanding of internationally lawful military uses. It corroborates that U.S. position but does not establish the content of p. 16 in the 1994 package. Congress.gov confirms the treaty’s identity and date but says pre-1995 treaty-document full texts are unavailable there. Obtain the 1994 commentary and distinguish it from the short presidential letter; do not label the citation wrong solely because the letter itself is short.",
+    "evidence": [
+      [
+        "Congress.gov treaty document and historical-text availability",
+        "https://www.congress.gov/treaty-document/103rd-congress/39/document-text"
+      ],
+      [
+        "2004 Congressional Record committee resolution",
+        "https://www.govinfo.gov/content/pkg/CREC-2004-03-11/pdf/CREC-2004-03-11-pt2-PgS2711-3.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S8N028"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R15",
+    "status": "further_investigation",
+    "source": "Five dragons analogy: narrower law enforcement versus broader actors",
+    "usage": "The note is attached to: “What amounts to an “Indonesian Coast Guard” today strongly resembles the previous chaos of China’s “five dragons” that existed before the formation of the CCG in 2013, in which multiple agencies with overlapping authorities were competing among themselves for limited resources.”",
+    "finding": "The cited 2012 ICG report organizes its discussion around nine dragons, covering a wider set of South China Sea policy actors. Martinson’s separate account explicitly uses the five-dragons model for maritime law enforcement before the 2013 reorganization. These are different scopes, so the numerical difference alone does not refute the analogy. Cite a source defining the five agencies and keep the Indonesia comparison identified as the author’s analytical judgment.",
+    "evidence": [
+      [
+        "ICG report record and full-report access",
+        "https://www.refworld.org/reference/countryrep/icg/2012/85628"
+      ],
+      [
+        "Martinson, creation of the China Coast Guard (indexed text; direct PDF currently unavailable)",
+        "https://www.cna.org/archive/CNA_Files/pdf/creation-china-coast-guard.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N165"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R16",
+    "status": "fix",
+    "source": "MMEA powers: correct the act year and cite sections",
+    "usage": "Notes 366–367 cite MMEA Act 2014 for armed-forces command in emergencies and vessel enforcement powers.",
+    "finding": "The law is the Malaysian Maritime Enforcement Agency Act 2004, Act 633, not an Act 2014. Section 17 provides for general armed-forces command and control of the agency or a ministerially determined part during emergency, special crisis or war. Section 7 sets out enforcement powers, including vessel expulsion, with relevant limitations. The substantive command provision is supported; correct the year and use section references because pagination differs between reprints.",
+    "evidence": [
+      [
+        "Act 633, official-law reprint with 2018 amendments, sections 7 and 17",
+        "https://aipalync.org/storage/documents/main/malaysian-maritime-enforcement-agency-act-2004-act-633_1713780670.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N366"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R19",
+    "status": "further_investigation",
+    "source": "Freight emissions: specify cargo-distance unit and historical dataset",
+    "usage": "Footnote 13 compares container-ship CO2 with cargo aircraft and trucks using ratios of 40 and more than three.",
+    "finding": "The World Shipping Council’s current facts page frames its comparison using the same freight and distance. That supports the general efficiency argument but does not validate the historical 40-to-one and greater-than-three-to-one ratios. The old cited page and its underlying factors were not recovered. Specify emissions per tonne-kilometre, vessel and vehicle classes, load assumptions and dataset year; avoid implying a whole ship emits less in absolute terms merely because it carries more freight.",
+    "evidence": [
+      [
+        "World Shipping Council current freight-and-distance comparison",
+        "https://www.worldshipping.org/facts-figures"
+      ],
+      [
+        "UK historical 2008 conversion-factor dataset",
+        "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2008"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N013"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R20",
+    "status": "further_investigation",
+    "source": "2002 port shutdown: forecast, daily rate and realized loss",
+    "usage": "The note is attached to: “Perishable goods were spoiled and shippers and exporters suffered huge losses for an estimated cost of $2.4 billion per day ($19.4 billion in total).”",
+    "finding": "Cohen’s January 2002 report predates the autumn lockout, so it cannot itself measure realized losses from that event. Hall’s research identifies the widely repeated $19.4 billion as a ten-day scenario averaging $1.94 billion daily and critiques the method. The passage’s $2.4 billion daily rate is not reconciled with that scenario. Retrieve Cohen p. 12, identify the assumed duration and distinguish a forecast from an observed loss; do not substitute another model’s estimate without labeling it.",
+    "evidence": [
+      [
+        "Hall, original research on the 2002 lockout estimates",
+        "https://journals.sagepub.com/doi/10.1177/0891242404269500"
+      ],
+      [
+        "Park et al., original research comparing port-shutdown estimates",
+        "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-2257.2008.00446.x"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N029"
+    ]
+  },
+  {
+    "paper": "CANP-C7",
+    "id": "CANPC7-R06",
+    "status": "fix",
+    "source": "Roberts report: 2002, not 2020, in the title",
+    "usage": "The footnote cites Brad Roberts, China and Ballistic Missile Defense: 1955 to 2020 and Beyond (2003).",
+    "finding": "The indexed title page and report documentation for IDA Paper P-3826, September 2003, give 1955 to 2002 and Beyond. The later Ifri version has the same terminal year, although its catalogue heading introduces a separate 1995/1955 inconsistency. Correct 2020 to 2002 using the report title page. This bibliographic check does not certify the broader claim about consistent technological modernization.",
+    "evidence": [
+      [
+        "Original IDA report, indexed title and documentation",
+        "https://nuke.fas.org/guide/china/doctrine/bmd.pdf"
+      ],
+      [
+        "Ifri version, title pages",
+        "https://www.ifri.org/sites/default/files/migrated_files/documents/atoms/files/roberts_3.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CANPC7-N006"
+    ]
+  },
+  {
+    "paper": "CAP-P2",
+    "id": "CAPP2-R08",
+    "status": "fix",
+    "source": "Maritime Claims Reference Manual: publication number",
+    "usage": "Note 50 identifies the Maritime Claims Reference Manual as Department of Defense Publication 2500-M, June 2005.",
+    "finding": "The official 2014 foreword identifies and cancels its predecessor as DoD 2005.1-M, dated June 23, 2005. Correct 2500-M to 2005.1-M. The foreword describes a DoD-issued reference supporting the Freedom of Navigation programme; distinguish the manual’s publisher from broader State–Defense programme cooperation. This checks note 50’s bibliographic detail, not the historical country counts elsewhere in the consolidated row.",
+    "evidence": [
+      [
+        "Official MCRM foreword, November 2014",
+        "https://stjececmsdusgva001.blob.core.usgovcloudapi.net/public/documents/Foreword2014.pdf"
+      ],
+      [
+        "Navy JAG manual collection",
+        "https://www.jag.navy.mil/about/organization/ojag/code-01/code-10/mcrm/"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPP2-S2N043"
+    ]
+  },
+  {
+    "paper": "CAP-P2",
+    "id": "CAPP2-R09",
+    "status": "fix",
+    "source": "2006 Anhui aircraft crash: event date",
+    "usage": "The note is attached to: “The aircraft was featured in news reports after one crashed on 4 June 2006.”",
+    "finding": "Contemporary Associated Press reporting describes the crash as occurring on Saturday, June 3, 2006; the following Sunday was June 4. Correct the event date to June 3 and distinguish it from the date of initial reporting. The cited Joseph Kahn article was not retrieved, so the origin of the one-day error remains unresolved.",
+    "evidence": [
+      [
+        "Contemporary AP crash report",
+        "https://www.chron.com/news/nation-world/article/chinese-military-plane-crashes-at-least-5-dead-1660676.php"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPP2-S5N009"
+    ]
+  },
+  {
+    "paper": "CAP-P2",
+    "id": "CAPP2-R10",
+    "status": "further_investigation",
+    "source": "Carrier advocacy: Qian Lihua versus Qian Qichen",
+    "usage": "Note 33 names Major General Qian Qichen among advocates of Chinese aircraft carriers, citing Li and Weuve.",
+    "finding": "The Naval War College repository identifies the cited 2010 article, but direct PDF retrieval was denied. Indexed reproductions identify Qian Lihua, consistent with an independently located Naval War College Review article quoting Major General Qian Lihua’s November 2008 remarks. The Qian Qichen attribution therefore needs comparison with the original passage before correction. Xu Hongmeng’s separate inclusion is not resolved by this check.",
+    "evidence": [
+      [
+        "Original Li–Weuve publication record",
+        "https://digital-commons.usnwc.edu/nwc-review/vol63/iss1/3/"
+      ],
+      [
+        "Naval War College Review article quoting Qian Lihua",
+        "https://www.andrewerickson.com/wp-content/uploads/2011/12/Erickson-Denmark-Collins_Beijings-Starter-Carrier_NWCR_2012-Winter.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CAPP2-S5N033"
+    ]
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R17",
+    "status": "further_investigation",
+    "source": "Hormuz: separate global flow from China import share",
+    "usage": "Note 16 states that over 40 percent of China’s imported oil transits Hormuz.",
+    "finding": "The footnote explicitly assigns the 40.9 percent estimate to Wang Shuang et al. (2018), rather than to EIA. EIA verifies the separate 2018 flow of 21 million barrels daily and about one-third of global seaborne traded oil. It does not provide the same denominator as China’s import share. Retrieve Wang p. 21 to check the year, crude-versus-products coverage and route assumptions; the earlier flag’s EIA comparison cannot settle the 40.9 percent claim.",
+    "evidence": [
+      [
+        "Cited EIA historical account, June 2019",
+        "https://www.eia.gov/todayinenergy/detail.php?id=39932"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N016"
+    ]
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R18",
+    "status": "further_investigation",
+    "source": "Gwadar Phase I: construction, inauguration and budget",
+    "usage": "The note is attached to: “These threats and obstacles notwithstanding, CHEC completed Phase I of construction in the spring of 2007, three months ahead of schedule, but $50 million over budget.”",
+    "finding": "The World Bank’s 2008 transport review dates Phase I completion to March 2007 but describes it as two years behind schedule, conflicting with three months early. A Pakistani parliamentary answer gives completion in 2006 and a total cost of $288 million, while the footnote gives $298 million. Distinguish physical completion, inauguration and handover; reconcile scope and original baseline before accepting the claimed $50 million overrun or early completion.",
+    "evidence": [
+      [
+        "World Bank transport review, Phase I discussion",
+        "https://documents1.worldbank.org/curated/ar/866831468285360512/pdf/403450GRAY0COV1closed0Aug0281020081.pdf"
+      ],
+      [
+        "Pakistan National Assembly ministerial answer",
+        "https://www.na.gov.pk/uploads/documents/questions/1421308997_266.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N058"
+    ]
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R19",
+    "status": "further_investigation",
+    "source": "CPEC security charge: who pays and which projects",
+    "usage": "The note is attached to: “The PRC government reportedly offered to dedicate an additional 1 percent of each project to support security costs.”",
+    "finding": "NEPRA’s indexed 2017 decision traces a one-percent security-cost allowance to Pakistan’s September 2016 cabinet committee decision and provides a tariff pass-through mechanism for CPEC power projects. This is narrower than every project and does not itself establish a PRC-government funding offer. Retrieve the Renmin/Caijing report p. 23 and distinguish Chinese proposals, Pakistani approvals and the party ultimately paying the charge.",
+    "evidence": [
+      [
+        "NEPRA decision on CPEC power-project security costs (indexed text)",
+        "https://nepra.org.pk/tariff/TRF-SCCPECPP%2003-08-2017%2013566-68.PDF"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N270"
+    ]
+  },
+  {
+    "paper": "CMR-55",
+    "id": "CMR55-R05",
+    "status": "fix",
+    "source": "Golden Dragon 2025: March versus May source date",
+    "usage": "The footnote dates the report of Chinese troops arriving at Ream for Golden Dragon 2025 to March 13, 2025.",
+    "finding": "The Ministry of National Defense’s English counterpart is dated May 13, 2025 and records arrival on May 12, including emergency and damage-control training during transit. That supports the general caption context and identifies May, rather than March, as the relevant month. Correct the bibliographic month after matching the Chinese item’s title and images; the Chinese URL itself timed out, so exact caption-to-photo matching remains open.",
+    "evidence": [
+      [
+        "Official English arrival report, May 13, 2025",
+        "https://eng.mod.gov.cn/xb/News_213114/Videos/16385830.html"
+      ],
+      [
+        "Cited Chinese item (retrieval timed out)",
+        "https://www.mod.gov.cn/gfbw/jsxd/16385705.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR55-N035"
+    ]
+  },
+  {
+    "paper": "CMS-01",
+    "id": "CMS01-R12",
+    "status": "ok",
+    "source": "Falklands merchant ships: support for the 49 total",
+    "usage": "The note is attached to: “Britain’s rapid conversion of forty-nine commercial vessels taken up from trade for military use in the Falklands conflict of 1982 is often discussed in Chinese literature, and Chinese writings on the military use of merchant ships in wartime roles have been noted by Western analysts.”",
+    "finding": "The UK government’s A History of Our Reserves states that 49 merchant ships belonging to 23 companies were requisitioned for the war. Thus the number 49 has official historical support and should not be rejected merely because other accounts use different totals. This verifies the requisitioned-ship count, not that every ship underwent the same conversion or what each cited Chinese author wrote.",
+    "evidence": [
+      [
+        "UK government history of the reserves, Falklands account",
+        "https://assets.publishing.service.gov.uk/media/5a7c054140f0b63f7572ad85/a-history-our-Reserves-Epub-v2.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS01-N109"
+    ]
+  },
+  {
+    "paper": "CMS-02",
+    "id": "CMS02-R09",
+    "status": "further_investigation",
+    "source": "Bowditch: March 2000 versus March 2001",
+    "usage": "The note is attached to: “In March 2000 and again in September 2002, PLAN warships directed the USNS Bowditch—an unarmed oceanographic research vessel manned by twenty-five civilians—to exit an area in China’s exclusive economic zone in the Yellow Sea, well outside Chinese territorial waters, in which the ship had been performing hydrographic performance acoustic data tests.”",
+    "finding": "A located research article dates the first Bowditch encounter to March 2001 and the second to September 2002. This supports a possible one-year error, but the original Oliva article was not retrieved; reported days within March also differ. Compare the May 2001 reporting before changing the first year, and retain the distinction between event date and article date. The broader legal characterization is outside this chronology check.",
+    "evidence": [
+      [
+        "Research article discussing both Bowditch encounters",
+        "https://www.researchgate.net/publication/248921742_Declarations_and_Statements_with_Respect_to_the_1982_UNCLOS_Potential_Legal_Disputes_between_the_United_States_and_China_after_US_Accession_to_the_Convention"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS02-N077"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R12",
+    "status": "fix",
+    "source": "Eyes-in-the-Sky: launch predates Thailand’s full membership",
+    "usage": "The note is attached to: “Thailand’s later joining in this initiative led to “eyes in the sky” patrols to enhance coordinated aerial surveillance of the straits.”",
+    "finding": "Singapore’s May 2009 ministerial speech dates the air-patrol initiative to September 2005 and Thailand’s joining the broader patrol framework to September 2008. The official fact sheet likewise places air patrols in 2005. Revise the causal chronology so Thailand’s later membership is not described as leading to the earlier launch; distinguish launch participation from later full membership.",
+    "evidence": [
+      [
+        "Singapore ministerial account, May 2009",
+        "https://www.mindef.gov.sg/news-and-events/latest-releases/2009may13-speeches-00271/"
+      ],
+      [
+        "Official Malacca Straits Patrol fact sheet",
+        "https://www.mindef.gov.sg/news-and-events/latest-releases/2016apr21-news-releases-00134/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S3N011"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R13",
+    "status": "further_investigation",
+    "source": "Japan counterpiracy command: announcement and assumption dates",
+    "usage": "The note is attached to: “Already likely to continue contributions, on the strength of policies and past practice, the PLAN became almost certain to do so following the announcement in late 2014 that the navy of China’s East Asian rival Japan, the Japan Maritime Self-Defense Force, would soon take command of a major international antipiracy coalition.”",
+    "finding": "The footnote itself dates the Kyodo report July 18, 2014, whereas the passage says late 2014. Combined Maritime Forces records Japan’s first CTF 151 command beginning May 31, 2015. These are announcement and assumption milestones, not competing dates for one event. Retrieve the Kyodo text to fix the announcement wording. Neither milestone alone establishes the author’s prediction that China was almost certain to continue contributing.",
+    "evidence": [
+      [
+        "Official CTF 151 command history",
+        "https://combinedmaritimeforces.com/ctf-151-counter-piracy/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S4N004"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R14",
+    "status": "unk",
+    "source": "China’s seaborne trade share: historical measure",
+    "usage": "The note is attached to: “Some 80–90 percent of this trade is carried by ship.”",
+    "finding": "The cited April 2009 article is identifiable in Xinhua’s archive, but its full text and Cole’s relevant page were not retrieved. The 80–90 percent share remains unverified for its historical year and denominator. Later percentages measured by cargo volume cannot establish the earlier proportion of trade by value. Retain uncertainty until the original source specifies the measure.",
+    "evidence": [
+      [
+        "Xinhua historical index identifying the cited article",
+        "https://www.xinhuanet.com/english/60plan/photo.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-S10N028"
+    ]
+  },
+  {
+    "paper": "CMS-14",
+    "id": "CMS14-R11",
+    "status": "fix",
+    "source": "Changchun commissioning: Type 052C, not Type 052D",
+    "usage": "The note is attached to: “To augment further its surface vessels to meet escort requirements for an aircraft carrier task force, the PLAN commissioned the first of its Type 052D airdefense destroyers, named Changchun (150), on January 31, 2013.”",
+    "finding": "Xinhua’s account explicitly identifies Changchun, hull 150, as a Type 052C commissioned on January 31, 2013. The ship name, hull and date align; the Type 052D label does not. Correct the class identification and remove the claim that this event commissioned the first Type 052D. This is an identity and chronology correction.",
+    "evidence": [
+      [
+        "Xinhua identification of Changchun and commissioning date",
+        "https://www.xinhuanet.com/mil/2015-12/11/c_128521804.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS14-S7N006"
+    ]
+  },
+  {
+    "paper": "CMS-14",
+    "id": "CMS14-R12",
+    "status": "fix",
+    "source": "RIMPAC 2014: four invited ships",
+    "usage": "Note 39 states that three other Chinese vessels participated at RIMPAC 2014, in addition to the uninvited surveillance ship.",
+    "finding": "The U.S. Office of Naval Intelligence’s 2015 account states that China dispatched a four-ship flotilla to RIMPAC. The invited contingent includes the hospital ship, so the total is four rather than three when all invited ships are counted. Specify four invited ships and identify the surveillance ship as separate. This does not recheck the unrelated Japan-patrol claims in the consolidated footnote row.",
+    "evidence": [
+      [
+        "ONI 2015 PLA Navy report, RIMPAC account",
+        "https://www.oni.navy.mil/portals/12/intel%20agencies/china_media/2015_pla_navy_pub_interactive.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS14-S19N035"
+    ]
+  },
+  {
+    "paper": "CMS-16",
+    "id": "CMS16-R10",
+    "status": "fix",
+    "source": "Impeccable location: south rather than east",
+    "usage": "The note is attached to: “According to the Pentagon, Impeccable was around seventy-five nautical miles east of Hainan Island when the incidents took place.”",
+    "finding": "The original Jim Garamone report, preserved on DVIDS, places the ship 70 miles south of Hainan; a Navy Visual News Service release gives 75 miles south. Both contradict east. Correct the direction to south, and preserve the distance and unit from the specific account cited rather than silently converting unspecified miles into nautical miles.",
+    "evidence": [
+      [
+        "Original Garamone report, March 9, 2009",
+        "https://www.dvidshub.net/news/30912/chinese-vessels-shadow-harass-unarmed-us-survey-ship"
+      ],
+      [
+        "Navy Visual News Service release",
+        "https://vimeo.com/3782229"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS16-N064"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R17",
+    "status": "further_investigation",
+    "source": "Natuna fleet: episode confirmed, precise count not in cited article",
+    "usage": "The note is attached to: “Most recently, from December 2019 to January 2020, a large Chinese fishing fleet—over fifty ships—operated in the southern South China Sea, escorted by multiple CCG patrol ships.”",
+    "finding": "The retrieved January 5 Jakarta Post article confirms continuing Chinese fishing activity and accompanying coastguard vessels, but does not quantify more than fifty fishing ships. Later congressional research reproduces that larger count, but its underlying provenance needs checking for independence. Keep the episode corroborated while tracing the precise fleet tally; a lower count from one observation does not alone disprove a larger episode-wide total.",
+    "evidence": [
+      [
+        "Cited Jakarta Post report, January 5, 2020",
+        "https://www.thejakartapost.com/news/2020/01/05/chinese-fishing-vessels-remain-in-natuna-amid-diplomatic-tension-tni"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N007"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R18",
+    "status": "further_investigation",
+    "source": "June 2016 maritime-rights statement: avoid a boundary-negotiation overclaim",
+    "usage": "The note is attached to: “Following the June 2016 incident with Indonesian forces, China publicly declared for the first time in over two decades that it had overlapping maritime claims with Indonesia in the South China Sea, and that the two countries needed to negotiate their overlapping boundaries.”",
+    "finding": "The June 20 transcript expressly states overlapping claims for maritime rights and interests while denying a territorial-sovereignty dispute. It calls for communication and settlement of the issue, not expressly negotiation of overlapping boundaries. It also cannot establish first time in over two decades without a historical comparison. The existing flag discusses a March fishing-grounds claim, which is not the attached passage. Keep the June statement supported but qualify novelty and boundary-negotiation language.",
+    "evidence": [
+      [
+        "Original June 20, 2016 transcript reproduced by Chinese embassy",
+        "https://np.china-embassy.gov.cn/eng/fyrth/201606/t20160621_1594326.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N016"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R19",
+    "status": "further_investigation",
+    "source": "Indonesia budget growth: nominal versus real and endpoint",
+    "usage": "The passage says Indonesia’s defense budget nearly quadrupled over the preceding decade, citing 2009 and 2020 figures in note 130.",
+    "finding": "The note’s 33.7-to-127.4 trillion rupiah figures imply 3.78 times the starting nominal amount, or about 278 percent growth. That arithmetic supports nearly quadrupled on those endpoints. The official Australian 2020 review reports 108.4 trillion for 2019, rather than the note’s 109.6, and shows real declines in 2018–2019. Reconcile original, revised and proposed budgets; label the growth nominal and avoid describing every year as growing steadily.",
+    "evidence": [
+      [
+        "Australian Defence Economic Trends 2020, Indonesia pp. 12–13",
+        "https://www.defence.gov.au/sites/default/files/research-publication/2023/defence-economic-trends-2020.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N130"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R20",
+    "status": "ok",
+    "source": "Indonesia white paper: 274-vessel minimum force",
+    "usage": "Note 141 attributes a 274-vessel minimum force divided into strike, patrol and support groups to the 2008 Indonesian defense white paper.",
+    "finding": "The indexed Indonesian Ministry of Defence copy explicitly states 274 ships of various types and lists the three corresponding force groups. Its support-force list also includes multipurpose transports, tankers, ocean tugs and hydro-oceanographic ships. This resolves the suggestion that the number was absent from the white paper. The Indonesian pagination is p. 127; verify the English edition separately for the cited p. 110.",
+    "evidence": [
+      [
+        "Official Indonesian 2008 white paper, indexed p. 127",
+        "https://www.kemhan.go.id/wp-content/uploads/2015/12/04f92fd80ee3d01c8e5c5dc3f56b34e31.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N141"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R21",
+    "status": "further_investigation",
+    "source": "Panther purchase: announcement, signature and local work",
+    "usage": "The note is attached to: “The purchase of a total of eleven of the Panthers was announced in April 2014, with the helicopters manufactured jointly, by the Indonesian aerospace firm PT Dirgantara (PTDI) in cooperation with Airbus Helicopters.”",
+    "finding": "Airbus’s release confirms eleven helicopters, a contract signed in late 2014, and a role for PT Dirgantara Indonesia in reassembly and mission-equipment installation. It does not establish an April 2014 purchase announcement. Preserve the confirmed count and industrial roles, but obtain a contemporaneous announcement for April or state the supported late-2014 contract milestone. Announcement and signing need not share a date.",
+    "evidence": [
+      [
+        "Original Airbus delivery and contract account",
+        "https://www.airbus.com/en/newsroom/press-releases/2016-11-airbus-helicopters-delivers-first-three-as565-mbe-panther-to"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N149"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R22",
+    "status": "unk",
+    "source": "Mischief Reef: dating the event quoted by Dupont",
+    "usage": "Note 236 describes China’s occupation of Mischief Reef as occurring the previous April, citing Dupont p. 60.",
+    "finding": "The Dupont article’s identity was located on JSTOR, but p. 60 was not available in the retrieved text. The passage’s reference to the previous April must be checked in the original context: occupation, discovery, public disclosure and Indonesian reaction could refer to different events. Do not assign a corrected month from a general chronology without establishing which event Dupont and the cited speaker meant.",
+    "evidence": [
+      [
+        "Original Dupont article record",
+        "https://www.jstor.org/stable/20634725"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N232"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R23",
+    "status": "ok",
+    "source": "James Shoal: coastal distance versus distance from Bintulu base",
+    "usage": "Note 313 describes James Shoal as about 80 km offshore.",
+    "finding": "Reuters itself places James Shoal about 80 km off Sarawak; this does not measure its distance from the proposed base.",
+    "evidence": [
+      [
+        "Original Reuters report syndicated by Yahoo",
+        "https://www.yahoo.com/news/insight-chinas-assertiveness-hardens-malaysian-stance-sea-dispute-210050802.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N311"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R24",
+    "status": "unk",
+    "source": "King Air inventory: four aircraft and the cited AMTI page",
+    "usage": "The passage attributes four Beechcraft 200T aircraft in the RMAF inventory to Vuving’s 2017 AMTI account.",
+    "finding": "The cited AMTI page was retrieved, including its air-force narrative and inventory table, but it does not list Beechcraft or King Air aircraft. Thus that source does not verify the specific four-aircraft claim. This is a citation-coverage gap, not proof that the inventory was wrong. A dated RMAF inventory or another cited source is needed to establish variant and count.",
+    "evidence": [
+      [
+        "Original Vuving AMTI article and table",
+        "https://amti.csis.org/tracking-malaysias-force-build-up/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N325"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R25",
+    "status": "further_investigation",
+    "source": "Malaysia LCS procurement: award versus contract signing",
+    "usage": "The note is attached to: “Acquisition of a second class of frigates was announced in 2008, with a contract signed in 2014 for a design by France’s Naval Group that will be built in Malaysia.”",
+    "finding": "Malaysian parliamentary programme records distinguish the December 16, 2011 letter of award from the July 17, 2014 contract signing. The 2014 signing is therefore supported and should not be rejected because a contract award was reported in 2011. The same records place the design choice in 2011; they do not resolve what the passage’s 2008 announcement referred to. Name each milestone and check the earlier programme announcement separately.",
+    "evidence": [
+      [
+        "Malaysian parliamentary programme chronology",
+        "https://www.parlimen.gov.my/resources/files/hpindex/pdf/Prosiding%20Bil.%201%20%28j%29%20Tahun%202020.pdf"
+      ],
+      [
+        "Parliamentary procurement contract details",
+        "https://www.parlimen.gov.my/resources/files/hpindex/pdf/Prosiding%20Bil.%201%20%28d%29%20Tahun%202020.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N340"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R26",
+    "status": "fix",
+    "source": "MMEA pilots: Army as well as Air Force",
+    "usage": "Note 384 says all MMEA aerial assets are flown by RMAF pilots.",
+    "finding": "The cited blog reproduces Nigel Pittaway’s AIN reporting, which attributes its information to the MMEA air-wing director. It describes both Army and Air Force loaned pilots flying Dauphins, with Air Force crews flying CL-415s. Revise the blanket all-RMAF claim for that historical account. The original AIN article is identifiable; later staffing changes require a separately dated source.",
+    "evidence": [
+      [
+        "Original Pittaway AIN article record",
+        "https://www.ainonline.com/aviation-news/2010-01-28/malaysia-add-aw139s-maritime-sar-ops"
+      ],
+      [
+        "Cited reproduction containing the service distinction",
+        "https://defense-studies.blogspot.com/2011/02/rm6b-2-bio-usd-beli-kapal-tldm-rasional.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N381"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R21",
+    "status": "fix",
+    "source": "Port-closure simulation: nationwide scope, not one port",
+    "usage": "The note is attached to: “According to a 2002 report by Booz, Allen and Hamilton, which was cited by the U.S. Government Accountability Office (GAO) in its 2003 Container Security Report, if searching for an undetonated weapon of mass destruction were to require the closure of a single U.S. seaport for twelve days, economic costs could reach $58 billion, or $4.8 billion per day.”",
+    "finding": "GAO’s account of the 2002 Booz Allen simulation describes participants closing every U.S. seaport over twelve days, with an estimated $58 billion revenue loss. It does not describe a single-port closure. Correct the geographic scope and retain the estimate as a simulation result, not an observed cost or universal daily rate. The located GAO account is from 2005; the study’s claimed 2003 reference still needs a precise citation.",
+    "evidence": [
+      [
+        "GAO-05-557 account of the Booz Allen simulation",
+        "https://www.gao.gov/assets/a246126.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N025"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R22",
+    "status": "fix",
+    "source": "Mahsum death: October event and December confirmation",
+    "usage": "The passage dates Hasan Mahsum’s death to December 2003.",
+    "finding": "AFP’s December report quotes Pakistan’s military dating Mahsum’s death to October 2, 2003. December marks confirmation, not the killing.",
+    "evidence": [
+      [
+        "Contemporary AFP report published by Dawn, December 24, 2003",
+        "https://www.dawn.com/news/131032"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S5N030"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R23",
+    "status": "ok",
+    "source": "CRS oil quotation: cited wording is present",
+    "usage": "Note 59 quotes Blanchard’s July 9, 2007 CRS report on bin Laden’s view of oil as an economic resource for a future Islamic state.",
+    "finding": "The July 9, 2007 report’s The Importance of Oil section contains the wording quoted in note 59. A differently translated version elsewhere does not demonstrate an error in quoting this CRS source. This verifies the chapter’s quotation from CRS, not an independent translation of the underlying Arabic statement. The report also supports the adjacent distinction between expelling foreign influence and establishing a sharia-governed state.",
+    "evidence": [
+      [
+        "Cited July 9, 2007 CRS report, preserved text",
+        "https://www.everycrsreport.com/files/20070709_RL32759_a4aea43fdfc1accf2f64193515da1e83d54e2e59.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S5N059"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R24",
+    "status": "further_investigation",
+    "source": "September 2008 oil-spill cooperation: exercise versus new agreement",
+    "usage": "The note is attached to: “It was announced in September 2008 that China was signing an agreement on mutual support for oil spill cleanup among Japan, Russia, South Korea, and China.”",
+    "finding": "UNEP’s contemporary report identifies the September 2, 2008 Qingdao event as the second joint NOWPAP oil-spill exercise, organized by China and Korea with international observers. This corroborates practical cooperation but does not establish a new four-country agreement signed that September. Retrieve Lin Hongmei’s September 3 report and distinguish an exercise, an existing response framework and a new signing before changing the chronology.",
+    "evidence": [
+      [
+        "UNEP contemporary Qingdao exercise report",
+        "https://www.unep.org/nowpap/news-and-stories/story/2nd-joint-nowpap-oil-spill-exercise"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S6N051"
     ]
   }
 ]
