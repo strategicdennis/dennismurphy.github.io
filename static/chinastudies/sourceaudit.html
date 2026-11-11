@@ -83,7 +83,7 @@
       <div class="flex flex-wrap items-center gap-2">
         <div class="relative flex-1 sm:flex-initial sm:w-64">
           <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-          <input id="globalSearchInput" type="text" placeholder="Search 110 papers, 7,298 rows, memos..."
+          <input id="globalSearchInput" type="text" placeholder="Search 110 papers, 7,358 rows, memos..."
             class="w-full pl-9 pr-7 py-1.5 text-xs bg-slate-950 border border-slate-700/80 rounded-lg text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition" />
           <button id="clearGlobalSearchBtn" title="Clear search" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200">
             <i data-lucide="x" class="w-3.5 h-3.5"></i>
@@ -96,7 +96,7 @@
         </button>
         <button id="downloadCsvBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
           <i data-lucide="table" class="w-3.5 h-3.5"></i>
-          <span>Export 7,298 Rows CSV</span>
+          <span>Export 7,358 Rows CSV</span>
         </button>
       </div>
     </div>
@@ -115,7 +115,7 @@
       <button data-tab="rows" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
         <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
         <span>3. Reference Audit Matrix</span>
-        <span id="navRowCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">570</span>
+        <span id="navRowCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">630</span>
       </button>
       <button data-tab="shared" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
         <i data-lucide="git-Fork" class="w-3.5 h-3.5"></i>
@@ -155,7 +155,7 @@
         <button data-batch="7" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Batch 7 (#61–#70)</button>
         <button data-batch="8" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30 transition">★ Batch 8 (#71–#80: CCP Espionage, McDevitt Naval Power &amp; Whaley Intro)</button>
       </div>
-      <div id="activeFilterStatusText" class="text-xs text-slate-400 mono">Showing all 110 documents · 7,298 audited reference rows</div>
+      <div id="activeFilterStatusText" class="text-xs text-slate-400 mono">Showing all 110 documents · 7,358 audited reference rows</div>
     </div>
   </div>
 
@@ -320,7 +320,7 @@
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
         <div class="flex flex-wrap items-center gap-2">
           <span class="text-xs text-slate-400 font-medium">Row Status:</span>
-          <button data-rowstatus="all" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white transition">All (7,298)</button>
+          <button data-rowstatus="all" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white transition">All (7,358)</button>
           <button data-rowstatus="ok" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition">ok (2,070)</button>
           <button data-rowstatus="fix" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 transition">fix (41)</button>
           <button data-rowstatus="unk" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30 hover:bg-purple-500/25 transition">unk</button>
@@ -338,7 +338,7 @@
           </select>
           <input id="rowSearchInput" type="text" placeholder="Search rows..." class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 w-48">
         </div>
-        <div id="rowMatrixCountLabel" class="text-xs text-slate-400 mono">Showing 7,298 of 7,298 reference rows</div>
+        <div id="rowMatrixCountLabel" class="text-xs text-slate-400 mono">Showing 7,358 of 7,358 reference rows</div>
       </div>
 
       <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow">
@@ -1243,6 +1243,1135 @@
     "footnote_ids": [
       "CMR07-N249",
       "CMR07-N250"
+    ]
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R14",
+    "status": "further_investigation",
+    "source": "2030 natural-gas import dependence and the forecast’s attribution",
+    "usage": "The note is attached to: “Although the picture for natural gas in China is not one of such extreme import dependence, gas imports will nonetheless reach roughly 30–40 percent of demand.”",
+    "finding": "The IEA’s 2002 outlook, Table 3.8, projects 47 billion cubic metres of net gas imports for China in 2030, equivalent to 29% of demand. This independently supports the lower end of the chapter’s roughly 30–40% range. The April 2006 CBO report located for this audit is about petroleum markets. The CBO attribution and 40% endpoint were not established.",
+    "evidence": [
+      [
+        "IEA World Energy Outlook 2002, Table 3.8",
+        "https://iea.blob.core.windows.net/assets/11bc7b29-db2a-46fb-a515-1f5e7d2c7dfd/WorldEnergyOutlook2002.pdf"
+      ],
+      [
+        "CBO April 2006 report",
+        "https://www.cbo.gov/publication/17702"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-S5N005"
+    ]
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R15",
+    "status": "further_investigation",
+    "source": "China’s projected oil import share: year, series and denominator",
+    "usage": "Section 5 note 4 puts the ratio near 80% in 2030. A separate passage in the grouped footnote record uses 2025.",
+    "finding": "The EIA’s 2006 international outlook projects strong growth in China’s petroleum imports. A growth multiple for import volume cannot establish an import share of consumption. The country brief cited by the chapter was not recovered. A reproducible check needs a same-scenario numerator and denominator for each target year, with net or gross imports clearly specified.",
+    "evidence": [
+      [
+        "EIA International Energy Outlook 2006, world oil markets",
+        "https://www.laohamutuk.org/OilWeb/Bground/EIAIntlEnergyOutlook.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-S5N004"
+    ]
+  },
+  {
+    "paper": "CES-P4",
+    "id": "CESP4-R07",
+    "status": "further_investigation",
+    "source": "Iran’s share and rank among China’s oil suppliers",
+    "usage": "Section 1 claims that Iran supplied more than 15% of China’s annual oil imports from 2002 and ranked just behind Saudi Arabia.",
+    "finding": "Berman’s September 2006 hearing testimony describes Iran as China’s top supplier and puts its annual share at about 15% or more. The cited testimony therefore does not support the paper’s ranking as stated. It also does not supply an annual series establishing the threshold for every year since 2002. Both the period and the definition of oil imports need to be matched to customs data.",
+    "evidence": [
+      [
+        "USCC September 2006 hearing transcript, Berman testimony",
+        "https://www.uscc.gov/sites/default/files/transcripts/9.14.06HearingTranscript.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP4-S1N024"
+    ]
+  },
+  {
+    "paper": "CES-P4",
+    "id": "CESP4-R08",
+    "status": "further_investigation",
+    "source": "Yadavaran: production targets, delivery terms and reserve ownership",
+    "usage": "The note is attached to: “The deal also provides China with 150,000 barrels of crude oil per day for the twentyfive-year period from the Yadavaran oil field and a 50 percent stake in Yadavaran’s estimated 17 billion barrel reserve.”",
+    "finding": "Contemporaneous reporting of the 2007 signing quotes Iran’s oil minister describing two production phases of 85,000 and an additional 100,000 barrels per day under a buyback agreement. Those are development targets, distinct from guaranteed deliveries to China or equity ownership of reserves. The 2004 memorandum and executed agreement were not retrieved, so the 25-year delivery and 50% reserve-interest claims remain unverified.",
+    "evidence": [
+      [
+        "Contemporaneous report quoting the Iranian oil minister at the signing",
+        "https://www.energyintel.com/0000017b-a7b1-de4c-a17b-e7f397510000"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP4-S1N027"
+    ]
+  },
+  {
+    "paper": "CMR-03",
+    "id": "CMR03-R07",
+    "status": "fix",
+    "source": "Xuelong’s return to Shanghai after its 2017 Arctic expedition",
+    "usage": "The note is attached to: “It transited Japan’s Tsugaru Strait on October 4th, arriving in Shanghai four days later.”",
+    "finding": "The expedition partner’s record ends on 10 October 2017, consistent with contemporaneous reporting of the ship’s Shanghai return. Four days after the paper’s stated 4 October passage would be 8 October. Use 10 October for the documented Shanghai return and verify the earlier passage date independently before giving an elapsed time.",
+    "evidence": [
+      [
+        "INTAROS expedition record",
+        "https://intaros.nersc.no/content/chinare-2017-trans-arctic-expedition"
+      ],
+      [
+        "Contemporaneous China News Service photographs",
+        "https://www.ecns.cn/visual/hd/2017/10-11/143834.shtml"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR03-N015"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R14",
+    "status": "further_investigation",
+    "source": "Doraleh project cost: pre-opening estimate and financing scope",
+    "usage": "Note 58 gives $590 million for the multipurpose port and attributes financing to China Exim Bank.",
+    "finding": "CMPort’s 2016 announcement puts the expected investment at $580 million. The IMF’s technical-assistance report lists $530 million in its direct-investment project table. These are different reporting contexts and do not establish final construction cost or an Exim share. The $590 million figure needs a final cost statement and a separate loan schedule.",
+    "evidence": [
+      [
+        "CMPort project announcement",
+        "https://www.cmport.com.hk/EN/news/Detail.aspx?id=10007117"
+      ],
+      [
+        "IMF Djibouti external-sector statistics, Annex III",
+        "https://www.elibrary.imf.org/view/journals/002/2021/004/article-A001-en.xml"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N058"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R15",
+    "status": "further_investigation",
+    "source": "Ethiopia’s June 2018 first oil and the earlier Calub appraisal well",
+    "usage": "The note is attached to: “It drilled its first appraisal well in the Calub field in September 2015, and produced the first barrel of oil in June 2018.”",
+    "finding": "Contemporaneous reporting places the start of test crude extraction in June 2018. This supports the month for first test oil, without establishing commercial production. The September 2015 date and the description of the well as the first appraisal well were not independently established. Those details need the drilling record or an operator announcement from the period.",
+    "evidence": [
+      [
+        "Xinhua June 2018 report on the test extraction",
+        "https://www.xinhuanet.com/english/2018-06/29/c_137288024.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N143"
+    ]
+  },
+  {
+    "paper": "CMR-08",
+    "id": "CMR08-R07",
+    "status": "fix",
+    "source": "Year of Peace Ark’s Grenada visit in the quoted passage",
+    "usage": "The note is attached to: “Underscoring the political value of the visits, China’s ambassador to Grenada hailed the Peace Ark’s 2019 visit for “spreading the concepts of peace, development, cooperation, and win-win.””",
+    "finding": "The contemporaneous Grenada report documents the ship’s October 2018 goodwill visit, and the cited item in the paper is also dated October 2018. Change the year of the visit described here to 2018. The exact ambassador quotation remains a separate attribution check.",
+    "evidence": [
+      [
+        "Contemporaneous Grenada departure report",
+        "https://nowgrenada.com/2018/10/ark-peace-departs-after-8-day-goodwill-visit-to-grenada/"
+      ],
+      [
+        "China Ministry of National Defense visit report",
+        "https://eng.mod.gov.cn/xb/News_213114/TopStories/4826422.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR08-N003"
+    ]
+  },
+  {
+    "paper": "CMS-05",
+    "id": "CMS05-R10",
+    "status": "further_investigation",
+    "source": "China Customs anti-smuggling bureau: formal launch and legal coordination",
+    "usage": "Note 87 places joint anti-smuggling coordination between Customs and public security as early as 1998.",
+    "finding": "The contemporaneous People’s Daily account dates the formal opening of the national investigation bureau and its Beijing branch to 5 January 1999. Customs Law Articles 4 and 5 provide for a Customs police department, assistance from local public security organs, and coordinated anti-smuggling work. The formal opening date does not exclude earlier cooperation. The precise 1998 milestone still needs documentation.",
+    "evidence": [
+      [
+        "People’s Daily, 6 January 1999 (archive)",
+        "https://cn.govopendata.com/renminribao/1999/01/06/2/"
+      ],
+      [
+        "Customs Law, Articles 4–5",
+        "https://www.caea.gov.cn/english/n6759372/c6793478/content.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS05-N081"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R08",
+    "status": "further_investigation",
+    "source": "Roger Revelle: April–May 2000 pilot cruise versus claimed April 2001 boarding",
+    "usage": "The note is attached to: “Second, on 26 April 2001, the writer led a team to go on board R/V Roger Revelle, a U.S.-operated ship that carried out marine scientific research in China’s sea areas with prior permission from the Chinese side.”",
+    "finding": "The ASIAEX technical report places the Roger Revelle pilot cruise in April–May 2000 and describes a distinct June 2001 experiment. The project report supports the earlier cruise date but does not establish whether the author boarded that vessel on a separate occasion on 26 April 2001. A cruise log or dated account of the boarding is needed before changing the year.",
+    "evidence": [
+      [
+        "ASIAEX technical report, cruise chronology",
+        "https://www.apl.washington.edu/programs/ASIAEX/downloads/tr_0201.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S5N010"
+    ]
+  },
+  {
+    "paper": "CMS-11",
+    "id": "CMS11-R07",
+    "status": "further_investigation",
+    "source": "Wenchuan earthquake imagery: contributor counts and suitability",
+    "usage": "Note 81 supports a claim about the quantity and quality of imagery available for the 2008 relief effort.",
+    "finding": "The World Bank case study reports more than 1,000 pre-event imagery scenes from 23 satellites, including five Chinese satellites, obtained by the disaster reduction centre for rapid damage assessment. The title cited in the paper describes 15 Chinese satellites helping relief, which may count a different set of contributions. Neither count establishes whether timely, usable post-event imagery was sufficient.",
+    "evidence": [
+      [
+        "World Bank disaster risk management case study",
+        "https://documents1.worldbank.org/curated/en/261341593331162275/pdf/Learning-from-Experience-Insights-from-China-s-Progress-in-Disaster-Risk-Management.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS11-N078"
+    ]
+  },
+  {
+    "paper": "CMS-01",
+    "id": "CMS01-R07",
+    "status": "further_investigation",
+    "source": "Chinese shipbuilding: global market share versus export share",
+    "usage": "Note 3 gives roughly 20% of global shipbuilding and an estimated 80% of Chinese output for export.",
+    "finding": "The shipbuilding series reproduced in the USTR exhibit treats completions, new orders and orderbook as distinct market-share measures. A roughly one-fifth share needs the series and period named explicitly. The exhibit does not establish that 80% of China’s gross output was slated for export, which requires separate orders or delivery data by customer. The two percentages use different denominators.",
+    "evidence": [
+      [
+        "USTR shipbuilding exhibits, Figure 2",
+        "https://ustr.gov/sites/default/files/Exhibits%2041-50.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS01-N003"
+    ]
+  },
+  {
+    "paper": "CMS-13",
+    "id": "CMS13-R09",
+    "status": "fix",
+    "source": "Date of Gates’s quoted Shangri-La Dialogue remarks",
+    "usage": "The note is attached to: “In a speech at the Shangri-La Dialogue in June 2010, then–Secretary of Defense Robert Gates highlighted the importance of this precept with an interesting choice of words—a “just international order that emphasizes rights and responsibilities of nations and fidelity to the rule of law.””",
+    "finding": "The quoted phrase is in the Defense Department transcript of Gates’s 4 June 2011 address to the tenth Shangri-La Dialogue. The 2010 remarks are a separate speech. Cite the 2011 address for this wording.",
+    "evidence": [
+      [
+        "Defense Department transcript as reproduced by VOA",
+        "https://www.voacantonese.com/a/article-20110604secgatesonuscommitmentsinasia-125002864/931491.html"
+      ],
+      [
+        "2010 Defense Department transcript (mirror)",
+        "https://www.globalsecurity.org/military/library/news/2010/06/mil-100604-dod05.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS13-N061",
+      "CMS13-N062"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R07",
+    "status": "fix",
+    "source": "Australia–Indonesia maritime declaration and plan chronology",
+    "usage": "The note is attached to: “In February 2017, Indonesia and Australia signed the Joint Declaration on Maritime Cooperation, and in April 2018 the Maritime Cooperation Plan of Action.”",
+    "finding": "The joint ministerial statement confirms the February 2017 declaration and already welcomes the signing of the Plan of Action on 16 March 2018. The plan had therefore been signed by that date. April is too late for the signing identified in the paper.",
+    "evidence": [
+      [
+        "Joint statement of the Fifth Indonesia–Australia 2+2 meeting, paragraph 14",
+        "https://www.foreignminister.gov.au/minister/julie-bishop/media-release/joint-statement-fifth-indonesia-australia-foreign-and-defence-ministers-22-meeting"
+      ],
+      [
+        "DFAT copy of the Plan of Action",
+        "https://www.dfat.gov.au/sites/default/files/indonesia-australia-maritime-cooperation-action-plan.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N241"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R08",
+    "status": "unk",
+    "source": "Malaysia’s individual role in U.S. entry to the East Asia Summit",
+    "usage": "Note 252 attributes a reversal of Malaysian policy and a decisive lobbying role to Malaysia.",
+    "finding": "The September 2010 ASEAN–U.S. joint record documents the collective invitation, and the U.S. briefing describes the October 2010 appearance as participation as a guest of the chair. Neither record establishes Malaysia’s earlier position, a reversal, or its individual influence on other members. Those assertions need a Malaysian statement or a diplomatic account of the negotiations.",
+    "evidence": [
+      [
+        "ASEAN–U.S. leaders’ joint statement",
+        "https://asean.org/joint-statement-of-the-2nd-asean-us-leaders-meeting-new-york-24-september-2010/"
+      ],
+      [
+        "U.S. State Department briefing, 29 October 2010",
+        "https://2009-2017.state.gov/r/pa/prs/dpb/2010/10/150176.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N252"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R09",
+    "status": "fix",
+    "source": "Central Luconia: discovery history and F23 production start",
+    "usage": "The note is attached to: “Malaysia began developing offshore hydrocarbons in disputed areas near Luconia (e.g., the F field) in the mid-1980s, following earlier discoveries in the area dating back another decade.”",
+    "finding": "A Sarawak Shell technical paper dates F23 coming on stream to 1983, and JOGMEC traces discoveries in the Central Luconia field group to 1968 onward. The paper’s mid-1980s date is too late if it refers to development of the field group, since F23 was already producing in 1983. A narrower claim about a specific later field should name the field and milestone.",
+    "evidence": [
+      [
+        "Sarawak Shell F23 reservoir study",
+        "https://gsm.org.my/wp-content/uploads/gsm_file_2/702001-100860-PDF.pdf"
+      ],
+      [
+        "JOGMEC Central Luconia field history",
+        "https://journal.jogmec.go.jp/oilgas/termsearch/list/seso/central-luconia.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N260"
+    ]
+  },
+  {
+    "paper": "CMS-16",
+    "id": "CMS16-R07",
+    "status": "fix",
+    "source": "Sampaguita’s 3.4 Tcf estimate: mean gas in place versus an upper limit",
+    "usage": "The note is attached to: “Also known in the Philippines as Recto Bank and in China as 礼乐滩 (Liyue Tan), this expanse of relatively shallow ocean located on the northeastern edge of the Spratly Islands has been estimated to contain up to 3.4 trillion cubic feet of natural gas.”",
+    "finding": "Philex’s 2012 disclosure describes 3.4 trillion cubic feet as the expected mean gas in place for the Sampaguita discovery within the Reed Bank block. It is a field-level mean. It does not represent a maximum for the entire block or an estimate of recoverable reserves. Correct the scope and the statistical meaning of the quoted figure.",
+    "evidence": [
+      [
+        "Philex 2012 definitive information statement, p. 51",
+        "https://www.philexmining.com.ph/build/assets/2012-Definitive-Information-Statement.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS16-N170"
+    ]
+  },
+  {
+    "paper": "CES-P4",
+    "id": "CESP4-R09",
+    "status": "further_investigation",
+    "source": "China’s historical Malacca oil-import share: route, period and denominator",
+    "usage": "The note is attached to: “The fact that over 80 percent of the People’s Republic of China’s (PRC) oil imports pass through the Strait of Malacca in particular has caused some alarm in the Chinese media, who refer to it as the “Malacca dilemma.””",
+    "finding": "The EIA’s 2016 flow analysis provides regional crude-oil transit shares and distinguishes traffic through Malacca from traffic through the South China Sea. Those regional denominators cannot establish the fraction of China’s own oil imports using Malacca in the paper’s earlier period. The greater-than-80% claim needs a dated China-specific route estimate using the same product definition in numerator and denominator.",
+    "evidence": [
+      [
+        "EIA analysis of 2016 maritime crude flows",
+        "https://www.eia.gov/TODAYinENERGY/detail.php?id=36952"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP4-S1N012"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R10",
+    "status": "further_investigation",
+    "source": "Indonesia IMET: restrictions, limited programme activity and 2005 certification",
+    "usage": "Note 209 describes the interruption of U.S.–Indonesia engagement and uses 2005 as the endpoint.",
+    "finding": "The February 2005 State Department statement establishes the decision to certify Indonesia for regular IMET. Archived U.S. training material from before 2001 distinguishes the expanded programme from full IMET. The claim of a complete decade-long cessation needs the programme and years specified. The 2005 certification alone does not date the restoration of every form of bilateral military cooperation.",
+    "evidence": [
+      [
+        "State Department IMET certification statement, February 2005",
+        "https://2001-2009.state.gov/r/pa/prs/ps/2005/42752.htm"
+      ],
+      [
+        "Archived U.S. regional training programme material",
+        "https://1997-2001.state.gov/global/arms/fmtrain/fpo_eap_a2m.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N207"
+    ]
+  },
+  {
+    "paper": "CMS-09",
+    "id": "CMS09-R07",
+    "status": "further_investigation",
+    "source": "Share of China’s foreign trade carried by sea: volume versus value",
+    "usage": "The note is attached to: “About 85 percent of China’s international trade uses shipping lanes.”",
+    "finding": "China’s Commerce Ministry reported in 2024 that maritime transport carried 95% of foreign-trade freight volume. The statement separately reports trade value in currency. The later freight-volume figure cannot verify an undated 85% share of international trade in the earlier paper. The original Ocean Development Report table is needed to establish the year and unit behind 85%.",
+    "evidence": [
+      [
+        "Commerce Ministry briefing, 22 November 2024",
+        "https://interview.mofcom.gov.cn/detail/202411/ff808081936bce3301936c4843150052.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS09-S13N002"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R16",
+    "status": "further_investigation",
+    "source": "Ethiopia–Djibouti water pipeline: opening versus phase-one loan terms",
+    "usage": "Note 124 accompanies the claim that the pipeline began supplying Djibouti in June 2017 and ran about 320 km. The associated financing statement is also cited in grouped row CMR06-N058.",
+    "finding": "AidData records a $322.05 million preferential buyer’s credit against a $339 million phase-one contract, exactly 95%. It records 2% interest and a seven-year grace period, and identifies a separate phase-two loan signed in December 2017. The financing figures apply to phase one. They do not establish the claimed length or the start of routine supply in June 2017.",
+    "evidence": [
+      [
+        "AidData, phase-one financing and contract",
+        "https://china.aiddata.org/projects/59425/"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N124",
+      "CMR06-N058"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R17",
+    "status": "further_investigation",
+    "source": "Djibouti’s 2018 GDP and the vintage of the estimate",
+    "usage": "Note 130 gives $2.96 billion in nominal GDP and 5.5% real growth for 2018.",
+    "finding": "The IMF’s 2019 Article IV release reports 5.5% real growth for 2018 and $2.923 billion of nominal GDP. The growth figure is supported, and the level is close but not identical. The note cites a World Bank snapshot accessed in March 2020. Use a named vintage for the nominal figure rather than substituting a revised series silently.",
+    "evidence": [
+      [
+        "IMF 2019 Article IV consultation, Table 1",
+        "https://www.imf.org/en/news/articles/2019/10/23/pr19383-djibouti-imf-executive-board-concludes-2019-article-iv-consultation"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N130"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R18",
+    "status": "unk",
+    "source": "Chinese UN peacekeepers in Africa: reporting month and regional subtotal",
+    "usage": "The note is attached to: “In addition to naval forces, the base is well-positioned to support China’s large peacekeeping forces on the African continent (some 2,021, with 1,390 in east Africa), though no such support has been reported in open sources.”",
+    "finding": "The UN publishes contributions by reporting month, country and mission, with personnel categories that can be included or excluded. The cited landing page does not specify the report month, categories or missions used for the Africa and East Africa subtotals. The precise 2,021 and 1,390 counts could not be reproduced from the citation as given.",
+    "evidence": [
+      [
+        "UN Peacekeeping troop and police contributor archive",
+        "https://peacekeeping.un.org/en/troop-and-police-contributors"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N221"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R19",
+    "status": "fix",
+    "source": "Doraleh Multipurpose Port: foundation ceremony and construction start",
+    "usage": "The note is attached to: “China State Construction Engineering Corp and China Civil Engineering Construction Corp designed and built the port between 2013 and 2017.”",
+    "finding": "AidData identifies CSCEC and CCECC as implementing contractors. It dates the foundation ceremony to September 2013 and the start of construction to August 2014. CMPort documents the ceremonial opening in May 2017. Distinguish the 2013 ceremony from the 2014 construction start. The sources checked do not independently allocate design responsibilities.",
+    "evidence": [
+      [
+        "AidData project and contract record",
+        "https://china.aiddata.org/projects/59375/"
+      ],
+      [
+        "CMPort opening announcement",
+        "https://www.cmport.com.hk/EN/news/Detail.aspx?id=10007272"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N059"
+    ]
+  },
+  {
+    "paper": "CES-P4",
+    "id": "CESP4-R10",
+    "status": "further_investigation",
+    "source": "Sudan’s February 2007 debt relief and palace funding",
+    "usage": "The note is attached to: “While Hu Jintao made a well publicized trip to Khartoum in February 2007 to urge its compliance with international demands, he also announced new economic agreements, including $104 million to write off Sudanese debt and $17 million to provide an interest-free loan for infrastructure projects, including a new presidential palace.”",
+    "finding": "Lantos’s prepared remarks do give $104 million in debt relief and $17 million for a palace, so the chapter reproduces the amounts in its cited source. The remarks describe a funding offer. AidData records a debt protocol cancelling RMB 470 million plus US$19 million and lists them as two obligations. The amounts and instrument should be attributed to their sources. The signed loan terms and basis for the different debt totals remain unresolved.",
+    "evidence": [
+      [
+        "U.S. House Darfur hearing, Lantos opening statement",
+        "https://www.govinfo.gov/content/pkg/CHRG-110hhrg33109/pdf/CHRG-110hhrg33109.pdf"
+      ],
+      [
+        "AidData debt-exemption protocol record",
+        "https://china.aiddata.org/projects/1579/"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP4-S1N023"
+    ]
+  },
+  {
+    "paper": "CES-P4",
+    "id": "CESP4-R11",
+    "status": "fix",
+    "source": "Date of the Development Research Center’s national energy strategy draft",
+    "usage": "Note 37 describes a 2003 oil strategy followed by preparation of a Development Research Center national energy strategy in 2004.",
+    "finding": "The surviving draft of China’s National Energy Strategy and Policy 2000–2020 identifies the Development Research Center of the State Council and is dated November 2003. Preparation of the draft was underway by then. A separate 2004 final version or public release would need its own citation. This check does not date the distinct oil-strategy initiative.",
+    "evidence": [
+      [
+        "Development Research Center strategy draft, title page",
+        "https://www.efchina.org/Attachments/Report/reports-efchina-20040422-en/Draft_Natl_E_Plan0311.pdf/at_download/file"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP4-S2N035"
+    ]
+  },
+  {
+    "paper": "CMS-01",
+    "id": "CMS01-R08",
+    "status": "fix",
+    "source": "Hudong Heavy Machinery: private placement versus a public listing",
+    "usage": "The note is attached to: “CSSC’s diesel engine builder Hudong Heavy Machinery (HHM) recently went public with four hundred million shares valued at over twelve billion RMB (1.5 billion USD), which one CSSC executive characterized as “just a first step” in the process of incorporating CSSC’s core business units.”",
+    "finding": "The issuer’s offering report describes a nonpublic issuance by the listed company and gives RMB 30 per share for the asset subscribers. A proposed ceiling of 400 million shares at RMB 30 would represent RMB 12 billion, before any distinction between cash and assets. Describe this as a placement and restructuring of an existing listed company. The proposed ceiling is not a count of shares actually issued.",
+    "evidence": [
+      [
+        "Issuer’s 2007 nonpublic offering report (mirror)",
+        "https://finance.sina.com.cn/stock/s/20070925/10121688983.shtml"
+      ],
+      [
+        "Issuer’s 2007 annual report",
+        "https://static.cninfo.com.cn/finalpage/2008-03-18/38050554.PDF"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS01-N022"
+    ]
+  },
+  {
+    "paper": "CMS-01",
+    "id": "CMS01-R09",
+    "status": "further_investigation",
+    "source": "Shipbuilding output targets for 2015 versus a later global-share target",
+    "usage": "The grouped row’s note 28 accompanies the projection of 24 million deadweight tonnes or 35% of world shipbuilding by 2015.",
+    "finding": "The USTR review attributes a 35% global output target to the 2009 revitalization plan covering the period through 2011. That confirms a similar percentage appeared in a different plan and period. It does not authenticate the specific combined CSSC/CSIC projection, its 24 million deadweight tonnes or the 2015 date in the paper. The two early press sources need to be recovered.",
+    "evidence": [
+      [
+        "USTR report, discussion of the 2009 Ship Industry Revitalization Plan",
+        "https://www.ustr.gov/sites/default/files/enforcement/301Investigations/USTRReportChinaTargetingMaritime.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS01-N026"
+    ]
+  },
+  {
+    "paper": "CMS-07",
+    "id": "CMS07-R09",
+    "status": "fix",
+    "source": "IMO Resolution A.914(22): request for further work versus detailed guidance",
+    "usage": "The note is attached to: “Finally, IMO’s Measures to Further Strengthen Flag State Implementation provide guidance for more rigorous flag-state implementation of IMO standards.”",
+    "finding": "The resolution requests that the Maritime Safety Committee and Marine Environment Protection Committee consider additional implementation measures. It does not itself set out detailed flag-state implementation procedures. Cite it as a request for further work, or identify the separate instrument if the intended reference is to substantive guidance.",
+    "evidence": [
+      [
+        "IMO Assembly Resolution A.914(22)",
+        "https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/AssemblyDocuments/A.914%2822%29.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS07-S8N021"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R11",
+    "status": "further_investigation",
+    "source": "China’s March 2011 reserves and the reported Treasury share",
+    "usage": "The note is attached to: “China officially held over three trillion dollars in foreign reserves in March 2011, almost half of which was in the form of American Treasury bonds.”",
+    "finding": "Contemporaneous reserves were reported at about $3.04 trillion. The historical monthly Treasury series as reproduced for March gives about $1.145 trillion for mainland China, about 38% of the reserve figure. The Treasury benchmark survey gives a different date and coverage. Country-attributed Treasury holdings include more than the reserve manager’s own portfolio and may be attributed through custodians. The published figures do not substantiate the claimed portfolio share of almost half.",
+    "evidence": [
+      [
+        "U.S. Treasury 2011 foreign portfolio holdings benchmark",
+        "https://ticdata.treasury.gov/Publish/shla2011r.pdf"
+      ],
+      [
+        "Historical Treasury series, March 2011 figure (reproduction)",
+        "https://www.500metrics.com/treasury/foreign-holders/china-mainland"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N075"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R11",
+    "status": "further_investigation",
+    "source": "Malaysia’s 2017 GDP growth and Indonesia’s military-spending measure",
+    "usage": "Note 64 reports Malaysia’s 5.9% real growth and Indonesia’s roughly $8.2 billion defence budget in 2017.",
+    "finding": "Bank Negara Malaysia reports full-year growth of 5.9%. SIPRI’s military-expenditure series and the World Bank’s current-dollar presentation measure spending, which can differ from an authorized budget. Without the underlying ADIO table and a defined exchange-rate basis, the $8.2 billion figure is not established as comparable to SIPRI’s expenditure series.",
+    "evidence": [
+      [
+        "Bank Negara Malaysia 2017 fourth-quarter and full-year release",
+        "https://www.bnm.gov.my/-/economic-and-financial-developments-in-the-malaysian-economy-in-the-fourth-quarter-of-2017-1"
+      ],
+      [
+        "World Bank indicator, Indonesia military expenditure",
+        "https://data.worldbank.org/indicator/MS.MIL.XPND.CD?locations=ID"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N064"
+    ]
+  },
+  {
+    "paper": "CMS-17",
+    "id": "CMS17-R12",
+    "status": "fix",
+    "source": "Malaysia’s 2016 petroleum-related share of federal revenue",
+    "usage": "Note 264 attributes about 20% of 2016 government revenue to hydrocarbon production and development.",
+    "finding": "Malaysia’s Fiscal Updates 2017 reports RM34.6 billion in petroleum-related revenue in 2017, up 11.8% from 2016, implying roughly RM31 billion for 2016. The same report puts 2016 federal revenue near RM212 billion, implying about 15%. Specify the fiscal definition and denominator. A ratio based only on selected taxes and dividends is a different statistic.",
+    "evidence": [
+      [
+        "Malaysia Ministry of Finance, Fiscal Updates 2017",
+        "https://www.mof.gov.my/portal/arkib/fiscal/2017/FISCAL_UPDATES_2017.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS17-N264"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R06",
+    "status": "further_investigation",
+    "source": "China’s Container Security Initiative invitation and accession dates",
+    "usage": "The note is attached to: “In June 2002 U.S. Customs invited China to join CSI, and the process was completed the following year.”",
+    "finding": "The July 2003 DHS announcement confirms formal accession on 29 July and identifies an agreement in principle at Crawford on 25 October 2002. These are two milestones. The source does not date the initial invitation to June 2002. The July 2002 newspaper article cited by the chapter was not retrieved.",
+    "evidence": [
+      [
+        "DHS announcement, 29 July 2003, State Department archive mirror",
+        "https://usinfo.org/wf-archive/2003/030729/epf205.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N006"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R07",
+    "status": "further_investigation",
+    "source": "Containerized trade, total maritime trade and port throughput",
+    "usage": "The note is attached to: “Containers transport nearly 90 percent of global trade annually—a total of 153 million TEUs in 2008 (a 7 percent increase over 2007).”",
+    "finding": "UNCTAD’s 2008 review describes the share of world merchandise trade by volume carried by sea, including bulk and other noncontainer cargo. That statistic cannot substantiate a claim about the container share. A TEU flow also cannot be converted to a share of all world trade without a consistent denominator. The chapter’s note defines the TEU but does not establish the quoted global share or the 153 million flow series.",
+    "evidence": [
+      [
+        "UNCTAD Review of Maritime Transport 2008",
+        "https://unctad.org/system/files/official-document/rmt2008_en.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N010"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R08",
+    "status": "fix",
+    "source": "CBP fiscal-year workload: trade entries and multimodal container counts",
+    "usage": "The note is attached to: “During that fiscal year, U.S. Customs and Border Protection processed 20 million sea, truck, and rail containers entering the United States and 29 million of its trade entries.”",
+    "finding": "CBP testimony reports almost 30 million entries and 23.5 million sea, rail and truck containers for FY2004. For FY2005 it reports almost 29 million entries and 25.3 million containers. Neither same-year pair supports 20 million containers alongside the rounded 29 million entries. Identify the year explicitly and use its corresponding agency totals.",
+    "evidence": [
+      [
+        "CBP FY2004 testimony",
+        "https://www.govinfo.gov/content/pkg/CHRG-109shrg99863/pdf/CHRG-109shrg99863.pdf"
+      ],
+      [
+        "CBP FY2005 testimony, p. 10",
+        "https://www.govinfo.gov/content/pkg/CHRG-109hhrg31494/pdf/CHRG-109hhrg31494.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N018"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R09",
+    "status": "further_investigation",
+    "source": "Maersk fleet size: reporting period and inclusion of chartered vessels",
+    "usage": "The note is attached to: “Now consider that Maersk operates 550 container ships.”",
+    "finding": "Maersk’s 2009 interim filing reports 498 Group container vessels at the end of Q3, including 254 owned and 244 chartered. The annual report gives 531 owned and chartered container vessels at year end. These are distinct snapshots. The cited 2007 report was not recovered to determine the as-of date and entity behind 550, so a later count does not by itself invalidate the earlier estimate.",
+    "evidence": [
+      [
+        "Maersk Q3 2009 interim statement",
+        "https://investor.maersk.com/system/files-encrypted/nasdaq_kms/assets/2015/10/13/2-04-12/IMSnov2009.pdf"
+      ],
+      [
+        "Maersk annual report 2009, fleet table",
+        "https://investor.maersk.com/system/files-encrypted/nasdaq_kms/assets/2015/10/14/0-39-15/maersk_annual_report_2009.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N023"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R10",
+    "status": "further_investigation",
+    "source": "China COSCO: matching fleet count and capacity to the same date",
+    "usage": "The note is attached to: “State-owned COSCO has more than 130 vessels (with a capacity of 320,000 TEU).”",
+    "finding": "China COSCO’s exchange-filed report gives 139 operating container vessels and 399,237 TEU at 31 December 2006. It describes capacity as 23.8% above year-end 2005, implying roughly 322,500 TEU at the prior date. The paper’s two values cannot be validated as one 2006 snapshot. The original company page had no recoverable date.",
+    "evidence": [
+      [
+        "China COSCO annual report 2006, p. 17, HKEX",
+        "https://www.hkexnews.hk/listedco/listconews/sehk/2007/0424/01919/EWF109.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N041"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R11",
+    "status": "fix",
+    "source": "Xinjiang’s 2008 non-Han population and the denominator",
+    "usage": "The chapter gives roughly eight million for Uyghurs and other non-Han ethnic groups combined.",
+    "finding": "The State Council’s 2009 white paper reports a total Xinjiang population of 21.308 million in 2008, of whom 12.945 million, or 60.8%, were non-Han. The paper’s roughly eight million does not match that combined count at the date of the cited 2008 article. Use the 2008 figure for the combined category or specify the population and year intended.",
+    "evidence": [
+      [
+        "State Council white paper, Development and Progress in Xinjiang",
+        "https://newyork.china-consulate.gov.cn/eng/xw/200909/t20090923_4691442.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S5N018"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R12",
+    "status": "ok",
+    "source": "Rumaila and Halfaya: contract milestones versus bidding dates",
+    "usage": "The note is attached to: “More recently, CNPC also entered into two other major Iraqi oil deals: Rumaila (November 2009) and Halfaya (January 2010).”",
+    "finding": "CNPC’s Iraq report places its entry into the Rumaila project in November 2009. Total’s 28 January 2010 announcement confirms signing of the Halfaya contract on 27 January and distinguishes it from the December 2009 licensing round. The paper’s months are supported for the contract milestones. Earlier bid selections are separate dates.",
+    "evidence": [
+      [
+        "CNPC in Iraq report, project chronology",
+        "https://www.cnpc.com.cn/en/Enlag/201907/45f4793521044e26bf5a8a9ff7b92875/files/444600a13ed54011a17580fac5ad2a69.pdf"
+      ],
+      [
+        "Total Halfaya announcement filed with the French regulator",
+        "https://echanges.dila.gouv.fr/OPENDATA/AMF/BWR/2010/01/FCBWR055818_20100128.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S5N058"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R13",
+    "status": "ok",
+    "source": "J. Peter Pham’s 2007 testimony and committee attribution",
+    "usage": "The note is attached to: “Africa’s natural wealth makes the continent “an inviting target for the attentions of the People’s Republic of China, whose dynamic economy . . . has an almost insatiable thirst for oil.””",
+    "finding": "Pham’s prepared testimony in the official 2 August 2007 hearing contains the words quoted in the chapter, with the omitted economic-growth clause between them. The citation has a committee-name slip. The hearing was before the House Committee on Foreign Affairs’ Subcommittee on Africa and Global Health. This verifies the quotation and attribution to the witness, not the independent factual merits of his argument.",
+    "evidence": [
+      [
+        "Official House hearing record, Pham’s prepared statement",
+        "https://www.govinfo.gov/content/pkg/CHRG-110hhrg37068/pdf/CHRG-110hhrg37068.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S5N062",
+      "CS21P2-S5N063"
+    ]
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R16",
+    "status": "ok",
+    "source": "APERC’s 2005 and 2010 strategic oil-stock targets",
+    "usage": "The chapter cites APERC for a proposed 35 days of imports by 2005, split between 14 government-managed days and 21 managed by state enterprises, and 50 days by 2010.",
+    "finding": "The cited 2004 APERC report, p. 50, gives all four figures. It presents them as stages of a proposed stockpiling plan. This verifies the attribution and the targets. Actual capacity attained by those dates is a separate question.",
+    "evidence": [
+      [
+        "APERC, Energy in China (2004), p. 50",
+        "https://aperc.or.jp/file/2010/9/26/Energy_in_China_2004.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-S1N027"
+    ]
+  },
+  {
+    "paper": "CES-P1",
+    "id": "CESP1-R17",
+    "status": "unk",
+    "source": "China’s tanker capacity serving foreign customers",
+    "usage": "The note is attached to: “At present an estimated 90 percent of China’s oil shipping capacity serves foreign clients.”",
+    "finding": "The contemporary Orbis article repeats the estimate about the share of Chinese oil-shipping capacity serving foreign customers. It is by the same authors as the audited chapter and therefore supplies no independent confirmation. A statistic about the share of China’s oil imports carried by foreign tankers reverses the fleet and cargo denominator. The original Asia Pulse report and underlying fleet allocation data were not recovered.",
+    "evidence": [
+      [
+        "Collins and Erickson, contemporary Orbis article",
+        "https://www.andrewerickson.com/wp-content/uploads/2010/11/Chinas-New-Tanker-Fleet_Orbis_Fall-2007.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP1-N035"
+    ]
+  },
+  {
+    "paper": "CES-P4",
+    "id": "CESP4-R12",
+    "status": "fix",
+    "source": "Alborz services agreement: timing, parties and scope",
+    "usage": "The note is attached to: “In February 2006 China signed a $33 million three-year contract with Iran to repair and maintain the Alborz semisubmersible drilling rig in the Caspian Sea.”",
+    "finding": "The 30 January 2006 trade report says Iran’s North Drilling Company and China Oilfield Services had already signed. It attributes the $33 million and three-year term to COSL and describes a broader services package that included repair and maintenance. This rules out February as the signing month for that agreement. The signed contract and precise January date were not independently recovered.",
+    "evidence": [
+      [
+        "Oil & Gas Journal, 30 January 2006, reporting COSL’s statement",
+        "https://www.ogj.com/exploration-development/article/17280241/china-iran-to-work-together-in-caspian-sea"
+      ]
+    ],
+    "footnote_ids": [
+      "CESP4-S1N026"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R20",
+    "status": "ok",
+    "source": "IEA’s 2018 estimate of China’s oil imports via Hormuz",
+    "usage": "The paper attributes a share of approximately 40% of China’s imported oil to Gould and Kim’s September 2019 IEA commentary.",
+    "finding": "The cited IEA commentary explicitly puts 40% of China’s oil imports through the strait in 2018. The text supports the rounded share for that year. Keep the date and China-specific import denominator when reusing the estimate.",
+    "evidence": [
+      [
+        "Gould and Kim, IEA, September 2019",
+        "https://www.iea.org/commentaries/the-world-cant-afford-to-relax-about-oil-security"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N007"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R21",
+    "status": "further_investigation",
+    "source": "Djibouti’s $15 billion estimate: investment, contracts and loan commitments",
+    "usage": "The note is attached to: “With an estimated $15 billion total Chinese investment in development of the port and its hinterlands, China is the largest external commercial player in Djibouti.”",
+    "finding": "The report describes $15 billion as an estimate for the port and hinterlands. The IMF’s external-sector report instead lists individual projects by commencement year, including $530 million for the multipurpose port. Its table is not a cumulative sum of all Chinese commitments. A defensible reconciliation needs a defined period and a project ledger that distinguishes equity, debt, construction contracts and disbursements. This extends the estimate check in CMR06-R04.",
+    "evidence": [
+      [
+        "CMR-06, note 23",
+        "https://www.govinfo.gov/content/pkg/GOVPUB-D208-PURL-gpo144498/pdf/GOVPUB-D208-PURL-gpo144498.pdf"
+      ],
+      [
+        "IMF external-sector statistics, Annex III",
+        "https://www.elibrary.imf.org/view/journals/002/2021/004/article-A001-en.xml"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N023"
+    ],
+    "related_claim_id": "CMR06-R04"
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R22",
+    "status": "ok",
+    "source": "Tadjourah’s annual capacity and the cargo it describes",
+    "usage": "The note is attached to: “Djibouti’s port authority anticipates traffic of 4 million tons of cargo per year, but there is little reporting in Chinese or industry sources on its operations.”",
+    "finding": "The Djibouti Ports and Free Zones Authority lists an annual upper capacity of four million tonnes for potash. The figure is supported as a potash handling capability. It should be described as a capacity figure, with no inference about expected or realized total cargo throughput.",
+    "evidence": [
+      [
+        "Djibouti Ports and Free Zones Authority, Port of Tadjourah",
+        "https://dpfza.gov.dj/facilities/Port-Tadjourah"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N066"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R23",
+    "status": "further_investigation",
+    "source": "PVH at Hawassa: preparation, park completion and manufacturing start",
+    "usage": "The note is attached to: “PVH Corp, owner of the Tommy Hilfiger and Calvin Klein brands, moved some of its clothing manufacturing to Hawassah in 2016.”",
+    "finding": "The 2016 citation is a report about preparing for production. A June 2017 account says PVH had established its first manufacturing operation at Hawassa and dates the park’s initial completion to July 2016. Those observations establish a planning milestone and a latest confirmed date for establishment. They do not date the start of PVH production to 2016.",
+    "evidence": [
+      [
+        "Xinhua, June 2017 account of the park and PVH",
+        "https://www.xinhuanet.com/english/2017-06/25/c_136393719.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N155"
+    ]
+  },
+  {
+    "paper": "CMR-06",
+    "id": "CMR06-R24",
+    "status": "fix",
+    "source": "The $60 billion FOCAC package and the industrial-capacity fund",
+    "usage": "The note is attached to: “It enjoys the backing of the Exim Bank’s foreign exchange reserves and Xi Jinping’s imprimatur as a BRI-facilitating venture, which enabled the Fund to participate in a $60 billion aid package that specifically targeted the African market between 2016 and 2019.”",
+    "finding": "The Johannesburg announcement divides the $60 billion commitment among grants and interest-free loans, preferential loans and export credits, additions to existing financing facilities, and a $10 billion industrial-capacity cooperation fund. The package combined several financing instruments. Describe the fund as one component and avoid describing the entire commitment as aid or as money already disbursed. The announcement does not establish the claim about Exim Bank reserves.",
+    "evidence": [
+      [
+        "FOCAC Johannesburg announcement, Foreign Ministry",
+        "https://www.mfa.gov.cn/eng/zy/jj/2015zt/xjpffgcxqhbhbldhdjbbwnfjxgsfwbfnfyhnsbzczfhzltfh/202406/t20240606_11381218.html"
+      ],
+      [
+        "Commerce Ministry interpretation of the cooperation plans",
+        "https://english.mofcom.gov.cn/Policies/PolicyInterpretation/art/2015/art_343065f4e62d4f6f8f259c8b17aff7f6.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR06-N174"
+    ]
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R14",
+    "status": "further_investigation",
+    "source": "Gwadar’s early bulk cargo and the claim of exclusive public-sector use",
+    "usage": "Note 68 describes use only for government bulk cargo imported by the Trading Corporation of Pakistan.",
+    "finding": "TCP’s 2014 procurement notices document urea handling at Gwadar. These confirm one form of government cargo. They cannot establish that every shipment was government cargo or that each shipment was subsidized. Verify the relevant concession period against dated port cargo records. Later Afghan transit activity is outside this check.",
+    "evidence": [
+      [
+        "TCP Gwadar inspection quotation, 2014",
+        "https://tcp.gov.pk/download/surveyors%20Quotation%20104-28%20-Gwadar-.pdf"
+      ],
+      [
+        "TCP urea handling tender, 2014",
+        "https://tcp.gov.pk/download/Tender%20for%20sweeping%20urea%20at%20Gwadar%2C%20FAP%20and%20landhi.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N067"
+    ]
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R15",
+    "status": "further_investigation",
+    "source": "Gwadar KGS service: nine transits and the reported May 2018 stop",
+    "usage": "The note is attached to: “However, according to COSCO logs online, the service ceased after only 9 such transits, in May 2018.”",
+    "finding": "The contemporary ISSI brief establishes a March 2018 container-service milestone. The cited COSCO schedule workbook was not recovered, so neither the count of nine completed transits nor the May cessation was reproduced. A timetable would establish planned calls and would still need actual call records to establish completed transits. CMR07-R12 separately addresses the later restart claim.",
+    "evidence": [
+      [
+        "ISSI brief on the March 2018 service",
+        "https://issi.org.pk/issue-brief-on-cpec-gwadar-port-becomes-operational-for-container-vessels/"
+      ],
+      [
+        "CMR-07, note 91",
+        "https://www.govinfo.gov/content/pkg/GOVPUB-D208-PURL-gpo144652/pdf/GOVPUB-D208-PURL-gpo144652.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N091"
+    ],
+    "related_claim_id": "CMR07-R12"
+  },
+  {
+    "paper": "CMR-07",
+    "id": "CMR07-R16",
+    "status": "further_investigation",
+    "source": "Gwadar’s 2030 cargo projection and phase-completion assumption",
+    "usage": "The note is attached to: “Yet despite its underutilization to date, the project’s backers claim Gwadar will handle a staggering 300 million to 400 million tons annually once all phases of construction are complete by 2030.”",
+    "finding": "The Gwadar Port Authority describes a phased master plan. A contemporaneous report of parliamentary testimony documents an ambition for the port to be fully operational by 2030. That milestone does not by itself establish completion of every phase or 300–400 million tonnes of annual throughput. The cited projection needs a named scenario, capacity basis and matching planning horizon.",
+    "evidence": [
+      [
+        "Gwadar Port Authority master plan",
+        "https://www.gwadarport.gov.pk/masterplan.aspx"
+      ],
+      [
+        "Contemporary report on the parliamentary briefing",
+        "https://www.dawn.com/news/1271962/gwadar-port-to-become-fully-operational-by-2030-na-committee-told"
+      ]
+    ],
+    "footnote_ids": [
+      "CMR07-N133"
+    ]
+  },
+  {
+    "paper": "CMS-08",
+    "id": "CMS08-R08",
+    "status": "further_investigation",
+    "source": "Polar icebreaker replacement costs: per ship versus fleet cost",
+    "usage": "The note is attached to: “Until Congress and the White House come up with a plan to round up about $1.5 billion to keep the Polar Sea and Polar Star running, and another $1 billion or so to build replacements, the United States is an Arctic nation without that capacity.”",
+    "finding": "The 2010 CRS review reproduces a Coast Guard estimate of $800–925 million in 2008 dollars for one new polar icebreaker. Two ships at that estimate imply $1.6–1.85 billion before any adjustment. The passage does not say how many ships its roughly $1 billion buys. The cited amounts also require separate support for operating or extending the old ships’ service lives.",
+    "evidence": [
+      [
+        "CRS polar icebreaker modernization report, July 2010",
+        "https://www.everycrsreport.com/files/20100721_RL34391_92531272991d6a8f036d42b520e77a5d9cf3da5b.pdf"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS08-N100"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R12",
+    "status": "fix",
+    "source": "China’s Somalia peacekeeping assistance: total versus per recipient",
+    "usage": "The note is attached to: “For example, as of late 2011 China had given the African Union (AU) $2.2 million to use specifically for peacekeeping in Somalia and also $780,000 to the governments of Burundi and Uganda for supplies to be used in the African Union Mission in Somalia (AMISOM).”",
+    "finding": "Wang Min’s November 2011 statement confirms US$2.2 million in cash for AU peacekeeping operations in Somalia. It separately reports RMB 5 million each to Uganda and Burundi for logistical supplies. At roughly RMB 6.4 per U.S. dollar, that is about $780,000 each, or about $1.56 million combined. The paper should specify the amount per recipient and identify the dollar figures as conversions.",
+    "evidence": [
+      [
+        "Chinese UN mission statement, November 2011",
+        "https://un.china-mission.gov.cn/eng/chinaandun/securitycouncil/regionalhotspots/africa/201111/t20111118_8417131.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N041"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R13",
+    "status": "unk",
+    "source": "Claimed evacuation from Fiji during the 2006 coup",
+    "usage": "The note is attached to: “Subsequently, China has organized a variety of NEOs, including from Fiji during the 2006 military coup.”",
+    "finding": "A contemporaneous Chinese government notice confirms a chartered evacuation from Tonga in November 2006. Tonga is a separate case and does not corroborate an evacuation from Fiji. The chapter’s source is a private 2009 meeting, and a public Fiji evacuation record was not located. Retain the distinction and leave the Fiji claim unverified.",
+    "evidence": [
+      [
+        "Chinese government notice on the Tonga charter, November 2006",
+        "https://gd.china-embassy.gov.cn/eng/fyrth/200611/t20061124_3497775.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N089"
+    ]
+  },
+  {
+    "paper": "CMS-10",
+    "id": "CMS10-R14",
+    "status": "ok",
+    "source": "The reported 86% Eastday online poll",
+    "usage": "The note is attached to: “The media outlet Eastday reported that a survey showed that 86 percent of Chinese “netizens” (active Internet users) supported a Gulf of Aden mission.”",
+    "finding": "A contemporary Sina item reports the same 86% result. That supports the reported online poll figure, while the underlying questionnaire and sampling method were not recovered. The figure describes respondents to an online poll and does not establish a representative share of all Chinese internet users.",
+    "evidence": [
+      [
+        "Contemporary Sina report, November 2008",
+        "https://mil.news.sina.com.cn/p/2008-11-21/1425531271.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS10-S5N110"
+    ]
+  },
+  {
+    "paper": "CMS-16",
+    "id": "CMS16-R08",
+    "status": "fix",
+    "source": "Elapsed time from George W. Bush’s inauguration to the April 2001 collision",
+    "usage": "The footnote describes the April 2001 incident as occurring four months into George W. Bush’s presidency.",
+    "finding": "Bush was inaugurated on 20 January 2001 and the incident occurred on 1 April. The elapsed time was 71 days, just over ten weeks. April was the fourth calendar month touched by the presidency, but four months had not elapsed. This corrects the timing without evaluating the chapter’s inference about changes of administration.",
+    "evidence": [
+      [
+        "U.S. Senate, 2001 inauguration",
+        "https://www.senate.gov/art-artifacts/thematic-collections/historic-events/inauguration/2001.htm"
+      ],
+      [
+        "Archived White House releases, April 2001",
+        "https://georgewbush-whitehouse.archives.gov/news/releases/2001/04/text/index.html"
+      ]
+    ],
+    "footnote_ids": [
+      "CMS16-N093"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R14",
+    "status": "ok",
+    "source": "Bonner’s 2003 Shanghai and Shenzhen quotation",
+    "usage": "The note is attached to: ““The CSI security blanket is now expanding and strengthening as it encompasses the ports of Shanghai and Shenzhen.””",
+    "finding": "The July 2003 DHS press release reproduces the quoted wording and attributes it to CBP Commissioner Robert Bonner. The quotation is from the announcement issued alongside the declaration. This establishes the wording and speaker without treating the press quotation as language in the signed declaration itself.",
+    "evidence": [
+      [
+        "DHS press release, 29 July 2003, State Department archive mirror",
+        "https://usinfo.org/wf-archive/2003/030729/epf205.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N057"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R15",
+    "status": "unk",
+    "source": "The 8.6% global container forecast for 2010",
+    "usage": "The note is attached to: “Global container traffic is forecast to grow by 8.6 percent in 2010, and throughputs at Chinese ports in particular are returning to pre-downturn levels.”",
+    "finding": "UNCTAD’s later review documents a recovery in maritime trade and distinguishes cargo volume from port throughput. A later actual growth figure cannot substantiate a forecast issued before the fact. The quoted 8.6% was not established from the cited 2010 articles. The original forecast and its definition of container traffic are needed.",
+    "evidence": [
+      [
+        "UNCTAD Review of Maritime Transport 2011",
+        "https://unctad.org/publication/review-maritime-transport-2011"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S3N110"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R16",
+    "status": "fix",
+    "source": "H.R. 1: January House passage and July conference votes",
+    "usage": "The note is attached to: “On 9 January 2007 U.S. House Resolution 1 (PL110-53) was passed by an overwhelming majority.”",
+    "finding": "Congress.gov records initial House passage on 9 January 2007 by 299–128. The 371–40 House vote was on the conference report on 27 July, after the Senate’s 85–8 conference vote on 26 July. Identify H.R. 1 as a bill and attach each vote to its legislative stage.",
+    "evidence": [
+      [
+        "Congress.gov action history for H.R. 1",
+        "https://www.congress.gov/bill/110th-congress/house-bill/1/all-actions"
+      ],
+      [
+        "U.S. Senate 2007 roll-call index",
+        "https://www.senate.gov/legislative/LIS/roll_call_votes/vote_menu_110_1.htm"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-N150"
+    ]
+  },
+  {
+    "paper": "CS21-P2",
+    "id": "CS21P2-R17",
+    "status": "further_investigation",
+    "source": "Al-Ahdab: original agreement versus the renegotiated service contract",
+    "usage": "The note is attached to: “China and Iraq have recently engaged in negotiations on a $1.2 billion deal, originally signed in 1997 under the Saddam Hussein regime, to allow CNPC to develop the al-Ahdab oil field, which is estimated to hold oil reserves of 1 billion barrels.”",
+    "finding": "CNPC’s Iraq chronology records the Al-Ahdab service contract in November 2008. Contemporary coverage distinguishes that contract from the earlier agreement reached in 1997. A number from the earlier negotiations should not be used as the value of the later contract without checking which costs or obligations it measures. The quoted reserve figure also requires a dated field estimate.",
+    "evidence": [
+      [
+        "CNPC in Iraq, project chronology",
+        "https://www.cnpc.com.cn/en/Enlag/201907/45f4793521044e26bf5a8a9ff7b92875/files/444600a13ed54011a17580fac5ad2a69.pdf"
+      ],
+      [
+        "Contemporaneous service-contract report",
+        "https://www.energyintel.com/0000017b-a7b4-de4c-a17b-e7f676be0000"
+      ]
+    ],
+    "footnote_ids": [
+      "CS21P2-S5N057"
     ]
   }
 ]
