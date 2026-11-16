@@ -59,89 +59,83 @@
       margin-bottom: 0.35rem;
       line-height: 1.6;
     }
+    .audit-header { position: relative; }
+    .audit-nav { display: flex; flex-wrap: wrap; gap: 0.125rem; }
+    .audit-nav .nav-tab-btn { font-size: 0.8125rem; padding: 0.45rem 0.6rem; }
+    .audit-nav .nav-tab-btn[data-tab="rows"] span:last-child { display: none; }
+    .audit-export { position: relative; flex-shrink: 0; }
+    .audit-export summary { list-style: none; }
+    .audit-header input[type="search"]::-webkit-search-cancel-button { display: none; }
+    .audit-export summary::-webkit-details-marker { display: none; }
+    .audit-export-menu { position: absolute; z-index: 40; right: 0; top: calc(100% + 0.375rem); min-width: 12rem; }
+    .audit-button { min-height: 2.75rem; padding: 0.35rem 0.7rem; border-radius: 0.5rem; border: 1px solid #334155; color: #cbd5e1; font-size: 0.8125rem; font-weight: 600; }
+    .audit-button:hover { background: #1e293b; }
+    .audit-button[aria-pressed="true"] { color: #eff6ff; background: #1e3a5f; border-color: #60a5fa; }
+    .audit-button:disabled { opacity: 0.45; cursor: default; }
+    .audit-header :focus-visible, #tab-rows :focus-visible, #tab-overview :focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
+    .audit-record { scroll-margin-top: 1rem; overflow-wrap: anywhere; }
+    .audit-selected { background: #122645; outline: 1px solid #60a5fa; outline-offset: -1px; }
+    .audit-card-summary { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    #tab-rows { scroll-margin-top: 1rem; }
+    @media (min-width: 1024px) {
+      .audit-header { position: sticky; top: 0; }
+      .audit-record, #tab-rows { scroll-margin-top: 8rem; }
+    }
+    .paper-coverage-card { scroll-margin-top: 1rem; }
+    .paper-coverage-tile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-wrap: anywhere;
+      min-height: 3.75rem;
+      padding: 0.45rem 0.75rem;
+      border: 1px solid #334155;
+      border-radius: 0.5rem;
+      color: #cbd5e1;
+      background: #0b1221;
+    }
+    #tab-papers :focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
+    @media (min-width: 1024px) {
+      .paper-coverage-card { scroll-margin-top: 8rem; }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-slate-950 text-slate-200 selection:bg-blue-500/30 selection:text-blue-200">
 
-  <!-- Top Header -->
-  <header class="sticky top-0 z-30 bg-slate-900/95 backdrop-blur border-b border-slate-800 px-4 lg:px-8 py-3.5">
-    <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
-      <div class="flex items-start sm:items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-900/30 shrink-0 mt-0.5 sm:mt-0">
-          <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
-        </div>
-        <div>
-          <div class="flex flex-wrap items-center gap-2">
-            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight">China Security Studies Source-Audit Dashboard</h1>
-            <span class="px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mono">Batches 1–10 · 110 Docs</span>
-          </div>
-          <p class="text-xs text-slate-400 mt-0.5">U.S. Naval War College CMSI Translations, China Maritime Reports, Naval Institute Press Volumes &amp; CIPI Wargame Reports (2007–2026)</p>
-        </div>
-      </div>
-
-      <!-- Global Controls & Quick Export -->
-      <div class="flex flex-wrap items-center gap-2">
-        <div class="relative flex-1 sm:flex-initial sm:w-64">
+  <header class="audit-header z-30 bg-slate-900 border-b border-slate-800 px-4 lg:px-8 py-3">
+    <div class="max-w-[1600px] mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5">
+      <h1 class="font-bold text-white tracking-tight text-base sm:text-lg">China Security Studies Source Audit</h1>
+      <div class="flex items-center gap-2">
+        <div class="relative flex-1 sm:w-64 min-w-0">
           <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-          <input id="globalSearchInput" type="text" placeholder="Search 110 papers, 7,728 rows, memos..."
-            class="w-full pl-9 pr-7 py-1.5 text-xs bg-slate-950 border border-slate-700/80 rounded-lg text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition" />
-          <button id="clearGlobalSearchBtn" title="Clear search" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200">
-            <i data-lucide="x" class="w-3.5 h-3.5"></i>
+          <input id="globalSearchInput" type="search" aria-label="Search the collection" placeholder="Search the collection"
+            class="w-full pl-9 pr-8 py-2 text-sm bg-slate-950 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400" />
+          <button id="clearGlobalSearchBtn" type="button" aria-label="Clear search" class="hidden absolute inset-y-0 right-0 px-2 text-slate-400 hover:text-white">
+            <i data-lucide="x" class="w-4 h-4"></i>
           </button>
         </div>
-
-        <button id="downloadJsonBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition">
-          <i data-lucide="download" class="w-3.5 h-3.5"></i>
-          <span>Export JSON (110 Docs)</span>
-        </button>
-        <button id="downloadCsvBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
-          <i data-lucide="table" class="w-3.5 h-3.5"></i>
-          <span>Export 7,728 Rows CSV</span>
-        </button>
+        <details id="auditExportMenu" class="audit-export">
+          <summary class="cursor-pointer px-3 py-2 rounded-lg text-sm font-semibold bg-slate-800 border border-slate-700">Export</summary>
+          <div class="audit-export-menu rounded-lg bg-slate-900 border border-slate-700 p-1.5 shadow-xl text-sm">
+            <button id="downloadJsonBtn" type="button" class="text-left w-full px-3 py-2 rounded hover:bg-slate-800">Download JSON</button>
+            <button id="downloadCsvBtn" type="button" class="text-left w-full px-3 py-2 rounded hover:bg-slate-800">Download CSV</button>
+          </div>
+        </details>
       </div>
     </div>
-
-    <!-- Navigation Tabs -->
-    <div class="max-w-[1600px] mx-auto mt-3 pt-2 border-t border-slate-800/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-      <button data-tab="overview" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap bg-blue-600 text-white">
-        <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
-        <span>1. Executive Overview</span>
-      </button>
-      <button data-tab="papers" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
-        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-        <span>2. 110-Paper Audit Explorer</span>
-        <span id="navPaperCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">110</span>
-      </button>
-      <button data-tab="rows" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
-        <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
-        <span>3. Reference Audit Matrix</span>
-        <span id="navRowCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">1000</span>
-      </button>
-      <button data-tab="shared" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
-        <i data-lucide="git-Fork" class="w-3.5 h-3.5"></i>
-        <span>4. Shared Sources Network</span>
-        <span id="navSharedCountBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">532</span>
-      </button>
-      <button data-tab="thematic" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
-        <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-        <span>5. Thematic Memos</span>
-        <span class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">41</span>
-      </button>
-      <button data-tab="authors" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
-        <i data-lucide="users" class="w-3.5 h-3.5"></i>
-        <span>6. Author &amp; Institutional Profiles</span>
-        <span class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">36</span>
-      </button>
-      <button data-tab="theses" class="nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap text-slate-300 hover:bg-slate-800">
-        <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
-        <span>7. PLAN 2013 Graduate Theses (CMSI-87)</span>
-        <span class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 mono text-[10px]">38</span>
-      </button>
-    </div>
+    <nav aria-label="Dashboard" class="audit-nav max-w-[1600px] mx-auto mt-2.5 pt-2 border-t border-slate-800">
+      <button type="button" data-tab="overview" aria-current="page" class="nav-tab-btn rounded-lg font-semibold bg-blue-600 text-white">Overview</button>
+      <button type="button" data-tab="papers" class="nav-tab-btn rounded-lg font-semibold text-slate-300 hover:bg-slate-800">Papers <span id="navPaperCountBadge" class="sr-only"></span></button>
+      <button type="button" data-tab="rows" class="nav-tab-btn rounded-lg font-semibold text-slate-300 hover:bg-slate-800">Audits <span id="navRowCountBadge" class="sr-only"></span></button>
+      <button type="button" data-tab="shared" class="nav-tab-btn rounded-lg font-semibold text-slate-300 hover:bg-slate-800">Shared sources <span id="navSharedCountBadge" class="sr-only"></span></button>
+      <button type="button" data-tab="thematic" class="nav-tab-btn rounded-lg font-semibold text-slate-300 hover:bg-slate-800">Memos</button>
+      <button type="button" data-tab="authors" class="nav-tab-btn rounded-lg font-semibold text-slate-300 hover:bg-slate-800">Profiles</button>
+      <button type="button" data-tab="theses" class="nav-tab-btn rounded-lg font-semibold text-slate-300 hover:bg-slate-800">Theses</button>
+    </nav>
   </header>
 
   <!-- Active Batch Filter Bar -->
-  <div class="bg-slate-900/60 border-b border-slate-800/80 px-4 lg:px-8 py-2">
+  <div class="hidden lg:block bg-slate-900/60 border-b border-slate-800/80 px-4 lg:px-8 py-2">
     <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-2">
       <div id="batchFilterButtons" class="flex flex-wrap items-center gap-1.5">
         <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mr-1">Batch Filter:</span>
@@ -155,7 +149,7 @@
         <button data-batch="7" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Batch 7 (#61–#70)</button>
         <button data-batch="8" class="batch-filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-600/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-600/30 transition">★ Batch 8 (#71–#80: CCP Espionage, McDevitt Naval Power &amp; Whaley Intro)</button>
       </div>
-      <div id="activeFilterStatusText" class="text-xs text-slate-400 mono">Showing all 110 documents · 7,728 audited reference rows</div>
+      <div id="activeFilterStatusText" class="text-xs text-slate-400 mono">Showing the audit collection</div>
     </div>
   </div>
 
@@ -165,11 +159,68 @@
     <!-- TAB 1: OVERVIEW -->
     <section id="tab-overview" class="tab-section space-y-6">
       <!-- Top KPI Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3.5" id="overviewKpiGrid"></div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="overviewKpiGrid"></div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <button type="button" class="audit-button" onclick="openReviewQueue('fix')">Needs correction</button>
+        <button type="button" class="audit-button" onclick="openReviewQueue('further_investigation')">Further investigation</button>
+        <a href="#papers" class="audit-button inline-flex items-center">Browse by paper</a>
+        <button type="button" id="overviewFootnoteButton" class="audit-button" onclick="showFootnoteRows('all')">Browse footnote sources</button>
+      </div>
+
+      <!-- Two-Column Section: All 12 Priority Audit Findings (11 fix + 1 unk) & Batch Breakdown -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i>
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider" id="overviewFlaggedHeading">Claims to review</h3>
+            </div>
+            <button onclick="openReviewQueue()" class="text-sm text-blue-300 hover:underline">View audits</button>
+          </div>
+          <div id="overviewFlaggedRowsList" class="space-y-3"></div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <!-- Batch Breakdown Table -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-2">
+              <i data-lucide="bar-chart-3" class="w-4 h-4 text-blue-400"></i>
+              <span>Claims by publication batch</span>
+            </h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="border-b border-slate-800 text-slate-400">
+                    <th class="py-2 pr-2">Batch</th>
+                    <th class="py-2 px-2">Docs</th>
+                    <th class="py-2 px-2">Rows</th>
+                    <th class="py-2 px-2 text-emerald-400">Supported</th>
+                    <th class="py-2 px-2 text-amber-400">Needs correction</th>
+                    <th class="py-2 px-2 text-purple-400">Unverified</th>
+                    <th class="py-2 pl-2 text-sky-400">Further investigation</th>
+                  </tr>
+                </thead>
+                <tbody id="overviewBatchTableBody" class="divide-y divide-slate-800/70 mono"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Quick Jump to New Batch 5 Memos -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-2">
+              <i data-lucide="book-open" class="w-4 h-4 text-emerald-400"></i>
+              <span>Featured Synthesis Memos (T31–T33 &amp; A34–A36)</span>
+            </h3>
+            <div class="space-y-2 text-xs" id="overviewNewMemosLinks"></div>
+          </div>
+        </div>
+      </div>
 
       <!-- Batch 8 Expansion Spotlight Card -->
-      <div class="rounded-xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/40 border border-indigo-500/30 p-5 shadow-lg">
-        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 pb-4 border-b border-slate-800">
+      <details class="rounded-xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/40 border border-indigo-500/30 p-5 shadow-lg">
+        <summary class="cursor-pointer text-sm font-semibold text-white">Batch 8 spotlight</summary>
+        <div class="mt-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 pb-4 border-b border-slate-800">
           <div>
             <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mb-1.5">
               <span>DOCS #71–#80 · NAVAL INSTITUTE PRESS</span>
@@ -224,144 +275,132 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Two-Column Section: All 12 Priority Audit Findings (11 fix + 1 unk) & Batch Breakdown -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-xl p-5">
-          <div class="flex items-center justify-between mb-3">
-            <div class="flex items-center gap-2">
-              <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i>
-              <h3 class="text-sm font-bold text-white uppercase tracking-wider" id="overviewFlaggedHeading">Substantive fixes and rows for further investigation</h3>
-            </div>
-            <button onclick="filterRowsByFlag()" class="text-xs text-blue-400 hover:text-blue-300 font-medium">View further investigation in Reference Matrix →</button>
-          </div>
-          <div id="overviewFlaggedRowsList" class="space-y-2.5 max-h-[540px] overflow-y-auto pr-1"></div>
-        </div>
-
-        <div class="lg:col-span-5 space-y-6">
-          <!-- Batch Breakdown Table -->
-          <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-2">
-              <i data-lucide="bar-chart-3" class="w-4 h-4 text-blue-400"></i>
-              <span>Corpus Breakdown by Batch (110 Documents)</span>
-            </h3>
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs">
-                <thead>
-                  <tr class="border-b border-slate-800 text-slate-400">
-                    <th class="py-2 pr-2">Batch</th>
-                    <th class="py-2 px-2">Docs</th>
-                    <th class="py-2 px-2">Rows</th>
-                    <th class="py-2 px-2 text-emerald-400">ok</th>
-                    <th class="py-2 px-2 text-amber-400">fix</th>
-                    <th class="py-2 px-2 text-purple-400">unk</th>
-                    <th class="py-2 pl-2 text-sky-400">Further investigation</th>
-                  </tr>
-                </thead>
-                <tbody id="overviewBatchTableBody" class="divide-y divide-slate-800/70 mono"></tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Quick Jump to New Batch 5 Memos -->
-          <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
-            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-3 flex items-center gap-2">
-              <i data-lucide="book-open" class="w-4 h-4 text-emerald-400"></i>
-              <span>Featured Synthesis Memos (T31–T33 &amp; A34–A36)</span>
-            </h3>
-            <div class="space-y-2 text-xs" id="overviewNewMemosLinks"></div>
-          </div>
-        </div>
-      </div>
+      </details>
     </section>
 
-    <!-- TAB 2: 50-PAPER AUDIT EXPLORER -->
-    <section id="tab-papers" class="tab-section hidden space-y-4">
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
-        <div class="flex flex-wrap items-center gap-2">
-          <label class="text-xs text-slate-400 font-medium">Status Filter:</label>
-          <select id="paperStatusFilter" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
-            <option value="all">All Papers (110)</option>
-            <option value="flagged">Has Priority Correction (fix / unk)</option>
-            <option value="clean">100% Verified Clean (All ok)</option>
-          </select>
-
-          <label class="text-xs text-slate-400 font-medium ml-2">Category:</label>
-          <select id="paperCategoryFilter" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
-            <option value="all">All Publication Categories</option>
-            <option value="monograph">Monographs / Book Chapters / Wargame Reports (1.0x)</option>
-            <option value="peer">Peer-Reviewed Technical / Academic Journals (1.0x)</option>
-            <option value="military">Official Military / Service Newspapers (0.5x)</option>
-            <option value="trade">Popular / Trade / Defense Media (0.2x)</option>
-          </select>
-
-          <label class="text-xs text-slate-400 font-medium ml-2">Sort By:</label>
-          <select id="paperSortSelect" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
-            <option value="order_asc">Reading Order (#1 → #110)</option>
-            <option value="order_desc">Reading Order (#110 → #1)</option>
-            <option value="weight_desc">Source Weight (1.0x → 0.2x)</option>
-            <option value="flags_desc">Most Audit Flags First</option>
-          </select>
+    <!-- Paper coverage -->
+    <section id="tab-papers" class="tab-section hidden space-y-4" aria-labelledby="paperCoverageHeading">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-5 space-y-4">
+        <div>
+          <h2 id="paperCoverageHeading" class="text-lg font-bold text-white">Browse by paper</h2>
+          <p id="paperCoverageSummary" class="mt-1 text-sm text-slate-300 leading-relaxed" aria-live="polite"></p>
+          <p class="mt-1 text-sm text-slate-400">Coverage counts describe audited records. An audit can cover several passages, and a footnote without a link can still support an audited claim.</p>
         </div>
-
-        <div class="flex items-center gap-2">
-          <button id="expandAllPapersBtn" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Expand All Details</button>
-          <button id="collapseAllPapersBtn" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Collapse All</button>
+        <details id="paperCoverageControls" open>
+          <summary id="paperFilterSummary" class="cursor-pointer py-1 text-sm font-semibold text-blue-300 lg:hidden">Filters and sorting</summary>
+        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-3 mt-2 lg:mt-0">
+          <label for="paperStatusFilter" class="flex flex-col gap-1 text-sm text-slate-300">
+            Review status
+            <select id="paperStatusFilter" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2 text-sm">
+              <option value="all">All verdicts</option>
+              <option value="open">Has open claim audits</option>
+              <option value="flagged">Has claims to review</option>
+              <option value="clean">All claims supported</option>
+            </select>
+          </label>
+          <label for="paperCoverageFilter" class="flex flex-col gap-1 text-sm text-slate-300">
+            Coverage
+            <select id="paperCoverageFilter" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2 text-sm">
+              <option value="all">All papers</option>
+              <option value="light">Four or fewer claim audits</option>
+              <option value="no_notes" disabled>No footnote sources cataloged</option>
+              <option value="unlinked" disabled>Footnote sources without claim links</option>
+            </select>
+          </label>
+          <label for="paperCategoryFilter" class="flex flex-col gap-1 text-sm text-slate-300">
+            Publication type
+            <select id="paperCategoryFilter" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2 text-sm">
+              <option value="all">All publication types</option>
+              <option value="monograph">Monographs, chapters, and reports</option>
+              <option value="peer">Peer-reviewed journals</option>
+              <option value="military">Official military publications</option>
+              <option value="trade">Trade and defense media</option>
+            </select>
+          </label>
+          <label for="paperSortSelect" class="flex flex-col gap-1 text-sm text-slate-300">
+            Sort by
+            <select id="paperSortSelect" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2 text-sm">
+              <option value="order_asc">Reading order</option>
+              <option value="least_audited">Fewest claim audits</option>
+              <option value="most_open">Most open claim audits</option>
+              <option value="flags_desc">Most claims to review</option>
+              <option value="order_desc">Reverse reading order</option>
+              <option value="weight_desc">Source weight</option>
+            </select>
+          </label>
         </div>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <button id="expandAllPapersBtn" type="button" class="audit-button">Expand all details</button>
+          <button id="collapseAllPapersBtn" type="button" class="audit-button">Collapse all details</button>
+        </div>
+        </details>
       </div>
-
-      <div id="papersContainer" class="space-y-4"></div>
+      <div id="papersContainer" class="space-y-3"></div>
     </section>
 
     <div id="fnLoadBanner" class="hidden max-w-7xl mx-auto mb-3 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300">Loading the footnote rows…</div>
-    <!-- TAB 3: REFERENCE AUDIT MATRIX (225 ROWS) -->
+    <!-- Audit explorer -->
     <section id="tab-rows" class="tab-section hidden space-y-4">
-      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-xs text-slate-400 font-medium">Row Status:</span>
-          <button data-rowstatus="all" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-600 text-white transition">All (7,728)</button>
-          <button data-rowstatus="ok" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition">ok (2,070)</button>
-          <button data-rowstatus="fix" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500/25 transition">fix (41)</button>
-          <button data-rowstatus="unk" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30 hover:bg-purple-500/25 transition">unk</button>
-          <button data-rowstatus="further_investigation" class="row-status-btn px-2.5 py-1 rounded-md text-xs font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/30 hover:bg-sky-500/25 transition">Further investigation</button>
-
-          <label class="text-xs text-slate-400 font-medium ml-2">Paper:</label>
-          <select id="rowPaperFilter" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 max-w-xs">
-            <option value="all">All 110 Papers</option>
-          </select>
-          <label class="text-xs text-slate-400 font-medium ml-2">Type:</label>
-          <select id="rowTypeFilter" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500">
-            <option value="all">All rows</option>
-            <option value="claim">Claim audits (hand-checked)</option>
-            <option value="footnote">Footnote source rows (one per source per paper)</option>
-          </select>
-          <input id="rowSearchInput" type="text" placeholder="Search rows..." class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 w-48">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5 sm:p-4 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div role="group" aria-label="Audit type" class="flex flex-wrap gap-1.5">
+            <button type="button" data-rowtype="claim" class="audit-button" aria-pressed="true">Claim audits</button>
+            <button type="button" data-rowtype="footnote" class="audit-button" aria-pressed="false">Footnote sources</button>
+            <button type="button" data-rowtype="all" class="audit-button" aria-pressed="false">All rows</button>
+          </div>
+          <button id="clearAuditFilters" type="button" class="px-2 py-1 text-sm text-blue-300 hover:underline">Reset filters</button>
         </div>
-        <div id="rowMatrixCountLabel" class="text-xs text-slate-400 mono">Showing 7,728 of 7,728 reference rows</div>
-      </div>
-
-      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs">
-            <thead>
-              <tr class="bg-slate-950/90 border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[11px]">
-                <th class="py-3 px-3.5 w-28">Row ID</th>
-                <th class="py-3 px-3 w-28">Paper</th>
-                <th class="py-3 px-3 w-24">Status</th>
-                <th class="py-3 px-3.5 w-1/4">Cited Source / Claim</th>
-                <th class="py-3 px-3.5 w-1/4">How Used in Paper</th>
-                <th class="py-3 px-3.5">Audit Verification Finding</th>
-              </tr>
-            </thead>
-            <tbody id="rowsTableBody" class="divide-y divide-slate-800/80"></tbody>
-          </table>
+        <details id="auditAdvancedFilters" open>
+          <summary id="auditAdvancedFilterLabel" class="cursor-pointer py-1 text-sm font-semibold text-blue-300 lg:hidden">Paper and search</summary>
+          <div class="grid sm:grid-cols-2 gap-3 max-w-3xl mt-2 lg:mt-0">
+          <label for="rowPaperFilter" class="flex flex-col gap-1 text-sm text-slate-300 min-w-0">
+            Paper
+            <select id="rowPaperFilter" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2 text-sm text-slate-100">
+              <option value="all">All papers</option>
+            </select>
+          </label>
+          <label for="rowSearchInput" class="flex flex-col gap-1 text-sm text-slate-300">
+            Search this view
+            <input id="rowSearchInput" type="search" placeholder="Audit ID, claim, or finding" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-2 text-sm text-slate-100 placeholder-slate-400">
+          </label>
+          </div>
+        </details>
+        <div role="group" aria-label="Verdict" class="flex flex-wrap gap-1.5">
+          <button type="button" data-rowstatus="all" class="audit-button" aria-pressed="true">All</button>
+          <button type="button" data-rowstatus="ok" class="audit-button" aria-pressed="false">Supported</button>
+          <button type="button" data-rowstatus="open" class="audit-button" aria-pressed="false">Open</button>
+          <button type="button" data-rowstatus="fix" class="audit-button" aria-pressed="false">Needs correction</button>
+          <button type="button" data-rowstatus="further_investigation" class="audit-button" aria-pressed="false">Further investigation</button>
+          <button type="button" data-rowstatus="unk" class="audit-button" aria-pressed="false">Unverified</button>
         </div>
       </div>
-      <div class="flex items-center justify-center gap-3 text-xs text-slate-300">
-        <button id="rowPrevBtn" class="px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">← Previous</button>
-        <span id="rowPageLabel" class="mono"></span>
-        <button id="rowNextBtn" class="px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 border border-slate-700 transition">Next →</button>
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <p id="rowMatrixCountLabel" aria-live="polite" class="text-sm text-slate-300"></p>
+        <div data-audit-pagination role="group" aria-label="Results pages, top" class="flex flex-wrap items-center gap-2 text-sm">
+          <button type="button" class="audit-button" data-page-step="-1">Previous</button>
+          <span data-page-label class="text-slate-300 tabular-nums"></span>
+          <button type="button" class="audit-button" data-page-step="1">Next</button>
+        </div>
+      </div>
+      <p id="auditEmptyState" class="hidden rounded-xl bg-slate-900 border border-slate-800 p-4 text-sm text-slate-300"></p>
+      <div id="auditDesktopResults" class="hidden lg:block bg-slate-900 border border-slate-800 rounded-xl overflow-x-auto">
+        <table class="w-full table-fixed text-left text-sm">
+          <thead>
+            <tr class="bg-slate-950 border-b border-slate-800 text-slate-300">
+              <th scope="col" class="py-3 px-4 w-[16%]">Audit and paper</th>
+              <th scope="col" class="py-3 px-4 w-[26%]">Claim or source</th>
+              <th scope="col" class="py-3 px-4 w-[23%]">Passage in paper</th>
+              <th scope="col" class="py-3 px-4">Finding and evidence</th>
+            </tr>
+          </thead>
+          <tbody id="rowsTableBody" class="divide-y divide-slate-800"></tbody>
+        </table>
+      </div>
+      <div id="auditMobileResults" class="space-y-3 lg:hidden"></div>
+      <div data-audit-pagination role="group" aria-label="Results pages, bottom" class="flex flex-wrap items-center justify-end gap-2 text-sm">
+        <button type="button" class="audit-button" data-page-step="-1">Previous</button>
+        <span data-page-label class="text-slate-300 tabular-nums"></span>
+        <button type="button" class="audit-button" data-page-step="1">Next</button>
       </div>
     </section>
 
@@ -1570,7 +1609,7 @@
     "status": "further_investigation",
     "source": "Ethiopia’s June 2018 first oil and the earlier Calub appraisal well",
     "usage": "The note is attached to: “It drilled its first appraisal well in the Calub field in September 2015, and produced the first barrel of oil in June 2018.”",
-    "finding": "Contemporaneous reporting places the start of test crude extraction in June 2018. This supports the month for first test oil, without establishing commercial production. The September 2015 date and the description of the well as the first appraisal well were not independently established. Those details need the drilling record or an operator announcement from the period. Consistency review, November 14, 2026. The June 2018 contemporaneous account expressly describes test extraction. The earlier linked drilling citation is dated September 9, 2015, and its title identifies a first well. That title alone does not establish the well classification or whether it was first in the specified field. Follow-up review, November 14, 2026. The published paper cites a dated September 2015 item titled First Well Drilled. The original project announcement has not been recovered to establish that it was specifically the first appraisal well at Calub. June 2018 is independently corroborated as test extraction. Follow-up review, November 15, 2026. The available June 2018 accounts describe trial extraction. Keep that event separate from regular commercial production. Confirming the earlier September 2015 date requires a drilling record that identifies the field, the well and its appraisal status. Source recheck. The Somali Regional State environmental audit, section 1.1, names Calub 11 and identifies it as POLY-GCL’s first well, drilled in September 2015. It classifies appraisal and exploration wells in aggregate and does not assign Calub 11 to either category. The month, field and operator are now corroborated. The specific appraisal classification remains open.",
+    "finding": "Contemporaneous reporting places the start of test crude extraction in June 2018. This supports the month for first test oil, without establishing commercial production. The September 2015 date and the description of the well as the first appraisal well were not independently established. Those details need the drilling record or an operator announcement from the period. Consistency review, November 14, 2026. The June 2018 contemporaneous account expressly describes test extraction. The earlier linked drilling citation is dated September 9, 2015, and its title identifies a first well. That title alone does not establish the well classification or whether it was first in the specified field. Follow-up review, November 14, 2026. The published paper cites a dated September 2015 item titled First Well Drilled. The original project announcement has not been recovered to establish that it was specifically the first appraisal well at Calub. June 2018 is independently corroborated as test extraction. Follow-up review, November 15, 2026. The available June 2018 accounts describe trial extraction. Keep that event separate from regular commercial production. Confirming the earlier September 2015 date requires a drilling record that identifies the field, the well and its appraisal status. Source recheck. The Somali Regional State environmental audit, section 1.1, names Calub 11 and identifies it as POLY-GCL’s first well, drilled in September 2015. It classifies appraisal and exploration wells in aggregate and does not assign Calub 11 to either category. The month, field and operator are now corroborated. The specific appraisal classification remains open. Source recheck. A contemporary Ethiopian report identifies Calub 11 and Hilala 5 as the two appraisal wells and places drilling in October and completion in December 2015. The regional environmental audit instead gives September for the operator’s first well, Calub 11. The classification is now corroborated. A well record or dated operator release is needed to distinguish spudding, ongoing drilling and completion.",
     "evidence": [
       [
         "Xinhua June 2018 report on the test extraction",
@@ -1579,6 +1618,10 @@
       [
         "Somali Regional State environmental audit, section 1.1",
         "https://srseprlab.gov.et/wp-content/uploads/2022/10/Environmental-and-Social-Assessment.pdf"
+      ],
+      [
+        "The Reporter, contemporary account naming the appraisal wells",
+        "https://www.thereporterethiopia.com/4713/"
       ]
     ],
     "footnote_ids": [
@@ -15638,7 +15681,7 @@
     "status": "further_investigation",
     "source": "Polar Sea was commissioned in 1978.",
     "usage": "Paraphrase of original passage. CMS-08, PDF p. 41, paragraph on U.S. icebreakers, note 99. Polar Sea was commissioned in 1978.",
-    "finding": "Reviewed November 15, 2026. CRS and a Coast Guard factsheet give 23 February 1978. The Coast Guard’s cutter page gives 1977, and its contemporary progress report says the vessel was delivered and placed in commission in January 1977. The original commissioning and status records are needed to reconcile the two dates. Follow-up review, November 15, 2026. The Coast Guard’s later institutional history and district factsheet support 1978, while its cutter profile and the contemporaneous account give 1977. Cite the precise milestone stated by each. The records reviewed do not yet establish whether the early status was distinct from the later commissioning.",
+    "finding": "Reviewed November 15, 2026. CRS and a Coast Guard factsheet give 23 February 1978. The Coast Guard’s cutter page gives 1977, and its contemporary progress report says the vessel was delivered and placed in commission in January 1977. The original commissioning and status records are needed to reconcile the two dates. Follow-up review, November 15, 2026. The Coast Guard’s later institutional history and district factsheet support 1978, while its cutter profile and the contemporaneous account give 1977. Cite the precise milestone stated by each. The records reviewed do not yet establish whether the early status was distinct from the later commissioning. Source recheck. A contemporary Coast Guard progress-report collection preserves an institutional record from the period. The Coast Guard district fact sheet identifies February 23, 1978 as the commissioning date, while the previously linked cutter history gives 1977. Use the date with its source attribution until a dated commissioning program or unit log resolves the conflict.",
     "evidence": [
       [
         "CRS, Coast Guard Polar Security Cutter",
@@ -15655,6 +15698,10 @@
       [
         "U.S. Coast Guard cutter profile",
         "https://www.pacificarea.uscg.mil/Our-Organization/Cutters/cgcPolarSea/"
+      ],
+      [
+        "Coast Guard district fact sheet",
+        "https://www.pacificarea.uscg.mil/Portals/8/District_13/lib/doc/factsheet/uscgc_polar_sea.pdf"
       ]
     ],
     "footnote_ids": [
@@ -16161,11 +16208,15 @@
     "status": "further_investigation",
     "source": "Definition of the 13.9% government spending figure",
     "usage": "Paraphrase of original passage. CES-P1, PDF p. 16, government spending paragraph. The authors give government spending as a nominal 13.9% of GDP.",
-    "finding": "In the chapter’s expenditure identity, the relevant comparison is government final consumption. A fiscal-budget total would also include transfers and capital spending. Lardy’s brief corroborates the separate household component. The vintage and exact 13.9% government line require the contemporaneous expenditure table.",
+    "finding": "In the chapter’s expenditure identity, the relevant comparison is government final consumption. A fiscal-budget total would also include transfers and capital spending. Lardy’s brief corroborates the separate household component. The vintage and exact 13.9% government line require the contemporaneous expenditure table. Source recheck. The NBS revised expenditure table puts government final consumption in 2005 at 14.0% of GDP. The table explicitly separates household and government consumption. This materially supports the category and approximate level. The exact 13.9% still needs an earlier data vintage.",
     "evidence": [
       [
         "Lardy’s underlying expenditure discussion",
         "https://www.piie.com/sites/default/files/publications/pb/pb06-6.pdf"
+      ],
+      [
+        "NBS, revisions to expenditure GDP, 2005 row",
+        "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1898803.html"
       ]
     ],
     "footnote_ids": [],
@@ -16976,7 +17027,7 @@
     "status": "further_investigation",
     "source": "Establishment instrument for the bilateral energy dialogue",
     "usage": "Paraphrase of original passage. CES-P4, PDF p. 24, paragraph beginning with initiation of annual dialogue. The author dates initiation to June 2005.",
-    "finding": "The Energy Department archive lists a bilateral energy policy dialogue MOU dated May 23, 2005. That may precede a June launch or meeting. A June agenda or dated release is needed to identify the milestone intended by the chapter. Source recheck. China’s energy administration’s year-end review identifies the first bilateral energy policy dialogue alongside the sixth oil and gas forum. The U.S. DOE timeline records the dialogue in its account of Bodman’s midyear visit. The sources support a launch activity distinct from the May MOU, but the exact date still requires a dated meeting agenda or release.",
+    "finding": "The Energy Department archive lists a bilateral energy policy dialogue MOU dated May 23, 2005. That may precede a June launch or meeting. A June agenda or dated release is needed to identify the milestone intended by the chapter. Source recheck. China’s energy administration’s year-end review identifies the first bilateral energy policy dialogue alongside the sixth oil and gas forum. The U.S. DOE timeline records the dialogue in its account of Bodman’s midyear visit. The sources support a launch activity distinct from the May MOU, but the exact date still requires a dated meeting agenda or release. Source recheck. DOE’s timeline explicitly names the Energy Policy Dialogue in the secretary’s June 30, 2005 announcement about the new Beijing office. The dialogue was therefore publicly named by that date. The entry dates the office announcement and gives no separate agenda for the first dialogue session.",
     "evidence": [
       [
         "Energy Department archive for the bilateral dialogue MOU",
@@ -17231,14 +17282,18 @@
   {
     "paper": "CMR-08",
     "id": "CMR08-R13",
-    "status": "further_investigation",
+    "status": "ok",
     "source": "Grenada’s restoration of diplomatic ties in January 2005",
     "usage": "Paraphrase of original passage. CMR-08, PDF p. 3, paragraph on Grenada’s earlier diplomatic recognition. The report describes relations with Beijing in 1985, a switch in 1989 and restoration in 2005.",
-    "finding": "The foreign ministry’s contemporary January 2005 briefing confirms the restoration of relations. That establishes the final switch. Independently dating the first two changes requires earlier establishment and termination records.",
+    "finding": "The foreign ministry’s contemporary January 2005 briefing confirms the restoration of relations. That establishes the final switch. Independently dating the first two changes requires earlier establishment and termination records. Source recheck. The January 20, 2005 briefing explicitly confirms both the signing and that day’s effective date for restored ties. The earlier 1985 and 1989 milestones are separately addressed in the same paper’s historical chronology audit. The 2005 event can be treated as confirmed on its own.",
     "evidence": [
       [
         "PRC Foreign Ministry January 20, 2005 briefing",
         "https://www.fmprc.gov.cn/web/gjhdq_676201/gj_676203/bmz_679954/1206_680252/fyrygth_680260/200501/t20050120_9357871.shtml"
+      ],
+      [
+        "Contemporary January 20 briefing, embassy archive",
+        "https://ph.china-embassy.gov.cn/eng/fyrth/200501/t20050122_1183847.htm"
       ]
     ],
     "footnote_ids": [],
@@ -17456,11 +17511,19 @@
     "status": "further_investigation",
     "source": "Coverage of the count of 149 marine protected areas",
     "usage": "Paraphrase of original passage. CMS-05, PDF p. 26, first State Oceanic Administration paragraph, note 92. The report describes a new network of 149 marine protected areas.",
-    "finding": "The NBS 2006 table reports marine nature reserves by administrative category. A marine protected area can cover a wider set of designations. The underlying 2008 article or its inventory table is needed to identify the date and types included in 149.",
+    "finding": "The NBS 2006 table reports marine nature reserves by administrative category. A marine protected area can cover a wider set of designations. The underlying 2008 article or its inventory table is needed to identify the date and types included in 149. Source recheck. The environment ministry’s 2008 national marine-environment page and the journal’s July issue are separate evidence paths. Neither public page produced a named inventory establishing 149 across all protected-area categories. Keep the 2006 nature-reserve count as a narrower comparison and seek the dated inventory underlying the cited article.",
     "evidence": [
       [
         "NBS 2006 marine nature reserve table",
         "https://www.stats.gov.cn/zt_18555/ztsj/hjtjzl/2006/202303/t20230302_1922636.html"
+      ],
+      [
+        "Environment ministry, 2008 national marine environment",
+        "https://www.mee.gov.cn/ywgz/hysthjbh/hystbhhhjzlgl/201604/t20160424_335941.shtml"
+      ],
+      [
+        "Original journal, July 2008 issue index",
+        "https://haiyangkaifayuguanli.com/hykfygl/ch/reader/issue_list.aspx?quarter_id=7&year_id=2008"
       ]
     ],
     "footnote_ids": [
@@ -18412,7 +18475,7 @@
     "status": "further_investigation",
     "source": "Arctic Council observer application versus grant of status",
     "usage": "Paraphrase of original passage. CMS-08, PDF p. 51, note 120. The quoted author dates China’s application for observer status to 2008.",
-    "finding": "The Arctic Council observer records and the 2013 ministerial record establish acceptance in 2013. A receipt or the original application is needed to date filing to 2008, separately from attendance at meetings or acceptance. Source recheck. Ambassador Lan’s statement in the Arctic Council archive dates Chinese participation as an ad hoc observer to 2007 and was delivered in support of the observer application. The 2009 ministerial attendance list confirms participation in that period. These records distinguish ad hoc participation from filing the application and do not themselves establish a 2008 filing date.",
+    "finding": "The Arctic Council observer records and the 2013 ministerial record establish acceptance in 2013. A receipt or the original application is needed to date filing to 2008, separately from attendance at meetings or acceptance. Source recheck. Ambassador Lan’s statement in the Arctic Council archive dates Chinese participation as an ad hoc observer to 2007 and was delivered in support of the observer application. The 2009 ministerial attendance list confirms participation in that period. These records distinguish ad hoc participation from filing the application and do not themselves establish a 2008 filing date. Source recheck. The Council maintains an official country entry that dates China’s observer status to 2013. That records admission. It provides no receipt, letter or minute identifying the filing day in 2008. The observer decision and the application still need separate dates.",
     "evidence": [
       [
         "Arctic Council observer list",
@@ -18429,6 +18492,10 @@
       [
         "2009 Arctic Council ministerial attendance list",
         "https://oaarchive.arctic-council.org/bitstream/handle/11374/1594/01_List%20of%20participants.pdf?sequence=1"
+      ],
+      [
+        "Arctic Council observer profile for China",
+        "https://www.ww.arcticcouncil.org/about/observers/peoples-republic-of-china/"
       ]
     ],
     "footnote_ids": [
@@ -18442,11 +18509,15 @@
     "status": "further_investigation",
     "source": "Iceland’s financial crisis and the timing of Chinese liquidity support",
     "usage": "Paraphrase of original passage. CMS-08, PDF p. 42, paragraph reporting the Icelandic president’s remarks after the 2008 bank collapse. The quotation presents China as a source of support in that period.",
-    "finding": "The Central Bank’s record identifies a bilateral currency swap signed in June 2010. It is evidence of a specific form of cooperation, two years after the crisis began. The quotation’s broader claim about the help available in 2008 needs its own dated evidence.",
+    "finding": "The Central Bank’s record identifies a bilateral currency swap signed in June 2010. It is evidence of a specific form of cooperation, two years after the crisis began. The quotation’s broader claim about the help available in 2008 needs its own dated evidence. Source recheck. The Central Bank of Iceland’s October 10, 2008 retrospective describes the crisis-era reserve discussions and the currency swaps then concluded with three Nordic central banks. This is contemporaneous evidence of those facilities. The president’s remarks may encompass diplomacy or other support, and are insufficient to date financial support from China to 2008.",
     "evidence": [
       [
         "Central Bank of Iceland currency swap announcement",
         "https://cb.is/news-and-publications/article/2010-06-09-The-Peoples-Bank-of-China-and-the-Central-Bank-of-Iceland-sign-a-bilateral-currency-swap-agreement"
+      ],
+      [
+        "Central Bank of Iceland, October 2008 account of swap negotiations",
+        "https://cb.is/news-and-publications/article/2008-10-10-Currency-swap-agreements-and-attempts-to-reinforce-the-foreign-exchange-reserves-"
       ]
     ],
     "footnote_ids": [],
@@ -18548,7 +18619,7 @@
     "status": "further_investigation",
     "source": "NC3 first gas versus planned development of other fields",
     "usage": "Paraphrase of original passage. CMS-17, PDF p. 68, hydrocarbons paragraph and note 316 context. The author gives 2016 for NC3 first gas and treats development of NC8 by 2020 as a plan.",
-    "finding": "Petronas’s 2015 annual report lists NC3 among its first-production milestones for that year, while the 2020 Oxford energy study dates production to late 2016. Check the operator’s definition of first gas versus regular production. The NC8 development date remains a forecast pending a dated project schedule.",
+    "finding": "Petronas’s 2015 annual report lists NC3 among its first-production milestones for that year, while the 2020 Oxford energy study dates production to late 2016. Check the operator’s definition of first gas versus regular production. The NC8 development date remains a forecast pending a dated project schedule. Source recheck. A well-completion supplier confirms December 2016 as the end of its installation work at NC3. That is compatible with development work late that year. It does not settle the difference between commissioning, initial gas and the reporting year in the operator’s accounts, and speaks only to NC3.",
     "evidence": [
       [
         "Petronas 2015 annual report, upstream review",
@@ -18557,6 +18628,10 @@
       [
         "Oxford Institute for Energy Studies research",
         "https://www.oxfordenergy.org/wpcms/wp-content/uploads/2020/09/Emerging-Asia-LNG-demand-NG-162.pdf"
+      ],
+      [
+        "JFE Steel’s dated NC3 supply release",
+        "https://www.jfe-steel.co.jp/en/release/2017/170626.html"
       ]
     ],
     "footnote_ids": [],
@@ -18590,11 +18665,19 @@
     "status": "further_investigation",
     "source": "Scope of the largest single-day election comparison",
     "usage": "Paraphrase of original passage. CMS-17, PDF p. 107, note 65. The note uses Indonesia’s 2019 election and compares it with elections in India and the United States.",
-    "finding": "The Indonesian commission confirms the election and official results. Establishing a worldwide superlative requires a common year, election type and outcome measure, such as actual ballots cast in one day. Registered voters and turnout percentages alone do not settle it.",
+    "finding": "The Indonesian commission confirms the election and official results. Establishing a worldwide superlative requires a common year, election type and outcome measure, such as actual ballots cast in one day. Registered voters and turnout percentages alone do not settle it. Source recheck. The International Foundation for Electoral Systems described Indonesia’s event as the world’s largest single-day election contemporaneously. India’s foreign ministry records that India’s 2019 election was held in seven phases. This supports the intended comparison and allows the superlative to be attributed to IFES. It still needs a common count and comparison set for an independent global ranking.",
     "evidence": [
       [
         "Indonesian General Elections Commission results announcement",
         "https://www.kpu.go.id/berita/baca/7493/Komisi-Pemilihan-Umum--KPU--RI-telah-merampungkan-dan-menetapkan-Hasil-Rekapitulasi-Suara-Nasional-pada-Pemilu-2019--Selasa-21-Mei-2"
+      ],
+      [
+        "IFES, April 2019 election account",
+        "https://www.ifes.org/news/indonesia-holds-worlds-largest-single-day-election"
+      ],
+      [
+        "India Ministry of External Affairs, election phases",
+        "https://www.mea.gov.in/Images/amb1/IP_April_may_19_Book.pdf"
       ]
     ],
     "footnote_ids": [
@@ -19795,11 +19878,15 @@
     "status": "further_investigation",
     "source": "Gwadar rail links in Pakistan’s 2019–20 planning horizon",
     "usage": "Paraphrase of original passage. CMR-07, PDF p. 31, rail development paragraph, note 164. The study says planners assigned new Gwadar rail links to the middle and long term.",
-    "finding": "The Planning Commission’s indexed p. 156 text identifies a new Gwadar connection as a rail-network plan. The full cited PDF timed out on retrieval. The relevant paragraphs or project schedules are required to verify the quoted planning horizon and its relation to the separately proposed existing-line upgrades.",
+    "finding": "The Planning Commission’s indexed p. 156 text identifies a new Gwadar connection as a rail-network plan. The full cited PDF timed out on retrieval. The relevant paragraphs or project schedules are required to verify the quoted planning horizon and its relation to the separately proposed existing-line upgrades. Source recheck. An earlier Planning Commission transport chapter provides the policy-series comparator. The target remains the 2019–20 annual plan’s page 156 or its project annex. Because the earlier chapter and the target PDF could not be checked side by side, retain the distinction between a new line in a long-range plan and work authorized for a specific fiscal year.",
     "evidence": [
       [
         "Pakistan Planning Commission, Annual Plan 2019–20, p. 156",
         "https://www.pc.gov.pk/uploads/annualplan/AnnualPlan2019-20.pdf"
+      ],
+      [
+        "Pakistan Planning Commission, earlier transport plan chapter",
+        "https://pc.gov.pk/uploads/annual2017/Ch27-Transport.pdf"
       ]
     ],
     "footnote_ids": [],
@@ -19863,7 +19950,7 @@
     "status": "further_investigation",
     "source": "New Gwadar airport’s $230 million grant and the alleged financing conversion",
     "usage": "Paraphrase of original passage. CMR-07, PDF p. 32, airport financing passage, notes 174–175. The report says an original $230 million financing arrangement was converted into a grant.",
-    "finding": "Pakistan’s CPEC Secretariat identifies $230 million as estimated project cost and lists a Chinese government grant as financing. Its project fact book also records $230 million. The original loan agreement or dated grant exchange is needed to establish that the same amount first had legally effective loan terms.",
+    "finding": "Pakistan’s CPEC Secretariat identifies $230 million as estimated project cost and lists a Chinese government grant as financing. Its project fact book also records $230 million. The original loan agreement or dated grant exchange is needed to establish that the same amount first had legally effective loan terms. Source recheck. Pakistan’s prime minister’s office independently describes the completed facility as financed by a US$230 million Chinese grant. Contemporary reporting attributes an announced conversion to Economic Affairs Division sources. The former is evidence of the grant used for construction. A signed earlier financing document is still needed to decide whether the reported conversion changed a binding loan or a proposed financing plan.",
     "evidence": [
       [
         "Pakistan CPEC Secretariat, project finance table",
@@ -19872,6 +19959,14 @@
       [
         "CPEC Fact Book 2020, Gwadar projects",
         "https://cpec.gov.pk/ch/brain/public/uploads/documents/Fact%20Book%202020.pdf"
+      ],
+      [
+        "Pakistan Prime Minister’s Office, completed airport and grant",
+        "https://pmo.gov.pk/news_details.php?news_id=354"
+      ],
+      [
+        "Contemporary account of reported financing conversion",
+        "https://www.geo.tv/amp/6270-china-converts-230m-loan-for-gwadar-airport-into-grant"
       ]
     ],
     "footnote_ids": [
@@ -21030,7 +21125,7 @@
     "status": "further_investigation",
     "source": "2005 investment share needs a stated national-accounts vintage",
     "usage": "Paraphrase of original passage. CES-P1, PDF p. 15, GDP composition paragraph. The chapter gives investment at 42.6% of GDP in 2005.",
-    "finding": "Contemporary research reports gross capital formation above 42% in the mid-2000s. The NBS expenditure table distinguishes the capital formation rate from fixed-asset investment. The chapter’s exact 42.6% should remain attributed until the authors’ contemporaneous table and its vintage are identified.",
+    "finding": "Contemporary research reports gross capital formation above 42% in the mid-2000s. The NBS expenditure table distinguishes the capital formation rate from fixed-asset investment. The chapter’s exact 42.6% should remain attributed until the authors’ contemporaneous table and its vintage are identified. Source recheck. The NBS historical revision gives a 2005 gross capital formation share of 40.5%, including 39.5% fixed capital and 0.9% changes in inventories after rounding. The chapter’s 42.6% is 2.1 percentage points above the revised series. Cite the source vintage before substituting one figure for the other.",
     "evidence": [
       [
         "NBS expenditure GDP and capital formation rates",
@@ -21039,6 +21134,10 @@
       [
         "Original Nicholas Lardy analysis of investment and consumption",
         "https://ageconsearch.umn.edu/bitstream/55019/2/Lardy%20Chapter%201.pdf"
+      ],
+      [
+        "NBS revised historical expenditure GDP, 2005 row",
+        "https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1898803.html"
       ]
     ],
     "footnote_ids": [],
@@ -21047,10 +21146,10 @@
   {
     "paper": "CES-P1",
     "id": "CESP1-R69",
-    "status": "further_investigation",
+    "status": "ok",
     "source": "The mid-2006 current-account percentage needs a matching GDP interval",
     "usage": "Paraphrase of original passage. CES-P1, PDF p. 15, discussion of export-led growth. The authors give a current-account surplus exceeding 8% of GDP as of June 2006.",
-    "finding": "China’s foreign-exchange administration reports a $91.6 billion current-account surplus for January–June 2006. Its full-year report gives a separately compiled annual balance. To reproduce the greater-than-8% ratio, identify a matching first-half or trailing-year GDP series, currency conversion and data vintage.",
+    "finding": "China’s foreign-exchange administration reports a $91.6 billion current-account surplus for January–June 2006. Its full-year report gives a separately compiled annual balance. To reproduce the greater-than-8% ratio, identify a matching first-half or trailing-year GDP series, currency conversion and data vintage. Source recheck. The People’s Bank of China repeats the first-half current-account surplus of US$91.6 billion. The contemporary Swiss consulate’s economic overview gives approximately US$1.143 trillion in nominal GDP for the same half year. The ratio is approximately 8.0%, consistent with the passage at its reporting precision. The rounded denominator cannot substantiate the strict excess to fine precision.",
     "evidence": [
       [
         "SAFE balance-of-payments report for the first half of 2006",
@@ -21059,6 +21158,14 @@
       [
         "SAFE full-year balance-of-payments report",
         "https://www.safe.gov.cn/safe/file/file/20170726/5e222de5409a47249972516ed4904994.pdf"
+      ],
+      [
+        "People’s Bank of China, Q3 2006 report, balance of payments",
+        "https://www.pbc.gov.cn/eportal/fileDir/history_file/files/att_19517_1.pdf"
+      ],
+      [
+        "Swiss consulate economic overview, October 2006",
+        "https://www.sinoptic.ch/shanghaiflash/2006/200602.htm"
       ]
     ],
     "footnote_ids": [],
@@ -21195,10 +21302,10 @@
   {
     "paper": "CMS-08",
     "id": "CMS08-R68",
-    "status": "further_investigation",
+    "status": "ok",
     "source": "Chinese participation in the Svalbard Treaty and the 1925 accession date",
     "usage": "Paraphrase of original passage. CMS-08, PDF p. 39, parenthetical after the introduction of the Svalbard Treaty. The study says China joined in 1925.",
-    "finding": "Norway’s official treaty history and party list identify China as a party and distinguish the treaty’s 1920 signature from its 1925 entry into force. The original French depositary notice or instrument is needed to date the Chinese accession independently of the treaty’s general commencement.",
+    "finding": "Norway’s official treaty history and party list identify China as a party and distinguish the treaty’s 1920 signature from its 1925 entry into force. The original French depositary notice or instrument is needed to date the Chinese accession independently of the treaty’s general commencement. Source recheck. The Netherlands government treaty database records China’s accession on July 1, 1925, and entry into force on August 14, 1925. This confirms the chapter’s year and distinguishes accession from the date the treaty took effect for China.",
     "evidence": [
       [
         "Norwegian government, Svalbard Treaty text and parties",
@@ -21207,6 +21314,10 @@
       [
         "Norwegian government, treaty history",
         "https://www.regjeringen.no/en/documents/meld.-st.-26-20232024/id3041130/?ch=2"
+      ],
+      [
+        "Netherlands Treaty Database, Spitsbergen treaty parties",
+        "https://treatydatabase.overheid.nl/en/Treaty/Details/004293_p.html"
       ]
     ],
     "footnote_ids": [],
@@ -21323,7 +21434,7 @@
     "status": "further_investigation",
     "source": "Pence’s 2018 South China Sea quotation and the exact venue",
     "usage": "Paraphrase of original passage. CMS-17, PDF p. 15, quotation attributed to Pence’s East Asia Summit opening, note 43. The study says he told the summit that the South China Sea did not belong to any one nation.",
-    "finding": "The Chinese Foreign Ministry’s next-day briefing records a question repeating the statement and the White House’s November 15 prepared plenary remarks establish the summit policy context. The published prepared text does not carry that exact wording. A transcript or recording of the delivered remarks is needed to assign the quote to that session.",
+    "finding": "The Chinese Foreign Ministry’s next-day briefing records a question repeating the statement and the White House’s November 15 prepared plenary remarks establish the summit policy context. The published prepared text does not carry that exact wording. A transcript or recording of the delivered remarks is needed to assign the quote to that session. Source recheck. Contemporary Australian reporting corroborates the substance and exact phrase as a reported remark during the Singapore summit coverage. The report does not isolate a timestamp or a transcript of the East Asia Summit opening session. Quote with the contemporary attribution while leaving the session assignment open.",
     "evidence": [
       [
         "White House archive, prepared East Asia Summit remarks",
@@ -21332,6 +21443,10 @@
       [
         "Chinese Foreign Ministry, November 16 briefing",
         "https://fj.china-embassy.gov.cn/eng/fyrth/201811/t20181116_866484.htm"
+      ],
+      [
+        "ABC News, contemporaneous Singapore summit reporting",
+        "https://www.abc.net.au/news/2018-11-16/us-vp-mike-pence-says-south-china-sea-belongs-to-no-one-country/10506016"
       ]
     ],
     "footnote_ids": [
@@ -21705,7 +21820,7 @@
     "status": "further_investigation",
     "source": "Doraleh’s 2018 container throughput needs a terminal-level series",
     "usage": "Paraphrase of original passage. CMR-06, PDF p. 13, performance paragraph, notes 62–63. The report gives 49,000 TEU against design capacity of 220,000 TEU for the multipurpose terminal.",
-    "finding": "The source identified as the 2018 annual report was unavailable in full during this check. CMPort’s next interim report gives Port de Djibouti S.A. aggregate container throughput, with a different period and entity scope. For the cited utilization ratio, seek the 2018 multipurpose-terminal numerator and corresponding design capacity in TEU.",
+    "finding": "The source identified as the 2018 annual report was unavailable in full during this check. CMPort’s next interim report gives Port de Djibouti S.A. aggregate container throughput, with a different period and entity scope. For the cited utilization ratio, seek the 2018 multipurpose-terminal numerator and corresponding design capacity in TEU. Source recheck. A presentation specific to the multipurpose terminal supplies a distinct terminal-level source to compare with CMPort’s parent-company reporting. The report’s 2018 utilization fraction still requires an observed 2018 container total and a same-terminal container-capacity figure using the same unit. A presentation on the terminal cannot by itself authenticate the cited annual volumes.",
     "evidence": [
       [
         "CMPort 2018 annual report",
@@ -21714,6 +21829,10 @@
       [
         "CMPort 2019 interim report, management discussion",
         "https://www.cmport.com.hk/UpFiles/bpic/2019-09/20190923043626360.pdf"
+      ],
+      [
+        "Doraleh Multipurpose Port presentation, 2019",
+        "https://www.transportevents.com/presentations/Djibouti2019/DoralehMultipurposePort.pdf"
       ]
     ],
     "footnote_ids": [
@@ -21828,7 +21947,7 @@
     "status": "further_investigation",
     "source": "The cited Hong Kong return and COPHC’s incorporation date",
     "usage": "Paraphrase of original passage. CMR-07, PDF p. 17, corporate-history paragraph, note 74. The report gives August 2012 as the incorporation date.",
-    "finding": "The note identifies Hong Kong company number 1787136 and a 2019 annual return. The registry provides searches and document ordering, but the dated return and incorporation certificate were unavailable in the public pages reviewed. The port authority confirms the company was the successor operator. The incorporation month still needs the registry record.",
+    "finding": "The note identifies Hong Kong company number 1787136 and a 2019 annual return. The registry provides searches and document ordering, but the dated return and incorporation certificate were unavailable in the public pages reviewed. The port authority confirms the company was the successor operator. The incorporation month still needs the registry record. Source recheck. A searchable mirror of the Hong Kong Companies Registry’s list for August 13–19, 2012 indexes the name China Overseas Ports Holding Company Limited and the number 1787136. It adds documentary support for the reported month. The registry file itself could not be opened for line-by-line verification, so the precise date and name pairing still need the official copy or certificate.",
     "evidence": [
       [
         "Hong Kong Companies Registry, official company search",
@@ -21837,6 +21956,10 @@
       [
         "Gwadar Port Authority briefing to the Pakistani Parliament, 2015",
         "https://na.gov.pk/cpec/sites/default/files/presentations/Parliamentary%20Committee%20on%20CPECNew.pdf"
+      ],
+      [
+        "Hong Kong Companies Registry weekly list, indexed mirror",
+        "https://www.gongsizhuce168.com/uploads/hktongji/2012/wk_new%26changednamecoys_20120813.pdf"
       ]
     ],
     "footnote_ids": [
@@ -22023,7 +22146,7 @@
     "status": "further_investigation",
     "source": "Shanghai’s GDP-per-person comparison with South Korea needs a dated benchmark",
     "usage": "Paraphrase of original passage. CES-P1, PDF pp. 16–17, introductory text to Figure 4. The chapter puts Shanghai above US$6,000 per person and compares that level to South Korea.",
-    "finding": "The Shanghai communiqué is the local-account source to use for its year and population denominator. The World Bank’s 2005 series puts contemporary South Korea well above US$6,000 in current dollars. The comparison needs the intended South Korean benchmark year and either a matching exchange-rate basis or a purchasing-power measure.",
+    "finding": "The Shanghai communiqué is the local-account source to use for its year and population denominator. The World Bank’s 2005 series puts contemporary South Korea well above US$6,000 in current dollars. The comparison needs the intended South Korean benchmark year and either a matching exchange-rate basis or a purchasing-power measure. Source recheck. The NDRC’s contemporary republication identifies Shanghai’s 2005 GDP at RMB914.395 billion following NBS review. That anchors the numerator and its reporting vintage. Use the same release’s population basis for a per-resident calculation, and date the Korean benchmark separately. The passage leaves the Korean year unspecified.",
     "evidence": [
       [
         "Shanghai Statistics Bureau, 2005 statistical communiqué",
@@ -22032,6 +22155,10 @@
       [
         "World Bank WITS, Korea’s nominal GDP per capita, 2005–09",
         "https://wits.worldbank.org/countryprofile/en/country/KOR/startyear/2005/endyear/2009/indicator/NY-GDP-PCAP-CD"
+      ],
+      [
+        "NDRC archive of Shanghai’s 2005 statistical release",
+        "https://www.ndrc.gov.cn/xwdt/dt/dfdt/200602/t20060215_971306.html"
       ]
     ],
     "footnote_ids": [],
@@ -22205,11 +22332,15 @@
     "status": "further_investigation",
     "source": "The 2010 Newport conference underlies the volume’s origin",
     "usage": "Paraphrase of original passage. CMS-09, PDF p. 12, introductory provenance paragraph. The editor dates the annual CMSI conference to May 2010 and estimates participation by almost a dozen Chinese presenters.",
-    "finding": "The event’s contemporary account identifies the May conference and its Sino-American nontraditional maritime security theme. Obtain the program or participant roster to check the narrower count of Chinese specialist presenters, as distinct from other delegates.",
+    "finding": "The event’s contemporary account identifies the May conference and its Sino-American nontraditional maritime security theme. Obtain the program or participant roster to check the narrower count of Chinese specialist presenters, as distinct from other delegates. Source recheck. The Naval War College’s fifth annual conference program directly dates sessions to May 4–5, 2010 and lists the scheduled speakers. It provides a basis for counting by affiliation and role. The editor’s approximate headcount describes actual participation, which still requires an attendance record or proceedings with a defined roster.",
     "evidence": [
       [
         "Conference participant’s contemporary May 2010 account",
         "https://www.andrewerickson.com/2010/05/naval-war-college-discusses-chinese-and-american-maritime-challenges-2/"
+      ],
+      [
+        "Naval War College, fifth annual CMSI conference program",
+        "https://usnwc.edu/_images/portals/0/NWCDepartments/China-Maritime-Studies-Institute/CMSI_FifthAnnualConference_13-Apr-20104f17.pdf"
       ]
     ],
     "footnote_ids": [],
@@ -22276,6 +22407,378 @@
     ],
     "footnote_ids": [],
     "related_claim_id": ""
+  },
+  {
+    "paper": "NWC-CI17",
+    "id": "NWCCI17-R05",
+    "status": "ok",
+    "source": "The Naval War College study’s two-day event and publication year",
+    "usage": "Paraphrase of original passage. NWC-CI17, PDF pp. 1, 3–4, title, contents and executive summary. The report dates the event to July 10–11, 2017 and identifies the three study authors.",
+    "finding": "The publisher’s repository corroborates the authors and July 2017 event. The report’s own title and executive summary give the two exact days. These are the event dates. The repository’s publication metadata applies to the report.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Naval War College repository record",
+        "https://digital-commons.usnwc.edu/cipi-reports-studies/1/"
+      ],
+      [
+        "Naval War College original report",
+        "https://usnwc.edu/_images/portals/0/NWCDepartments/Cyber--Innovation-Policy-Institute/Navy-Private-Sector-Critical-Infrastructure-War-Game-Report-2017b8c7.pdf"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "NWC-CI17",
+    "id": "NWCCI17-R06",
+    "status": "fix",
+    "source": "The report uses two counts for sectors represented in its sample",
+    "usage": "Paraphrase of original passage. NWC-CI17, PDF pp. 4 and 9, executive summary and game-design opening. The two sections give 14 and 15 critical infrastructure sectors, respectively, for a group of about 125 players.",
+    "finding": "The Naval War College’s public report contains both figures. Use the approximate participant count and flag the sector total as internally inconsistent. The publicly released report supplies no sector-coded roster for independently choosing between the totals.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Original Naval War College report, executive summary and game design",
+        "https://usnwc.edu/_images/portals/0/NWCDepartments/Cyber--Innovation-Policy-Institute/Navy-Private-Sector-Critical-Infrastructure-War-Game-Report-2017b8c7.pdf"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "NWC-CI17",
+    "id": "NWCCI17-R07",
+    "status": "ok",
+    "source": "The 2002 law established the Department of Homeland Security",
+    "usage": "Paraphrase of original passage. NWC-CI17, PDF p. 8, overview of U.S. policy after 2001. The report presents creation of the DHS as a change in federal institutional responsibility.",
+    "finding": "Public Law 107–296 was approved November 25, 2002. Section 101 establishes the Department. The law separately specifies its effective-date and transition rules. Its creation is an institutional milestone distinct from the 2003 policy documents discussed nearby.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Homeland Security Act of 2002, enacted text",
+        "https://www.govinfo.gov/content/pkg/PLAW-107publ296/pdf/PLAW-107publ296.pdf"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "PTD-C6",
+    "id": "PTDC6-R05",
+    "status": "further_investigation",
+    "source": "Carlson’s China assignments and the 1937–38 observation dates",
+    "usage": "Paraphrase of original passage. PTD-C6, PDF p. 7, historical background to the Evans Carlson case. The author dates Carlson’s direct observations of the Eighth Route Army to 1937 and 1938.",
+    "finding": "The Marine Corps institutional biography confirms Carlson’s observer work in China and identifies his association with the Eighth Route Army. The exact dates of each period alongside that force need the underlying diary, correspondence or a dated itinerary. A general assignment date is insufficient.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Marine Corps University, historical biography of Evans Carlson",
+        "https://www.usmcu.edu/Research/Marine-Corps-History-Division/People/Whos-Who-in-Marine-Corps-History/Abrell-Cushman/Brigadier-General-Evans-F-Carlson/"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "PTD-C6",
+    "id": "PTDC6-R06",
+    "status": "ok",
+    "source": "Carlson’s two books on China are separate 1940 publications",
+    "usage": "Paraphrase of original passage. PTD-C6, PDF p. 7, bibliographic note 321. Whaley attributes two separate published books on China to Evans Carlson.",
+    "finding": "The library and collection records identify Twin Stars of China and The Chinese Army as separate works by Carlson. Both are recorded as 1940 publications. The publication details establish independent titles and do not authenticate every recollection in them.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "International Center of Photography, collection copy of Twin Stars of China",
+        "https://www.icp.org/content/twin-stars-of-china"
+      ],
+      [
+        "Japanese academic library catalog, The Chinese Army",
+        "https://ci.nii.ac.jp/ncid/BA20343976"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "PTD-C6",
+    "id": "PTDC6-R07",
+    "status": "ok",
+    "source": "Whaley’s earlier Stratagem was issued by MIT in 1969",
+    "usage": "Paraphrase of original passage. PTD-C6, PDF p. 13, note 344. Whaley identifies Stratagem as the 1969 publication in which his earlier account appeared.",
+    "finding": "MIT’s repository identifies Barton Whaley as author and records the Center for International Studies’ 1969 issue, with a dated corrigenda insert. The original issue fixes the publication vintage and provides a direct basis for checking a cited case label.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "MIT original publication and bibliographic record",
+        "https://dspace.mit.edu/entities/publication/197045b6-85e5-4696-92e9-3354855bb339"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "PTD-C7",
+    "id": "PTDC7-R05",
+    "status": "ok",
+    "source": "Halsey’s memoir and the coauthor credit",
+    "usage": "Paraphrase of original passage. PTD-C7, PDF p. 12, retrospective reference to Halsey’s 1947 publication. Whaley dates the published memoir passage to 1947.",
+    "finding": "The University of Chicago-hosted transcription records the 1947 edition and credits William F. Halsey and J. Bryan III. The Library of Congress separately catalogs the Halsey papers. Date the printed text to the memoir and preserve the coauthor credit when citing it.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "University of Chicago, first-edition transcription",
+        "https://penelope.uchicago.edu/Thayer/E/Gazetteer/People/William_Halsey/HALAHS/home.html"
+      ],
+      [
+        "Library of Congress, William Frederick Halsey papers",
+        "https://www.loc.gov/item/mm70049643/"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "PTD-C7",
+    "id": "PTDC7-R06",
+    "status": "further_investigation",
+    "source": "The interrogation dates and the collected edition use different dates",
+    "usage": "Paraphrase of original passage. PTD-C7, PDF p. 12, note 401. The chapter cites the two-volume Interrogations of Japanese Officials as published in 1946.",
+    "finding": "The Naval History and Heritage Command identifies the two-volume compilation. The National Diet Library dates the archival interrogations and transcripts to 1945–46, while the Library of Congress finding aid catalogues a collected edition under 1947. Which impression Whaley used should be checked against its title page.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "U.S. Navy archive, volumes I and II",
+        "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/i/interrogations-japanese-officials-voli.html"
+      ],
+      [
+        "Library of Congress, collected edition record",
+        "https://findingaids.loc.gov/repositories/25/archival_objects/4982551"
+      ],
+      [
+        "National Diet Library, underlying transcript collection",
+        "https://ndlsearch.ndl.go.jp/rnavi/occupation/USB_12_43"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "PTD-P3",
+    "id": "PTDP3-R05",
+    "status": "ok",
+    "source": "Henry VI, Part 1 epigraph and the 1623 publication date",
+    "usage": "Paraphrase of original passage. PTD-P3, PDF p. 20, chapter 12 epigraph. The passage attributes its line to Henry VI, Part 1 and dates that citation to 1623.",
+    "finding": "Folger’s text confirms the line and its attribution. Folger’s edition history identifies the 1623 First Folio as the first printed text of the play. The year refers to publication and is distinct from the estimated period of composition.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Folger Shakespeare Library, Henry VI, Part 1 text",
+        "https://www.folger.edu/explore/shakespeares-works/henry-vi-part-1/read/"
+      ],
+      [
+        "Folger, textual and publication history",
+        "https://www.folger.edu/explore/shakespeares-works/henry-vi-part-1/an-introduction-to-this-text/"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "PTD-P3",
+    "id": "PTDP3-R06",
+    "status": "ok",
+    "source": "Masterman’s Double-Cross book has a 1972 U.S. publication record",
+    "usage": "Paraphrase of original passage. PTD-P3, PDF pp. 13 and 15, Masterman discussion and author-date reference. The chapter cites the memoir as Masterman 1972.",
+    "finding": "Yale University Press’s archival records and the catalog of the printed volume identify the work and its 1972 publication. The bibliographic date belongs to the published volume. Manuscript circulation and any negotiations over publication require separate archival evidence.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Yale University Press archives, records for individual titles",
+        "https://ead-pdfs.library.yale.edu/4536.pdf"
+      ],
+      [
+        "Catalog of Masterman’s printed volume",
+        "https://books.google.com/books/about/The_Double_cross_System_in_the_War_of_19.html?id=v67gjgEACAAJ"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "PTD-P3",
+    "id": "PTDP3-R07",
+    "status": "ok",
+    "source": "Crick moved from physics to biology before his shared prize",
+    "usage": "Paraphrase of original passage. PTD-P3, PDF p. 21, biographical example. The chapter describes a career move from physics toward biology and the later shared Nobel Prize.",
+    "finding": "Crick’s Nobel biographical account describes the career change after his Admiralty work. The Nobel award record confirms that the 1962 prize was shared with James Watson and Maurice Wilkins. These sources establish the chronology and identify all three laureates. The explanatory anecdote remains attributed to Crick.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Francis Crick’s Nobel biography",
+        "https://www.nobelprize.org/prizes/medicine/1962/crick/biographical/"
+      ],
+      [
+        "Nobel Prize, 1962 award record",
+        "https://www.nobelprize.org/prizes/medicine/1962/summary/"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CN21-C3",
+    "id": "CN21C3-R05",
+    "status": "ok",
+    "source": "The seventh Zheng He expedition returned more than 60 years before da Gama’s departure",
+    "usage": "Paraphrase of original passage. CN21-C3, PDF p. 3, opening historical comparison. The chapter compares the last of Zheng He’s seven voyages with Vasco da Gama’s 1497 voyage.",
+    "finding": "The archival research chronology numbers the final expedition seventh and dates it to 1431–1433. Portugal’s naval museum dates da Gama’s departure to 1497 and treats arrival in India as a distinct 1498 milestone. The gap between the return and departure is about 64 years.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Archival research study, table of Zheng He voyages",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/8FE45F3210A4DF174A4EC2B30868D433/S2059163222000457a.pdf/cessation_of_zheng_hes_voyages_and_the_beginning_of_private_sailings_fiscal_competition_between_emperors_and_bureaucrats.pdf"
+      ],
+      [
+        "Portuguese Navy Museum, da Gama’s departure record",
+        "https://cultura.marinha.pt/en/museumarinha_web/multimedia_web/Pages/efemeride-partida-vasco-gama-india-8jul.aspx"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CN21-C3",
+    "id": "CN21C3-R06",
+    "status": "fix",
+    "source": "The 2017 Party Congress goal applies to the armed forces as a whole",
+    "usage": "Paraphrase of original passage. CN21-C3, PDF p. 18, twentieth-century comparison and future goals. The author paraphrases the 19th Party Congress report as setting a world-class navy objective by 2050.",
+    "finding": "The congress report sets a modernization milestone for 2035 and calls for world-class armed forces by the middle of the century. Its stated subject is the armed forces as a whole. A navy-specific 2050 commitment would need a separate service policy. Treat the chapter’s navy wording as an inference.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Official English text of the 19th Party Congress report",
+        "https://www.xinhuanet.com/english/download/Xi_Jinping%27s_report_at_19th_CPC_National_Congress.pdf"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CN21-C4",
+    "id": "CN21C4-R05",
+    "status": "further_investigation",
+    "source": "Taiwan’s hypothetical independence vote and observed survey preferences",
+    "usage": "Paraphrase of original passage. CN21-C4, PDF p. 4, chapter discussion of Taiwan’s political status. The author says most citizens would choose independence if given the choice.",
+    "finding": "National Chengchi University’s longitudinal survey separates immediate independence, maintaining the status quo, and eventual preferences. Those measured choices do not directly test the book’s hypothetical binary vote under unspecified conditions. The majority claim requires a poll with a matching question and period.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "NCCU Election Study Center, independence and unification trend series",
+        "https://esc.nccu.edu.tw/PageDoc/Detail?fid=7801&id=6963"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CN21-C4",
+    "id": "CN21C4-R06",
+    "status": "ok",
+    "source": "The 2018 Taiwan Travel Act records congressional policy on official visits",
+    "usage": "Paraphrase of original passage. CN21-C4, PDF p. 6, discussion of changes in U.S.–Taiwan official interaction. The chapter describes the relaxation of longstanding restrictions on contact.",
+    "finding": "Public Law 115–135 was approved March 16, 2018. Section 3 sets out congressional policy favoring visits at all levels. The statute documents a policy change in official contact. Its text alone does not establish how individual visits were approved or the repeal of earlier diplomatic agreements.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Taiwan Travel Act, enacted text",
+        "https://www.congress.gov/115/statute/STATUTE-132/STATUTE-132-Pg341.pdf"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CMR-56",
+    "id": "CMR56-R05",
+    "status": "ok",
+    "source": "Liu Huaqing’s Party commission vice-chairmanship began in 1989",
+    "usage": "Paraphrase of original passage. CMR-56, PDF p. 5, leadership history and note 6. The report gives 1989–97 for Liu’s vice-chairmanship.",
+    "finding": "The official biographical account records the November 1989 election to vice chairman of the Party Central Military Commission and the end of that Party role at the 1997 congress transition. Use those dates for the Party commission. The state commission followed its separate appointment timetable.",
+    "footnote_ids": [
+      "CMR56-N006"
+    ],
+    "evidence": [
+      [
+        "Official biographical article on Liu Huaqing",
+        "https://www.zjzzgz.gov.cn/art/2011/12/1/art_1413013_14827748.html"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CMR-56",
+    "id": "CMR56-R06",
+    "status": "ok",
+    "source": "The 2016 restructuring announcement counted 15 CMC agencies",
+    "usage": "Paraphrase of original passage. CMR-56, PDF p. 7, history of the commission’s reorganization. The report says the former general departments were replaced by 15 functional agencies.",
+    "finding": "The published March 2016 Ministry of National Defense briefing identifies four former headquarters and 15 new agencies, including departments, commissions and offices. The official count documents the reform structure. The later personnel ratios in the report use a separate data source.",
+    "footnote_ids": [],
+    "evidence": [
+      [
+        "Chinese defense ministry’s restructuring briefing, Xinhua transcript",
+        "https://www.xinhuanet.com/mil/2016-03/16/c_128804652.htm"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CMR-56",
+    "id": "CMR56-R07",
+    "status": "ok",
+    "source": "The U.S. joint-duty rule cited by the report applies to combatant command",
+    "usage": "Paraphrase of original passage. CMR-56, PDF p. 8, comparison with the U.S. personnel system and note 18. The report refers to joint duty as a U.S. prerequisite for command under Goldwater–Nichols.",
+    "finding": "The 1986 law and 10 U.S.C. §164 connect joint duty to eligibility for assignment as a combatant commander. The statute includes waiver authority. The formulation should be read within that statutory scope, with different rules applying to other commands.",
+    "footnote_ids": [
+      "CMR56-N018"
+    ],
+    "evidence": [
+      [
+        "Goldwater–Nichols Act, original statutory text",
+        "https://history.defense.gov/Portals/70/Documents/dod_reforms/Goldwater-NicholsDoDReordAct1986.pdf"
+      ],
+      [
+        "Office of the Law Revision Counsel, 10 U.S.C. §164",
+        "https://uscode.house.gov/us/usc/t10/s164/"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CMR-56",
+    "id": "CMR56-R08",
+    "status": "ok",
+    "source": "China’s Reservist Law was adopted in 2022 and took effect in 2023",
+    "usage": "Paraphrase of original passage. CMR-56, PDF p. 16, reservist legislation and note 52. The report identifies the Reservist Law by its 2022 adoption year.",
+    "finding": "The National People’s Congress gazette prints the adoption on December 30, 2022 and implementation from March 1, 2023. The contemporaneous news story on December 31 reports the preceding legislative action. Keep the adoption, reporting and effective dates distinct.",
+    "footnote_ids": [
+      "CMR56-N052"
+    ],
+    "evidence": [
+      [
+        "NPC Standing Committee Gazette, adopted law and effective date",
+        "https://wb.flk.npc.gov.cn/flfg/PDF/64db8635967c4459a58c0274c42a45c4.pdf"
+      ]
+    ],
+    "related_claim_id": ""
+  },
+  {
+    "paper": "CMR-56",
+    "id": "CMR56-R09",
+    "status": "ok",
+    "source": "The academy reduction refers to the 2017 institution count",
+    "usage": "Paraphrase of original passage. CMR-56, PDF p. 14, discussion of changes to the institution network. The report gives a reduction from 67 to 37 military academic institutions.",
+    "finding": "Independent institutional studies from CASI and Japan’s National Institute for Defense Studies give the changes as part of the 2017 reform. The numbers count institutions under the study definitions. They do not measure seats, training quality or annual graduation volumes.",
+    "footnote_ids": [
+      "CMR56-N035"
+    ],
+    "evidence": [
+      [
+        "CASI, The People’s Liberation Army’s 37 Academic Institutions",
+        "https://www.airuniversity.af.edu/Portals/10/CASI/documents/Research/Other-Topics/2020-06-11%20PLA%20Academic_Institutions.pdf"
+      ],
+      [
+        "NIDS reform history, education and institutional counts",
+        "https://www.nids.mod.go.jp/publication/chinareport/pdf/china_report_CN_web_2022_A01.pdf"
+      ]
+    ],
+    "related_claim_id": ""
   }
 ]
   </script>
@@ -22324,17 +22827,19 @@
       searchQuery: '',
       paperStatusFilter: 'all',
       paperCategoryFilter: 'all',
+      paperCoverageFilter: 'all',
       paperSort: 'order_asc',
-      expandedPapers: new Set([71, 72, 74, 76, 77, 80]),
+      expandedPapers: new Set(),
       rowStatusFilter: 'all',
       rowPaperFilter: 'all',
       selectedThematicId: 'MEMO-T22',
       selectedAuthorId: 'MEMO-A22',
       thesisDegree: 'all',
       thesisInst: 'all',
-      rowType: 'all',
+      rowType: 'claim',
       rowQuery: '',
-      rowPage: 0
+      rowPage: 0,
+      selectedRowId: ''
     };
 
     // Claim audits with documented partial support or a concrete discrepancy.
@@ -22362,6 +22867,22 @@
     DATA.papers.forEach(p => (p.rows || []).forEach(classifyAuditRow));
 
     function allRowsOf(p) { return (p.rows || []).concat(p.fnrows || []); }
+
+    const auditStatus = {
+      all: 'All',
+      open: 'Open',
+      ok: 'Supported',
+      fix: 'Needs correction',
+      further_investigation: 'Further investigation',
+      unk: 'Unverified'
+    };
+
+    function auditCounts(rows) {
+      const counts = { all: rows.length, ok: 0, fix: 0, further_investigation: 0, unk: 0 };
+      rows.forEach(row => { if (Object.hasOwn(counts, row.status)) counts[row.status]++; });
+      counts.open = counts.further_investigation + counts.unk;
+      return counts;
+    }
 
     function getBatchNum(readingOrder) {
       if (readingOrder <= 12) return '1';
@@ -22443,33 +22964,86 @@
       ].join('');
     }
 
-    function openRelatedAuditRow(id) {
-      state.searchQuery = '';
-      document.getElementById('globalSearchInput').value = '';
-      state.rowPaperFilter = 'all';
-      state.rowType = 'all';
-      state.rowStatusFilter = 'all';
-      state.rowQuery = id;
-      state.rowPage = 0;
-      document.getElementById('rowPaperFilter').value = 'all';
-      document.getElementById('rowTypeFilter').value = 'all';
-      document.getElementById('rowSearchInput').value = id;
-      setBatchFilter('all');
+    function auditLocation(filters, id = '') {
+      const params = new URLSearchParams();
+      if (filters.rowType !== 'claim') params.set('type', filters.rowType);
+      if (filters.rowPaperFilter !== 'all') params.set('paper', filters.rowPaperFilter);
+      if (filters.rowStatusFilter !== 'all') params.set('status', filters.rowStatusFilter);
+      if (filters.rowQuery) params.set('q', filters.rowQuery);
+      if (filters.searchQuery) params.set('search', filters.searchQuery);
+      if (id) params.set('row', id);
+      const query = params.toString();
+      return '#audit' + (query ? '?' + query : '');
+    }
+
+    function syncRowControls() {
+      document.getElementById('rowPaperFilter').value = state.rowPaperFilter;
+      document.getElementById('rowSearchInput').value = state.rowQuery;
+    }
+
+    function replaceAuditLocation() {
+      if (location.hash === '#audit' || location.hash.startsWith('#audit?')) {
+        history.replaceState(null, '', auditLocation(state, state.selectedRowId));
+      }
+    }
+
+    function restoreAuditLocation() {
+      if (location.hash === '#papers') {
+        switchTab('papers');
+        return;
+      }
+      if (location.hash !== '#audit' && !location.hash.startsWith('#audit?')) return;
+      const params = new URLSearchParams(location.hash.slice(7));
+      const type = params.get('type');
+      const paper = params.get('paper');
+      const status = params.get('status');
+
+      Object.assign(state, {
+        rowType: ['claim', 'footnote', 'all'].includes(type) ? type : 'claim',
+        rowPaperFilter: DATA.papers.some(item => item.code === paper) ? paper : 'all',
+        rowStatusFilter: Object.hasOwn(auditStatus, status) ? status : 'all',
+        rowQuery: params.get('q') || '',
+        searchQuery: params.get('search') || '',
+        selectedRowId: params.get('row') || '',
+        rowPage: 0
+      });
+      syncRowControls();
+      document.getElementById('globalSearchInput').value = state.searchQuery;
+      document.getElementById('clearGlobalSearchBtn').classList.toggle('hidden', !state.searchQuery);
       switchTab('rows');
+      renderAll();
+      if (state.selectedRowId) revealSelectedRow();
+    }
+
+    function revealSelectedRow() {
+      const record = [...document.querySelectorAll('.audit-selected')].find(el => el.getClientRects().length);
+      if (!record) return;
+      const details = record.querySelector('details');
+      if (details) details.open = true;
+      record.focus({ preventScroll: true });
+      record.scrollIntoView({ block: 'start' });
+    }
+
+    function openRelatedAuditRow(id) {
+      const useFootnotes = DATA.papers.some(paper => (paper.fnrows || []).some(row => row.id === id));
+      location.hash = auditLocation({
+        rowType: useFootnotes ? 'footnote' : DATA.fnLoaded ? 'claim' : 'all',
+        rowPaperFilter: 'all', rowStatusFilter: 'all', rowQuery: '', searchQuery: ''
+      }, id);
     }
 
     function statusBadgeHtml(status) {
       if (status === 'ok') {
-        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 mono"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>ok</span>`;
+        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Supported</span>`;
       }
       if (status === 'fix') {
-        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 mono"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>fix</span>`;
+        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Needs correction</span>`;
       }
       if (status === 'further_investigation') {
         return '<span class="inline-flex px-2 py-0.5 rounded-full text-[11px] font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/40">Further investigation</span>';
       }
       if (status === 'unk') {
-        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40 mono"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>unk</span>`;
+        return `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40"><span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Unverified</span>`;
       }
       return `<span class="px-2 py-0.5 rounded text-xs bg-rose-500/20 text-rose-300 mono">${escapeHtml(status)}</span>`;
     }
@@ -22498,66 +23072,48 @@
 
     function renderOverview() {
       const filteredPapers = DATA.papers.filter(matchesBatchAndSearch);
-      let okCount = 0, fixCount = 0, unkCount = 0, followUpCount = 0, totalRows = 0;
-      filteredPapers.forEach(p => {
-        allRowsOf(p).forEach(r => {
-          totalRows++;
-          if (r.status === 'ok') okCount++;
-          else if (r.status === 'fix') fixCount++;
-          else if (r.status === 'unk') unkCount++;
-          else if (r.status === 'further_investigation') followUpCount++;
-        });
-      });
-
+      const claims = filteredPapers.flatMap(p => p.rows);
+      const counts = auditCounts(claims);
+      const open = counts.unk + counts.further_investigation;
+      const footnotes = filteredPapers.reduce((sum, paper) => sum + (paper.fnrows || []).length, 0);
       const kpis = [
-        { label: 'Audited Documents', val: filteredPapers.length, sub: `of ${DATA.meta.paper_count} total documents`, color: 'text-blue-400', icon: 'files' },
-        { label: 'Audited Reference Rows', val: totalRows.toLocaleString(), sub: `of ${DATA.meta.row_count.toLocaleString()} total: ${DATA.meta.curated_row_count} claim audits + ${DATA.meta.footnote_row_count.toLocaleString()} footnote source rows covering ${DATA.meta.footnote_note_count.toLocaleString()} footnotes`, color: 'text-indigo-400', icon: 'check-circle-2' },
-        { label: 'Verified Clean (ok)', val: okCount.toLocaleString(), sub: `${totalRows ? ((okCount / totalRows) * 100).toFixed(1) : 0}% verification rate`, color: 'text-emerald-400', icon: 'shield-check' },
-        { label: 'Substantive Fixes (fix)', val: fixCount, sub: `Factual, math, map & citation errors`, color: 'text-amber-400', icon: 'alert-octagon' },
-        { label: 'Unverified (unk)', val: unkCount.toLocaleString(), sub: 'Support could not be established', color: 'text-purple-400', icon: 'help-circle' },
-        { label: 'Further investigation', val: followUpCount.toLocaleString(), sub: 'Partial corroboration or a specific discrepancy', color: 'text-sky-400', icon: 'search' },
-        { label: 'Synthesis Memos & Theses', val: `${DATA.meta.total_memo_count} + ${DATA.meta.thesis_count}`, sub: `${DATA.meta.thematic_memo_count} Thematic · ${DATA.meta.author_memo_count} Author · ${DATA.meta.thesis_count} Theses`, color: 'text-cyan-400', icon: 'book-marked' }
+        { label: 'Claim audits', value: counts.all, note: `Across ${filteredPapers.length.toLocaleString()} papers` },
+        { label: 'Supported', value: counts.ok, note: 'Claim supported by the evidence' },
+        { label: 'Needs correction', value: counts.fix, note: 'A correction is documented' },
+        { label: 'Open claim audits', value: open, note: `${counts.further_investigation.toLocaleString()} further investigation · ${counts.unk.toLocaleString()} unverified` }
       ];
-
       document.getElementById('overviewKpiGrid').innerHTML = kpis.map(k => `
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 shadow-sm">
-          <div class="flex items-center justify-between text-slate-400 text-xs font-medium mb-1">
-            <span>${k.label}</span>
-            <i data-lucide="${k.icon}" class="w-4 h-4 ${k.color}"></i>
-          </div>
-          <div class="text-2xl font-bold text-white mono">${k.val}</div>
-          <div class="text-[11px] text-slate-400 mt-1">${k.sub}</div>
-        </div>
-      `).join('');
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5 sm:p-4 shadow-sm">
+          <div class="text-slate-300 text-sm font-medium">${k.label}</div>
+          <div class="text-2xl font-bold text-white tabular-nums mt-1">${k.value.toLocaleString()}</div>
+          <div class="text-xs leading-relaxed text-slate-400 mt-1">${k.note}</div>
+        </div>`).join('');
+      document.getElementById('overviewFootnoteButton').textContent =
+        DATA.fnLoaded ? `Browse ${footnotes.toLocaleString()} footnote sources` : 'Browse footnote sources';
 
-      // Flagged rows list
-      const flagged = filteredPapers.flatMap(p => allRowsOf(p)
-        .filter(r => r.status === 'fix' || r.status === 'further_investigation')
-        .map(row => ({ paper: p, row })));
-      document.getElementById('overviewFlaggedHeading').textContent =
-        `Substantive fixes (${fixCount.toLocaleString()}) and rows for further investigation (${followUpCount.toLocaleString()})`;
-
-      document.getElementById('overviewFlaggedRowsList').innerHTML = flagged.map(({ paper, row }) => `
-        <div class="p-3 rounded-lg bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 transition">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
-            <div class="flex items-center gap-2">
-              ${statusBadgeHtml(row.status)}${row.flag ? '<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/40">⚑ reader check</span>' : ''}
-              <span class="text-xs font-bold text-white mono">${escapeHtml(row.id)}</span>
-              <span class="text-xs text-blue-400 font-medium">(${escapeHtml(paper.code)} · #${paper.reading_order})</span>
-              <span class="px-1.5 py-0.5 text-[10px] rounded bg-slate-800 text-slate-300 mono">${getBatchLabel(getBatchNum(paper.reading_order))}</span>
-            </div>
-            <button onclick="jumpToPaper(${paper.reading_order})" class="text-[11px] text-blue-400 hover:underline">Open Paper →</button>
+      const priority = filteredPapers.flatMap(paper => paper.rows
+        .filter(row => row.status === 'fix' || row.status === 'further_investigation')
+        .map(row => ({paper, row})));
+      const preview = [
+        ...priority.filter(({row}) => row.status === 'fix').slice(0, 3),
+        ...priority.filter(({row}) => row.status === 'further_investigation').slice(0, 3)
+      ];
+      document.getElementById('overviewFlaggedRowsList').innerHTML = preview.map(({paper, row}) => `
+        <div class="rounded-lg bg-slate-950 border border-slate-800 p-3">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            ${statusBadgeHtml(row.status)}
+            <span class="text-xs text-slate-400 mono">${escapeHtml(paper.code)} · ${escapeHtml(row.id)}</span>
           </div>
-          <div class="text-xs font-semibold text-slate-200 mb-1">${escapeHtml(row.source)}</div>
-          <div class="text-xs text-slate-300 leading-relaxed">${formatMarkdownText(row.finding)}${relatedAuditHtml(row)}</div>
-        </div>
-      `).join('');
+          <a class="text-sm font-semibold text-blue-300 hover:underline" href="${escapeHtml(auditLocation({
+            rowType: 'claim', rowPaperFilter: paper.code, rowStatusFilter: row.status, rowQuery: '', searchQuery: ''
+          }, row.id))}">${escapeHtml(row.source)}</a>
+        </div>`).join('') || '<p class="text-sm text-slate-300">No claims to review match the current search.</p>';
 
       // Batch breakdown table
       const batchStats = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map(b => {
         const bPapers = DATA.papers.filter(p => getBatchNum(p.reading_order) === b);
         let rTotal = 0, rOk = 0, rFix = 0, rUnk = 0, rFollowUp = 0;
-        bPapers.forEach(p => allRowsOf(p).forEach(r => {
+        bPapers.forEach(p => (p.rows || []).forEach(r => {
           rTotal++;
           if (r.status === 'ok') rOk++;
           else if (r.status === 'fix') rFix++;
@@ -22604,97 +23160,149 @@
       ].join('');
     }
 
+    function paperCoverage(paper) {
+      const claims = auditCounts(paper.rows);
+      const sources = paper.fnrows || [];
+      const linkedIds = new Set(paper.rows.flatMap(row => row.footnote_ids || []));
+      const linked = sources.reduce((count, row) => count + Number(linkedIds.has(row.id)), 0);
+      return { paper, claims, sources: sources.length, linked };
+    }
+
+    function paperAuditLink(paper, status = 'all', type = 'claim', rowId = '') {
+      return escapeHtml(auditLocation({
+        rowType: type, rowPaperFilter: paper.code, rowStatusFilter: status,
+        rowQuery: '', searchQuery: state.searchQuery
+      }, rowId));
+    }
+
+    function paperCoverageLinks(coverage) {
+      const { paper, claims, sources, linked } = coverage;
+      const text = value => value.toLocaleString();
+      const tiles = [
+        [claims.all, 'Claim audits', paperAuditLink(paper)],
+        [claims.open, 'Open audits', paperAuditLink(paper, 'open')],
+        [claims.fix, 'Need correction', paperAuditLink(paper, 'fix')],
+        [DATA.fnLoaded ? sources : null, 'Footnote sources', paperAuditLink(paper, 'all', 'footnote')]
+      ];
+      const sourceNote = sources === 0
+        ? 'No footnote sources cataloged for this paper.'
+        : `${text(linked)} of ${text(sources)} footnote sources have an explicit claim link.`;
+      return `
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
+          ${tiles.map(([count, label, url]) => count > 0
+            ? `<a href="${url}" class="paper-coverage-tile hover:bg-slate-800 hover:border-blue-400">
+                <span class="text-base font-bold text-blue-300 tabular-nums">${text(count)}</span>
+                <span class="text-sm">${label}</span>
+              </a>`
+            : `<div class="paper-coverage-tile">
+                <span class="text-base font-bold text-slate-300 tabular-nums">${count === null ? '…' : text(count)}</span>
+                <span class="text-sm">${label}</span>
+              </div>`).join('')}
+        </div>
+        ${DATA.fnLoaded ? `<p class="text-sm text-slate-400 mt-2">${sourceNote}</p>` : ''}`;
+    }
+
+    function paperEvidenceNotes(paper, openCount) {
+      if (!openCount) return '';
+      const openRows = paper.rows.filter(row => row.status === 'further_investigation' || row.status === 'unk');
+      return `
+        <details class="border border-slate-800 rounded-lg bg-slate-900 mt-3 px-3 py-2">
+          <summary class="cursor-pointer py-1 text-sm font-semibold text-blue-300">Open evidence notes</summary>
+          <ul class="space-y-3 mt-2">
+            ${openRows.slice(0, 3).map(row => `
+              <li>
+                <a href="${paperAuditLink(paper, 'open', 'claim', row.id)}" class="text-sm font-semibold text-blue-300 hover:underline">${escapeHtml(row.source)}</a>
+                <p class="audit-card-summary text-sm text-slate-300 leading-relaxed mt-1">${escapeHtml((row.finding || '').replace(/[*\x60]/g, ''))}</p>
+              </li>`).join('')}
+          </ul>
+          ${openCount > 3 ? `<a href="${paperAuditLink(paper, 'open')}" class="inline-block mt-3 text-sm text-blue-300 hover:underline">See all ${openCount.toLocaleString()} open audits</a>` : ''}
+        </details>`;
+    }
+
     function renderPapers() {
-      let filtered = DATA.papers.filter(matchesBatchAndSearch);
-
-      if (state.paperStatusFilter === 'flagged') {
-        filtered = filtered.filter(p => (p.rows || []).some(r => r.status !== 'ok') || (p.priority_corrections || []).length > 0);
-      } else if (state.paperStatusFilter === 'clean') {
-        filtered = filtered.filter(p => (p.rows || []).every(r => r.status === 'ok') && (p.priority_corrections || []).length === 0);
+      const rows = DATA.papers.filter(matchesBatchAndSearch).map(paperCoverage);
+      const coverageOptions = document.getElementById('paperCoverageFilter').options;
+      for (const option of coverageOptions) {
+        if (option.value === 'no_notes' || option.value === 'unlinked') option.disabled = !DATA.fnLoaded;
       }
+      const filtered = rows.filter(({paper, claims, sources, linked}) => {
+        const review = state.paperStatusFilter;
+        if (review === 'open' && !claims.open) return false;
+        if (review === 'flagged' && !claims.open && !claims.fix && !(paper.priority_corrections || []).length) return false;
+        if (review === 'clean' && (!claims.all || claims.ok !== claims.all || (paper.priority_corrections || []).length)) return false;
 
-      if (state.paperCategoryFilter !== 'all') {
-        filtered = filtered.filter(p => {
-          const w = p.pub_weight;
-          const cat = (p.pub_category || '').toLowerCase();
-          if (state.paperCategoryFilter === 'monograph') return w === 1.0 && (cat.includes('monograph') || cat.includes('book') || cat.includes('wargame') || cat.includes('compilation'));
-          if (state.paperCategoryFilter === 'peer') return w === 1.0 && !cat.includes('monograph') && !cat.includes('book') && !cat.includes('wargame') && !cat.includes('compilation');
-          if (state.paperCategoryFilter === 'military') return w === 0.5;
-          if (state.paperCategoryFilter === 'trade') return w === 0.2;
-          return true;
-        });
-      }
+        const coverage = state.paperCoverageFilter;
+        if (coverage === 'light' && claims.all > 4) return false;
+        if (DATA.fnLoaded && coverage === 'no_notes' && sources > 0) return false;
+        if (DATA.fnLoaded && coverage === 'unlinked' && linked === sources) return false;
 
-      filtered.sort((a, b) => {
-        if (state.paperSort === 'order_asc') return a.reading_order - b.reading_order;
-        if (state.paperSort === 'order_desc') return b.reading_order - a.reading_order;
-        if (state.paperSort === 'weight_desc') return (b.pub_weight - a.pub_weight) || (a.reading_order - b.reading_order);
-        if (state.paperSort === 'flags_desc') {
-          const fa = (a.rows || []).filter(r => r.status !== 'ok').length;
-          const fb = (b.rows || []).filter(r => r.status !== 'ok').length;
-          return (fb - fa) || (a.reading_order - b.reading_order);
-        }
-        return a.reading_order - b.reading_order;
+        const category = state.paperCategoryFilter;
+        if (category === 'all') return true;
+        const text = (paper.pub_category || '').toLowerCase();
+        const isLongForm = /monograph|book|wargame|compilation/.test(text);
+        if (category === 'monograph') return paper.pub_weight === 1 && isLongForm;
+        if (category === 'peer') return paper.pub_weight === 1 && !isLongForm;
+        if (category === 'military') return paper.pub_weight === 0.5;
+        return paper.pub_weight === 0.2;
       });
 
-      document.getElementById('navPaperCountBadge').textContent = filtered.length;
+      filtered.sort((a, b) => {
+        const readingOrder = a.paper.reading_order - b.paper.reading_order;
+        switch (state.paperSort) {
+          case 'order_desc': return -readingOrder;
+          case 'weight_desc': return (b.paper.pub_weight - a.paper.pub_weight) || readingOrder;
+          case 'least_audited': return (a.claims.all - b.claims.all) || readingOrder;
+          case 'most_open': return (b.claims.open - a.claims.open) || readingOrder;
+          case 'flags_desc': return ((b.claims.open + b.claims.fix) - (a.claims.open + a.claims.fix)) || readingOrder;
+          default: return readingOrder;
+        }
+      });
 
-      if (filtered.length === 0) {
-        document.getElementById('papersContainer').innerHTML = `
-          <div class="bg-slate-900 border border-slate-800 rounded-xl p-8 text-center text-slate-400 text-sm">
-            No documents match your current filters. Try resetting the search or batch filter.
-          </div>
-        `;
+      const totalClaims = filtered.reduce((total, entry) => total + entry.claims.all, 0);
+      const totalOpen = filtered.reduce((total, entry) => total + entry.claims.open, 0);
+      const summary = [
+        `${filtered.length.toLocaleString()} of ${DATA.papers.length.toLocaleString()} papers`,
+        `${totalClaims.toLocaleString()} claim audits`,
+        `${totalOpen.toLocaleString()} open`
+      ];
+      document.getElementById('paperCoverageSummary').textContent = summary.join(' · ');
+      const activeFilters = [state.paperStatusFilter, state.paperCoverageFilter, state.paperCategoryFilter]
+        .filter(value => value !== 'all').length + Number(state.paperSort !== 'order_asc');
+      document.getElementById('paperFilterSummary').textContent =
+        'Filters and sorting' + (activeFilters ? ' · ' + activeFilters + ' active' : '');
+      document.getElementById('navPaperCountBadge').textContent = filtered.length;
+      if (!filtered.length) {
+        document.getElementById('papersContainer').innerHTML =
+          '<p class="bg-slate-900 border border-slate-800 rounded-xl p-4 text-sm text-slate-300">No papers match these filters.</p>';
         return;
       }
 
-      document.getElementById('papersContainer').innerHTML = filtered.map(p => {
+      document.getElementById('papersContainer').innerHTML = filtered.map(coverage => {
+        const { paper: p, claims } = coverage;
         const isExpanded = state.expandedPapers.has(p.reading_order);
-        const bNum = getBatchNum(p.reading_order);
-        const okRows = allRowsOf(p).filter(r => r.status === 'ok').length;
-        const fixRows = allRowsOf(p).filter(r => r.status === 'fix').length;
-        const unkRows = allRowsOf(p).filter(r => r.status === 'unk').length;
-        const followUpRows = allRowsOf(p).filter(r => r.status === 'further_investigation').length;
-
         return `
-          <article id="paper-card-${p.reading_order}" class="bg-slate-900 border ${fixRows > 0 || unkRows > 0 || followUpRows > 0 ? 'border-amber-500/40' : 'border-slate-800'} rounded-xl overflow-hidden shadow transition">
-            <!-- Card Header -->
-            <div class="p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 cursor-pointer hover:bg-slate-800/30 transition" onclick="togglePaperExpand(${p.reading_order})">
-              <div class="space-y-1.5">
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-xs font-bold bg-blue-600/20 text-blue-300 border border-blue-500/30 mono">#${p.reading_order} · ${escapeHtml(p.code)}</span>
-                  <span class="px-2 py-0.5 rounded text-[11px] font-semibold ${bNum === '8' ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-slate-800 text-slate-300'} mono">${getBatchLabel(bNum)}</span>
-                  <span class="px-2 py-0.5 rounded text-[11px] bg-slate-800 text-slate-300 mono">${p.pub_weight}x Weight</span>
-                  <span class="text-xs text-slate-400 mono">${escapeHtml(p.pub_date)}</span>
-                  ${fixRows > 0 ? `<span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 mono">${fixRows} fix</span>` : ''}
-                  ${unkRows > 0 ? `<span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/40 mono">${unkRows} unk</span>` : ''}
-                  ${followUpRows > 0 ? `<span class="text-[11px] font-semibold text-sky-300">${followUpRows} for further investigation</span>` : ''}
-                  <span class="px-2 py-0.5 rounded-full text-[11px] bg-emerald-500/10 text-emerald-300 mono">${okRows}/${allRowsOf(p).length} ok</span>
+          <article id="paper-card-${p.reading_order}" class="paper-coverage-card bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+            <div class="p-4 sm:p-5">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div class="space-y-1 min-w-0">
+                  <div class="text-xs text-slate-400">
+                    <span class="text-blue-300 font-semibold mono">${escapeHtml(p.code)}</span> · ${escapeHtml(p.pub_date)}
+                  </div>
+                  <h3 class="text-base font-semibold text-white leading-snug">${escapeHtml(p.short_title || p.full_title)}</h3>
+                  ${(p.authors || []).length ? `<p class="text-sm text-slate-400">${escapeHtml(p.authors.join(', '))}</p>` : ''}
                 </div>
-                <h3 class="text-base font-bold text-white leading-snug">${escapeHtml(p.full_title)}</h3>
-                <div class="text-xs text-slate-400">${escapeHtml(p.chinese_title)}</div>
-                <div class="text-xs text-slate-300 flex flex-wrap items-center gap-x-3 gap-y-1 pt-0.5">
-                  <span><strong class="text-slate-400">Authors:</strong> ${escapeHtml((p.authors || []).join(', '))}</span>
-                  <span>·</span>
-                  <span><strong class="text-slate-400">Affiliation:</strong> ${escapeHtml(p.affiliation)}</span>
+                <div class="flex flex-wrap gap-2">
+                  ${p.paper_memo ? `<button type="button" onclick="openPaperMemoModal(${p.reading_order})" class="audit-button">Read memo</button>` : ''}
+                  <button type="button" onclick="togglePaperExpand(${p.reading_order})" aria-controls="paper-details-${p.reading_order}" aria-expanded="${isExpanded}" data-paper-expand="${p.reading_order}" class="audit-button">${isExpanded ? 'Hide paper details' : 'Paper details'}</button>
                 </div>
               </div>
-
-              <div class="flex items-center gap-2 shrink-0 self-start lg:self-center" onclick="event.stopPropagation()">
-                ${p.paper_memo ? `
-                  <button onclick="openPaperMemoModal(${p.reading_order})" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-200 border border-indigo-500/40 transition flex items-center gap-1.5">
-                    <i data-lucide="book-open-check" class="w-3.5 h-3.5"></i>
-                    <span>Read Full Memo</span>
-                  </button>
-                ` : ''}
-                <button onclick="togglePaperExpand(${p.reading_order})" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
-                  <i data-lucide="${isExpanded ? 'chevron-up' : 'chevron-down'}" class="w-4 h-4"></i>
-                </button>
-              </div>
+              ${paperCoverageLinks(coverage)}
+              ${paperEvidenceNotes(p, claims.open)}
             </div>
-
+            ${isExpanded ? `
             <!-- Expandable Body -->
-            <div class="${isExpanded ? 'block' : 'hidden'} border-t border-slate-800 p-4 sm:p-5 space-y-5 bg-slate-950/50">
+            <div id="paper-details-${p.reading_order}" class="border-t border-slate-800 p-4 sm:p-5 space-y-5 bg-slate-950/50">
+              <p class="text-sm text-slate-300">${escapeHtml(p.full_title)}</p>
               <!-- Metadata & Scope Grid -->
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 text-xs">
                 <div class="bg-slate-900/90 border border-slate-800 rounded-lg p-3.5 space-y-1.5">
@@ -22749,8 +23357,8 @@
               <!-- Reference Audit Table for this Paper -->
               <div class="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
                 <div class="px-4 py-2.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
-                  <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">Claim Audits (${(p.rows || []).length})</span>
-                  ${(p.fnrows || []).length ? `<button onclick="showFootnoteRows('${p.code}')" class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-indigo-600/25 hover:bg-indigo-600/40 text-indigo-200 border border-indigo-500/40 transition">Footnote source rows: ${(p.fnrows || []).length.toLocaleString()}${(p.footnotes || {}).total > (p.fnrows || []).length ? ' for ' + p.footnotes.total.toLocaleString() + ' notes' : ''} (${(p.fnrows || []).filter(r => r.status === 'ok').length} ok · ${(p.fnrows || []).filter(r => r.status === 'fix').length} fix · ${(p.fnrows || []).filter(r => r.status === 'unk').length} unk / ${(p.fnrows || []).filter(r => r.status === 'further_investigation').length} for further investigation) → open in matrix</button>` : `<span class="text-[11px] text-slate-400 mono">${DATA.fnLoaded ? ((p.footnotes || {}).note || 'No footnote rows') : 'Loading footnote rows…'}</span>`}
+                  <a href="${paperAuditLink(p)}" class="text-sm font-semibold text-blue-300 hover:underline">Open claim audits</a>
+                  ${coverage.sources > 0 ? `<a href="${paperAuditLink(p, 'all', 'footnote')}" class="text-sm text-blue-300 hover:underline">Open footnote sources</a>` : ''}
                 </div>
                 <div class="overflow-x-auto">
                   <table class="w-full text-left text-xs">
@@ -22781,78 +23389,125 @@
                 </div>
               </div>
             </div>
+            ` : `<div id="paper-details-${p.reading_order}" hidden></div>`}
           </article>
         `;
       }).join('');
     }
 
-    const ROW_PAGE = 100;
-    function matrixRows() {
+    const ROW_PAGE = 25;
+
+    function matrixScope() {
       const out = [];
-      const q = (state.rowQuery || '').toLowerCase();
-      DATA.papers.forEach(p => {
-        if (!matchesBatchAndSearch(p)) return;
-        if (state.rowPaperFilter !== 'all' && p.code !== state.rowPaperFilter) return;
-        allRowsOf(p).forEach(r => {
-          if (state.rowType === 'claim' && r.fn) return;
-          if (state.rowType === 'footnote' && !r.fn) return;
-          if (state.rowStatusFilter !== 'all' && r.status !== state.rowStatusFilter) return;
-          if (q && !(`${r.id} ${(r.aliases || []).join(' ')} ${r.source} ${r.usage} ${r.finding} ${r.shared_key || ''}`.toLowerCase().includes(q))) return;
-          out.push({ paper: p, row: r });
+      const query = state.rowQuery.toLowerCase();
+      DATA.papers.forEach(paper => {
+        if (!matchesBatchAndSearch(paper)) return;
+        if (state.rowPaperFilter !== 'all' && paper.code !== state.rowPaperFilter) return;
+        const rows = state.rowType === 'claim' ? paper.rows
+          : state.rowType === 'footnote' ? (paper.fnrows || []) : allRowsOf(paper);
+        rows.forEach(row => {
+          if (query && !(`${row.id} ${(row.aliases || []).join(' ')} ${row.source} ${row.usage} ${row.finding} ${row.shared_key || ''}`.toLowerCase().includes(query))) return;
+          out.push({paper, row});
         });
       });
       return out;
     }
 
+    function matrixRows(scope = matrixScope()) {
+      const status = state.rowStatusFilter;
+      if (status === 'all') return scope;
+      if (status === 'open') return scope.filter(({row}) => row.status === 'further_investigation' || row.status === 'unk');
+      return scope.filter(({row}) => row.status === status);
+    }
+
     function renderRowsMatrix() {
-      const all = matrixRows();
-      const pages = Math.max(1, Math.ceil(all.length / ROW_PAGE));
-      if (state.rowPage >= pages) state.rowPage = pages - 1;
-      if (state.rowPage < 0) state.rowPage = 0;
-      const slice = all.slice(state.rowPage * ROW_PAGE, (state.rowPage + 1) * ROW_PAGE);
-      let tot = 0, ok = 0, fx = 0, uk = 0, followUp = 0;
-      DATA.papers.forEach(p => allRowsOf(p).forEach(r => { tot++; if (r.status === 'ok') ok++; else if (r.status === 'fix') fx++; else if (r.status === 'unk') uk++; else if (r.status === 'further_investigation') followUp++; }));
-      const setTxt = (sel, t) => { const el = document.querySelector(sel); if (el) el.textContent = t; };
-      setTxt('[data-rowstatus="all"]', `All (${tot.toLocaleString()})`);
-      setTxt('[data-rowstatus="ok"]', `ok (${ok.toLocaleString()})`);
-      setTxt('[data-rowstatus="fix"]', `fix (${fx.toLocaleString()})`);
-      setTxt('[data-rowstatus="unk"]', `unk (${uk.toLocaleString()})`);
-      setTxt('[data-rowstatus="further_investigation"]', `Further investigation (${followUp.toLocaleString()})`);
-      document.querySelectorAll('.row-status-btn').forEach(btn => {
-        btn.classList.toggle('ring-2', btn.dataset.rowstatus === state.rowStatusFilter);
+      const scope = matrixScope();
+      const rows = matrixRows(scope);
+      const counts = auditCounts(scope.map(({row}) => row));
+      const pages = Math.max(1, Math.ceil(rows.length / ROW_PAGE));
+      const selected = rows.findIndex(({row}) => row.id === state.selectedRowId);
+      if (selected >= 0) state.rowPage = Math.floor(selected / ROW_PAGE);
+      state.rowPage = Math.min(Math.max(state.rowPage, 0), pages - 1);
+      const start = state.rowPage * ROW_PAGE;
+      const visible = rows.slice(start, start + ROW_PAGE);
+      const noun = state.rowType === 'claim' ? 'claim audit' : state.rowType === 'footnote' ? 'footnote source' : 'row';
+      const description = rows.length === 1 ? noun : noun + 's';
+      const filterCount = Number(state.rowPaperFilter !== 'all') + Number(Boolean(state.rowQuery));
+      document.getElementById('auditAdvancedFilterLabel').textContent =
+        filterCount ? 'Paper and search · ' + filterCount + ' active' : 'Paper and search';
+
+      document.querySelectorAll('[data-rowtype]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.rowtype === state.rowType));
       });
+      document.querySelectorAll('[data-rowstatus]').forEach(button => {
+        const status = button.dataset.rowstatus;
+        button.textContent = `${auditStatus[status]} (${counts[status].toLocaleString()})`;
+        button.setAttribute('aria-pressed', String(status === state.rowStatusFilter));
+      });
+      document.getElementById('navRowCountBadge').textContent = rows.length.toLocaleString();
+      document.getElementById('rowMatrixCountLabel').textContent = rows.length === 1 ? 'Showing 1 ' + description : rows.length
+        ? `Showing ${(start + 1).toLocaleString()}–${(start + visible.length).toLocaleString()} of ${rows.length.toLocaleString()} ${description}`
+        : `0 ${description}`;
+      document.querySelectorAll('[data-audit-pagination]').forEach(group => {
+        group.classList.toggle('hidden', pages === 1);
+        group.querySelector('[data-page-label]').textContent = `Page ${state.rowPage + 1} of ${pages}`;
+        group.querySelector('[data-page-step="-1"]').disabled = state.rowPage === 0;
+        group.querySelector('[data-page-step="1"]').disabled = state.rowPage >= pages - 1;
+      });
+      const empty = document.getElementById('auditEmptyState');
+      const missingAudit = state.selectedRowId && selected < 0;
+      empty.classList.toggle('hidden', rows.length > 0 && !missingAudit);
+      empty.textContent = !DATA.fnLoaded && (state.rowType === 'footnote' || missingAudit)
+        ? 'Loading footnote sources…'
+        : missingAudit ? 'This audit is unavailable in the current view.' : 'No results match these filters.';
 
-      document.getElementById('navRowCountBadge').textContent = all.length.toLocaleString();
-      document.getElementById('rowMatrixCountLabel').textContent = `Showing ${all.length.toLocaleString()} of ${tot.toLocaleString()} reference rows`;
-      document.getElementById('rowPageLabel').textContent = `Page ${state.rowPage + 1} of ${pages}`;
-      document.getElementById('rowPrevBtn').disabled = state.rowPage === 0;
-      document.getElementById('rowNextBtn').disabled = state.rowPage >= pages - 1;
-
-      document.getElementById('rowsTableBody').innerHTML = slice.map(({ paper, row }) => `
-        <tr class="hover:bg-slate-800/40 transition">
-          <td class="py-3 px-3.5 font-bold text-white mono align-top">${escapeHtml(row.id)}${row.fn ? '<div class="text-[10px] font-normal text-slate-400">' + ((row.ns || []).length > 1 ? 'footnotes ' + escapeHtml(row.ns.join(', ')) + ' (' + row.ns.length + ' notes)' : 'footnote ' + row.n) + '</div>' : ''}${(row.aliases || []).length ? '<div class="text-[10px] font-normal text-slate-500 mt-0.5">also: ' + escapeHtml(row.aliases.join(', ')) + '</div>' : ''}${row.flag ? '<div class="mt-1 inline-block px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/40" title="The outside search found something a reader should check; see the finding">⚑ reader check</div>' : ''}</td>
-          <td class="py-3 px-3 align-top">
-            <button onclick="jumpToPaper(${paper.reading_order})" class="text-blue-400 hover:underline font-semibold mono">${escapeHtml(paper.code)}</button>
-            <div class="text-[10px] text-slate-400 mt-0.5">#${paper.reading_order} · ${getBatchLabel(getBatchNum(paper.reading_order))}</div>
-          </td>
-          <td class="py-3 px-3 align-top">${statusBadgeHtml(row.status)}</td>
-          <td class="py-3 px-3.5 align-top">
-            <div class="font-medium text-slate-200">${escapeHtml(row.source)}</div>
-            ${row.shared_key ? `<span class="inline-block mt-1 px-1.5 py-0.5 rounded text-[10px] bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 mono">${escapeHtml(row.shared_key)}</span>` : ''}
-          </td>
-          <td class="py-3 px-3.5 text-slate-300 align-top leading-relaxed" style="white-space:pre-line">${escapeHtml(row.usage)}</td>
-          <td class="py-3 px-3.5 text-slate-200 align-top leading-relaxed">${formatMarkdownText(row.finding)}${relatedAuditHtml(row)}</td>
-        </tr>
-      `).join('');
+      const records = visible.map(({paper, row}) => {
+        const selectedClass = row.id === state.selectedRowId ? ' audit-selected' : '';
+        const badge = statusBadgeHtml(row.status);
+        const paperButton = `<button type="button" onclick="jumpToPaper(${paper.reading_order})" class="text-blue-300 hover:underline mono">${escapeHtml(paper.code)}</button>`;
+        const meta = `<span class="font-semibold mono">${escapeHtml(row.id)}</span> <span class="text-slate-500">·</span> ${paperButton}`;
+        const annotations = [
+          row.fn && (row.ns || []).length ? `Footnotes ${row.ns.join(', ')}` : '',
+          (row.aliases || []).length ? `Also ${row.aliases.join(', ')}` : '',
+          row.flag ? 'Reader check' : '',
+          row.shared_key || ''
+        ].filter(Boolean);
+        const extra = annotations.length ? `<p class="text-xs text-slate-400 mt-2">${escapeHtml(annotations.join(' · '))}</p>` : '';
+        const permalink = `<a class="text-xs text-blue-300 hover:underline" href="${escapeHtml(auditLocation(state, row.id))}" aria-label="Link to audit ${escapeHtml(row.id)}">Audit link</a>`;
+        const evidence = relatedAuditHtml(row);
+        return {
+          desktop: `<tr tabindex="-1" class="audit-record${selectedClass}">
+            <td class="px-4 py-3 align-top"><div class="text-xs">${meta}</div><div class="my-2">${badge}</div>${permalink}${extra}</td>
+            <td class="px-4 py-3 align-top font-semibold">${escapeHtml(row.source)}</td>
+            <td class="px-4 py-3 align-top text-slate-300 whitespace-pre-line">${escapeHtml(row.usage)}</td>
+            <td class="px-4 py-3 align-top text-slate-200">${formatMarkdownText(row.finding)}${evidence}</td>
+          </tr>`,
+          mobile: `<article tabindex="-1" class="audit-record${selectedClass} bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div class="flex flex-wrap justify-between items-center gap-2 text-xs"> <div>${meta}</div>${badge}</div>
+            <h3 class="text-sm sm:text-base font-semibold text-white mt-2">${escapeHtml(row.source)}</h3>
+            <p class="audit-card-summary text-sm leading-relaxed text-slate-300 mt-2">${escapeHtml((row.finding || '').replace(/[*\x60]/g, ''))}</p>
+            <details class="mt-2">
+              <summary class="cursor-pointer py-2 text-sm font-semibold text-blue-300">Passage, full finding and evidence</summary>
+              <div class="border-t border-slate-800 pt-3 text-sm leading-relaxed">
+                <h4 class="font-semibold text-slate-200">Passage in paper</h4>
+                <p class="text-slate-300 whitespace-pre-line mb-3">${escapeHtml(row.usage)}</p>
+                <h4 class="font-semibold text-slate-200">Finding</h4>
+                ${formatMarkdownText(row.finding)}${evidence}${extra}
+              </div>
+            </details>
+            <div class="mt-1">${permalink}</div>
+          </article>`
+        };
+      });
+      document.getElementById('rowsTableBody').innerHTML = records.map(record => record.desktop).join('');
+      document.getElementById('auditMobileResults').innerHTML = records.map(record => record.mobile).join('');
     }
 
     function showFootnoteRows(code) {
-      state.rowPaperFilter = code; state.rowType = 'footnote'; state.rowStatusFilter = 'all'; state.rowQuery = ''; state.rowPage = 0;
-      document.getElementById('rowPaperFilter').value = code;
-      document.getElementById('rowTypeFilter').value = 'footnote';
-      document.getElementById('rowSearchInput').value = '';
-      renderRowsMatrix();
+      Object.assign(state, { rowPaperFilter: code, rowType: 'footnote', rowStatusFilter: 'all', rowQuery: '', rowPage: 0, selectedRowId: '' });
+      syncRowControls();
       switchTab('rows');
+      document.getElementById('tab-rows').scrollIntoView({ block: 'start' });
     }
 
     function loadFootnoteRows() {
@@ -22866,6 +23521,7 @@
         DATA.fnLoaded = true;
         banner.classList.add('hidden');
         renderAll();
+        if (state.selectedRowId) revealSelectedRow();
       }).catch(err => {
         banner.textContent = 'The footnote rows could not be loaded (' + err + '); only the claim audits are shown. Reload the page to try again.';
       });
@@ -23108,18 +23764,22 @@
     }
 
     function updateStatusHeader() {
-      const matchedPapers = DATA.papers.filter(matchesBatchAndSearch);
-      let rowCount = 0;
-      matchedPapers.forEach(p => rowCount += allRowsOf(p).length);
-      document.getElementById('activeFilterStatusText').textContent =
-        `Showing ${matchedPapers.length} of ${DATA.meta.paper_count} documents · ${rowCount} audited reference rows`;
+      const papers = DATA.papers.filter(matchesBatchAndSearch);
+      const claims = papers.reduce((sum, paper) => sum + paper.rows.length, 0);
+      const footnotes = papers.reduce((sum, paper) => sum + (paper.fnrows || []).length, 0);
+      const scope = [papers.length.toLocaleString() + (papers.length === 1 ? ' paper' : ' papers'), claims.toLocaleString() + ' claim audits'];
+      if (DATA.fnLoaded) scope.push(footnotes.toLocaleString() + ' footnote sources');
+      document.getElementById('activeFilterStatusText').textContent = scope.join(' · ');
+      document.getElementById('downloadJsonBtn').textContent = 'JSON · ' + DATA.meta.paper_count.toLocaleString() + ' papers';
+      const rowCount = DATA.fnLoaded ? DATA.meta.row_count : DATA.meta.curated_row_count;
+      document.getElementById('downloadCsvBtn').textContent = 'CSV · ' + rowCount.toLocaleString() + ' rows';
     }
 
     function renderAll() {
       updateStatusHeader();
       renderOverview();
       renderPapers();
-      renderRowsMatrix();
+      if (state.activeTab === 'rows') renderRowsMatrix();
       renderSharedSources();
       renderThematicMemos();
       renderAuthorMemos();
@@ -23129,12 +23789,21 @@
 
     // Navigation & Interactive Handlers
     function switchTab(tabId) {
+      if (tabId === 'papers' && location.hash !== '#papers') {
+        history.replaceState(null, '', '#papers');
+      } else if (tabId !== 'rows' && tabId !== 'papers' &&
+          (location.hash === '#papers' || location.hash === '#audit' || location.hash.startsWith('#audit?'))) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
       state.activeTab = tabId;
       document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('hidden'));
       const target = document.getElementById(`tab-${tabId}`);
       if (target) target.classList.remove('hidden');
+      if (tabId === 'rows') renderRowsMatrix();
 
       document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+        if (btn.dataset.tab === tabId) btn.setAttribute('aria-current', 'page');
+        else btn.removeAttribute('aria-current');
         if (btn.getAttribute('data-tab') === tabId) {
           btn.className = 'nav-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 whitespace-nowrap bg-blue-600 text-white';
         } else {
@@ -23171,6 +23840,7 @@
         state.expandedPapers.add(readingOrder);
       }
       renderPapers();
+      document.querySelector('[data-paper-expand="' + readingOrder + '"]')?.focus({ preventScroll: true });
       if (window.lucide) window.lucide.createIcons();
     }
 
@@ -23178,6 +23848,10 @@
       state.batchFilter = 'all';
       state.paperStatusFilter = 'all';
       state.paperCategoryFilter = 'all';
+      state.paperCoverageFilter = 'all';
+      document.getElementById('paperStatusFilter').value = 'all';
+      document.getElementById('paperCategoryFilter').value = 'all';
+      document.getElementById('paperCoverageFilter').value = 'all';
       state.expandedPapers.add(readingOrder);
       setBatchFilter('all');
       switchTab('papers');
@@ -23187,11 +23861,12 @@
       }, 60);
     }
 
-    function filterRowsByFlag() {
-      state.rowStatusFilter = 'further_investigation';
-      state.rowPage = 0;
-      renderRowsMatrix();
+    function openReviewQueue(status = 'all') {
+      Object.assign(state, { rowType: 'claim', rowStatusFilter: status, rowPaperFilter: 'all', rowQuery: '', rowPage: 0, selectedRowId: '' });
+      syncRowControls();
       switchTab('rows');
+      replaceAuditLocation();
+      document.getElementById('tab-rows').scrollIntoView({ block: 'start' });
     }
 
     function selectThematicMemo(id) {
@@ -23273,13 +23948,19 @@
       searchInput.addEventListener('input', (e) => {
         state.searchQuery = e.target.value.trim();
         clearBtn.classList.toggle('hidden', !state.searchQuery);
+        state.rowPage = 0;
+        state.selectedRowId = '';
         renderAll();
+        replaceAuditLocation();
       });
       clearBtn.addEventListener('click', () => {
         searchInput.value = '';
         state.searchQuery = '';
         clearBtn.classList.add('hidden');
+        state.rowPage = 0;
+        state.selectedRowId = '';
         renderAll();
+        replaceAuditLocation();
       });
 
       // Paper filters
@@ -23290,6 +23971,11 @@
       document.getElementById('paperCategoryFilter').addEventListener('change', e => {
         state.paperCategoryFilter = e.target.value;
         renderPapers();
+      });
+      document.getElementById('paperCoverageFilter').addEventListener('change', e => {
+        state.paperCoverageFilter = e.target.value;
+        renderPapers();
+        if (window.lucide) window.lucide.createIcons();
       });
       document.getElementById('paperSortSelect').addEventListener('change', e => {
         state.paperSort = e.target.value;
@@ -23306,24 +23992,51 @@
         if (window.lucide) window.lucide.createIcons();
       });
 
-      // Row status buttons
-      document.querySelectorAll('.row-status-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          state.rowStatusFilter = btn.getAttribute('data-rowstatus');
-          state.rowPage = 0;
+      function applyRowFilters(filters) {
+        Object.assign(state, filters, { rowPage: 0, selectedRowId: '' });
+        syncRowControls();
+        renderRowsMatrix();
+        replaceAuditLocation();
+      }
+
+      const desktopAudit = window.matchMedia('(min-width: 1024px)');
+      const advancedFilters = document.getElementById('auditAdvancedFilters');
+      const paperFilters = document.getElementById('paperCoverageControls');
+      function updateFilterPanels(isDesktop) {
+        advancedFilters.open = isDesktop;
+        paperFilters.open = isDesktop;
+      }
+      updateFilterPanels(desktopAudit.matches);
+      desktopAudit.addEventListener('change', event => updateFilterPanels(event.matches));
+
+      document.querySelectorAll('[data-rowstatus]').forEach(button => {
+        button.addEventListener('click', () => applyRowFilters({ rowStatusFilter: button.dataset.rowstatus }));
+      });
+      document.querySelectorAll('[data-rowtype]').forEach(button => {
+        button.addEventListener('click', () => applyRowFilters({ rowType: button.dataset.rowtype, rowStatusFilter: 'all' }));
+      });
+      rowPaperSelect.addEventListener('change', event => applyRowFilters({ rowPaperFilter: event.target.value }));
+      document.getElementById('rowSearchInput').addEventListener('input', event => {
+        Object.assign(state, { rowQuery: event.target.value.trim(), rowPage: 0, selectedRowId: '' });
+        renderRowsMatrix();
+        replaceAuditLocation();
+      });
+      document.getElementById('clearAuditFilters').addEventListener('click', () => {
+        state.searchQuery = '';
+        searchInput.value = '';
+        clearBtn.classList.add('hidden');
+        applyRowFilters({ rowStatusFilter: 'all', rowPaperFilter: 'all', rowQuery: '' });
+        renderAll();
+      });
+      document.querySelectorAll('[data-page-step]').forEach(button => {
+        button.addEventListener('click', () => {
+          state.selectedRowId = '';
+          state.rowPage += Number(button.dataset.pageStep);
           renderRowsMatrix();
+          replaceAuditLocation();
+          document.getElementById('tab-rows').scrollIntoView({ block: 'start' });
         });
       });
-      rowPaperSelect.addEventListener('change', e => {
-        state.rowPaperFilter = e.target.value;
-        state.rowPage = 0;
-        renderRowsMatrix();
-      });
-
-      document.getElementById('rowTypeFilter').addEventListener('change', e => { state.rowType = e.target.value; state.rowPage = 0; renderRowsMatrix(); });
-      document.getElementById('rowSearchInput').addEventListener('input', e => { state.rowQuery = e.target.value.trim(); state.rowPage = 0; renderRowsMatrix(); });
-      document.getElementById('rowPrevBtn').addEventListener('click', () => { state.rowPage--; renderRowsMatrix(); });
-      document.getElementById('rowNextBtn').addEventListener('click', () => { state.rowPage++; renderRowsMatrix(); });
 
       // Theses filters
       document.getElementById('thesisDegreeFilter').addEventListener('change', e => {
@@ -23366,7 +24079,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'china_security_source_audit_dataset_80docs.json';
+        a.download = 'china-security-source-audit.json';
         a.click();
         URL.revokeObjectURL(url);
       });
@@ -23401,12 +24114,19 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'china_security_source_audit_345rows.csv';
+        a.download = 'china-security-source-audit.csv';
         a.click();
         URL.revokeObjectURL(url);
       });
 
+      ['downloadJsonBtn', 'downloadCsvBtn'].forEach(id => {
+        document.getElementById(id).addEventListener('click', () => { document.getElementById('auditExportMenu').open = false; });
+      });
+
+      window.addEventListener('hashchange', restoreAuditLocation);
+      syncRowControls();
       renderAll();
+      restoreAuditLocation();
       loadFootnoteRows();
     });
   </script>
