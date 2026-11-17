@@ -26858,7 +26858,7 @@
       }
 
       try {
-        const response = await fetch(`sourceaudit_fnrows.json?rows=${DATA.meta.footnote_row_count}&review=${DATA.meta.source_family_followup.reviewed}&sourceChecks=169`, { cache: 'no-cache' });
+        const response = await fetch(`sourceaudit_fnrows.json?rows=${DATA.meta.footnote_row_count}&review=${DATA.meta.source_family_followup.reviewed}&sourceChecks=169-2`, { cache: 'no-cache' });
         if (!response.ok) throw new Error('HTTP ' + response.status);
         applyFootnotes(await response.json());
       } catch {
