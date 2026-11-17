@@ -143,14 +143,47 @@
       font-weight: 600;
     }
     .overview-analysis-link:hover { background: rgb(var(--profile-rgb) / .25); }
-    #thematicDetailPane { scroll-margin-top: 1rem; }
+    .reading-path {
+      min-width: 0;
+      padding: 1rem;
+      background: #0e1728;
+      border: 1px solid #273449;
+      border-top: 2px solid rgb(var(--profile-rgb) / .65);
+      border-radius: 0.875rem;
+    }
+    .reading-path h3 {
+      margin: 0 0 0.5rem;
+      color: #f8fafc;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      line-height: 1.35;
+      text-wrap: balance;
+    }
+    .reading-path-list li + li { border-top: 1px solid #273449; }
+    .reading-path-list a {
+      display: grid;
+      gap: 0.18rem;
+      padding: 0.7rem 0.35rem;
+      color: #cbd5e1;
+      font-size: 0.8125rem;
+      line-height: 1.45;
+    }
+    .reading-path-list strong {
+      color: #f1f5f9;
+      font-size: 0.875rem;
+      text-decoration: underline rgb(var(--profile-rgb) / .55);
+      text-underline-offset: 0.18em;
+    }
+    .reading-path-list a:hover strong { text-decoration-color: var(--profile-accent); }
+    .reading-path-type { color: var(--profile-accent); font-size: 0.75rem; font-weight: 600; }
+    :is(#thematicDetailPane, #authorDetailPane) { scroll-margin-top: 1rem; }
     @media (min-width: 900px) {
       .overview-features { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
       .overview-feature-lead { grid-row: span 2; justify-content: center; }
       .overview-feature-lead .overview-feature-links { margin-top: 0.4rem; }
     }
     @media (min-width: 1024px) {
-      #thematicDetailPane { scroll-margin-top: 8rem; }
+      :is(#thematicDetailPane, #authorDetailPane) { scroll-margin-top: 8rem; }
     }
 
     .audit-record { scroll-margin-top: 1rem; overflow-wrap: anywhere; }
@@ -341,6 +374,90 @@
               <a class="overview-analysis-link" href="#papers?paper=CCE-C1">Read the chapter analysis</a>
               <a class="audit-button" href="#audit?paper=CCE-C1&amp;row=CCEC1-R03" aria-label="View evidence on the Central Investigation Department">View evidence</a>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="space-y-3" aria-labelledby="overviewReadingHeading">
+        <h2 id="overviewReadingHeading" class="text-xl font-semibold text-white">Reading paths</h2>
+        <div class="grid gap-3 lg:grid-cols-3">
+          <article class="reading-path" data-theme-tone="maritime" aria-labelledby="readingCrisisHeading">
+            <h3 id="readingCrisisHeading">What drives decisions in a maritime crisis?</h3>
+            <ol class="reading-path-list">
+              <li>
+                <a href="#papers?paper=CMS-16">
+                  <span class="reading-path-type">Paper</span>
+                  <strong>Chinese Nationalism and the “Gray Zone”</strong>
+                  <span>Andrew Chubb asks when public opinion influenced maritime policy.</span>
+                </a>
+              </li>
+              <li>
+                <a href="#memos?memo=MEMO-T45">
+                  <span class="reading-path-type">Memo</span>
+                  <strong>Decision-Making Under Uncertainty During Crises</strong>
+                  <span>Trace what the public record can tell us about what leaders knew at the time.</span>
+                </a>
+              </li>
+              <li>
+                <a href="#profiles?profile=MEMO-A27">
+                  <span class="reading-path-type">Profile</span>
+                  <strong>Andrew Chubb and fellow Red Book authors</strong>
+                  <span>See how Chubb and other contributors use different evidence to study maritime disputes.</span>
+                </a>
+              </li>
+            </ol>
+          </article>
+          <article class="reading-path" data-theme-tone="strategy" aria-labelledby="readingFarSeasHeading">
+            <h3 id="readingFarSeasHeading">From far seas protection to naval diplomacy</h3>
+            <ol class="reading-path-list">
+              <li>
+                <a href="#papers?paper=CMR-08">
+                  <span class="reading-path-type">Paper</span>
+                  <strong>Naval Diplomacy with Chinese Characteristics</strong>
+                  <span>Timothy R. Heath examines how China uses naval diplomacy to build international relationships.</span>
+                </a>
+              </li>
+              <li>
+                <a href="#memos?memo=MEMO-T28">
+                  <span class="reading-path-type">Memo</span>
+                  <strong>How China Builds a Far-Seas Presence</strong>
+                  <span>Read the diplomacy report alongside studies of the Gulf of Aden escorts and overseas ports.</span>
+                </a>
+              </li>
+              <li>
+                <a href="#profiles?profile=MEMO-A37">
+                  <span class="reading-path-type">Profile</span>
+                  <strong>The institutions behind China’s defense white papers</strong>
+                  <span>See how the State Council Information Office and Ministry of National Defense publish policy and explain events.</span>
+                </a>
+              </li>
+            </ol>
+          </article>
+          <article class="reading-path" data-theme-tone="institutions" aria-labelledby="readingIntelligenceHeading">
+            <h3 id="readingIntelligenceHeading">Researching China’s intelligence institutions</h3>
+            <ol class="reading-path-list">
+              <li>
+                <a href="#papers?paper=CCE-C1">
+                  <span class="reading-path-type">Paper</span>
+                  <strong>Chinese Communist Intelligence Organizations</strong>
+                  <span>Start with the development of the Party’s intelligence institutions before and after 1949.</span>
+                </a>
+              </li>
+              <li>
+                <a href="#memos?memo=MEMO-T38">
+                  <span class="reading-path-type">Memo</span>
+                  <strong>What the publication series let us verify</strong>
+                  <span>The chapter extracts omit the book’s endnotes. See what that means for checking the citations.</span>
+                </a>
+              </li>
+              <li>
+                <a href="#profiles?profile=MEMO-A22">
+                  <span class="reading-path-type">Profile</span>
+                  <strong>Peter Mattis and Matthew Brazil</strong>
+                  <span>Explore the authors’ research backgrounds and the chapters covered by the dashboard.</span>
+                </a>
+              </li>
+            </ol>
           </article>
         </div>
       </section>
@@ -631,7 +748,7 @@
     <section id="tab-authors" class="tab-section hidden space-y-4">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div class="lg:col-span-4 space-y-2" id="authorSidebarList"></div>
-        <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-xl p-6" id="authorDetailPane"></div>
+        <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-xl p-6" id="authorDetailPane" tabindex="-1"></div>
       </div>
     </section>
 
@@ -26353,14 +26470,16 @@
         switchTab('overview');
         return;
       }
-      if (!['#papers', '#shared', '#audit', '#memos'].includes(route)) return;
+      if (!['#papers', '#shared', '#audit', '#memos', '#profiles'].includes(route)) return;
       const params = new URLSearchParams(query);
       const batch = params.get('batch');
       const selectedPaper = route === '#papers' ? DATA.papers.find(p => p.code === params.get('paper')) : null;
       const selectedMemo = route === '#memos' ? DATA.thematic_memos.find(m => m.id === params.get('memo')) : null;
+      const selectedProfile = route === '#profiles' ? DATA.author_memos.find(m => m.id === params.get('profile')) : null;
       state.batchFilter = !selectedPaper && DATA.papers.some(p => getBatchNum(p.reading_order) === batch) ? batch : 'all';
       if (selectedPaper) state.expandedPapers.add(selectedPaper.reading_order);
       if (selectedMemo) state.selectedThematicId = selectedMemo.id;
+      if (selectedProfile) state.selectedAuthorId = selectedProfile.id;
       if (route === '#audit') {
         const type = params.get('type');
         const paper = params.get('paper');
@@ -26384,14 +26503,17 @@
       state.searchQuery = selectedPaper ? '' : params.get('search') || '';
       document.getElementById('globalSearchInput').value = state.searchQuery;
       document.getElementById('clearGlobalSearchBtn').classList.toggle('hidden', !state.searchQuery);
-      const tab = { '#audit': 'rows', '#memos': 'thematic' }[route] || route.slice(1);
+      const tab = { '#audit': 'rows', '#memos': 'thematic', '#profiles': 'authors' }[route] || route.slice(1);
       switchTab(tab, selectedPaper?.code);
       renderAll();
       if (route === '#audit' && state.selectedRowId) revealSelectedRow();
 
-      const destination = selectedPaper
-        ? document.querySelector('[data-paper-expand="' + selectedPaper.reading_order + '"]')
-        : selectedMemo ? document.getElementById('thematicDetailPane') : null;
+      let destination = null;
+      if (selectedPaper) {
+        destination = document.querySelector('[data-paper-expand="' + selectedPaper.reading_order + '"]');
+      } else if (selectedMemo || selectedProfile) {
+        destination = document.getElementById(selectedMemo ? 'thematicDetailPane' : 'authorDetailPane');
+      }
       if (destination) {
         destination.focus({ preventScroll: true });
         (selectedPaper ? destination.closest('article') : destination).scrollIntoView({ block: 'start' });
@@ -26969,7 +27091,11 @@
         });
         DATA.fnLoaded = true;
         banner.classList.add('hidden');
+        const focusedPaper = document.activeElement?.dataset.paperExpand;
         renderAll();
+        if (focusedPaper) {
+          document.querySelector('[data-paper-expand="' + focusedPaper + '"]')?.focus({ preventScroll: true });
+        }
         if (state.selectedRowId) revealSelectedRow();
       }
 
@@ -27537,9 +27663,9 @@
         history.replaceState(null, '', '#' + tabId + (query ? '?' + query : ''));
       } else if (tabId === 'rows') {
         history.replaceState(null, '', auditLocation(state, state.selectedRowId));
-      } else if (tabId === 'thematic') {
-        replaceThematicLocation();
-      } else if (/^#(?:papers|shared|audit|memos)(?:[?]|$)/.test(location.hash)) {
+      } else if (tabId === 'thematic' || tabId === 'authors') {
+        replaceMemoLocation(tabId);
+      } else if (/^#(?:papers|shared|audit|memos|profiles)(?:[?]|$)/.test(location.hash)) {
         history.replaceState(null, '', location.pathname + location.search);
       }
       state.activeTab = tabId;
@@ -27611,13 +27737,16 @@
       document.getElementById('tab-rows').scrollIntoView({ block: 'start' });
     }
 
-    function replaceThematicLocation() {
-      history.replaceState(null, '', '#memos?memo=' + encodeURIComponent(state.selectedThematicId));
+    function replaceMemoLocation(tabId) {
+      const [route, id] = tabId === 'thematic'
+        ? ['#memos?memo=', state.selectedThematicId]
+        : ['#profiles?profile=', state.selectedAuthorId];
+      history.replaceState(null, '', route + encodeURIComponent(id));
     }
 
     function selectThematicMemo(id) {
       state.selectedThematicId = id;
-      replaceThematicLocation();
+      replaceMemoLocation('thematic');
       renderThematicMemos();
       if (window.lucide) window.lucide.createIcons();
     }
@@ -27630,6 +27759,7 @@
 
     function selectAuthorMemo(id) {
       state.selectedAuthorId = id;
+      replaceMemoLocation('authors');
       renderAuthorMemos();
       if (window.lucide) window.lucide.createIcons();
     }
