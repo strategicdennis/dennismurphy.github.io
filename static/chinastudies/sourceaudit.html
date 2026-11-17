@@ -26677,6 +26677,7 @@
         ? DATA.shared_sources.find(source => source.key.toLowerCase() === query && source.indexed_rows_by_paper)
         : null;
       const familyRows = family ? new Set(family.row_refs) : null;
+      const [, sourceCheck] = query.match(/^source-check:(all|unresolved)$/) || [];
       const [, placement, placementGap] = query.match(/^family:(assigned|ambiguous|standalone|explanatory|scope)(?::([a-z -]+))?$/) || [];
       DATA.papers.forEach(paper => {
         if (!matchesBatchAndSearch(paper)) return;
@@ -26687,7 +26688,11 @@
           if (familyRows && (!row.fn || !familyRows.has(row.id))) return;
           if (placement && row.family_review?.disposition !== placement) return;
           if (placementGap && row.family_review?.follow_up_basis !== placementGap) return;
-          if (!familyRows && !placement && query && !(`${row.id} ${(row.aliases || []).join(' ')} ${row.source} ${row.usage} ${row.finding} ${row.shared_key || ''}`.toLowerCase().includes(query))) return;
+          if (sourceCheck) {
+            const check = row.family_review?.underlying_source_check;
+            if (!check || (sourceCheck === 'unresolved' && ['passage', 'explanatory'].includes(check.outcome))) return;
+          }
+          if (!familyRows && !placement && !sourceCheck && query && !(`${row.id} ${(row.aliases || []).join(' ')} ${row.source} ${row.usage} ${row.finding} ${row.shared_key || ''}`.toLowerCase().includes(query))) return;
           out.push({paper, row});
         });
       });
@@ -26820,7 +26825,8 @@
         }
 
         DATA.papers.forEach(p => {
-          p.fnrows = (data.rows[p.code] || []).map(a => ({ id: a[0], status: a[1], source: a[2], shared_key: a[3], usage: a[4], finding: a[5], n: a[6], seg: a[7], basis: a[8], ns: a[9], aliases: a[10], flag: a[11] || '', family_review: a[12], fn: 1 }));
+          p.fnrows = (data.rows[p.code] || []).map(a => ({ id: a[0], status: a[1], source: a[2], shared_key: a[3], usage: a[4], finding: a[5], n: a[6], seg: a[7], basis: a[8], ns: a[9], aliases: a[10], flag: a[11] || '', family_review: a[12], evidence: a[12]?.underlying_source_check?.records
+            .filter(record => record.url).map(record => [record.label, record.url]), fn: 1 }));
           p.fnrows.forEach(classifyAuditRow);
         });
         DATA.fnLoaded = true;
@@ -26852,7 +26858,7 @@
       }
 
       try {
-        const response = await fetch(`sourceaudit_fnrows.json?rows=${DATA.meta.footnote_row_count}&review=${DATA.meta.source_family_followup.reviewed}`, { cache: 'no-cache' });
+        const response = await fetch(`sourceaudit_fnrows.json?rows=${DATA.meta.footnote_row_count}&review=${DATA.meta.source_family_followup.reviewed}&sourceChecks=169`, { cache: 'no-cache' });
         if (!response.ok) throw new Error('HTTP ' + response.status);
         applyFootnotes(await response.json());
       } catch {
@@ -26936,6 +26942,7 @@
         </div>
       `;
 
+      const sourceChecks = { all: 0, unresolved: 0 };
       const collectionReview = DATA.meta.source_family_review;
       const placementsLoading = !DATA.fnLoaded && !!codes;
       const review = codes ? {} : collectionReview;
@@ -26947,6 +26954,11 @@
           for (const row of paper.fnrows || []) {
             const placement = row.family_review;
             if (!placement) continue;
+            const check = placement.underlying_source_check;
+            if (check) {
+              sourceChecks.all++;
+              if (!['passage', 'explanatory'].includes(check.outcome)) sourceChecks.unresolved++;
+            }
             if (codes) review[placement.disposition] = (review[placement.disposition] || 0) + 1;
             if (placement.disposition === 'ambiguous' && placement.follow_up_basis) {
               const gap = placement.follow_up_basis;
@@ -26963,7 +26975,19 @@
         batchFilter: state.batchFilter, rowType: 'footnote', rowPaperFilter: 'all', rowStatusFilter: 'all',
         rowQuery: 'family:' + disposition, searchQuery: ''
       });
+      const sourceCheckLink = scope => auditLocation({
+        batchFilter: state.batchFilter, rowType: 'footnote', rowPaperFilter: 'all', rowStatusFilter: 'all',
+        rowQuery: 'source-check:' + scope, searchQuery: ''
+      });
       grid.innerHTML = `
+        ${sourceChecks.all ? `
+          <section class="rounded-xl border border-slate-800 bg-slate-900 p-4" aria-labelledby="underlyingSourceHeading">
+            <h3 id="underlyingSourceHeading" class="text-sm font-bold text-white">Underlying source follow-up</h3>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <a class="audit-button" href="${escapeHtml(sourceCheckLink('all'))}">Rows reviewed · ${sourceChecks.all.toLocaleString()}</a>
+              ${sourceChecks.unresolved ? `<a class="audit-button" href="${escapeHtml(sourceCheckLink('unresolved'))}">Evidence still needed · ${sourceChecks.unresolved.toLocaleString()}</a>` : ''}
+            </div>
+          </section>` : ''}
         ${collectionReview ? `
           <section class="rounded-xl border border-slate-800 bg-slate-900 p-4" aria-labelledby="familyPlacementHeading">
             <h3 id="familyPlacementHeading" class="text-sm font-bold text-white">Source family placement</h3>
