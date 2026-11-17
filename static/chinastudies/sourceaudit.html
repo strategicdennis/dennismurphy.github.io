@@ -73,6 +73,86 @@
     .audit-button[aria-pressed="true"] { color: #eff6ff; background: #1e3a5f; border-color: #60a5fa; }
     .audit-button:disabled { opacity: 0.45; cursor: default; }
     .audit-header :focus-visible, #tab-rows :focus-visible, #tab-overview :focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
+    .overview-section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .overview-features {
+      display: grid;
+      gap: 0.875rem;
+    }
+    .overview-feature {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: clamp(1rem, 2vw, 1.5rem);
+      border: 1px solid rgb(var(--profile-rgb) / .28);
+      border-radius: 0.875rem;
+      background: linear-gradient(145deg, rgb(var(--profile-rgb) / .08), transparent 65%), #0e1728;
+    }
+    .overview-feature-lead {
+      padding: clamp(1.25rem, 3vw, 2.75rem);
+      background: radial-gradient(ellipse at 100% 0%, rgb(var(--profile-rgb) / .16), transparent 72%), #0e1728;
+    }
+    .overview-feature-topic {
+      margin: 0 0 0.55rem;
+      color: var(--profile-accent);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .overview-feature h3 {
+      color: #f8fafc;
+      max-width: 32ch;
+      margin: 0;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: 700;
+      line-height: 1.23;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+    }
+    .overview-feature-lead h3 {
+      max-width: 17ch;
+      font-size: clamp(1.65rem, 4.4vw, 3.7rem);
+      letter-spacing: -0.045em;
+    }
+    .overview-feature-summary {
+      max-width: 62ch;
+      margin: 0.8rem 0 1rem;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .overview-feature-lead .overview-feature-summary { margin-block: 1.05rem 1.4rem; font-size: 1rem; }
+    .overview-feature-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
+    .overview-feature-links a, .overview-section-header .audit-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .overview-analysis-link {
+      min-height: 2.75rem;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid rgb(var(--profile-rgb) / .4);
+      border-radius: 0.5rem;
+      background: rgb(var(--profile-rgb) / .15);
+      color: var(--profile-accent);
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+    .overview-analysis-link:hover { background: rgb(var(--profile-rgb) / .25); }
+    #thematicDetailPane { scroll-margin-top: 1rem; }
+    @media (min-width: 900px) {
+      .overview-features { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+      .overview-feature-lead { grid-row: span 2; justify-content: center; }
+      .overview-feature-lead .overview-feature-links { margin-top: 0.4rem; }
+    }
+    @media (min-width: 1024px) {
+      #thematicDetailPane { scroll-margin-top: 8rem; }
+    }
+
     .audit-record { scroll-margin-top: 1rem; overflow-wrap: anywhere; }
     .audit-selected { background: #122645; outline: 1px solid #60a5fa; outline-offset: -1px; }
     .audit-card-summary { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
@@ -229,70 +309,110 @@
 
     <!-- TAB 1: OVERVIEW -->
     <section id="tab-overview" class="tab-section space-y-6">
-      <div class="grid gap-4 lg:grid-cols-3">
-        <section aria-labelledby="overviewClaimsHeading" class="lg:col-span-2 rounded-xl bg-slate-900 border border-slate-800 p-4 sm:p-5">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <h2 id="overviewClaimsHeading" class="text-sm font-semibold text-white">Claim audits</h2>
-            <a id="overviewClaimLink" href="#audit" class="audit-button">Browse claim audits</a>
-          </div>
-          <dl class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="overviewKpiGrid"></dl>
-        </section>
-        <section aria-labelledby="overviewSourcesHeading" class="rounded-xl bg-slate-900 border border-slate-800 p-4 sm:p-5">
-          <h2 id="overviewSourcesHeading" class="text-sm font-semibold text-white">Footnote sources</h2>
-          <p id="overviewSourceCount" class="mt-2 text-2xl font-bold text-white tabular-nums"></p>
-          <p class="mt-1 text-xs text-slate-400">A source row can group several numbered footnotes.</p>
-          <a id="overviewFootnoteButton" href="#audit?type=footnote" class="audit-button inline-flex mt-3">Browse footnote sources</a>
-        </section>
-      </div>
-
-      <section aria-labelledby="overviewLatestHeading" class="rounded-xl border border-blue-900 bg-slate-900 p-4 sm:p-5">
-        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
-          <h2 id="overviewLatestHeading" class="font-semibold text-white">Latest review · Batch 12</h2>
-          <span class="text-sm text-slate-400">November 16, 2026</span>
+      <section aria-labelledby="overviewFeaturesHeading" class="space-y-3">
+        <div class="overview-section-header">
+          <h2 id="overviewFeaturesHeading" class="text-xl font-semibold text-white">Featured research</h2>
+          <a id="overviewBrowseAudits" href="#audit?type=all" class="audit-button">Browse audits</a>
         </div>
-        <dl id="overviewLatestCounts" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></dl>
-        <div class="flex flex-wrap items-center gap-2 mt-4">
-          <a id="overviewLatestOpen" href="#audit?batch=12&amp;status=further_investigation" class="audit-button">Further investigation</a>
-          <a href="#papers?batch=12" class="audit-button">Browse reports and gap memos</a>
-          <a href="#shared?batch=12" class="audit-button">Batch 12 shared sources</a>
+        <div class="overview-features">
+          <article class="overview-feature overview-feature-lead" data-theme-tone="maritime" aria-labelledby="overviewCrisisHeading">
+            <p class="overview-feature-topic">Maritime crisis management</p>
+            <h3 id="overviewCrisisHeading">When does a maritime crisis end?</h3>
+            <p class="overview-feature-summary">A withdrawal can end a confrontation and leave the underlying dispute unresolved. Theme 44 compares Scarborough Shoal with other maritime disputes to show what the public record can establish about how a crisis ended.</p>
+            <div class="overview-feature-links">
+              <a class="overview-analysis-link" href="#memos?memo=MEMO-T44">Read the thematic memo</a>
+              <a class="audit-button" href="#audit?paper=CMS-15&amp;row=CMS15-R01" aria-label="View evidence on the Scarborough Shoal standoff">View evidence</a>
+            </div>
+          </article>
+          <article class="overview-feature" data-theme-tone="strategy" aria-labelledby="overviewProtectionHeading">
+            <p class="overview-feature-topic">Naval strategy</p>
+            <h3 id="overviewProtectionHeading">How did far seas protection become part of China’s naval strategy?</h3>
+            <p class="overview-feature-summary">Jennifer Rice and Erik Robb trace the idea through earlier policy and peacetime missions. The 2015 and 2019 defense white papers use different terms in English, giving readers a way to follow the strategy’s public formulation.</p>
+            <div class="overview-feature-links">
+              <a class="overview-analysis-link" href="#papers?paper=CMR-13">Read the paper analysis</a>
+              <a class="audit-button" href="#audit?paper=CMR-13&amp;row=CMR13-R01" aria-label="View evidence on far seas protection terminology">View evidence</a>
+            </div>
+          </article>
+          <article class="overview-feature" data-theme-tone="institutions" aria-labelledby="overviewIntelligenceHeading">
+            <p class="overview-feature-topic">Chinese intelligence history</p>
+            <h3 id="overviewIntelligenceHeading">How did the Chinese Communist Party build its intelligence institutions?</h3>
+            <p class="overview-feature-summary">Peter Mattis and Matthew Brazil trace the institutional changes that followed the transition from revolutionary movement to governing party. The audit follows the formation of the Central Investigation Department and its place in that history.</p>
+            <div class="overview-feature-links">
+              <a class="overview-analysis-link" href="#papers?paper=CCE-C1">Read the chapter analysis</a>
+              <a class="audit-button" href="#audit?paper=CCE-C1&amp;row=CCEC1-R03" aria-label="View evidence on the Central Investigation Department">View evidence</a>
+            </div>
+          </article>
         </div>
       </section>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <section aria-labelledby="overviewFlaggedHeading" class="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-5">
-          <h2 class="text-sm font-semibold text-white mb-3" id="overviewFlaggedHeading">Claims to review</h2>
-          <div id="overviewFlaggedRowsList" class="space-y-3"></div>
+      <section aria-labelledby="overviewCoverageHeading" class="space-y-4">
+        <h2 id="overviewCoverageHeading" class="text-xl font-semibold text-white">Audit coverage</h2>
+
+        <div class="grid gap-4 lg:grid-cols-3">
+          <section aria-labelledby="overviewClaimsHeading" class="lg:col-span-2 rounded-xl bg-slate-900 border border-slate-800 p-4 sm:p-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <h3 id="overviewClaimsHeading" class="text-sm font-semibold text-white">Claim audits</h3>
+              <a id="overviewClaimLink" href="#audit" class="audit-button">Browse claim audits</a>
+            </div>
+            <dl class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="overviewKpiGrid"></dl>
+          </section>
+          <section aria-labelledby="overviewSourcesHeading" class="rounded-xl bg-slate-900 border border-slate-800 p-4 sm:p-5">
+            <h3 id="overviewSourcesHeading" class="text-sm font-semibold text-white">Footnote sources</h3>
+            <p id="overviewSourceCount" class="mt-2 text-2xl font-bold text-white tabular-nums"></p>
+            <p class="mt-1 text-xs text-slate-400">A source row can group several numbered footnotes.</p>
+            <a id="overviewFootnoteButton" href="#audit?type=footnote" class="audit-button inline-flex mt-3">Browse footnote sources</a>
+          </section>
+        </div>
+
+        <section aria-labelledby="overviewLatestHeading" class="rounded-xl border border-blue-900 bg-slate-900 p-4 sm:p-5">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+            <h3 id="overviewLatestHeading" class="font-semibold text-white">Batch 12 audit coverage</h3>
+            <span class="text-sm text-slate-400">November 16, 2026</span>
+          </div>
+          <dl id="overviewLatestCounts" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></dl>
           <div class="flex flex-wrap items-center gap-2 mt-4">
-            <a id="overviewOpenLink" href="#audit?status=open" class="audit-button">Open claim audits</a>
-            <a id="overviewCorrectionLink" href="#audit?status=fix" class="audit-button">Needs correction</a>
+            <a id="overviewLatestOpen" href="#audit?batch=12&amp;status=further_investigation" class="audit-button">Further investigation</a>
+            <a href="#papers?batch=12" class="audit-button">Browse reports and gap memos</a>
+            <a href="#shared?batch=12" class="audit-button">Batch 12 shared sources</a>
           </div>
         </section>
 
-        <section aria-labelledby="overviewMemosHeading" class="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-5">
-          <h2 id="overviewMemosHeading" class="text-sm font-semibold text-white mb-3">Recently updated memos</h2>
-          <div class="space-y-2 text-xs" id="overviewNewMemosLinks"></div>
-        </section>
-      </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <section aria-labelledby="overviewFlaggedHeading" class="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-5">
+            <h3 class="text-sm font-semibold text-white mb-3" id="overviewFlaggedHeading">Claims to review</h3>
+            <div id="overviewFlaggedRowsList" class="space-y-3"></div>
+            <div class="flex flex-wrap items-center gap-2 mt-4">
+              <a id="overviewOpenLink" href="#audit?status=open" class="audit-button">Open claim audits</a>
+              <a id="overviewCorrectionLink" href="#audit?status=fix" class="audit-button">Needs correction</a>
+            </div>
+          </section>
 
-      <section aria-labelledby="overviewBatchesHeading" class="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-5">
-        <h2 id="overviewBatchesHeading" class="text-sm font-semibold text-white mb-3">Claims by publication batch</h2>
-        <div class="overflow-x-auto" tabindex="0" role="region" aria-labelledby="overviewBatchesHeading">
-          <table class="w-full min-w-[42rem] text-left text-xs">
-            <thead>
-              <tr class="border-b border-slate-800 text-slate-400">
-                <th scope="col" class="py-2 pr-2">Batch</th>
-                <th scope="col" class="py-2 px-2">Reports</th>
-                <th scope="col" class="py-2 px-2">Claim audits</th>
-                <th scope="col" class="py-2 px-2">Supported</th>
-                <th scope="col" class="py-2 px-2">Needs correction</th>
-                <th scope="col" class="py-2 px-2">Unverified</th>
-                <th scope="col" class="py-2 px-2">Further investigation</th>
-                <th scope="col" class="py-2 pl-2">Reports and memos</th>
-              </tr>
-            </thead>
-            <tbody id="overviewBatchTableBody" class="divide-y divide-slate-800/70 mono"></tbody>
-          </table>
+          <section aria-labelledby="overviewMemosHeading" class="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-5">
+            <h3 id="overviewMemosHeading" class="text-sm font-semibold text-white mb-3">Recently updated memos</h3>
+            <div class="space-y-2 text-xs" id="overviewNewMemosLinks"></div>
+          </section>
         </div>
+
+        <section aria-labelledby="overviewBatchesHeading" class="bg-slate-900 border border-slate-800 rounded-xl p-4 sm:p-5">
+          <h3 id="overviewBatchesHeading" class="text-sm font-semibold text-white mb-3">Claims by publication batch</h3>
+          <div class="overflow-x-auto" tabindex="0" role="region" aria-labelledby="overviewBatchesHeading">
+            <table class="w-full min-w-[42rem] text-left text-xs">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400">
+                  <th scope="col" class="py-2 pr-2">Batch</th>
+                  <th scope="col" class="py-2 px-2">Reports</th>
+                  <th scope="col" class="py-2 px-2">Claim audits</th>
+                  <th scope="col" class="py-2 px-2">Supported</th>
+                  <th scope="col" class="py-2 px-2">Needs correction</th>
+                  <th scope="col" class="py-2 px-2">Unverified</th>
+                  <th scope="col" class="py-2 px-2">Further investigation</th>
+                  <th scope="col" class="py-2 pl-2">Reports and memos</th>
+                </tr>
+              </thead>
+              <tbody id="overviewBatchTableBody" class="divide-y divide-slate-800/70 mono"></tbody>
+            </table>
+          </div>
+        </section>
       </section>
 
       <!-- Batch 8 Expansion Spotlight Card -->
@@ -503,7 +623,7 @@
     <section id="tab-thematic" class="tab-section hidden space-y-4">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div class="lg:col-span-4 space-y-2" id="thematicSidebarList"></div>
-        <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-xl p-6" id="thematicDetailPane"></div>
+        <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-xl p-6" id="thematicDetailPane" tabindex="-1"></div>
       </div>
     </section>
 
@@ -26223,16 +26343,24 @@
       }
     }
 
-    function restoreAuditLocation() {
+    function restoreDashboardLocation() {
       const [route, query] = location.hash.split('?');
       if (route === '#theses') {
         jumpToPaper(DATA.papers.find(p => p.code === thesisPaperCode).reading_order);
         return;
       }
-      if (!['#papers', '#shared', '#audit'].includes(route)) return;
+      if (!route) {
+        switchTab('overview');
+        return;
+      }
+      if (!['#papers', '#shared', '#audit', '#memos'].includes(route)) return;
       const params = new URLSearchParams(query);
       const batch = params.get('batch');
-      state.batchFilter = DATA.papers.some(p => getBatchNum(p.reading_order) === batch) ? batch : 'all';
+      const selectedPaper = route === '#papers' ? DATA.papers.find(p => p.code === params.get('paper')) : null;
+      const selectedMemo = route === '#memos' ? DATA.thematic_memos.find(m => m.id === params.get('memo')) : null;
+      state.batchFilter = !selectedPaper && DATA.papers.some(p => getBatchNum(p.reading_order) === batch) ? batch : 'all';
+      if (selectedPaper) state.expandedPapers.add(selectedPaper.reading_order);
+      if (selectedMemo) state.selectedThematicId = selectedMemo.id;
       if (route === '#audit') {
         const type = params.get('type');
         const paper = params.get('paper');
@@ -26247,18 +26375,27 @@
         });
         syncRowControls();
       }
-      if (route === '#papers' && state.batchFilter !== 'all') {
+      if (route === '#papers' && (selectedPaper || state.batchFilter !== 'all')) {
         Object.assign(state, { paperStatusFilter: 'all', paperCategoryFilter: 'all', paperCoverageFilter: 'all' });
         document.getElementById('paperStatusFilter').value = 'all';
         document.getElementById('paperCategoryFilter').value = 'all';
         document.getElementById('paperCoverageFilter').value = 'all';
       }
-      state.searchQuery = params.get('search') || '';
+      state.searchQuery = selectedPaper ? '' : params.get('search') || '';
       document.getElementById('globalSearchInput').value = state.searchQuery;
       document.getElementById('clearGlobalSearchBtn').classList.toggle('hidden', !state.searchQuery);
-      switchTab(route === '#audit' ? 'rows' : route.slice(1));
+      const tab = { '#audit': 'rows', '#memos': 'thematic' }[route] || route.slice(1);
+      switchTab(tab, selectedPaper?.code);
       renderAll();
       if (route === '#audit' && state.selectedRowId) revealSelectedRow();
+
+      const destination = selectedPaper
+        ? document.querySelector('[data-paper-expand="' + selectedPaper.reading_order + '"]')
+        : selectedMemo ? document.getElementById('thematicDetailPane') : null;
+      if (destination) {
+        destination.focus({ preventScroll: true });
+        (selectedPaper ? destination.closest('article') : destination).scrollIntoView({ block: 'start' });
+      }
     }
 
     function revealSelectedRow() {
@@ -26330,6 +26467,7 @@
         ['Total', counts.all], ['Supported', counts.ok],
         ['Needs correction', counts.fix], ['Open', counts.open]
       ]);
+      document.getElementById('overviewBrowseAudits').href = auditLocation({ ...scope, rowType: 'all' });
       document.getElementById('overviewClaimLink').href = auditLocation(scope);
       const sourceCount = DATA.fnLoaded
         ? papers.reduce((sum, p) => sum + (p.fnrows || []).length, 0)
@@ -27389,16 +27527,19 @@
     }
 
     // Navigation & Interactive Handlers
-    function switchTab(tabId) {
+    function switchTab(tabId, paperCode) {
       if (tabId === 'papers' || tabId === 'shared') {
         const params = new URLSearchParams();
         if (state.batchFilter !== 'all') params.set('batch', state.batchFilter);
+        if (tabId === 'papers' && paperCode) params.set('paper', paperCode);
         if (tabId === 'shared' && state.searchQuery) params.set('search', state.searchQuery);
         const query = params.toString();
         history.replaceState(null, '', '#' + tabId + (query ? '?' + query : ''));
       } else if (tabId === 'rows') {
         history.replaceState(null, '', auditLocation(state, state.selectedRowId));
-      } else if (/^#(?:papers|shared|audit)(?:[?]|$)/.test(location.hash)) {
+      } else if (tabId === 'thematic') {
+        replaceThematicLocation();
+      } else if (/^#(?:papers|shared|audit|memos)(?:[?]|$)/.test(location.hash)) {
         history.replaceState(null, '', location.pathname + location.search);
       }
       state.activeTab = tabId;
@@ -27470,8 +27611,13 @@
       document.getElementById('tab-rows').scrollIntoView({ block: 'start' });
     }
 
+    function replaceThematicLocation() {
+      history.replaceState(null, '', '#memos?memo=' + encodeURIComponent(state.selectedThematicId));
+    }
+
     function selectThematicMemo(id) {
       state.selectedThematicId = id;
+      replaceThematicLocation();
       renderThematicMemos();
       if (window.lucide) window.lucide.createIcons();
     }
@@ -27719,10 +27865,10 @@
         document.getElementById(id).addEventListener('click', () => { document.getElementById('auditExportMenu').open = false; });
       });
 
-      window.addEventListener('hashchange', restoreAuditLocation);
+      window.addEventListener('hashchange', restoreDashboardLocation);
       syncRowControls();
       renderAll();
-      restoreAuditLocation();
+      restoreDashboardLocation();
       loadFootnoteRows();
     });
   </script>
