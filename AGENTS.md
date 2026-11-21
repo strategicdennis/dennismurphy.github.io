@@ -10,3 +10,9 @@
 
 1. Confirm GitHub shows the expected commit on the target branch.
 2. For a live site update, confirm the deployment for that commit succeeded, then open the affected public page and spot-check the requested change. If deployment is pending or a check fails, report that status.
+
+## Source audit dashboard memo updates
+
+1. Preserve useful existing passages in paper, thematic, and profile memos, including the evidence, examples, and reasoning they contain.
+2. Correct stale facts in place and update their citations as needed. Preserve earlier observations when they still explain what the source established at the time. Label the period or edition when that context matters.
+3. Add relevant evidence, analysis, and unresolved questions at the length they warrant. Treat the memos as cumulative research records with no target length. Use headings and sections for navigation as they grow.
