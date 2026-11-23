@@ -1,6 +1,6 @@
 # Updating this site
 
-Everything below can be done directly on GitHub, in the browser — click a file, click the pencil (edit) icon, make your change, and commit to `main`. The site rebuilds and goes live within about two minutes.
+Most site content can be updated directly on GitHub, in the browser — click a file, click the pencil (edit) icon, make your change, and commit to `main`. The site rebuilds and goes live within about two minutes.
 
 ## Add a new paper
 
@@ -54,3 +54,18 @@ hugo server
 ```
 
 Then open `http://localhost:1313/` in your browser. Changes to content and data files reload automatically.
+
+## Update the China Security Studies Source Audit
+
+The dashboard HTML holds the paper catalog, shared overview material, thematic memos, and profiles. Detailed records live in `static/chinastudies/sourceaudit-data/`.
+
+- Put claim audits and paper memos in the `batch-NN.json` file under the paper code. Keep `rows` present for each paper, even if it has no claim audits yet. A new paper also needs its catalog entry in the HTML’s `auditDatasetJson` block.
+- Put compact footnote records in `batch-NN-footnotes.json`, or a numbered part such as `batch-NN-footnotes-01.json` for large batches. Keep all footnotes for a paper in the same part. Preserve row IDs and claim-to-footnote links when correcting evidence.
+- Update each named Shared Sources record in its existing `shared-NN.json` file or numbered part. Put new named records in the file for the earliest citing batch. The `shared-common.json` file holds source families and records without a citing paper. Give a new record the next unused collection position so export order stays stable. A source cited by several batches needs a single record with all relevant paper codes in `cited_by`.
+- Rebuild the inline lookup index from the repository root after editing any batch or Shared Sources file. The index supplies counts, cross-links, and file versions.
+
+```shell
+python scripts/rebuild_sourceaudit_index.py static/chinastudies/sourceaudit.html
+```
+
+Preview through Hugo, check the affected batch and paper views, and test both full exports. For a directly opened copy, keep `sourceaudit-loader.js` and the `sourceaudit-data` folder next to `sourceaudit.html` and select that folder when prompted.
