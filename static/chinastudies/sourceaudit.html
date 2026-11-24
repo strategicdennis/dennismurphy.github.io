@@ -993,6 +993,125 @@
       return html;
     }
 
+    const footnoteHistoryLines = [
+      /^\*\*Earlier (?:component )?review history retained\.\*\*$/i,
+      /^\*\*Individual passage-review tracking[^*]*\*\*(?: \d+ of \d+ outstanding numbered positions[^\n]*history\.)?$/i,
+      /^Direct retrieval was attempted for this cited source\. Recorded outcomes — .+$/i,
+      /^Retrieved page heading or PDF metadata title — .+$/i,
+      /^An exact-title search was performed using the title printed in the citation, including the original-language title where available\. The saved results did not establish an independently readable original with a matching imprint\.$/i,
+      /^DOI or library-catalog comparison — Catalog identity unresolved\s*\(HTTP [\d, ]+\)\.$/i,
+      /^The catalog endpoint applied a rate limit\. The separate saved title search was also checked\.$/i,
+      /^An archived copy was retrieved at the cited capture address\.$/i,
+      /^No secondary web search has been run on this row yet\.$/i,
+      /^The printed URL was reconstructed from its continuation or matching PDF hyperlink annotation\. The earlier attempted address is retained in the evidence history\.$/i
+    ];
+
+    const footnoteHistoryPrefixes = [
+      /^The original link was unreachable during the initial review\./i,
+      /^The citation gives no retrievable address for the Chinese-language source\./i,
+      /^The source was absent from the initial address and catalogue results\./i,
+      /^The cited address returned HTTP \d{3} and the initial review found no archive copy\./i,
+      /^The cited source could not be retrieved: .*?\. The citing statement was not compared with it \(`unk`\)\./i,
+      /^Retrieved the live page \([^\n]+?\)\. The page title differs from the cited title\. The citing sentence contains no figure, date or quotation to compare and only \d+% of its key terms appear on the retrieved page, so support could not be confirmed \(`unk`\)\./i,
+      /^The retrieved URL was located through a title search\./i,
+      /^Source access attempted, cited evidence unverified\. Source-access follow-up\. Fresh source or archive requests returned [\d, ]+\. Those responses did not yield an independently matched cited passage\. A separate title or edition search also left the comparison open\./i,
+      /^Source access attempted, cited evidence unverified\. Source-access follow-up\. A title, date or issue search did not yield a matched cited passage\./i,
+      /^Earlier finding\. A targeted search used the available title, names, date or edition from the citation\. The search results did not supply evidence that could verify the exact cited text or its use\./i,
+      /^\*\*Outside check\*\*:\s*(?:Searched in (?:Chinese|English):\s*「[^」]+」[;,]?|Checked with Gemini \(paper text and web search\);|Chinese-language source, not yet searched in Chinese:|Web search \((?:English|Chinese) only\)(?=\s+(?:found|shows?|confirmed?|identified?)\b))/i
+    ];
+
+    function footnoteFindingParts(row) {
+      const review = row.source_review;
+      let original = row.finding || '';
+      let latest = '';
+      let latestEffort = '';
+      const history = new Map();
+      const findings = [];
+      const remember = (entry, noteNumber) => {
+        const key = entry.replace(/\s+/g, ' ');
+        if (!history.has(key)) history.set(key, { entry, notes: new Set() });
+        if (noteNumber) history.get(key).notes.add(noteNumber);
+      };
+
+      // New reviews already store this passage and gap as separate fields.
+      // Match the complete appended block before replacing its display.
+      if (review?.detail && review.locator && review.effort) {
+        const gap = review.remaining_gap ? ` Remaining evidence gap. ${review.remaining_gap}` : '';
+        const effort = `**Effort in this pass: ${review.effort}.**`;
+        const block = `**Open source review.** ${review.locator}. ${review.detail}${gap} ${effort}`;
+        if (original.includes(block)) {
+          original = original.replace(block, '');
+          latest = `
+            <p class="text-xs text-slate-400 mb-2">${escapeHtml(review.locator)}</p>
+            ${formatMarkdownText(review.detail)}
+            ${review.remaining_gap ? `<div class="mt-2"><p class="font-semibold text-slate-200">Evidence gap</p>${formatMarkdownText(review.remaining_gap)}</div>` : ''}`;
+          latestEffort = effort;
+        }
+      }
+
+      for (const raw of original.split(/\r?\n/)) {
+        const line = raw.trim();
+        if (!line) continue;
+        if (footnoteHistoryLines.some(pattern => pattern.test(line))) {
+          remember(line);
+          continue;
+        }
+        const note = line.match(/^(• Note (\d+)(?:\s+\([^)]*\))?:)\s+/i);
+        const initial = note ? line.slice(note[0].length) : line;
+        let text = initial;
+        // Only extract known procedural wording. Unrecognized and mixed evidence stays readable.
+        let process;
+        while ((process = footnoteHistoryPrefixes.map(pattern => text.match(pattern)).find(Boolean))) {
+          remember(process[0], note?.[2]);
+          text = text.slice(process[0].length).trimStart();
+        }
+        if (text !== initial) {
+          text = text.replace(/^[a-z]/, letter => letter.toUpperCase());
+        }
+        const effort = text.match(/\s*(\*\*Effort in this pass: [^*]+\*\*)$/i);
+        if (effort) {
+          remember(effort[1], note?.[2]);
+          text = text.slice(0, effort.index);
+        }
+        const unchecked = text.match(/(?:^|\s)(No separate web search was recorded in that review\.)$/i);
+        if (unchecked) {
+          remember(unchecked[1], note?.[2]);
+          text = text.slice(0, unchecked.index);
+        }
+        const unopened = text.match(/;\s*(the cited [^;]+? (?:page|article|PDF|report) was not (?:searched in (?:Chinese|English)(?: or opened)?|opened|retrieved) \(`unk`: [^)]*\)\.)$/i);
+        if (unopened) {
+          remember(unopened[1], note?.[2]);
+          text = text.slice(0, unopened.index) + '.';
+        }
+        const search = text.match(/^(Consolidated row: .+?)\s+(Source check for the notes below: Retrieved (?:the live page|an archived copy).+)$/i);
+        if (search) {
+          remember(search[2]);
+          text = search[1];
+        }
+        if (text) findings.push(note ? `${note[1]} ${text}` : text);
+      }
+
+      if (latestEffort) remember(latestEffort);
+      const previousFindings = formatMarkdownText(findings.join('\n'));
+      const gapOnly = history.size && ['unk', 'further_investigation'].includes(row.status)
+        ? '<p>The cited passage remains unverified.</p>' : '';
+      const historyText = [...history.values()].map(({ entry, notes }) => {
+        if (!notes.size) return entry;
+        const label = notes.size === 1 ? 'Note' : 'Notes';
+        return `**${label} ${[...notes].join(', ')}.** ${entry}`;
+      }).join('\n');
+      return {
+        analysis: `<div data-footnote-finding>${latest || previousFindings || gapOnly}</div>`,
+        earlier: latest && previousFindings ? `<div data-earlier-footnote-findings class="mt-3">
+          <p class="font-semibold text-slate-300 mb-1">Earlier findings</p>${previousFindings}
+        </div>` : '',
+        history: history.size ? `<details data-review-history class="mt-3 border-t border-slate-800 pt-1">
+          <summary class="cursor-pointer py-2 text-sm font-semibold text-blue-300">Review history</summary>
+          <div class="text-sm leading-relaxed text-slate-400 pb-2">${formatMarkdownText(historyText)}</div>
+        </details>` : ''
+      };
+    }
+
     function relatedAuditHtml(row) {
       const related = [
         ...(row.footnote_ids || []),
@@ -1098,7 +1217,7 @@
     function revealSelectedRow() {
       const record = [...document.querySelectorAll('.audit-selected')].find(el => el.getClientRects().length);
       if (!record) return;
-      const details = record.querySelector('details');
+      const details = record.querySelector('[data-open-on-audit-link]');
       if (details) details.open = true;
       record.focus({ preventScroll: true });
       record.scrollIntoView({ block: 'start' });
@@ -1656,32 +1775,44 @@
         const extra = annotations.length ? `<p class="text-xs text-slate-400 mt-2">${escapeHtml(annotations.join(' · '))}</p>` : '';
         const permalink = `<a class="text-xs text-blue-300 hover:underline" href="${escapeHtml(auditLocation(state, row.id))}" aria-label="Link to audit ${escapeHtml(row.id)}">Audit link</a>`;
         const evidence = relatedAuditHtml(row);
+        const footnoteFinding = row.fn ? footnoteFindingParts(row) : null;
         const placementLabels = {
           assigned: 'Family assigned', ambiguous: 'Family needs review', standalone: 'Standalone citation',
           explanatory: 'Explanatory note', scope: 'Scope limited'
         };
         const placement = row.family_review;
         const placementNote = placement ? `<p class="mt-2 text-xs text-slate-400" data-family-placement="${escapeHtml(placement.disposition)}"><strong class="text-slate-200">${escapeHtml(placementLabels[placement.disposition])}.</strong> ${escapeHtml(placement.detail)}</p>` : '';
+        const finding = footnoteFinding?.analysis ?? formatMarkdownText(row.finding);
+        const findingWithEvidence = `${finding}${evidence}${footnoteFinding?.earlier || ''}${placementNote}`;
         return {
           desktop: `<tr tabindex="-1" class="audit-record${selectedClass}">
             <td class="px-4 py-3 align-top"><div class="text-xs">${meta}</div><div class="my-2">${badge}</div>${permalink}${extra}</td>
             <td class="px-4 py-3 align-top font-semibold">${escapeHtml(row.source)}</td>
             <td class="px-4 py-3 align-top text-slate-300 whitespace-pre-line">${escapeHtml(row.usage)}</td>
-            <td class="px-4 py-3 align-top text-slate-200">${formatMarkdownText(row.finding)}${evidence}${placementNote}</td>
+            <td class="px-4 py-3 align-top text-slate-200">${findingWithEvidence}${footnoteFinding?.history || ''}</td>
           </tr>`,
           mobile: `<article tabindex="-1" class="audit-record${selectedClass} bg-slate-900 border border-slate-800 rounded-xl p-4">
             <div class="flex flex-wrap justify-between items-center gap-2 text-xs"> <div>${meta}</div>${badge}</div>
             <h3 class="text-sm sm:text-base font-semibold text-white mt-2">${escapeHtml(row.source)}</h3>
+            ${footnoteFinding ? `
+              <div class="mt-2 text-sm leading-relaxed text-slate-300">${findingWithEvidence}</div>
+              ${row.usage ? `<details class="mt-2">
+                <summary class="cursor-pointer py-2 text-sm font-semibold text-blue-300">Passage in paper</summary>
+                <p class="text-sm text-slate-300 whitespace-pre-line">${escapeHtml(row.usage)}</p>
+              </details>` : ''}
+              ${footnoteFinding.history}${extra}
+            ` : `
             <p class="audit-card-summary text-sm leading-relaxed text-slate-300 mt-2">${escapeHtml((row.finding || '').replace(/[*\x60]/g, ''))}</p>
-            <details class="mt-2">
+            <details data-open-on-audit-link class="mt-2">
               <summary class="cursor-pointer py-2 text-sm font-semibold text-blue-300">Passage, full finding and evidence</summary>
               <div class="border-t border-slate-800 pt-3 text-sm leading-relaxed">
                 <h4 class="font-semibold text-slate-200">Passage in paper</h4>
                 <p class="text-slate-300 whitespace-pre-line mb-3">${escapeHtml(row.usage)}</p>
                 <h4 class="font-semibold text-slate-200">Finding</h4>
-                ${formatMarkdownText(row.finding)}${evidence}${placementNote}${extra}
+                ${findingWithEvidence}${extra}
               </div>
             </details>
+            `}
             <div class="mt-1">${permalink}</div>
           </article>`
         };
